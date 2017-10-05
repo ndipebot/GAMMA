@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -std=c++11 -Wall   CMakeFiles/GAMMA.dir/GAMMA.cpp.o  -o GAMMA libGAMMA_lib.a 

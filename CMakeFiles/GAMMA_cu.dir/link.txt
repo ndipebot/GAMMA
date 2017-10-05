@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11     -o GAMMA_cu libGAMMA_lib.a 

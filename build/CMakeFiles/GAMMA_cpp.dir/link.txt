@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-2/root/usr/bin/c++    -std=c++11 -O3 -DNDEBUG   CMakeFiles/GAMMA_cpp.dir/GAMMA.cpp.o  -o GAMMA_cpp -rdynamic libGAMMA_lib.a 

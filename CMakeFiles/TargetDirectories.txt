@@ -1,0 +1,4 @@
+/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/rebuild_cache.dir
+/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/edit_cache.dir
+/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir
+/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA_lib.dir
