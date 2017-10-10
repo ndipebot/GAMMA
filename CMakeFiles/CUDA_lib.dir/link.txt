@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCUDA_lib.a  CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o CMakeFiles/CUDA_lib.dir/CUDA_lib_intermediate_link.o
+/usr/bin/ranlib libCUDA_lib.a
