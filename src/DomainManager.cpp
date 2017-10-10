@@ -79,10 +79,11 @@ DomainManager::createElementList()
         it != meshObj_->ELEM_.end(); it++)
   {
     HexahedralElement* ele = new HexahedralElement;
-    int elementID = it->first;
+	int elementID = it->first;
+	ele->globId= elementID;
+	element_global_to_local_[elementID] = eleCnt;
+	element_local_to_global_.push_back(elementID);
     vector<int> localNode = it->second;
-    element_global_to_local_[elementID] = eleCnt;
-    element_local_to_global_.push_back(elementID);
     for (int ii = 0; ii<localNode.size(); ii++)
     {
       int global_nid = localNode[ii];
@@ -91,8 +92,23 @@ DomainManager::createElementList()
     ele->birthTime_ = 0.0;
     ele->birth_=false;
     elementList_.push_back(ele);
-    eleCnt++;
+	eleCnt++;
   }//end for(it)
+
+  assignElementBirth();
+  std::sort(elementList_.begin(), elementList_.end(), [](Element* a, Element* b) {return a->birthTime_ < b->birthTime_; });
+
+  element_global_to_local_.clear();
+  element_local_to_global_.clear();
+  // assign globaltolocal and localtoglobal
+  eleCnt = 0;
+  for (std::vector<Element*>::iterator it = elementList_.begin(); it != elementList_.end(); ++it) {
+	  Element * element = *it;
+	  element_global_to_local_[element->globId] = eleCnt;
+	  element_local_to_global_.push_back(element->globId);
+	  eleCnt++;
+  }
+
 
 }//end createElementList
 
@@ -201,8 +217,21 @@ DomainManager::assignElementBirth()
     double bTime = meshObj_->birthTime_[ii];
     elementList_[lbID]->birthTime_ = bTime;
     elementList_[lbID]->birth_ = true;
-    birthElements_.push_back(lbID);
+    //birthElements_.push_back(lbID);
   }//end for(ii)
+
+}//end assignElementBirth
+
+void DomainManager::assignElBirthList()
+{
+
+	// Assign element birth times
+	for (int ii = 0; ii < meshObj_->birthID_.size(); ii++)
+	{
+		int gbID = meshObj_->birthID_[ii];
+		int lbID = element_global_to_local_[meshObj_->birthID_[ii]];
+		birthElements_.push_back(lbID);
+	}//end for(ii)
 
 }//end assignElementBirth
 
@@ -886,12 +915,14 @@ DomainManager::initializeDomain()
        << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
   preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
 
+  
   starttime = clock();
-  assignElementBirth();
+  assignElBirthList();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for assigning birth elements: "
        << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
   preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+  
 
   starttime = clock();
   createElElConn();

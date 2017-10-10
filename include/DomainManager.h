@@ -11,7 +11,6 @@
 #include <RadManager.h>
 #include <Bin.h>
 #include <Probe.h>
-#include <deviceHeader.h>
 
 class Bin;
 class Probe;
@@ -67,11 +66,14 @@ public:
 
   void createElementList();
 
+
   void assignElePID();
 
   void checkElementJac();
 
   void assignElementBirth();
+
+  void assignElBirthList();
 
   void createElElConn();
 
@@ -83,7 +85,7 @@ public:
 
   void initializeActiveElements();
 
-  void updateActiveElements();
+  void updateActiveElements(vector<double> &thetaN, double initTemp);
 
   void getToolpath();
 
