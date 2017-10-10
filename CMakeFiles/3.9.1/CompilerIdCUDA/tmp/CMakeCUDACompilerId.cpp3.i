@@ -6,10 +6,10 @@
 # 1 "tmp/CMakeCUDACompilerId.cudafe2.gpu"
 # 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3
 typedef unsigned long size_t;
-# 1 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 1 3
-# 38 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
-# 1 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/host_defines.h" 1 3
-# 39 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 1 3
+# 38 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
+# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/host_defines.h" 1 3
+# 39 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
 
 
 
@@ -17,9 +17,9 @@ typedef unsigned long size_t;
 
 typedef unsigned long long __texture_type__;
 typedef unsigned long long __surface_type__;
-# 284 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
-# 1 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 1 3
-# 56 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 3
+# 284 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
+# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 1 3
+# 56 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_types.h" 1 3
 # 53 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_types.h" 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/host_defines.h" 1 3
@@ -38,7 +38,7 @@ enum cudaRoundMode
     cudaRoundPosInf,
     cudaRoundMinInf
 };
-# 57 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 57 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
 
 
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 1 3
@@ -1145,7 +1145,7 @@ typedef struct CUuuid_st cudaUUID_t;
 
 
 typedef enum cudaOutputMode cudaOutputMode_t;
-# 60 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 60 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
 
 
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_types.h" 1 3
@@ -1184,7 +1184,7 @@ struct surfaceReference
 
 
 typedef unsigned long long cudaSurfaceObject_t;
-# 63 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 63 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_types.h" 1 3
 # 84 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_types.h" 3
 enum cudaTextureAddressMode
@@ -1316,7 +1316,7 @@ struct cudaTextureDesc
 
 
 typedef unsigned long long cudaTextureObject_t;
-# 64 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 64 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 1 3
 # 61 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 1 3
@@ -1636,25 +1636,25 @@ struct dim3
 };
 
 typedef struct dim3 dim3;
-# 64 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
-# 285 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
-# 1 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_launch_parameters.h" 1 3
-# 71 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_launch_parameters.h" 3
+# 64 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 285 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_launch_parameters.h" 1 3
+# 71 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_launch_parameters.h" 3
 uint3 extern const threadIdx;
 uint3 extern const blockIdx;
 dim3 extern const blockDim;
 dim3 extern const gridDim;
 int extern const warpSize;
-# 286 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 286 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/crt/storage_class.h" 1 3
-# 286 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 286 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
 # 214 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 2 3
-# 196 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
+# 196 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
 extern __attribute__((__used__)) void *malloc(size_t);
-# 197 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
+# 197 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
 extern __attribute__((__used__)) void free(void *);
-# 1 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/common_functions.h" 1 3
-# 249 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/common_functions.h" 3
+# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h" 1 3
+# 249 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h" 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 1 3
 # 9842 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 3
 # 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 1 3
@@ -8662,5 +8662,5 @@ static __inline__ __attribute__((always_inline)) double fma(double a, double b, 
 }
 # 271 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.h" 2 3
 # 10332 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 2 3
-# 250 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/common_functions.h" 2 3
-# 198 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 250 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h" 2 3
+# 198 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3

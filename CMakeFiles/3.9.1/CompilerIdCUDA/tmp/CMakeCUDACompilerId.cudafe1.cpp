@@ -18,11 +18,11 @@ static char __nv_inited_managed_rt = 0; static void **__nv_fatbinhandle_for_mana
 #define __nv_is_extended_host_device_lambda_closure_type(X) false
 
 # 1
-# 56 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/cuda_runtime.h"
+# 56 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h"
 #pragma GCC diagnostic push
 # 59
 #pragma GCC diagnostic ignored "-Wunused-function"
-# 61 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_types.h"
+# 61 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_types.h"
 #if 0
 # 61
 enum cudaRoundMode { 
@@ -42,7 +42,7 @@ typedef long ptrdiff_t;
 # 212
 typedef unsigned long size_t; 
 #include "crt/host_runtime.h"
-# 156 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 156 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 156
 enum cudaError { 
@@ -211,7 +211,7 @@ cudaErrorApiFailureBase = 10000
 # 747
 }; 
 #endif
-# 752 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 752 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 752
 enum cudaChannelFormatKind { 
@@ -226,7 +226,7 @@ cudaChannelFormatKindNone
 # 758
 }; 
 #endif
-# 763 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 763 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 763
 struct cudaChannelFormatDesc { 
@@ -243,7 +243,7 @@ cudaChannelFormatKind f;
 # 770
 }; 
 #endif
-# 775 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 775 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 typedef struct cudaArray *cudaArray_t; 
 # 780
 typedef const cudaArray *cudaArray_const_t; 
@@ -266,7 +266,7 @@ cudaMemoryTypeDevice
 # 803
 }; 
 #endif
-# 808 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 808 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 808
 enum cudaMemcpyKind { 
@@ -283,7 +283,7 @@ cudaMemcpyDefault
 # 815
 }; 
 #endif
-# 822 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 822 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 822
 struct cudaPitchedPtr { 
@@ -298,7 +298,7 @@ size_t ysize;
 # 828
 }; 
 #endif
-# 835 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 835 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 835
 struct cudaExtent { 
@@ -311,7 +311,7 @@ size_t depth;
 # 840
 }; 
 #endif
-# 847 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 847 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 847
 struct cudaPos { 
@@ -324,7 +324,7 @@ size_t z;
 # 852
 }; 
 #endif
-# 857 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 857 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 857
 struct cudaMemcpy3DParms { 
@@ -347,7 +347,7 @@ cudaMemcpyKind kind; __pad__(volatile char:8;)__pad__(volatile char:8;)__pad__(v
 # 869
 }; 
 #endif
-# 874 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 874 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 874
 struct cudaMemcpy3DPeerParms { 
@@ -372,7 +372,7 @@ cudaExtent extent;
 # 887
 }; 
 #endif
-# 892 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 892 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 struct cudaGraphicsResource; 
 # 897
 #if 0
@@ -391,7 +391,7 @@ cudaGraphicsRegisterFlagsTextureGather = 8
 # 904
 }; 
 #endif
-# 909 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 909 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 909
 enum cudaGraphicsMapFlags { 
@@ -404,7 +404,7 @@ cudaGraphicsMapFlagsWriteDiscard
 # 914
 }; 
 #endif
-# 919 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 919 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 919
 enum cudaGraphicsCubeFace { 
@@ -423,7 +423,7 @@ cudaGraphicsCubeFaceNegativeZ
 # 927
 }; 
 #endif
-# 932 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 932 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 932
 enum cudaResourceType { 
@@ -438,7 +438,7 @@ cudaResourceTypePitch2D
 # 938
 }; 
 #endif
-# 943 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 943 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 943
 enum cudaResourceViewFormat { 
@@ -515,7 +515,7 @@ cudaResViewFormatUnsignedBlockCompressed7
 # 980
 }; 
 #endif
-# 985 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 985 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 985
 struct cudaResourceDesc { 
@@ -564,7 +564,7 @@ size_t pitchInBytes;
 # 1008
 }; 
 #endif
-# 1013 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1013 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1013
 struct cudaResourceViewDesc { 
@@ -587,7 +587,7 @@ unsigned lastLayer;
 # 1023
 }; 
 #endif
-# 1028 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1028 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1028
 struct cudaPointerAttributes { 
@@ -604,7 +604,7 @@ int isManaged; __pad__(volatile char:8;)__pad__(volatile char:8;)__pad__(volatil
 # 1063
 }; 
 #endif
-# 1068 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1068 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1068
 struct cudaFuncAttributes { 
@@ -627,7 +627,7 @@ int cacheModeCA;
 # 1119
 }; 
 #endif
-# 1124 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1124 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1124
 enum cudaFuncCache { 
@@ -642,7 +642,7 @@ cudaFuncCachePreferEqual
 # 1130
 }; 
 #endif
-# 1136 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1136 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1136
 enum cudaSharedMemConfig { 
@@ -655,7 +655,7 @@ cudaSharedMemBankSizeEightByte
 # 1141
 }; 
 #endif
-# 1146 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1146 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1146
 enum cudaComputeMode { 
@@ -670,7 +670,7 @@ cudaComputeModeExclusiveProcess
 # 1152
 }; 
 #endif
-# 1157 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1157 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1157
 enum cudaLimit { 
@@ -687,7 +687,7 @@ cudaLimitDevRuntimePendingLaunchCount
 # 1164
 }; 
 #endif
-# 1169 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1169 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1169
 enum cudaMemoryAdvise { 
@@ -706,7 +706,7 @@ cudaMemAdviseUnsetAccessedBy
 # 1177
 }; 
 #endif
-# 1182 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1182 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1182
 enum cudaMemRangeAttribute { 
@@ -721,7 +721,7 @@ cudaMemRangeAttributeLastPrefetchLocation
 # 1188
 }; 
 #endif
-# 1193 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1193 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1193
 enum cudaOutputMode { 
@@ -732,7 +732,7 @@ cudaCSV
 # 1197
 }; 
 #endif
-# 1202 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1202 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1202
 enum cudaDeviceAttr { 
@@ -919,7 +919,7 @@ cudaDevAttrCanUseHostPointerForRegisteredMem
 # 1294
 }; 
 #endif
-# 1300 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1300 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1300
 enum cudaDeviceP2PAttr { 
@@ -932,7 +932,7 @@ cudaDevP2PAttrNativeAtomicSupported
 # 1304
 }; 
 #endif
-# 1308 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1308 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 # 1308
 struct cudaDeviceProp { 
@@ -1071,7 +1071,7 @@ int concurrentManagedAccess;
 # 1376
 }; 
 #endif
-# 1459 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1459 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef 
 # 1456
@@ -1081,7 +1081,7 @@ char reserved[64];
 # 1459
 } cudaIpcEventHandle_t; 
 #endif
-# 1467 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1467 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef 
 # 1464
@@ -1091,43 +1091,43 @@ char reserved[64];
 # 1467
 } cudaIpcMemHandle_t; 
 #endif
-# 1478 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1478 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef cudaError 
 # 1478
 cudaError_t; 
 #endif
-# 1483 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1483 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef struct CUstream_st *
 # 1483
 cudaStream_t; 
 #endif
-# 1488 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1488 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef struct CUevent_st *
 # 1488
 cudaEvent_t; 
 #endif
-# 1493 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1493 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef cudaGraphicsResource *
 # 1493
 cudaGraphicsResource_t; 
 #endif
-# 1498 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1498 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef struct CUuuid_st 
 # 1498
 cudaUUID_t; 
 #endif
-# 1503 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_types.h"
+# 1503 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_types.h"
 #if 0
 typedef cudaOutputMode 
 # 1503
 cudaOutputMode_t; 
 #endif
-# 84 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_types.h"
+# 84 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_types.h"
 #if 0
 # 84
 enum cudaSurfaceBoundaryMode { 
@@ -1140,7 +1140,7 @@ cudaBoundaryModeTrap
 # 89
 }; 
 #endif
-# 94 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_types.h"
+# 94 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_types.h"
 #if 0
 # 94
 enum cudaSurfaceFormatMode { 
@@ -1151,7 +1151,7 @@ cudaFormatModeAuto
 # 98
 }; 
 #endif
-# 103 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_types.h"
+# 103 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_types.h"
 #if 0
 # 103
 struct surfaceReference { 
@@ -1160,13 +1160,13 @@ cudaChannelFormatDesc channelDesc;
 # 109
 }; 
 #endif
-# 114 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_types.h"
+# 114 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_types.h"
 #if 0
 typedef unsigned long long 
 # 114
 cudaSurfaceObject_t; 
 #endif
-# 84 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_types.h"
+# 84 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h"
 #if 0
 # 84
 enum cudaTextureAddressMode { 
@@ -1181,7 +1181,7 @@ cudaAddressModeBorder
 # 90
 }; 
 #endif
-# 95 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_types.h"
+# 95 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h"
 #if 0
 # 95
 enum cudaTextureFilterMode { 
@@ -1192,7 +1192,7 @@ cudaFilterModeLinear
 # 99
 }; 
 #endif
-# 104 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_types.h"
+# 104 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h"
 #if 0
 # 104
 enum cudaTextureReadMode { 
@@ -1203,7 +1203,7 @@ cudaReadModeNormalizedFloat
 # 108
 }; 
 #endif
-# 113 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_types.h"
+# 113 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h"
 #if 0
 # 113
 struct textureReference { 
@@ -1232,7 +1232,7 @@ int __cudaReserved[15];
 # 156
 }; 
 #endif
-# 161 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_types.h"
+# 161 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h"
 #if 0
 # 161
 struct cudaTextureDesc { 
@@ -1261,13 +1261,13 @@ float maxMipmapLevelClamp;
 # 207
 }; 
 #endif
-# 212 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_types.h"
+# 212 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_types.h"
 #if 0
 typedef unsigned long long 
 # 212
 cudaTextureObject_t; 
 #endif
-# 98 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 98 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 98
 struct char1 { 
@@ -1276,7 +1276,7 @@ signed char x;
 # 101
 }; 
 #endif
-# 103 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 103 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 103
 struct uchar1 { 
@@ -1285,7 +1285,7 @@ unsigned char x;
 # 106
 }; 
 #endif
-# 109 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 109 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 109
 struct __attribute((aligned(2))) char2 { 
@@ -1294,7 +1294,7 @@ signed char x, y;
 # 112
 }; 
 #endif
-# 114 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 114 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 114
 struct __attribute((aligned(2))) uchar2 { 
@@ -1303,7 +1303,7 @@ unsigned char x, y;
 # 117
 }; 
 #endif
-# 119 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 119 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 119
 struct char3 { 
@@ -1312,7 +1312,7 @@ signed char x, y, z;
 # 122
 }; 
 #endif
-# 124 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 124 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 124
 struct uchar3 { 
@@ -1321,7 +1321,7 @@ unsigned char x, y, z;
 # 127
 }; 
 #endif
-# 129 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 129 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 129
 struct __attribute((aligned(4))) char4 { 
@@ -1330,7 +1330,7 @@ signed char x, y, z, w;
 # 132
 }; 
 #endif
-# 134 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 134 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 134
 struct __attribute((aligned(4))) uchar4 { 
@@ -1339,7 +1339,7 @@ unsigned char x, y, z, w;
 # 137
 }; 
 #endif
-# 139 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 139 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 139
 struct short1 { 
@@ -1348,7 +1348,7 @@ short x;
 # 142
 }; 
 #endif
-# 144 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 144 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 144
 struct ushort1 { 
@@ -1357,7 +1357,7 @@ unsigned short x;
 # 147
 }; 
 #endif
-# 149 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 149 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 149
 struct __attribute((aligned(4))) short2 { 
@@ -1366,7 +1366,7 @@ short x, y;
 # 152
 }; 
 #endif
-# 154 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 154 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 154
 struct __attribute((aligned(4))) ushort2 { 
@@ -1375,7 +1375,7 @@ unsigned short x, y;
 # 157
 }; 
 #endif
-# 159 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 159 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 159
 struct short3 { 
@@ -1384,7 +1384,7 @@ short x, y, z;
 # 162
 }; 
 #endif
-# 164 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 164 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 164
 struct ushort3 { 
@@ -1393,17 +1393,17 @@ unsigned short x, y, z;
 # 167
 }; 
 #endif
-# 169 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 169 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 169
 struct __attribute((aligned(8))) short4 { short x; short y; short z; short w; }; 
 #endif
-# 170 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 170 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 170
 struct __attribute((aligned(8))) ushort4 { unsigned short x; unsigned short y; unsigned short z; unsigned short w; }; 
 #endif
-# 172 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 172 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 172
 struct int1 { 
@@ -1412,7 +1412,7 @@ int x;
 # 175
 }; 
 #endif
-# 177 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 177 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 177
 struct uint1 { 
@@ -1421,17 +1421,17 @@ unsigned x;
 # 180
 }; 
 #endif
-# 182 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 182 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 182
 struct __attribute((aligned(8))) int2 { int x; int y; }; 
 #endif
-# 183 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 183 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 183
 struct __attribute((aligned(8))) uint2 { unsigned x; unsigned y; }; 
 #endif
-# 185 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 185 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 185
 struct int3 { 
@@ -1440,7 +1440,7 @@ int x, y, z;
 # 188
 }; 
 #endif
-# 190 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 190 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 190
 struct uint3 { 
@@ -1449,7 +1449,7 @@ unsigned x, y, z;
 # 193
 }; 
 #endif
-# 195 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 195 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 195
 struct __attribute((aligned(16))) int4 { 
@@ -1458,7 +1458,7 @@ int x, y, z, w;
 # 198
 }; 
 #endif
-# 200 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 200 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 200
 struct __attribute((aligned(16))) uint4 { 
@@ -1467,7 +1467,7 @@ unsigned x, y, z, w;
 # 203
 }; 
 #endif
-# 205 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 205 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 205
 struct long1 { 
@@ -1476,7 +1476,7 @@ long x;
 # 208
 }; 
 #endif
-# 210 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 210 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 210
 struct ulong1 { 
@@ -1485,7 +1485,7 @@ unsigned long x;
 # 213
 }; 
 #endif
-# 220 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 220 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 220
 struct __attribute((aligned((2) * sizeof(long)))) long2 { 
@@ -1494,7 +1494,7 @@ long x, y;
 # 223
 }; 
 #endif
-# 225 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 225 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 225
 struct __attribute((aligned((2) * sizeof(unsigned long)))) ulong2 { 
@@ -1503,7 +1503,7 @@ unsigned long x, y;
 # 228
 }; 
 #endif
-# 232 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 232 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 232
 struct long3 { 
@@ -1512,7 +1512,7 @@ long x, y, z;
 # 235
 }; 
 #endif
-# 237 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 237 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 237
 struct ulong3 { 
@@ -1521,7 +1521,7 @@ unsigned long x, y, z;
 # 240
 }; 
 #endif
-# 242 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 242 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 242
 struct __attribute((aligned(16))) long4 { 
@@ -1530,7 +1530,7 @@ long x, y, z, w;
 # 245
 }; 
 #endif
-# 247 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 247 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 247
 struct __attribute((aligned(16))) ulong4 { 
@@ -1539,7 +1539,7 @@ unsigned long x, y, z, w;
 # 250
 }; 
 #endif
-# 252 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 252 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 252
 struct float1 { 
@@ -1548,12 +1548,12 @@ float x;
 # 255
 }; 
 #endif
-# 274 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 274 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 274
 struct __attribute((aligned(8))) float2 { float x; float y; }; 
 #endif
-# 279 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 279 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 279
 struct float3 { 
@@ -1562,7 +1562,7 @@ float x, y, z;
 # 282
 }; 
 #endif
-# 284 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 284 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 284
 struct __attribute((aligned(16))) float4 { 
@@ -1571,7 +1571,7 @@ float x, y, z, w;
 # 287
 }; 
 #endif
-# 289 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 289 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 289
 struct longlong1 { 
@@ -1580,7 +1580,7 @@ long long x;
 # 292
 }; 
 #endif
-# 294 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 294 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 294
 struct ulonglong1 { 
@@ -1589,7 +1589,7 @@ unsigned long long x;
 # 297
 }; 
 #endif
-# 299 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 299 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 299
 struct __attribute((aligned(16))) longlong2 { 
@@ -1598,7 +1598,7 @@ long long x, y;
 # 302
 }; 
 #endif
-# 304 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 304 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 304
 struct __attribute((aligned(16))) ulonglong2 { 
@@ -1607,7 +1607,7 @@ unsigned long long x, y;
 # 307
 }; 
 #endif
-# 309 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 309 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 309
 struct longlong3 { 
@@ -1616,7 +1616,7 @@ long long x, y, z;
 # 312
 }; 
 #endif
-# 314 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 314 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 314
 struct ulonglong3 { 
@@ -1625,7 +1625,7 @@ unsigned long long x, y, z;
 # 317
 }; 
 #endif
-# 319 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 319 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 319
 struct __attribute((aligned(16))) longlong4 { 
@@ -1634,7 +1634,7 @@ long long x, y, z, w;
 # 322
 }; 
 #endif
-# 324 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 324 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 324
 struct __attribute((aligned(16))) ulonglong4 { 
@@ -1643,7 +1643,7 @@ unsigned long long x, y, z, w;
 # 327
 }; 
 #endif
-# 329 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 329 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 329
 struct double1 { 
@@ -1652,7 +1652,7 @@ double x;
 # 332
 }; 
 #endif
-# 334 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 334 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 334
 struct __attribute((aligned(16))) double2 { 
@@ -1661,7 +1661,7 @@ double x, y;
 # 337
 }; 
 #endif
-# 339 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 339 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 339
 struct double3 { 
@@ -1670,7 +1670,7 @@ double x, y, z;
 # 342
 }; 
 #endif
-# 344 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 344 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 344
 struct __attribute((aligned(16))) double4 { 
@@ -1679,295 +1679,295 @@ double x, y, z, w;
 # 347
 }; 
 #endif
-# 362 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 362 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef char1 
 # 362
 char1; 
 #endif
-# 363 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 363 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uchar1 
 # 363
 uchar1; 
 #endif
-# 364 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 364 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef char2 
 # 364
 char2; 
 #endif
-# 365 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 365 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uchar2 
 # 365
 uchar2; 
 #endif
-# 366 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 366 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef char3 
 # 366
 char3; 
 #endif
-# 367 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 367 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uchar3 
 # 367
 uchar3; 
 #endif
-# 368 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 368 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef char4 
 # 368
 char4; 
 #endif
-# 369 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 369 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uchar4 
 # 369
 uchar4; 
 #endif
-# 370 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 370 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef short1 
 # 370
 short1; 
 #endif
-# 371 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 371 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ushort1 
 # 371
 ushort1; 
 #endif
-# 372 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 372 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef short2 
 # 372
 short2; 
 #endif
-# 373 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 373 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ushort2 
 # 373
 ushort2; 
 #endif
-# 374 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 374 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef short3 
 # 374
 short3; 
 #endif
-# 375 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 375 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ushort3 
 # 375
 ushort3; 
 #endif
-# 376 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 376 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef short4 
 # 376
 short4; 
 #endif
-# 377 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 377 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ushort4 
 # 377
 ushort4; 
 #endif
-# 378 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 378 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef int1 
 # 378
 int1; 
 #endif
-# 379 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 379 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uint1 
 # 379
 uint1; 
 #endif
-# 380 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 380 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef int2 
 # 380
 int2; 
 #endif
-# 381 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 381 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uint2 
 # 381
 uint2; 
 #endif
-# 382 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 382 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef int3 
 # 382
 int3; 
 #endif
-# 383 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 383 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uint3 
 # 383
 uint3; 
 #endif
-# 384 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 384 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef int4 
 # 384
 int4; 
 #endif
-# 385 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 385 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef uint4 
 # 385
 uint4; 
 #endif
-# 386 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 386 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef long1 
 # 386
 long1; 
 #endif
-# 387 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 387 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulong1 
 # 387
 ulong1; 
 #endif
-# 388 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 388 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef long2 
 # 388
 long2; 
 #endif
-# 389 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 389 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulong2 
 # 389
 ulong2; 
 #endif
-# 390 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 390 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef long3 
 # 390
 long3; 
 #endif
-# 391 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 391 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulong3 
 # 391
 ulong3; 
 #endif
-# 392 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 392 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef long4 
 # 392
 long4; 
 #endif
-# 393 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 393 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulong4 
 # 393
 ulong4; 
 #endif
-# 394 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 394 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef float1 
 # 394
 float1; 
 #endif
-# 395 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 395 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef float2 
 # 395
 float2; 
 #endif
-# 396 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 396 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef float3 
 # 396
 float3; 
 #endif
-# 397 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 397 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef float4 
 # 397
 float4; 
 #endif
-# 398 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 398 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef longlong1 
 # 398
 longlong1; 
 #endif
-# 399 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 399 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulonglong1 
 # 399
 ulonglong1; 
 #endif
-# 400 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 400 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef longlong2 
 # 400
 longlong2; 
 #endif
-# 401 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 401 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulonglong2 
 # 401
 ulonglong2; 
 #endif
-# 402 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 402 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef longlong3 
 # 402
 longlong3; 
 #endif
-# 403 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 403 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulonglong3 
 # 403
 ulonglong3; 
 #endif
-# 404 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 404 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef longlong4 
 # 404
 longlong4; 
 #endif
-# 405 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 405 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef ulonglong4 
 # 405
 ulonglong4; 
 #endif
-# 406 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 406 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef double1 
 # 406
 double1; 
 #endif
-# 407 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 407 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef double2 
 # 407
 double2; 
 #endif
-# 408 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 408 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef double3 
 # 408
 double3; 
 #endif
-# 409 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 409 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef double4 
 # 409
 double4; 
 #endif
-# 417 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 417 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 # 417
 struct dim3 { 
@@ -1976,13 +1976,13 @@ unsigned x, y, z;
 # 425
 }; 
 #endif
-# 427 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_types.h"
+# 427 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_types.h"
 #if 0
 typedef dim3 
 # 427
 dim3; 
 #endif
-# 70 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/library_types.h"
+# 70 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
 typedef 
 # 54
 enum cudaDataType_t { 
@@ -2028,7 +2028,7 @@ MINOR_VERSION,
 PATCH_LEVEL
 # 78
 } libraryPropertyType; 
-# 104 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/cuda_device_runtime_api.h"
+# 104 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_device_runtime_api.h"
 extern "C" {
 # 106
 extern cudaError_t cudaDeviceGetAttribute(int * value, cudaDeviceAttr attr, int device); 
@@ -2126,7 +2126,7 @@ template< class T> static inline cudaError_t cudaFuncGetAttributes(cudaFuncAttri
 template< class T> static inline cudaError_t cudaOccupancyMaxActiveBlocksPerMultiprocessor(int * numBlocks, T func, int blockSize, size_t dynamicSmemSize); 
 # 221
 template< class T> static inline cudaError_t cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags(int * numBlocks, T func, int blockSize, size_t dynamicSmemSize, unsigned flags); 
-# 219 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/cuda_runtime_api.h"
+# 219 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime_api.h"
 extern "C" {
 # 252
 extern cudaError_t cudaDeviceReset(); 
@@ -2440,7 +2440,7 @@ extern cudaError_t cudaRuntimeGetVersion(int * runtimeVersion);
 extern cudaError_t cudaGetExportTable(const void ** ppExportTable, const cudaUUID_t * pExportTableId); 
 # 6964
 }
-# 107 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/channel_descriptor.h"
+# 107 "/usr/local/cuda/bin/../targets/x86_64-linux/include/channel_descriptor.h"
 template< class T> inline cudaChannelFormatDesc cudaCreateChannelDesc() 
 # 108
 { 
@@ -2778,7 +2778,7 @@ int e = (((int)sizeof(float)) * 8);
 return cudaCreateChannelDesc(e, e, e, e, cudaChannelFormatKindFloat); 
 # 405
 } 
-# 79 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/driver_functions.h"
+# 79 "/usr/local/cuda/bin/../targets/x86_64-linux/include/driver_functions.h"
 static inline cudaPitchedPtr make_cudaPitchedPtr(void *d, size_t p, size_t xsz, size_t ysz) 
 # 80
 { 
@@ -2828,7 +2828,7 @@ cudaExtent e;
 return e; 
 # 141
 } 
-# 75 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/vector_functions.hpp"
+# 75 "/usr/local/cuda/bin/../targets/x86_64-linux/include/vector_functions.hpp"
 static inline char1 make_char1(signed char x) 
 # 76
 { 
@@ -3852,7 +3852,7 @@ extern tm *getdate(const char * __string);
 extern int getdate_r(const char *__restrict__ __string, tm *__restrict__ __resbufp); 
 # 430
 }
-# 68 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/common_functions.h"
+# 68 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h"
 extern "C" {
 # 71
 extern clock_t clock() throw(); 
@@ -3862,7 +3862,7 @@ extern void *memset(void *, int, size_t) throw();
 extern void *memcpy(void *, const void *, size_t) throw(); 
 # 75
 }
-# 93 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/math_functions.h"
+# 93 "/usr/local/cuda/bin/../targets/x86_64-linux/include/math_functions.h"
 extern "C" {
 # 164
 extern int abs(int) throw(); 
@@ -6830,7 +6830,7 @@ using __gnu_cxx::strtoull;
 using __gnu_cxx::strtold;
 # 254
 }
-# 8925 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/math_functions.h"
+# 8925 "/usr/local/cuda/bin/../targets/x86_64-linux/include/math_functions.h"
 __attribute((always_inline)) inline int signbit(float x); 
 # 8929
 __attribute((always_inline)) inline int signbit(double x); 
@@ -7142,7 +7142,7 @@ static inline double max(double a, double b);
 static inline double max(float a, double b); 
 # 9820
 static inline double max(double a, float b); 
-# 248 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/math_functions.hpp"
+# 248 "/usr/local/cuda/bin/../targets/x86_64-linux/include/math_functions.hpp"
 __attribute((always_inline)) inline int signbit(float x) { return __signbitf(x); } 
 # 252
 __attribute((always_inline)) inline int signbit(double x) { return __signbit(x); } 
@@ -7994,7 +7994,7 @@ b)
 return (a > b) ? a : b; 
 # 1073
 } 
-# 77 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/cuda_surface_types.h"
+# 77 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_surface_types.h"
 template< class T, int dim = 1> 
 # 78
 struct surface : public surfaceReference { 
@@ -8030,7 +8030,7 @@ surface()
 } 
 # 102
 }; 
-# 77 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/cuda_texture_types.h"
+# 77 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_texture_types.h"
 template< class T, int texType = 1, cudaTextureReadMode mode = cudaReadModeElementType> 
 # 78
 struct texture : public textureReference { 
@@ -8086,7 +8086,7 @@ desc)
 } 
 # 108
 }; 
-# 90 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.h"
+# 90 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.h"
 extern "C" {
 # 3230
 }
@@ -8138,7 +8138,7 @@ __attribute__((unused)) static inline unsigned float2uint(float a, cudaRoundMode
 __attribute__((unused)) static inline float int2float(int a, cudaRoundMode mode = cudaRoundNearest); 
 # 3285
 __attribute__((unused)) static inline float uint2float(unsigned a, cudaRoundMode mode = cudaRoundNearest); 
-# 83 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 83 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline int mulhi(int a, int b) 
 # 84
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8152,7 +8152,7 @@ return __mulhi(a, b);
 # 86
 } 
 #endif
-# 88 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 88 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned mulhi(unsigned a, unsigned b) 
 # 89
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8166,7 +8166,7 @@ return __umulhi(a, b);
 # 91
 } 
 #endif
-# 93 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 93 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned mulhi(int a, unsigned b) 
 # 94
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8180,7 +8180,7 @@ return __umulhi((unsigned)a, b);
 # 96
 } 
 #endif
-# 98 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 98 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned mulhi(unsigned a, int b) 
 # 99
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8194,7 +8194,7 @@ return __umulhi(a, (unsigned)b);
 # 101
 } 
 #endif
-# 103 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 103 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline long long mul64hi(long long a, long long b) 
 # 104
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8208,7 +8208,7 @@ return __mul64hi(a, b);
 # 106
 } 
 #endif
-# 108 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 108 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned long long mul64hi(unsigned long long a, unsigned long long b) 
 # 109
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8222,7 +8222,7 @@ return __umul64hi(a, b);
 # 111
 } 
 #endif
-# 113 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 113 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned long long mul64hi(long long a, unsigned long long b) 
 # 114
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8236,7 +8236,7 @@ return __umul64hi((unsigned long long)a, b);
 # 116
 } 
 #endif
-# 118 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 118 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned long long mul64hi(unsigned long long a, long long b) 
 # 119
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8250,7 +8250,7 @@ return __umul64hi(a, (unsigned long long)b);
 # 121
 } 
 #endif
-# 123 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 123 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline int float_as_int(float a) 
 # 124
 {int volatile ___ = 1;(void)a;
@@ -8264,7 +8264,7 @@ return __float_as_int(a);
 # 126
 } 
 #endif
-# 128 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 128 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline float int_as_float(int a) 
 # 129
 {int volatile ___ = 1;(void)a;
@@ -8278,7 +8278,7 @@ return __int_as_float(a);
 # 131
 } 
 #endif
-# 133 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 133 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned float_as_uint(float a) 
 # 134
 {int volatile ___ = 1;(void)a;
@@ -8292,7 +8292,7 @@ return __float_as_uint(a);
 # 136
 } 
 #endif
-# 138 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 138 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline float uint_as_float(unsigned a) 
 # 139
 {int volatile ___ = 1;(void)a;
@@ -8306,7 +8306,7 @@ return __uint_as_float(a);
 # 141
 } 
 #endif
-# 142 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 142 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline float saturate(float a) 
 # 143
 {int volatile ___ = 1;(void)a;
@@ -8320,7 +8320,7 @@ return __saturatef(a);
 # 145
 } 
 #endif
-# 147 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 147 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline int mul24(int a, int b) 
 # 148
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8334,7 +8334,7 @@ return __mul24(a, b);
 # 150
 } 
 #endif
-# 152 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 152 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned umul24(unsigned a, unsigned b) 
 # 153
 {int volatile ___ = 1;(void)a;(void)b;
@@ -8348,7 +8348,7 @@ return __umul24(a, b);
 # 155
 } 
 #endif
-# 157 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 157 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline void trap() 
 # 158
 {int volatile ___ = 1;
@@ -8362,7 +8362,7 @@ __trap();
 # 160
 } 
 #endif
-# 163 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 163 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline void brkpt(int c) 
 # 164
 {int volatile ___ = 1;(void)c;
@@ -8376,7 +8376,7 @@ __brkpt(c);
 # 166
 } 
 #endif
-# 168 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 168 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline void syncthreads() 
 # 169
 {int volatile ___ = 1;
@@ -8390,7 +8390,7 @@ __syncthreads();
 # 171
 } 
 #endif
-# 173 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 173 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline void prof_trigger(int e) 
 # 174
 {int volatile ___ = 1;(void)e;
@@ -8434,7 +8434,7 @@ if (e == 15) { __prof_trigger(15); }  }  }  }  }  }  }  }  }  }  }  }  }  }  }  
 # 191
 } 
 #endif
-# 193 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 193 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline void threadfence(bool global) 
 # 194
 {int volatile ___ = 1;(void)global;
@@ -8448,7 +8448,7 @@ global ? __threadfence() : __threadfence_block();
 # 196
 } 
 #endif
-# 198 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 198 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline int float2int(float a, cudaRoundMode mode) 
 # 199
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8462,7 +8462,7 @@ return (mode == (cudaRoundNearest)) ? __float2int_rn(a) : ((mode == (cudaRoundPo
 # 204
 } 
 #endif
-# 206 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 206 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline unsigned float2uint(float a, cudaRoundMode mode) 
 # 207
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8476,7 +8476,7 @@ return (mode == (cudaRoundNearest)) ? __float2uint_rn(a) : ((mode == (cudaRoundP
 # 212
 } 
 #endif
-# 214 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 214 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline float int2float(int a, cudaRoundMode mode) 
 # 215
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8490,7 +8490,7 @@ return (mode == (cudaRoundZero)) ? __int2float_rz(a) : ((mode == (cudaRoundPosIn
 # 220
 } 
 #endif
-# 222 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_functions.hpp"
+# 222 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_functions.hpp"
 __attribute__((unused)) static inline float uint2float(unsigned a, cudaRoundMode mode) 
 # 223
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8504,133 +8504,133 @@ return (mode == (cudaRoundZero)) ? __uint2float_rz(a) : ((mode == (cudaRoundPosI
 # 228
 } 
 #endif
-# 111 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 111 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicAdd(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 111
 { } 
 #endif
-# 113 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 113 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicAdd(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 113
 { } 
 #endif
-# 115 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 115 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicSub(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 115
 { } 
 #endif
-# 117 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 117 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicSub(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 117
 { } 
 #endif
-# 119 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 119 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicExch(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 119
 { } 
 #endif
-# 121 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 121 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicExch(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 121
 { } 
 #endif
-# 123 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 123 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline float atomicExch(float *address, float val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 123
 { } 
 #endif
-# 125 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 125 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicMin(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 125
 { } 
 #endif
-# 127 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 127 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicMin(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 127
 { } 
 #endif
-# 129 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 129 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicMax(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 129
 { } 
 #endif
-# 131 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 131 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicMax(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 131
 { } 
 #endif
-# 133 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 133 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicInc(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 133
 { } 
 #endif
-# 135 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 135 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicDec(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 135
 { } 
 #endif
-# 137 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 137 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicAnd(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 137
 { } 
 #endif
-# 139 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 139 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicAnd(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 139
 { } 
 #endif
-# 141 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 141 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicOr(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 141
 { } 
 #endif
-# 143 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 143 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicOr(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 143
 { } 
 #endif
-# 145 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 145 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicXor(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 145
 { } 
 #endif
-# 147 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 147 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicXor(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 147
 { } 
 #endif
-# 149 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 149 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline int atomicCAS(int *address, int compare, int val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 #if 0
 # 149
 { } 
 #endif
-# 151 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 151 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicCAS(unsigned *address, unsigned compare, unsigned val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 #if 0
 # 151
 { } 
 #endif
-# 164 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 164 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 extern "C" {
 # 175
 }
@@ -8640,31 +8640,31 @@ __attribute__((unused)) static inline unsigned long long atomicAdd(unsigned long
 # 185
 { } 
 #endif
-# 187 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 187 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicExch(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 187
 { } 
 #endif
-# 189 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 189 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicCAS(unsigned long long *address, unsigned long long compare, unsigned long long val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 #if 0
 # 189
 { } 
 #endif
-# 191 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 191 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline bool any(bool cond) {int volatile ___ = 1;(void)cond;::exit(___);}
 #if 0
 # 191
 { } 
 #endif
-# 193 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
+# 193 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_atomic_functions.h"
 __attribute__((unused)) static inline bool all(bool cond) {int volatile ___ = 1;(void)cond;::exit(___);}
 #if 0
 # 193
 { } 
 #endif
-# 80 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.h"
+# 80 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.h"
 extern "C" {
 # 1134
 }
@@ -8694,7 +8694,7 @@ __attribute__((unused)) static inline double int2double(int a, cudaRoundMode mod
 __attribute__((unused)) static inline double uint2double(unsigned a, cudaRoundMode mode = cudaRoundNearest); 
 # 1167
 __attribute__((unused)) static inline double float2double(float a, cudaRoundMode mode = cudaRoundNearest); 
-# 85 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 85 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double fma(double a, double b, double c, cudaRoundMode mode) 
 # 86
 {int volatile ___ = 1;(void)a;(void)b;(void)c;(void)mode;
@@ -8708,7 +8708,7 @@ return (mode == (cudaRoundZero)) ? __fma_rz(a, b, c) : ((mode == (cudaRoundPosIn
 # 91
 } 
 #endif
-# 93 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 93 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double dmul(double a, double b, cudaRoundMode mode) 
 # 94
 {int volatile ___ = 1;(void)a;(void)b;(void)mode;
@@ -8722,7 +8722,7 @@ return (mode == (cudaRoundZero)) ? __dmul_rz(a, b) : ((mode == (cudaRoundPosInf)
 # 99
 } 
 #endif
-# 101 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 101 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double dadd(double a, double b, cudaRoundMode mode) 
 # 102
 {int volatile ___ = 1;(void)a;(void)b;(void)mode;
@@ -8736,7 +8736,7 @@ return (mode == (cudaRoundZero)) ? __dadd_rz(a, b) : ((mode == (cudaRoundPosInf)
 # 107
 } 
 #endif
-# 109 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 109 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double dsub(double a, double b, cudaRoundMode mode) 
 # 110
 {int volatile ___ = 1;(void)a;(void)b;(void)mode;
@@ -8750,7 +8750,7 @@ return (mode == (cudaRoundZero)) ? __dsub_rz(a, b) : ((mode == (cudaRoundPosInf)
 # 115
 } 
 #endif
-# 117 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 117 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline int double2int(double a, cudaRoundMode mode) 
 # 118
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8764,7 +8764,7 @@ return (mode == (cudaRoundNearest)) ? __double2int_rn(a) : ((mode == (cudaRoundP
 # 123
 } 
 #endif
-# 125 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 125 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline unsigned double2uint(double a, cudaRoundMode mode) 
 # 126
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8778,7 +8778,7 @@ return (mode == (cudaRoundNearest)) ? __double2uint_rn(a) : ((mode == (cudaRound
 # 131
 } 
 #endif
-# 133 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 133 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline long long double2ll(double a, cudaRoundMode mode) 
 # 134
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8792,7 +8792,7 @@ return (mode == (cudaRoundNearest)) ? __double2ll_rn(a) : ((mode == (cudaRoundPo
 # 139
 } 
 #endif
-# 141 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 141 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline unsigned long long double2ull(double a, cudaRoundMode mode) 
 # 142
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8806,7 +8806,7 @@ return (mode == (cudaRoundNearest)) ? __double2ull_rn(a) : ((mode == (cudaRoundP
 # 147
 } 
 #endif
-# 149 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 149 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double ll2double(long long a, cudaRoundMode mode) 
 # 150
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8820,7 +8820,7 @@ return (mode == (cudaRoundZero)) ? __ll2double_rz(a) : ((mode == (cudaRoundPosIn
 # 155
 } 
 #endif
-# 157 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 157 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double ull2double(unsigned long long a, cudaRoundMode mode) 
 # 158
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8834,7 +8834,7 @@ return (mode == (cudaRoundZero)) ? __ull2double_rz(a) : ((mode == (cudaRoundPosI
 # 163
 } 
 #endif
-# 165 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 165 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double int2double(int a, cudaRoundMode mode) 
 # 166
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8848,7 +8848,7 @@ return (double)a;
 # 168
 } 
 #endif
-# 170 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 170 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double uint2double(unsigned a, cudaRoundMode mode) 
 # 171
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8862,7 +8862,7 @@ return (double)a;
 # 173
 } 
 #endif
-# 175 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
+# 175 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_double_functions.hpp"
 __attribute__((unused)) static inline double float2double(float a, cudaRoundMode mode) 
 # 176
 {int volatile ___ = 1;(void)a;(void)mode;
@@ -8876,301 +8876,301 @@ return (double)a;
 # 178
 } 
 #endif
-# 94 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_20_atomic_functions.h"
+# 94 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_atomic_functions.h"
 __attribute__((unused)) static inline float atomicAdd(float *address, float val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 94
 { } 
 #endif
-# 102 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 102 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicMin(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 102
 { } 
 #endif
-# 104 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 104 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicMax(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 104
 { } 
 #endif
-# 106 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 106 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicMin(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 106
 { } 
 #endif
-# 108 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 108 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicMax(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 108
 { } 
 #endif
-# 110 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 110 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicAnd(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 110
 { } 
 #endif
-# 112 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 112 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicOr(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 112
 { } 
 #endif
-# 114 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
+# 114 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicXor(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 114
 { } 
 #endif
-# 308 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 308 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline double atomicAdd(double *address, double val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 308
 { } 
 #endif
-# 311 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 311 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicAdd_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 311
 { } 
 #endif
-# 314 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 314 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicAdd_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 314
 { } 
 #endif
-# 317 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 317 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicAdd_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 317
 { } 
 #endif
-# 320 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 320 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicAdd_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 320
 { } 
 #endif
-# 323 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 323 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicAdd_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 323
 { } 
 #endif
-# 326 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 326 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicAdd_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 326
 { } 
 #endif
-# 329 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 329 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline float atomicAdd_block(float *address, float val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 329
 { } 
 #endif
-# 332 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 332 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline float atomicAdd_system(float *address, float val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 332
 { } 
 #endif
-# 335 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 335 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline double atomicAdd_block(double *address, double val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 335
 { } 
 #endif
-# 338 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 338 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline double atomicAdd_system(double *address, double val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 338
 { } 
 #endif
-# 341 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 341 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicExch_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 341
 { } 
 #endif
-# 344 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 344 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicExch_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 344
 { } 
 #endif
-# 347 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 347 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicExch_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 347
 { } 
 #endif
-# 350 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 350 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicExch_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 350
 { } 
 #endif
-# 353 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 353 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicExch_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 353
 { } 
 #endif
-# 356 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 356 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicExch_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 356
 { } 
 #endif
-# 359 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 359 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline float atomicExch_block(float *address, float val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 359
 { } 
 #endif
-# 362 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 362 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline float atomicExch_system(float *address, float val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 362
 { } 
 #endif
-# 365 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 365 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicMin_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 365
 { } 
 #endif
-# 368 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 368 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicMin_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 368
 { } 
 #endif
-# 371 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 371 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicMin_block(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 371
 { } 
 #endif
-# 374 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 374 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicMin_system(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 374
 { } 
 #endif
-# 377 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 377 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicMin_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 377
 { } 
 #endif
-# 380 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 380 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicMin_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 380
 { } 
 #endif
-# 383 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 383 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicMin_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 383
 { } 
 #endif
-# 386 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 386 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicMin_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 386
 { } 
 #endif
-# 389 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 389 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicMax_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 389
 { } 
 #endif
-# 392 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 392 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicMax_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 392
 { } 
 #endif
-# 395 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 395 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicMax_block(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 395
 { } 
 #endif
-# 398 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 398 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicMax_system(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 398
 { } 
 #endif
-# 401 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 401 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicMax_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 401
 { } 
 #endif
-# 404 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 404 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicMax_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 404
 { } 
 #endif
-# 407 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 407 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicMax_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 407
 { } 
 #endif
-# 410 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 410 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicMax_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 410
 { } 
 #endif
-# 413 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 413 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicInc_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 413
 { } 
 #endif
-# 416 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 416 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicInc_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 416
 { } 
 #endif
-# 419 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 419 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicDec_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 419
 { } 
 #endif
-# 422 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 422 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicDec_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 422
 { } 
 #endif
-# 425 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 425 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicCAS_block(int *address, int compare, int val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 #if 0
 # 425
 { } 
 #endif
-# 428 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 428 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicCAS_system(int *address, int compare, int val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 #if 0
 # 428
 { } 
 #endif
-# 431 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 431 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicCAS_block(unsigned *address, unsigned compare, unsigned 
 # 432
 val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
@@ -9178,7 +9178,7 @@ val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 # 432
 { } 
 #endif
-# 435 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 435 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicCAS_system(unsigned *address, unsigned compare, unsigned 
 # 436
 val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
@@ -9186,7 +9186,7 @@ val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 # 436
 { } 
 #endif
-# 439 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 439 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicCAS_block(unsigned long long *address, unsigned long long 
 # 440
 compare, unsigned long long 
@@ -9196,7 +9196,7 @@ val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 # 441
 { } 
 #endif
-# 444 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 444 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicCAS_system(unsigned long long *address, unsigned long long 
 # 445
 compare, unsigned long long 
@@ -9206,151 +9206,151 @@ val) {int volatile ___ = 1;(void)address;(void)compare;(void)val;::exit(___);}
 # 446
 { } 
 #endif
-# 449 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 449 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicAnd_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 449
 { } 
 #endif
-# 452 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 452 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicAnd_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 452
 { } 
 #endif
-# 455 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 455 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicAnd_block(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 455
 { } 
 #endif
-# 458 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 458 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicAnd_system(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 458
 { } 
 #endif
-# 461 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 461 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicAnd_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 461
 { } 
 #endif
-# 464 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 464 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicAnd_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 464
 { } 
 #endif
-# 467 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 467 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicAnd_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 467
 { } 
 #endif
-# 470 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 470 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicAnd_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 470
 { } 
 #endif
-# 473 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 473 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicOr_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 473
 { } 
 #endif
-# 476 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 476 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicOr_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 476
 { } 
 #endif
-# 479 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 479 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicOr_block(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 479
 { } 
 #endif
-# 482 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 482 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicOr_system(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 482
 { } 
 #endif
-# 485 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 485 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicOr_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 485
 { } 
 #endif
-# 488 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 488 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicOr_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 488
 { } 
 #endif
-# 491 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 491 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicOr_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 491
 { } 
 #endif
-# 494 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 494 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicOr_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 494
 { } 
 #endif
-# 497 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 497 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicXor_block(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 497
 { } 
 #endif
-# 500 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 500 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline int atomicXor_system(int *address, int val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 500
 { } 
 #endif
-# 503 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 503 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicXor_block(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 503
 { } 
 #endif
-# 506 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 506 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline long long atomicXor_system(long long *address, long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 506
 { } 
 #endif
-# 509 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 509 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicXor_block(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 509
 { } 
 #endif
-# 512 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 512 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned atomicXor_system(unsigned *address, unsigned val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 512
 { } 
 #endif
-# 515 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 515 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicXor_block(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 515
 { } 
 #endif
-# 518 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
+# 518 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h"
 __attribute__((unused)) static inline unsigned long long atomicXor_system(unsigned long long *address, unsigned long long val) {int volatile ___ = 1;(void)address;(void)val;::exit(___);}
 #if 0
 # 518
 { } 
 #endif
-# 79 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
+# 79 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
 extern "C" {
 # 1466
 }
@@ -9360,1039 +9360,1039 @@ __attribute__((unused)) static inline unsigned ballot(bool pred) {int volatile _
 # 1475
 { } 
 #endif
-# 1477 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
+# 1477 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
 __attribute__((unused)) static inline int syncthreads_count(bool pred) {int volatile ___ = 1;(void)pred;::exit(___);}
 #if 0
 # 1477
 { } 
 #endif
-# 1479 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
+# 1479 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
 __attribute__((unused)) static inline bool syncthreads_and(bool pred) {int volatile ___ = 1;(void)pred;::exit(___);}
 #if 0
 # 1479
 { } 
 #endif
-# 1481 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
+# 1481 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
 __attribute__((unused)) static inline bool syncthreads_or(bool pred) {int volatile ___ = 1;(void)pred;::exit(___);}
 #if 0
 # 1481
 { } 
 #endif
-# 1486 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
+# 1486 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h"
 __attribute__((unused)) static inline unsigned __isGlobal(const void *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 1486
 { } 
 #endif
-# 98 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 98 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline int __shfl(int var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 98
 { } 
 #endif
-# 100 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 100 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned __shfl(unsigned var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 100
 { } 
 #endif
-# 102 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 102 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline int __shfl_up(int var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 102
 { } 
 #endif
-# 103 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 103 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned __shfl_up(unsigned var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 103
 { } 
 #endif
-# 105 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 105 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline int __shfl_down(int var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 105
 { } 
 #endif
-# 107 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 107 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned __shfl_down(unsigned var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 107
 { } 
 #endif
-# 109 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 109 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline int __shfl_xor(int var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 109
 { } 
 #endif
-# 111 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 111 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned __shfl_xor(unsigned var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 111
 { } 
 #endif
-# 113 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 113 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline float __shfl(float var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 113
 { } 
 #endif
-# 115 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 115 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline float __shfl_up(float var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 115
 { } 
 #endif
-# 117 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 117 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline float __shfl_down(float var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 117
 { } 
 #endif
-# 119 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 119 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline float __shfl_xor(float var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 119
 { } 
 #endif
-# 122 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 122 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long long __shfl(long long var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 122
 { } 
 #endif
-# 124 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 124 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __shfl(unsigned long long var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 124
 { } 
 #endif
-# 126 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 126 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long long __shfl_up(long long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 126
 { } 
 #endif
-# 128 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 128 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __shfl_up(unsigned long long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 128
 { } 
 #endif
-# 130 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 130 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long long __shfl_down(long long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 130
 { } 
 #endif
-# 132 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 132 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __shfl_down(unsigned long long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 132
 { } 
 #endif
-# 134 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 134 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long long __shfl_xor(long long var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 134
 { } 
 #endif
-# 136 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 136 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __shfl_xor(unsigned long long var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 136
 { } 
 #endif
-# 138 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 138 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline double __shfl(double var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 138
 { } 
 #endif
-# 140 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 140 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline double __shfl_up(double var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 140
 { } 
 #endif
-# 142 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 142 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline double __shfl_down(double var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 142
 { } 
 #endif
-# 144 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 144 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline double __shfl_xor(double var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 144
 { } 
 #endif
-# 148 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 148 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long __shfl(long var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 148
 { } 
 #endif
-# 150 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 150 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __shfl(unsigned long var, int srcLane, int width = 32) {int volatile ___ = 1;(void)var;(void)srcLane;(void)width;::exit(___);}
 #if 0
 # 150
 { } 
 #endif
-# 152 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 152 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long __shfl_up(long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 152
 { } 
 #endif
-# 154 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 154 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __shfl_up(unsigned long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 154
 { } 
 #endif
-# 156 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 156 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long __shfl_down(long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 156
 { } 
 #endif
-# 158 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 158 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __shfl_down(unsigned long var, unsigned delta, int width = 32) {int volatile ___ = 1;(void)var;(void)delta;(void)width;::exit(___);}
 #if 0
 # 158
 { } 
 #endif
-# 160 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 160 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline long __shfl_xor(long var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 160
 { } 
 #endif
-# 162 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
+# 162 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __shfl_xor(unsigned long var, int laneMask, int width = 32) {int volatile ___ = 1;(void)var;(void)laneMask;(void)width;::exit(___);}
 #if 0
 # 162
 { } 
 #endif
-# 89 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 89 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long __ldg(const long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 89
 { } 
 #endif
-# 90 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 90 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __ldg(const unsigned long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 90
 { } 
 #endif
-# 92 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 92 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char __ldg(const char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 92
 { } 
 #endif
-# 93 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 93 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline signed char __ldg(const signed char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 93
 { } 
 #endif
-# 94 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 94 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short __ldg(const short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 94
 { } 
 #endif
-# 95 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 95 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int __ldg(const int *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 95
 { } 
 #endif
-# 96 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 96 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long long __ldg(const long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 96
 { } 
 #endif
-# 97 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 97 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char2 __ldg(const char2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 97
 { } 
 #endif
-# 98 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 98 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char4 __ldg(const char4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 98
 { } 
 #endif
-# 99 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 99 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short2 __ldg(const short2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 99
 { } 
 #endif
-# 100 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 100 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short4 __ldg(const short4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 100
 { } 
 #endif
-# 101 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 101 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int2 __ldg(const int2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 101
 { } 
 #endif
-# 102 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 102 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int4 __ldg(const int4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 102
 { } 
 #endif
-# 103 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 103 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline longlong2 __ldg(const longlong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 103
 { } 
 #endif
-# 105 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 105 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned char __ldg(const unsigned char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 105
 { } 
 #endif
-# 106 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 106 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned short __ldg(const unsigned short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 106
 { } 
 #endif
-# 107 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 107 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __ldg(const unsigned *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 107
 { } 
 #endif
-# 108 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 108 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __ldg(const unsigned long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 108
 { } 
 #endif
-# 109 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 109 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar2 __ldg(const uchar2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 109
 { } 
 #endif
-# 110 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 110 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar4 __ldg(const uchar4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 110
 { } 
 #endif
-# 111 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 111 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort2 __ldg(const ushort2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 111
 { } 
 #endif
-# 112 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 112 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort4 __ldg(const ushort4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 112
 { } 
 #endif
-# 113 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 113 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint2 __ldg(const uint2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 113
 { } 
 #endif
-# 114 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 114 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint4 __ldg(const uint4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 114
 { } 
 #endif
-# 115 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 115 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ulonglong2 __ldg(const ulonglong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 115
 { } 
 #endif
-# 117 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 117 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float __ldg(const float *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 117
 { } 
 #endif
-# 118 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 118 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double __ldg(const double *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 118
 { } 
 #endif
-# 119 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 119 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float2 __ldg(const float2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 119
 { } 
 #endif
-# 120 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 120 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float4 __ldg(const float4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 120
 { } 
 #endif
-# 121 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 121 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double2 __ldg(const double2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 121
 { } 
 #endif
-# 125 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 125 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long __ldcg(const long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 125
 { } 
 #endif
-# 126 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 126 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __ldcg(const unsigned long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 126
 { } 
 #endif
-# 128 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 128 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char __ldcg(const char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 128
 { } 
 #endif
-# 129 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 129 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline signed char __ldcg(const signed char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 129
 { } 
 #endif
-# 130 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 130 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short __ldcg(const short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 130
 { } 
 #endif
-# 131 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 131 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int __ldcg(const int *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 131
 { } 
 #endif
-# 132 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 132 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long long __ldcg(const long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 132
 { } 
 #endif
-# 133 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 133 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char2 __ldcg(const char2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 133
 { } 
 #endif
-# 134 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 134 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char4 __ldcg(const char4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 134
 { } 
 #endif
-# 135 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 135 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short2 __ldcg(const short2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 135
 { } 
 #endif
-# 136 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 136 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short4 __ldcg(const short4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 136
 { } 
 #endif
-# 137 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 137 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int2 __ldcg(const int2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 137
 { } 
 #endif
-# 138 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 138 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int4 __ldcg(const int4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 138
 { } 
 #endif
-# 139 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 139 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline longlong2 __ldcg(const longlong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 139
 { } 
 #endif
-# 141 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 141 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned char __ldcg(const unsigned char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 141
 { } 
 #endif
-# 142 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 142 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned short __ldcg(const unsigned short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 142
 { } 
 #endif
-# 143 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 143 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __ldcg(const unsigned *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 143
 { } 
 #endif
-# 144 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 144 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __ldcg(const unsigned long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 144
 { } 
 #endif
-# 145 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 145 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar2 __ldcg(const uchar2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 145
 { } 
 #endif
-# 146 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 146 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar4 __ldcg(const uchar4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 146
 { } 
 #endif
-# 147 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 147 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort2 __ldcg(const ushort2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 147
 { } 
 #endif
-# 148 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 148 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort4 __ldcg(const ushort4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 148
 { } 
 #endif
-# 149 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 149 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint2 __ldcg(const uint2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 149
 { } 
 #endif
-# 150 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 150 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint4 __ldcg(const uint4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 150
 { } 
 #endif
-# 151 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 151 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ulonglong2 __ldcg(const ulonglong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 151
 { } 
 #endif
-# 153 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 153 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float __ldcg(const float *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 153
 { } 
 #endif
-# 154 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 154 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double __ldcg(const double *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 154
 { } 
 #endif
-# 155 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 155 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float2 __ldcg(const float2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 155
 { } 
 #endif
-# 156 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 156 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float4 __ldcg(const float4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 156
 { } 
 #endif
-# 157 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 157 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double2 __ldcg(const double2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 157
 { } 
 #endif
-# 161 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 161 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long __ldca(const long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 161
 { } 
 #endif
-# 162 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 162 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __ldca(const unsigned long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 162
 { } 
 #endif
-# 164 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 164 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char __ldca(const char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 164
 { } 
 #endif
-# 165 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 165 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline signed char __ldca(const signed char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 165
 { } 
 #endif
-# 166 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 166 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short __ldca(const short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 166
 { } 
 #endif
-# 167 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 167 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int __ldca(const int *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 167
 { } 
 #endif
-# 168 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 168 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long long __ldca(const long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 168
 { } 
 #endif
-# 169 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 169 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char2 __ldca(const char2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 169
 { } 
 #endif
-# 170 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 170 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char4 __ldca(const char4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 170
 { } 
 #endif
-# 171 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 171 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short2 __ldca(const short2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 171
 { } 
 #endif
-# 172 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 172 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short4 __ldca(const short4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 172
 { } 
 #endif
-# 173 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 173 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int2 __ldca(const int2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 173
 { } 
 #endif
-# 174 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 174 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int4 __ldca(const int4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 174
 { } 
 #endif
-# 175 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 175 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline longlong2 __ldca(const longlong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 175
 { } 
 #endif
-# 177 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 177 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned char __ldca(const unsigned char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 177
 { } 
 #endif
-# 178 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 178 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned short __ldca(const unsigned short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 178
 { } 
 #endif
-# 179 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 179 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __ldca(const unsigned *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 179
 { } 
 #endif
-# 180 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 180 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __ldca(const unsigned long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 180
 { } 
 #endif
-# 181 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 181 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar2 __ldca(const uchar2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 181
 { } 
 #endif
-# 182 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 182 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar4 __ldca(const uchar4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 182
 { } 
 #endif
-# 183 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 183 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort2 __ldca(const ushort2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 183
 { } 
 #endif
-# 184 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 184 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort4 __ldca(const ushort4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 184
 { } 
 #endif
-# 185 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 185 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint2 __ldca(const uint2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 185
 { } 
 #endif
-# 186 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 186 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint4 __ldca(const uint4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 186
 { } 
 #endif
-# 187 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 187 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ulonglong2 __ldca(const ulonglong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 187
 { } 
 #endif
-# 189 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 189 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float __ldca(const float *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 189
 { } 
 #endif
-# 190 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 190 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double __ldca(const double *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 190
 { } 
 #endif
-# 191 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 191 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float2 __ldca(const float2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 191
 { } 
 #endif
-# 192 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 192 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float4 __ldca(const float4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 192
 { } 
 #endif
-# 193 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 193 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double2 __ldca(const double2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 193
 { } 
 #endif
-# 197 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 197 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long __ldcs(const long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 197
 { } 
 #endif
-# 198 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 198 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long __ldcs(const unsigned long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 198
 { } 
 #endif
-# 200 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 200 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char __ldcs(const char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 200
 { } 
 #endif
-# 201 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 201 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline signed char __ldcs(const signed char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 201
 { } 
 #endif
-# 202 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 202 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short __ldcs(const short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 202
 { } 
 #endif
-# 203 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 203 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int __ldcs(const int *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 203
 { } 
 #endif
-# 204 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 204 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline long long __ldcs(const long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 204
 { } 
 #endif
-# 205 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 205 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char2 __ldcs(const char2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 205
 { } 
 #endif
-# 206 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 206 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline char4 __ldcs(const char4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 206
 { } 
 #endif
-# 207 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 207 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short2 __ldcs(const short2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 207
 { } 
 #endif
-# 208 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 208 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline short4 __ldcs(const short4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 208
 { } 
 #endif
-# 209 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 209 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int2 __ldcs(const int2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 209
 { } 
 #endif
-# 210 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 210 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline int4 __ldcs(const int4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 210
 { } 
 #endif
-# 211 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 211 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline longlong2 __ldcs(const longlong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 211
 { } 
 #endif
-# 213 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 213 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned char __ldcs(const unsigned char *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 213
 { } 
 #endif
-# 214 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 214 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned short __ldcs(const unsigned short *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 214
 { } 
 #endif
-# 215 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 215 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __ldcs(const unsigned *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 215
 { } 
 #endif
-# 216 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 216 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned long long __ldcs(const unsigned long long *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 216
 { } 
 #endif
-# 217 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 217 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar2 __ldcs(const uchar2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 217
 { } 
 #endif
-# 218 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 218 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uchar4 __ldcs(const uchar4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 218
 { } 
 #endif
-# 219 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 219 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort2 __ldcs(const ushort2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 219
 { } 
 #endif
-# 220 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 220 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ushort4 __ldcs(const ushort4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 220
 { } 
 #endif
-# 221 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 221 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint2 __ldcs(const uint2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 221
 { } 
 #endif
-# 222 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 222 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline uint4 __ldcs(const uint4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 222
 { } 
 #endif
-# 223 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 223 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline ulonglong2 __ldcs(const ulonglong2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 223
 { } 
 #endif
-# 225 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 225 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float __ldcs(const float *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 225
 { } 
 #endif
-# 226 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 226 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double __ldcs(const double *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 226
 { } 
 #endif
-# 227 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 227 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float2 __ldcs(const float2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 227
 { } 
 #endif
-# 228 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 228 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline float4 __ldcs(const float4 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 228
 { } 
 #endif
-# 229 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 229 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline double2 __ldcs(const double2 *ptr) {int volatile ___ = 1;(void)ptr;::exit(___);}
 #if 0
 # 229
 { } 
 #endif
-# 236 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 236 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __funnelshift_l(unsigned lo, unsigned hi, unsigned shift) {int volatile ___ = 1;(void)lo;(void)hi;(void)shift;::exit(___);}
 #if 0
 # 236
 { } 
 #endif
-# 237 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 237 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __funnelshift_lc(unsigned lo, unsigned hi, unsigned shift) {int volatile ___ = 1;(void)lo;(void)hi;(void)shift;::exit(___);}
 #if 0
 # 237
 { } 
 #endif
-# 240 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 240 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __funnelshift_r(unsigned lo, unsigned hi, unsigned shift) {int volatile ___ = 1;(void)lo;(void)hi;(void)shift;::exit(___);}
 #if 0
 # 240
 { } 
 #endif
-# 241 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
+# 241 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h"
 __attribute__((unused)) static inline unsigned __funnelshift_rc(unsigned lo, unsigned hi, unsigned shift) {int volatile ___ = 1;(void)lo;(void)hi;(void)shift;::exit(___);}
 #if 0
 # 241
 { } 
 #endif
-# 91 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 91 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline int __dp2a_lo(int srcA, int srcB, int c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 91
 { } 
 #endif
-# 92 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 92 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline unsigned __dp2a_lo(unsigned srcA, unsigned srcB, unsigned c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 92
 { } 
 #endif
-# 94 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 94 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline int __dp2a_lo(short2 srcA, char4 srcB, int c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 94
 { } 
 #endif
-# 95 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 95 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline unsigned __dp2a_lo(ushort2 srcA, uchar4 srcB, unsigned c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 95
 { } 
 #endif
-# 97 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 97 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline int __dp2a_hi(int srcA, int srcB, int c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 97
 { } 
 #endif
-# 98 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 98 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline unsigned __dp2a_hi(unsigned srcA, unsigned srcB, unsigned c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 98
 { } 
 #endif
-# 100 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 100 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline int __dp2a_hi(short2 srcA, char4 srcB, int c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 100
 { } 
 #endif
-# 101 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 101 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline unsigned __dp2a_hi(ushort2 srcA, uchar4 srcB, unsigned c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 101
 { } 
 #endif
-# 108 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 108 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline int __dp4a(int srcA, int srcB, int c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 108
 { } 
 #endif
-# 109 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 109 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline unsigned __dp4a(unsigned srcA, unsigned srcB, unsigned c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 109
 { } 
 #endif
-# 111 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 111 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline int __dp4a(char4 srcA, char4 srcB, int c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 111
 { } 
 #endif
-# 112 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
+# 112 "/usr/local/cuda/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h"
 __attribute__((unused)) static inline unsigned __dp4a(uchar4 srcA, uchar4 srcB, unsigned c) {int volatile ___ = 1;(void)srcA;(void)srcB;(void)c;::exit(___);}
 #if 0
 # 112
 { } 
 #endif
-# 100 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 100 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 101
 __attribute((always_inline)) __attribute__((unused)) inline void surf1Dread(T *res, surface< void, 1>  surf, int x, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10406,7 +10406,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf1Dread(T *r
 # 111
 } 
 #endif
-# 113 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 113 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 114
 __attribute((always_inline)) __attribute__((unused)) inline T surf1Dread(surface< void, 1>  surf, int x, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10420,7 +10420,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surf1Dread(surface
 # 123
 } 
 #endif
-# 125 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 125 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 126
 __attribute((always_inline)) __attribute__((unused)) inline void surf1Dread(T *res, surface< void, 1>  surf, int x, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10434,7 +10434,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf1Dread(T *r
 # 131
 } 
 #endif
-# 260 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 260 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 261
 __attribute((always_inline)) __attribute__((unused)) inline void surf2Dread(T *res, surface< void, 2>  surf, int x, int y, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10448,7 +10448,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2Dread(T *r
 # 271
 } 
 #endif
-# 273 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 273 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 274
 __attribute((always_inline)) __attribute__((unused)) inline T surf2Dread(surface< void, 2>  surf, int x, int y, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10462,7 +10462,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surf2Dread(surface
 # 283
 } 
 #endif
-# 285 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 285 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 286
 __attribute((always_inline)) __attribute__((unused)) inline void surf2Dread(T *res, surface< void, 2>  surf, int x, int y, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10476,7 +10476,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2Dread(T *r
 # 291
 } 
 #endif
-# 422 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 422 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 423
 __attribute((always_inline)) __attribute__((unused)) inline void surf3Dread(T *res, surface< void, 3>  surf, int x, int y, int z, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10490,7 +10490,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf3Dread(T *r
 # 433
 } 
 #endif
-# 435 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 435 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 436
 __attribute((always_inline)) __attribute__((unused)) inline T surf3Dread(surface< void, 3>  surf, int x, int y, int z, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10504,7 +10504,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surf3Dread(surface
 # 445
 } 
 #endif
-# 447 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 447 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 448
 __attribute((always_inline)) __attribute__((unused)) inline void surf3Dread(T *res, surface< void, 3>  surf, int x, int y, int z, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10518,7 +10518,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf3Dread(T *r
 # 453
 } 
 #endif
-# 582 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 582 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 583
 __attribute((always_inline)) __attribute__((unused)) inline void surf1DLayeredread(T *res, surface< void, 241>  surf, int x, int layer, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10532,7 +10532,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf1DLayeredre
 # 593
 } 
 #endif
-# 595 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 595 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 596
 __attribute((always_inline)) __attribute__((unused)) inline T surf1DLayeredread(surface< void, 241>  surf, int x, int layer, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10546,7 +10546,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surf1DLayeredread(
 # 605
 } 
 #endif
-# 607 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 607 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 608
 __attribute((always_inline)) __attribute__((unused)) inline void surf1DLayeredread(T *res, surface< void, 241>  surf, int x, int layer, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10560,7 +10560,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf1DLayeredre
 # 613
 } 
 #endif
-# 768 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 768 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 769
 __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredread(T *res, surface< void, 242>  surf, int x, int y, int layer, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10574,7 +10574,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredre
 # 779
 } 
 #endif
-# 781 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 781 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 782
 __attribute((always_inline)) __attribute__((unused)) inline T surf2DLayeredread(surface< void, 242>  surf, int x, int y, int layer, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10588,7 +10588,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surf2DLayeredread(
 # 791
 } 
 #endif
-# 793 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 793 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 794
 __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredread(T *res, surface< void, 242>  surf, int x, int y, int layer, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10602,7 +10602,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredre
 # 799
 } 
 #endif
-# 919 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 919 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 920
 __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapread(T *res, surface< void, 12>  surf, int x, int y, int face, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10616,7 +10616,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapread
 # 930
 } 
 #endif
-# 932 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 932 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 933
 __attribute((always_inline)) __attribute__((unused)) inline T surfCubemapread(surface< void, 12>  surf, int x, int y, int face, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10630,7 +10630,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surfCubemapread(su
 # 942
 } 
 #endif
-# 944 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 944 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 945
 __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapread(T *res, surface< void, 12>  surf, int x, int y, int face, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10644,7 +10644,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapread
 # 950
 } 
 #endif
-# 1070 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1070 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1071
 __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapLayeredread(T *res, surface< void, 252>  surf, int x, int y, int layerFace, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10658,7 +10658,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapLaye
 # 1081
 } 
 #endif
-# 1083 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1083 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1084
 __attribute((always_inline)) __attribute__((unused)) inline T surfCubemapLayeredread(surface< void, 252>  surf, int x, int y, int layerFace, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10672,7 +10672,7 @@ __attribute((always_inline)) __attribute__((unused)) inline T surfCubemapLayered
 # 1093
 } 
 #endif
-# 1095 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1095 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1096
 __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapLayeredread(T *res, surface< void, 252>  surf, int x, int y, int layerFace, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10686,7 +10686,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapLaye
 # 1101
 } 
 #endif
-# 1232 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1232 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1233
 __attribute((always_inline)) __attribute__((unused)) inline void surf1Dwrite(T val, surface< void, 1>  surf, int x, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10700,7 +10700,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf1Dwrite(T v
 # 1254
 } 
 #endif
-# 1256 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1256 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1257
 __attribute((always_inline)) __attribute__((unused)) inline void surf1Dwrite(T val, surface< void, 1>  surf, int x, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10714,7 +10714,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf1Dwrite(T v
 # 1262
 } 
 #endif
-# 1377 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1377 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1378
 __attribute((always_inline)) __attribute__((unused)) inline void surf2Dwrite(T val, surface< void, 2>  surf, int x, int y, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10728,7 +10728,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2Dwrite(T v
 # 1399
 } 
 #endif
-# 1401 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1401 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1402
 __attribute((always_inline)) __attribute__((unused)) inline void surf2Dwrite(T val, surface< void, 2>  surf, int x, int y, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10742,7 +10742,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2Dwrite(T v
 # 1407
 } 
 #endif
-# 1520 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1520 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1521
 __attribute((always_inline)) __attribute__((unused)) inline void surf3Dwrite(T val, surface< void, 3>  surf, int x, int y, int z, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10756,7 +10756,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf3Dwrite(T v
 # 1542
 } 
 #endif
-# 1544 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1544 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1545
 __attribute((always_inline)) __attribute__((unused)) inline void surf3Dwrite(T val, surface< void, 3>  surf, int x, int y, int z, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10770,7 +10770,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf3Dwrite(T v
 # 1550
 } 
 #endif
-# 1666 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1666 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1667
 __attribute((always_inline)) __attribute__((unused)) static inline void surf1DLayeredwrite(T val, surface< void, 241>  surf, int x, int layer, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10784,7 +10784,7 @@ __attribute((always_inline)) __attribute__((unused)) static inline void surf1DLa
 # 1688
 } 
 #endif
-# 1690 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1690 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1691
 __attribute((always_inline)) __attribute__((unused)) static inline void surf1DLayeredwrite(T val, surface< void, 241>  surf, int x, int layer, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10798,7 +10798,7 @@ __attribute((always_inline)) __attribute__((unused)) static inline void surf1DLa
 # 1696
 } 
 #endif
-# 1822 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1822 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1823
 __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredwrite(T val, surface< void, 242>  surf, int x, int y, int layer, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10812,7 +10812,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredwr
 # 1844
 } 
 #endif
-# 1846 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1846 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1847
 __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredwrite(T val, surface< void, 242>  surf, int x, int y, int layer, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10826,7 +10826,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surf2DLayeredwr
 # 1852
 } 
 #endif
-# 1958 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1958 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1959
 __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapwrite(T val, surface< void, 12>  surf, int x, int y, int face, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10840,7 +10840,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapwrit
 # 1980
 } 
 #endif
-# 1982 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 1982 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 1983
 __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapwrite(T val, surface< void, 12>  surf, int x, int y, int face, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10854,7 +10854,7 @@ __attribute((always_inline)) __attribute__((unused)) inline void surfCubemapwrit
 # 1988
 } 
 #endif
-# 2093 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 2093 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 2094
 __attribute((always_inline)) __attribute__((unused)) static inline void surfCubemapLayeredwrite(T val, surface< void, 252>  surf, int x, int y, int layerFace, int s, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10868,7 +10868,7 @@ __attribute((always_inline)) __attribute__((unused)) static inline void surfCube
 # 2115
 } 
 #endif
-# 2117 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_functions.h"
+# 2117 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_functions.h"
 template< class T> 
 # 2118
 __attribute((always_inline)) __attribute__((unused)) static inline void surfCubemapLayeredwrite(T val, surface< void, 252>  surf, int x, int y, int layerFace, cudaSurfaceBoundaryMode mode = cudaBoundaryModeTrap) 
@@ -10882,7 +10882,7 @@ __attribute((always_inline)) __attribute__((unused)) static inline void surfCube
 # 2123
 } 
 #endif
-# 70 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 70 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 71
 tex1Dfetch(texture< T, 1, cudaReadModeElementType> , int) {int volatile ___ = 1;::exit(___);}
@@ -10890,7 +10890,7 @@ tex1Dfetch(texture< T, 1, cudaReadModeElementType> , int) {int volatile ___ = 1;
 # 71
 { } 
 #endif
-# 73 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 73 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> 
 # 74
 struct __nv_tex_rmnf_ret { }; 
@@ -10936,7 +10936,7 @@ tex1Dfetch(texture< T, 1, cudaReadModeNormalizedFloat> , int) {int volatile ___ 
 # 95
 { } 
 #endif
-# 215 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 215 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 216
 tex1D(texture< T, 1, cudaReadModeElementType> , float) {int volatile ___ = 1;::exit(___);}
@@ -10944,7 +10944,7 @@ tex1D(texture< T, 1, cudaReadModeElementType> , float) {int volatile ___ = 1;::e
 # 216
 { } 
 #endif
-# 218 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 218 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 219
 tex1D(texture< T, 1, cudaReadModeNormalizedFloat> , float) {int volatile ___ = 1;::exit(___);}
@@ -10952,7 +10952,7 @@ tex1D(texture< T, 1, cudaReadModeNormalizedFloat> , float) {int volatile ___ = 1
 # 219
 { } 
 #endif
-# 345 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 345 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 346
 tex2D(texture< T, 2, cudaReadModeElementType> , float, float) {int volatile ___ = 1;::exit(___);}
@@ -10960,7 +10960,7 @@ tex2D(texture< T, 2, cudaReadModeElementType> , float, float) {int volatile ___ 
 # 346
 { } 
 #endif
-# 348 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 348 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 349
 tex2D(texture< T, 2, cudaReadModeNormalizedFloat> , float, float) {int volatile ___ = 1;::exit(___);}
@@ -10968,7 +10968,7 @@ tex2D(texture< T, 2, cudaReadModeNormalizedFloat> , float, float) {int volatile 
 # 349
 { } 
 #endif
-# 475 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 475 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 476
 tex1DLayered(texture< T, 241, cudaReadModeElementType> , float, int) {int volatile ___ = 1;::exit(___);}
@@ -10976,7 +10976,7 @@ tex1DLayered(texture< T, 241, cudaReadModeElementType> , float, int) {int volati
 # 476
 { } 
 #endif
-# 478 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 478 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 479
 tex1DLayered(texture< T, 241, cudaReadModeNormalizedFloat> , float, int) {int volatile ___ = 1;::exit(___);}
@@ -10984,7 +10984,7 @@ tex1DLayered(texture< T, 241, cudaReadModeNormalizedFloat> , float, int) {int vo
 # 479
 { } 
 #endif
-# 603 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 603 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 604
 tex2DLayered(texture< T, 242, cudaReadModeElementType> , float, float, int) {int volatile ___ = 1;::exit(___);}
@@ -10992,7 +10992,7 @@ tex2DLayered(texture< T, 242, cudaReadModeElementType> , float, float, int) {int
 # 604
 { } 
 #endif
-# 606 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 606 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 607
 tex2DLayered(texture< T, 242, cudaReadModeNormalizedFloat> , float, float, int) {int volatile ___ = 1;::exit(___);}
@@ -11000,7 +11000,7 @@ tex2DLayered(texture< T, 242, cudaReadModeNormalizedFloat> , float, float, int) 
 # 607
 { } 
 #endif
-# 735 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 735 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 736
 tex3D(texture< T, 3, cudaReadModeElementType> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11008,7 +11008,7 @@ tex3D(texture< T, 3, cudaReadModeElementType> , float, float, float) {int volati
 # 736
 { } 
 #endif
-# 738 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 738 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 739
 tex3D(texture< T, 3, cudaReadModeNormalizedFloat> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11016,7 +11016,7 @@ tex3D(texture< T, 3, cudaReadModeNormalizedFloat> , float, float, float) {int vo
 # 739
 { } 
 #endif
-# 864 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 864 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 865
 texCubemap(texture< T, 12, cudaReadModeElementType> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11024,7 +11024,7 @@ texCubemap(texture< T, 12, cudaReadModeElementType> , float, float, float) {int 
 # 865
 { } 
 #endif
-# 867 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 867 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 868
 texCubemap(texture< T, 12, cudaReadModeNormalizedFloat> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11032,7 +11032,7 @@ texCubemap(texture< T, 12, cudaReadModeNormalizedFloat> , float, float, float) {
 # 868
 { } 
 #endif
-# 992 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 992 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 993
 texCubemapLayered(texture< T, 252, cudaReadModeElementType> , float, float, float, int) {int volatile ___ = 1;::exit(___);}
@@ -11040,7 +11040,7 @@ texCubemapLayered(texture< T, 252, cudaReadModeElementType> , float, float, floa
 # 993
 { } 
 #endif
-# 995 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 995 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 996
 texCubemapLayered(texture< T, 252, cudaReadModeNormalizedFloat> , float, float, float, int) {int volatile ___ = 1;::exit(___);}
@@ -11048,7 +11048,7 @@ texCubemapLayered(texture< T, 252, cudaReadModeNormalizedFloat> , float, float, 
 # 996
 { } 
 #endif
-# 1121 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1121 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> 
 # 1122
 struct __nv_tex2dgather_ret { }; 
@@ -11132,7 +11132,7 @@ tex2Dgather(texture< T, 2, cudaReadModeElementType> , float, float, int = 0) {in
 # 1164
 { } 
 #endif
-# 1166 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1166 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static float4 
 # 1167
 tex2Dgather(texture< T, 2, cudaReadModeNormalizedFloat> , float, float, int = 0) {int volatile ___ = 1;::exit(___);}
@@ -11140,7 +11140,7 @@ tex2Dgather(texture< T, 2, cudaReadModeNormalizedFloat> , float, float, int = 0)
 # 1167
 { } 
 #endif
-# 1232 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1232 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1233
 tex1DLod(texture< T, 1, cudaReadModeElementType> , float, float) {int volatile ___ = 1;::exit(___);}
@@ -11148,7 +11148,7 @@ tex1DLod(texture< T, 1, cudaReadModeElementType> , float, float) {int volatile _
 # 1233
 { } 
 #endif
-# 1235 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1235 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 1236
 tex1DLod(texture< T, 1, cudaReadModeNormalizedFloat> , float, float) {int volatile ___ = 1;::exit(___);}
@@ -11156,7 +11156,7 @@ tex1DLod(texture< T, 1, cudaReadModeNormalizedFloat> , float, float) {int volati
 # 1236
 { } 
 #endif
-# 1360 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1360 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1361
 tex2DLod(texture< T, 2, cudaReadModeElementType> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11164,7 +11164,7 @@ tex2DLod(texture< T, 2, cudaReadModeElementType> , float, float, float) {int vol
 # 1361
 { } 
 #endif
-# 1363 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1363 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 1364
 tex2DLod(texture< T, 2, cudaReadModeNormalizedFloat> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11172,7 +11172,7 @@ tex2DLod(texture< T, 2, cudaReadModeNormalizedFloat> , float, float, float) {int
 # 1364
 { } 
 #endif
-# 1484 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1484 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1485
 tex1DLayeredLod(texture< T, 241, cudaReadModeElementType> , float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11180,7 +11180,7 @@ tex1DLayeredLod(texture< T, 241, cudaReadModeElementType> , float, int, float) {
 # 1485
 { } 
 #endif
-# 1487 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1487 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 1488
 tex1DLayeredLod(texture< T, 241, cudaReadModeNormalizedFloat> , float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11188,7 +11188,7 @@ tex1DLayeredLod(texture< T, 241, cudaReadModeNormalizedFloat> , float, int, floa
 # 1488
 { } 
 #endif
-# 1612 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1612 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1613
 tex2DLayeredLod(texture< T, 242, cudaReadModeElementType> , float, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11196,7 +11196,7 @@ tex2DLayeredLod(texture< T, 242, cudaReadModeElementType> , float, float, int, f
 # 1613
 { } 
 #endif
-# 1615 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1615 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 1616
 tex2DLayeredLod(texture< T, 242, cudaReadModeNormalizedFloat> , float, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11204,7 +11204,7 @@ tex2DLayeredLod(texture< T, 242, cudaReadModeNormalizedFloat> , float, float, in
 # 1616
 { } 
 #endif
-# 1740 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1740 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1741
 tex3DLod(texture< T, 3, cudaReadModeElementType> , float, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11212,7 +11212,7 @@ tex3DLod(texture< T, 3, cudaReadModeElementType> , float, float, float, float) {
 # 1741
 { } 
 #endif
-# 1743 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1743 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 1744
 tex3DLod(texture< T, 3, cudaReadModeNormalizedFloat> , float, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11220,7 +11220,7 @@ tex3DLod(texture< T, 3, cudaReadModeNormalizedFloat> , float, float, float, floa
 # 1744
 { } 
 #endif
-# 1868 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1868 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1869
 texCubemapLod(texture< T, 12, cudaReadModeElementType> , float, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11228,7 +11228,7 @@ texCubemapLod(texture< T, 12, cudaReadModeElementType> , float, float, float, fl
 # 1869
 { } 
 #endif
-# 1871 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1871 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 1872
 texCubemapLod(texture< T, 12, cudaReadModeNormalizedFloat> , float, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11236,7 +11236,7 @@ texCubemapLod(texture< T, 12, cudaReadModeNormalizedFloat> , float, float, float
 # 1872
 { } 
 #endif
-# 1996 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1996 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1997
 texCubemapLayeredLod(texture< T, 252, cudaReadModeElementType> , float, float, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11244,7 +11244,7 @@ texCubemapLayeredLod(texture< T, 252, cudaReadModeElementType> , float, float, f
 # 1997
 { } 
 #endif
-# 1999 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 1999 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 2000
 texCubemapLayeredLod(texture< T, 252, cudaReadModeNormalizedFloat> , float, float, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11252,7 +11252,7 @@ texCubemapLayeredLod(texture< T, 252, cudaReadModeNormalizedFloat> , float, floa
 # 2000
 { } 
 #endif
-# 2124 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2124 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 2125
 tex1DGrad(texture< T, 1, cudaReadModeElementType> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11260,7 +11260,7 @@ tex1DGrad(texture< T, 1, cudaReadModeElementType> , float, float, float) {int vo
 # 2125
 { } 
 #endif
-# 2127 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2127 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 2128
 tex1DGrad(texture< T, 1, cudaReadModeNormalizedFloat> , float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11268,7 +11268,7 @@ tex1DGrad(texture< T, 1, cudaReadModeNormalizedFloat> , float, float, float) {in
 # 2128
 { } 
 #endif
-# 2252 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2252 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 2253
 tex2DGrad(texture< T, 2, cudaReadModeElementType> , float, float, float2, float2) {int volatile ___ = 1;::exit(___);}
@@ -11276,7 +11276,7 @@ tex2DGrad(texture< T, 2, cudaReadModeElementType> , float, float, float2, float2
 # 2253
 { } 
 #endif
-# 2255 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2255 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 2256
 tex2DGrad(texture< T, 2, cudaReadModeNormalizedFloat> , float, float, float2, float2) {int volatile ___ = 1;::exit(___);}
@@ -11284,7 +11284,7 @@ tex2DGrad(texture< T, 2, cudaReadModeNormalizedFloat> , float, float, float2, fl
 # 2256
 { } 
 #endif
-# 2380 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2380 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 2381
 tex1DLayeredGrad(texture< T, 241, cudaReadModeElementType> , float, int, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11292,7 +11292,7 @@ tex1DLayeredGrad(texture< T, 241, cudaReadModeElementType> , float, int, float, 
 # 2381
 { } 
 #endif
-# 2383 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2383 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 2384
 tex1DLayeredGrad(texture< T, 241, cudaReadModeNormalizedFloat> , float, int, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11300,7 +11300,7 @@ tex1DLayeredGrad(texture< T, 241, cudaReadModeNormalizedFloat> , float, int, flo
 # 2384
 { } 
 #endif
-# 2509 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2509 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 2510
 tex2DLayeredGrad(texture< T, 242, cudaReadModeElementType> , float, float, int, float2, float2) {int volatile ___ = 1;::exit(___);}
@@ -11308,7 +11308,7 @@ tex2DLayeredGrad(texture< T, 242, cudaReadModeElementType> , float, float, int, 
 # 2510
 { } 
 #endif
-# 2512 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2512 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 2513
 tex2DLayeredGrad(texture< T, 242, cudaReadModeNormalizedFloat> , float, float, int, float2, float2) {int volatile ___ = 1;::exit(___);}
@@ -11316,7 +11316,7 @@ tex2DLayeredGrad(texture< T, 242, cudaReadModeNormalizedFloat> , float, float, i
 # 2513
 { } 
 #endif
-# 2637 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2637 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 2638
 tex3DGrad(texture< T, 3, cudaReadModeElementType> , float, float, float, float4, float4) {int volatile ___ = 1;::exit(___);}
@@ -11324,7 +11324,7 @@ tex3DGrad(texture< T, 3, cudaReadModeElementType> , float, float, float, float4,
 # 2638
 { } 
 #endif
-# 2640 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
+# 2640 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_fetch_functions.h"
 template< class T> __attribute__((unused)) static typename __nv_tex_rmnf_ret< T> ::type 
 # 2641
 tex3DGrad(texture< T, 3, cudaReadModeNormalizedFloat> , float, float, float, float4, float4) {int volatile ___ = 1;::exit(___);}
@@ -11332,7 +11332,7 @@ tex3DGrad(texture< T, 3, cudaReadModeNormalizedFloat> , float, float, float, flo
 # 2641
 { } 
 #endif
-# 67 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 67 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 68
 tex1Dfetch(T *, cudaTextureObject_t, int) {int volatile ___ = 1;::exit(___);}
@@ -11340,7 +11340,7 @@ tex1Dfetch(T *, cudaTextureObject_t, int) {int volatile ___ = 1;::exit(___);}
 # 68
 { } 
 #endif
-# 121 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 121 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 122
 tex1Dfetch(cudaTextureObject_t texObject, int x) 
@@ -11360,7 +11360,7 @@ return ret;
 # 127
 } 
 #endif
-# 135 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 135 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 136
 tex1D(T *, cudaTextureObject_t, float) {int volatile ___ = 1;::exit(___);}
@@ -11368,7 +11368,7 @@ tex1D(T *, cudaTextureObject_t, float) {int volatile ___ = 1;::exit(___);}
 # 136
 { } 
 #endif
-# 190 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 190 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 191
 tex1D(cudaTextureObject_t texObject, float x) 
@@ -11388,7 +11388,7 @@ return ret;
 # 196
 } 
 #endif
-# 205 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 205 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 206
 tex2D(T *, cudaTextureObject_t, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11396,7 +11396,7 @@ tex2D(T *, cudaTextureObject_t, float, float) {int volatile ___ = 1;::exit(___);
 # 206
 { } 
 #endif
-# 258 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 258 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 259
 tex2D(cudaTextureObject_t texObject, float x, float y) 
@@ -11416,7 +11416,7 @@ return ret;
 # 264
 } 
 #endif
-# 272 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 272 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 273
 tex3D(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11424,7 +11424,7 @@ tex3D(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;::exi
 # 273
 { } 
 #endif
-# 325 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 325 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 326
 tex3D(cudaTextureObject_t texObject, float x, float y, float z) 
@@ -11444,7 +11444,7 @@ return ret;
 # 331
 } 
 #endif
-# 340 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 340 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 341
 tex1DLayered(T *, cudaTextureObject_t, float, int) {int volatile ___ = 1;::exit(___);}
@@ -11452,7 +11452,7 @@ tex1DLayered(T *, cudaTextureObject_t, float, int) {int volatile ___ = 1;::exit(
 # 341
 { } 
 #endif
-# 393 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 393 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 394
 tex1DLayered(cudaTextureObject_t texObject, float x, int layer) 
@@ -11472,7 +11472,7 @@ return ret;
 # 399
 } 
 #endif
-# 408 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 408 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 409
 tex2DLayered(T *, cudaTextureObject_t, float, float, int) {int volatile ___ = 1;::exit(___);}
@@ -11480,7 +11480,7 @@ tex2DLayered(T *, cudaTextureObject_t, float, float, int) {int volatile ___ = 1;
 # 409
 { } 
 #endif
-# 461 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 461 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 462
 tex2DLayered(cudaTextureObject_t texObject, float x, float y, int layer) 
@@ -11500,7 +11500,7 @@ return ret;
 # 467
 } 
 #endif
-# 476 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 476 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 477
 texCubemap(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11508,7 +11508,7 @@ texCubemap(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;
 # 477
 { } 
 #endif
-# 529 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 529 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 530
 texCubemap(cudaTextureObject_t texObject, float x, float y, float z) 
@@ -11528,7 +11528,7 @@ return ret;
 # 535
 } 
 #endif
-# 544 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 544 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 545
 texCubemapLayered(T *, cudaTextureObject_t, float, float, float, int) {int volatile ___ = 1;::exit(___);}
@@ -11536,7 +11536,7 @@ texCubemapLayered(T *, cudaTextureObject_t, float, float, float, int) {int volat
 # 545
 { } 
 #endif
-# 598 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 598 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 599
 texCubemapLayered(cudaTextureObject_t texObject, float x, float y, float z, int layer) 
@@ -11556,7 +11556,7 @@ return ret;
 # 604
 } 
 #endif
-# 613 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 613 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 614
 tex2Dgather(T *, cudaTextureObject_t, float, float, int = 0) {int volatile ___ = 1;::exit(___);}
@@ -11564,7 +11564,7 @@ tex2Dgather(T *, cudaTextureObject_t, float, float, int = 0) {int volatile ___ =
 # 614
 { } 
 #endif
-# 660 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 660 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 661
 tex2Dgather(cudaTextureObject_t to, float x, float y, int comp = 0) 
@@ -11584,7 +11584,7 @@ return ret;
 # 666
 } 
 #endif
-# 675 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 675 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 676
 tex1DLod(T *, cudaTextureObject_t, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11592,7 +11592,7 @@ tex1DLod(T *, cudaTextureObject_t, float, float) {int volatile ___ = 1;::exit(__
 # 676
 { } 
 #endif
-# 728 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 728 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 729
 tex1DLod(cudaTextureObject_t texObject, float x, float level) 
@@ -11612,7 +11612,7 @@ return ret;
 # 734
 } 
 #endif
-# 743 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 743 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 744
 tex2DLod(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11620,7 +11620,7 @@ tex2DLod(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;::
 # 744
 { } 
 #endif
-# 797 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 797 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 798
 tex2DLod(cudaTextureObject_t texObject, float x, float y, float level) 
@@ -11640,7 +11640,7 @@ return ret;
 # 803
 } 
 #endif
-# 812 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 812 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 813
 tex3DLod(T *, cudaTextureObject_t, float, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11648,7 +11648,7 @@ tex3DLod(T *, cudaTextureObject_t, float, float, float, float) {int volatile ___
 # 813
 { } 
 #endif
-# 865 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 865 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 866
 tex3DLod(cudaTextureObject_t texObject, float x, float y, float z, float level) 
@@ -11668,7 +11668,7 @@ return ret;
 # 871
 } 
 #endif
-# 879 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 879 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 880
 tex1DLayeredLod(T *, cudaTextureObject_t, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11676,7 +11676,7 @@ tex1DLayeredLod(T *, cudaTextureObject_t, float, int, float) {int volatile ___ =
 # 880
 { } 
 #endif
-# 932 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 932 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 933
 tex1DLayeredLod(cudaTextureObject_t texObject, float x, int layer, float level) 
@@ -11696,7 +11696,7 @@ return ret;
 # 938
 } 
 #endif
-# 947 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 947 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 948
 tex2DLayeredLod(T *, cudaTextureObject_t, float, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11704,7 +11704,7 @@ tex2DLayeredLod(T *, cudaTextureObject_t, float, float, int, float) {int volatil
 # 948
 { } 
 #endif
-# 1000 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1000 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1001
 tex2DLayeredLod(cudaTextureObject_t texObject, float x, float y, int layer, float level) 
@@ -11724,7 +11724,7 @@ return ret;
 # 1006
 } 
 #endif
-# 1014 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1014 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1015
 texCubemapLod(T *, cudaTextureObject_t, float, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11732,7 +11732,7 @@ texCubemapLod(T *, cudaTextureObject_t, float, float, float, float) {int volatil
 # 1015
 { } 
 #endif
-# 1067 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1067 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1068
 texCubemapLod(cudaTextureObject_t texObject, float x, float y, float z, float level) 
@@ -11752,7 +11752,7 @@ return ret;
 # 1073
 } 
 #endif
-# 1081 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1081 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1082
 texCubemapLayeredLod(T *, cudaTextureObject_t, float, float, float, int, float) {int volatile ___ = 1;::exit(___);}
@@ -11760,7 +11760,7 @@ texCubemapLayeredLod(T *, cudaTextureObject_t, float, float, float, int, float) 
 # 1082
 { } 
 #endif
-# 1134 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1134 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1135
 texCubemapLayeredLod(cudaTextureObject_t texObject, float x, float y, float z, int layer, float level) 
@@ -11780,7 +11780,7 @@ return ret;
 # 1140
 } 
 #endif
-# 1148 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1148 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1149
 tex1DGrad(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11788,7 +11788,7 @@ tex1DGrad(T *, cudaTextureObject_t, float, float, float) {int volatile ___ = 1;:
 # 1149
 { } 
 #endif
-# 1202 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1202 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1203
 tex1DGrad(cudaTextureObject_t texObject, float x, float dPdx, float dPdy) 
@@ -11808,7 +11808,7 @@ return ret;
 # 1208
 } 
 #endif
-# 1216 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1216 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1217
 tex2DGrad(T *, cudaTextureObject_t, float, float, float2, float2) {int volatile ___ = 1;::exit(___);}
@@ -11816,7 +11816,7 @@ tex2DGrad(T *, cudaTextureObject_t, float, float, float2, float2) {int volatile 
 # 1217
 { } 
 #endif
-# 1269 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1269 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1270
 tex2DGrad(cudaTextureObject_t texObject, float x, float y, float2 dPdx, float2 dPdy) 
@@ -11836,7 +11836,7 @@ return ret;
 # 1275
 } 
 #endif
-# 1283 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1283 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1284
 tex3DGrad(T *, cudaTextureObject_t, float, float, float, float4, float4) {int volatile ___ = 1;::exit(___);}
@@ -11844,7 +11844,7 @@ tex3DGrad(T *, cudaTextureObject_t, float, float, float, float4, float4) {int vo
 # 1284
 { } 
 #endif
-# 1336 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1336 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1337
 tex3DGrad(cudaTextureObject_t texObject, float x, float y, float z, float4 dPdx, float4 dPdy) 
@@ -11864,7 +11864,7 @@ return ret;
 # 1342
 } 
 #endif
-# 1350 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1350 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1351
 tex1DLayeredGrad(T *, cudaTextureObject_t, float, int, float, float) {int volatile ___ = 1;::exit(___);}
@@ -11872,7 +11872,7 @@ tex1DLayeredGrad(T *, cudaTextureObject_t, float, int, float, float) {int volati
 # 1351
 { } 
 #endif
-# 1404 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1404 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1405
 tex1DLayeredGrad(cudaTextureObject_t texObject, float x, int layer, float dPdx, float dPdy) 
@@ -11892,7 +11892,7 @@ return ret;
 # 1410
 } 
 #endif
-# 1418 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1418 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 1419
 tex2DLayeredGrad(T *, cudaTextureObject_t, float, float, int, float2, float2) {int volatile ___ = 1;::exit(___);}
@@ -11900,7 +11900,7 @@ tex2DLayeredGrad(T *, cudaTextureObject_t, float, float, int, float2, float2) {i
 # 1419
 { } 
 #endif
-# 1471 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
+# 1471 "/usr/local/cuda/bin/../targets/x86_64-linux/include/texture_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 1472
 tex2DLayeredGrad(cudaTextureObject_t texObject, float x, float y, int layer, float2 dPdx, float2 dPdy) 
@@ -11920,7 +11920,7 @@ return ret;
 # 1477
 } 
 #endif
-# 68 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 68 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 69
 surf1Dread(T *, cudaSurfaceObject_t, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -11928,7 +11928,7 @@ surf1Dread(T *, cudaSurfaceObject_t, int, cudaSurfaceBoundaryMode = cudaBoundary
 # 69
 { } 
 #endif
-# 111 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 111 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 112
 surf1Dread(cudaSurfaceObject_t surfObject, int x, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -11942,7 +11942,7 @@ surf1Dread(cudaSurfaceObject_t surfObject, int x, cudaSurfaceBoundaryMode bounda
 # 119
 } 
 #endif
-# 128 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 128 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 129
 surf2Dread(T *, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -11950,7 +11950,7 @@ surf2Dread(T *, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = cudaBou
 # 129
 { } 
 #endif
-# 172 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 172 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 173
 surf2Dread(cudaSurfaceObject_t surfObject, int x, int y, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -11964,7 +11964,7 @@ surf2Dread(cudaSurfaceObject_t surfObject, int x, int y, cudaSurfaceBoundaryMode
 # 180
 } 
 #endif
-# 189 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 189 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 190
 surf3Dread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -11972,7 +11972,7 @@ surf3Dread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cu
 # 190
 { } 
 #endif
-# 231 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 231 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 232
 surf3Dread(cudaSurfaceObject_t surfObject, int x, int y, int z, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -11986,7 +11986,7 @@ surf3Dread(cudaSurfaceObject_t surfObject, int x, int y, int z, cudaSurfaceBound
 # 239
 } 
 #endif
-# 247 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 247 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 248
 surf1DLayeredread(T *, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -11994,7 +11994,7 @@ surf1DLayeredread(T *, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = 
 # 248
 { } 
 #endif
-# 290 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 290 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 291
 surf1DLayeredread(cudaSurfaceObject_t surfObject, int x, int layer, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -12008,7 +12008,7 @@ surf1DLayeredread(cudaSurfaceObject_t surfObject, int x, int layer, cudaSurfaceB
 # 298
 } 
 #endif
-# 306 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 306 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 307
 surf2DLayeredread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12016,7 +12016,7 @@ surf2DLayeredread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMo
 # 307
 { } 
 #endif
-# 348 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 348 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 349
 surf2DLayeredread(cudaSurfaceObject_t surfObject, int x, int y, int layer, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -12030,7 +12030,7 @@ surf2DLayeredread(cudaSurfaceObject_t surfObject, int x, int y, int layer, cudaS
 # 356
 } 
 #endif
-# 364 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 364 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 365
 surfCubemapread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12038,7 +12038,7 @@ surfCubemapread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode
 # 365
 { } 
 #endif
-# 406 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 406 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 407
 surfCubemapread(cudaSurfaceObject_t surfObject, int x, int y, int face, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -12052,7 +12052,7 @@ surfCubemapread(cudaSurfaceObject_t surfObject, int x, int y, int face, cudaSurf
 # 414
 } 
 #endif
-# 422 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 422 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 423
 surfCubemapLayeredread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12060,7 +12060,7 @@ surfCubemapLayeredread(T *, cudaSurfaceObject_t, int, int, int, cudaSurfaceBound
 # 423
 { } 
 #endif
-# 464 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 464 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static T 
 # 465
 surfCubemapLayeredread(cudaSurfaceObject_t surfObject, int x, int y, int layerface, cudaSurfaceBoundaryMode boundaryMode = cudaBoundaryModeTrap) 
@@ -12074,7 +12074,7 @@ surfCubemapLayeredread(cudaSurfaceObject_t surfObject, int x, int y, int layerfa
 # 472
 } 
 #endif
-# 480 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 480 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 481
 surf1Dwrite(T, cudaSurfaceObject_t, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12082,7 +12082,7 @@ surf1Dwrite(T, cudaSurfaceObject_t, int, cudaSurfaceBoundaryMode = cudaBoundaryM
 # 481
 { } 
 #endif
-# 528 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 528 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 529
 surf2Dwrite(T, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12090,7 +12090,7 @@ surf2Dwrite(T, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = cudaBoun
 # 529
 { } 
 #endif
-# 576 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 576 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 577
 surf3Dwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12098,7 +12098,7 @@ surf3Dwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cud
 # 577
 { } 
 #endif
-# 626 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 626 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 627
 surf1DLayeredwrite(T, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12106,7 +12106,7 @@ surf1DLayeredwrite(T, cudaSurfaceObject_t, int, int, cudaSurfaceBoundaryMode = c
 # 627
 { } 
 #endif
-# 675 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 675 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 676
 surf2DLayeredwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12114,7 +12114,7 @@ surf2DLayeredwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMod
 # 676
 { } 
 #endif
-# 723 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 723 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 724
 surfCubemapwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12122,7 +12122,7 @@ surfCubemapwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode 
 # 724
 { } 
 #endif
-# 771 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
+# 771 "/usr/local/cuda/bin/../targets/x86_64-linux/include/surface_indirect_functions.h"
 template< class T> __attribute__((unused)) static void 
 # 772
 surfCubemapLayeredwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBoundaryMode = cudaBoundaryModeTrap) {int volatile ___ = 1;::exit(___);}
@@ -12130,7 +12130,7 @@ surfCubemapLayeredwrite(T, cudaSurfaceObject_t, int, int, int, cudaSurfaceBounda
 # 772
 { } 
 #endif
-# 68 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/device_launch_parameters.h"
+# 68 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_launch_parameters.h"
 extern "C" {
 # 71
 extern const uint3 __device_builtin_variable_threadIdx; 
@@ -12144,7 +12144,7 @@ extern const dim3 __device_builtin_variable_gridDim;
 extern const int __device_builtin_variable_warpSize; 
 # 80
 }
-# 183 "/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include/cuda_runtime.h"
+# 183 "/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h"
 template< class T> static inline cudaError_t 
 # 184
 cudaLaunchKernel(const T *

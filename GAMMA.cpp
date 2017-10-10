@@ -27,6 +27,7 @@
 #include <MaterialManager.h>
 #include <ThermalIsoManager.h>
 #include <vtuBinWriter.h>
+#include <deviceHeader.h>
 
 using namespace std;
 
@@ -162,6 +163,11 @@ int main(int arg, char *argv[])
   // set up output manager
   vtuBinWriter * vtuMgr = new vtuBinWriter(domainMgr, heatMgr, outFile);
   vtuMgr->execute();
+
+  //test
+  createDataOnDeveice(heatMgr, domainMgr);
+
+  return 0;
 
   // time integrator
   while (domainMgr->currTime_ <= simTime)

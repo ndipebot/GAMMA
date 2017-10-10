@@ -80,7 +80,7 @@ DomainManager::createElementList()
   {
     HexahedralElement* ele = new HexahedralElement;
 	int elementID = it->first;
-	ele->globId= elementID;
+	ele->globId = elementID;
 	element_global_to_local_[elementID] = eleCnt;
 	element_local_to_global_.push_back(elementID);
     vector<int> localNode = it->second;

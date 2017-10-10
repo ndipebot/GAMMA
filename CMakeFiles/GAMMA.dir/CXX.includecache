@@ -61,6 +61,8 @@ ThermalIsoManager.h
 -
 vtuBinWriter.h
 -
+deviceHeader.h
+-
 
 include/BCManager.h
 Element.h
@@ -170,6 +172,12 @@ vector
 HeatSolverManager.h
 -
 MaterialManager.h
+-
+
+include/deviceHeader.h
+DomainManager.h
+-
+HeatSolverManager.h
 -
 
 include/dynaInput.h

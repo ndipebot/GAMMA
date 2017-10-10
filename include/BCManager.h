@@ -37,6 +37,7 @@ public:
   vector <Surface> staticSurfList_;
   vector <Surface> surfaceList_;
   double *tooltxyz_ = new double[3];
+  int laserState_;
 
   // Might need to readjust these later
   vector <int> activeBirthSurfaces_;

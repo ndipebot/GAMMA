@@ -33,7 +33,7 @@ public:
   vector <double> rhs_;
   vector <double> Mvec_;
   int ngp_, nn_, nel_;
-  double dt_, initTheta_, probeTime_;
+  double dt_, initTheta_, probeTime_, sumEnergyNp1_, sumEnergyN_;
   double *Nip_;
   BCManager *heatBCManager_;
   
@@ -65,6 +65,8 @@ public:
   void post_work();
 
   void outputProbeData();
+
+  void outputEnergyData();
 
 };
 

@@ -9,6 +9,7 @@ public:
   MovingFlxManager(
        double *gpCoords,
        double *toolxyz,
+       int &laserState,
        double &rBeam,
        double &Qin,
        int *surfaceNodes,
@@ -21,6 +22,7 @@ public:
 
   double *gpCoords_;
   double *toolxyz_;
+  int &laserState_;
   double Qin_;
   double rBeam_;
   double *Nip_;

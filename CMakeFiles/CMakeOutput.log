@@ -12,31 +12,176 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 
 The CXX compiler identification is GNU, found in "/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/3.9.1/CompilerIdCXX/a.out"
 
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" succeeded.
+Compiler: /usr/local/cuda/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+0
+nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/local/cuda/bin
+#$ _THERE_=/usr/local/cuda/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_DIR_=targets/x86_64-linux
+#$ TOP=/usr/local/cuda/bin/..
+#$ NVVMIR_LIBRARY_DIR=/usr/local/cuda/bin/../nvvm/libdevice
+#$ LD_LIBRARY_PATH=/usr/local/cuda/bin/../lib::/usr/local/cuda/lib64:/lib:/usr/local/cuda/lib64:/lib
+#$ PATH=/usr/local/cuda/bin/../open64/bin:/usr/local/cuda/bin/../nvvm/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/opt/intel/bin/:/usr/local/cuda/bin/:/usr/local/cuda-6.0/bin/:/opt/intel/bin/:/usr/local/cuda/bin/:/usr/local/cuda-8.0/bin/
+#$ INCLUDES="-I/usr/local/cuda/bin/../targets/x86_64-linux/include"  
+#$ LIBRARIES=  "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib"
+#$ CUDAFE_FLAGS=
+#$ PTXAS_FLAGS=
+#$ rm tmp/a_dlink.reg.c
+#$ gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp1.ii" 
+#$ cudafe --allow_managed --m64 --gnu_version=40804 -tused --no_remove_unneeded_entities  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu" --nv_arch "compute_20" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp1.ii" 
+#$ gcc -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp4.ii" 
+#$ cudafe++ --allow_managed --m64 --gnu_version=40804 --parse_templates  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" 
+#$ gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__ -D__CUDANVVM__  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.gpu" > "tmp/CMakeCUDACompilerId.cpp2.i" 
+#$ cudafe -w --allow_managed --m64 --gnu_version=40804 --c  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe2.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe2.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe2.gpu" --nv_arch "compute_20" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp2.i" 
+#$ gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDABE__ -D__CUDANVVM__ -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe2.gpu" > "tmp/CMakeCUDACompilerId.cpp3.i" 
+#$ cicc  -arch compute_20 -m64 -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 -nvvmir-library "/usr/local/cuda/bin/../nvvm/libdevice/libdevice.compute_20.10.bc" --orig_src_file_name "CMakeCUDACompilerId.cu"  "tmp/CMakeCUDACompilerId.cpp3.i" -o "tmp/CMakeCUDACompilerId.ptx"
+#$ ptxas  -arch=sm_20 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_20.cubin" 
+#$ fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 "--image=profile=sm_20,file=tmp/CMakeCUDACompilerId.sm_20.cubin" "--image=profile=compute_20,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" --cuda
+#$ gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" > "tmp/CMakeCUDACompilerId.cu.cpp.ii" 
+#$ gcc -c -x c++ "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -fpreprocessed -m64 -o "tmp/CMakeCUDACompilerId.o" "tmp/CMakeCUDACompilerId.cu.cpp.ii" 
+#$ nvlink --arch=sm_20 --register-link-binaries="tmp/a_dlink.reg.c" -m64   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -o "tmp/a_dlink.sm_20.cubin"
+#$ fatbinary --create="tmp/a_dlink.fatbin" -64 -link "--image=profile=sm_20,file=tmp/a_dlink.sm_20.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" 
+#$ gcc -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -m64 -o "tmp/a_dlink.o" "/usr/local/cuda/bin/crt/link.stub" 
+#$ g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group 
+
+
+Compilation of the CUDA compiler identification source "CMakeCUDACompilerId.cu" produced "a.out"
+
+The CUDA compiler identification is NVIDIA, found in "/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/3.9.1/CompilerIdCUDA/a.out"
+
+Parsed CUDA nvcc implicit link information from above output:
+  found 'LIBRARIES=' string: ["-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib"]
+  considering line: [nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).]
+  considering line: [rm tmp/a_dlink.reg.c]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp1.ii" ]
+  considering line: [cudafe --allow_managed --m64 --gnu_version=40804 -tused --no_remove_unneeded_entities  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu" --nv_arch "compute_20" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp1.ii" ]
+  considering line: [gcc -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [cudafe++ --allow_managed --m64 --gnu_version=40804 --parse_templates  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__ -D__CUDANVVM__  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.gpu" > "tmp/CMakeCUDACompilerId.cpp2.i" ]
+  considering line: [cudafe -w --allow_managed --m64 --gnu_version=40804 --c  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe2.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe2.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe2.gpu" --nv_arch "compute_20" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp2.i" ]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDABE__ -D__CUDANVVM__ -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe2.gpu" > "tmp/CMakeCUDACompilerId.cpp3.i" ]
+  considering line: [cicc  -arch compute_20 -m64 -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 -nvvmir-library "/usr/local/cuda/bin/../nvvm/libdevice/libdevice.compute_20.10.bc" --orig_src_file_name "CMakeCUDACompilerId.cu"  "tmp/CMakeCUDACompilerId.cpp3.i" -o "tmp/CMakeCUDACompilerId.ptx"]
+  considering line: [ptxas  -arch=sm_20 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_20.cubin" ]
+  considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 "--image=profile=sm_20,file=tmp/CMakeCUDACompilerId.sm_20.cubin" "--image=profile=compute_20,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" --cuda]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" > "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
+  considering line: [gcc -c -x c++ "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -fpreprocessed -m64 -o "tmp/CMakeCUDACompilerId.o" "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
+  considering line: [nvlink --arch=sm_20 --register-link-binaries="tmp/a_dlink.reg.c" -m64   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -o "tmp/a_dlink.sm_20.cubin"]
+    ignoring nvlink line
+  considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 -link "--image=profile=sm_20,file=tmp/a_dlink.sm_20.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
+  considering line: [gcc -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -m64 -o "tmp/a_dlink.o" "/usr/local/cuda/bin/crt/link.stub" ]
+  considering line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
+    extracted link line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
+  considering line: []
+
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  link line: [cuda-fake-ld g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
+    arg [cuda-fake-ld] ==> ignore
+    arg [g++] ==> ignore
+    arg [-m64] ==> ignore
+    arg [-o] ==> ignore
+    arg [a.out] ==> ignore
+    arg [-Wl,--start-group] ==> ignore
+    arg [tmp/a_dlink.o] ==> ignore
+    arg [tmp/CMakeCUDACompilerId.o] ==> ignore
+    arg [-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs]
+    arg [-L/usr/local/cuda/bin/../targets/x86_64-linux/lib] ==> dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib]
+    arg [-lcudadevrt] ==> lib [cudadevrt]
+    arg [-lcudart_static] ==> lib [cudart_static]
+    arg [-lrt] ==> lib [rt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ldl] ==> lib [dl]
+    arg [-Wl,--end-group] ==> ignore
+  collapse library dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs] ==> [/usr/local/cuda/targets/x86_64-linux/lib/stubs]
+  collapse library dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib] ==> [/usr/local/cuda/targets/x86_64-linux/lib]
+  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
+  implicit dirs: [/usr/local/cuda/targets/x86_64-linux/lib/stubs;/usr/local/cuda/targets/x86_64-linux/lib]
+  implicit fwks: []
+
+
+Parsed CUDA nvcc include information from above output:
+  found 'LIBRARIES=' string: ["-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib"]
+  considering line: [nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).]
+  considering line: [rm tmp/a_dlink.reg.c]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp1.ii" ]
+  considering line: [cudafe --allow_managed --m64 --gnu_version=40804 -tused --no_remove_unneeded_entities  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu" --nv_arch "compute_20" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp1.ii" ]
+  considering line: [gcc -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [cudafe++ --allow_managed --m64 --gnu_version=40804 --parse_templates  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__ -D__CUDANVVM__  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.gpu" > "tmp/CMakeCUDACompilerId.cpp2.i" ]
+  considering line: [cudafe -w --allow_managed --m64 --gnu_version=40804 --c  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe2.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe2.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe2.gpu" --nv_arch "compute_20" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp2.i" ]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDABE__ -D__CUDANVVM__ -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe2.gpu" > "tmp/CMakeCUDACompilerId.cpp3.i" ]
+  considering line: [cicc  -arch compute_20 -m64 -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 -nvvmir-library "/usr/local/cuda/bin/../nvvm/libdevice/libdevice.compute_20.10.bc" --orig_src_file_name "CMakeCUDACompilerId.cu"  "tmp/CMakeCUDACompilerId.cpp3.i" -o "tmp/CMakeCUDACompilerId.ptx"]
+  considering line: [ptxas  -arch=sm_20 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_20.cubin" ]
+  considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 "--image=profile=sm_20,file=tmp/CMakeCUDACompilerId.sm_20.cubin" "--image=profile=compute_20,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" --cuda]
+  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" > "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
+  considering line: [gcc -c -x c++ "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -fpreprocessed -m64 -o "tmp/CMakeCUDACompilerId.o" "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
+  considering line: [nvlink --arch=sm_20 --register-link-binaries="tmp/a_dlink.reg.c" -m64   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -o "tmp/a_dlink.sm_20.cubin"]
+    ignoring nvlink line
+  considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 -link "--image=profile=sm_20,file=tmp/a_dlink.sm_20.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
+  considering line: [gcc -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. "-I/usr/local/cuda/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -m64 -o "tmp/a_dlink.o" "/usr/local/cuda/bin/crt/link.stub" ]
+  considering line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
+    extracted link line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
+  considering line: []
+  found 'INCLUDES=' string: ["-I/usr/local/cuda/bin/../targets/x86_64-linux/include"  ]
+
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  link line: [cuda-fake-ld g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
+    arg [cuda-fake-ld] ==> ignore
+    arg [g++] ==> ignore
+    arg [-m64] ==> ignore
+    arg [-o] ==> ignore
+    arg [a.out] ==> ignore
+    arg [-Wl,--start-group] ==> ignore
+    arg [tmp/a_dlink.o] ==> ignore
+    arg [tmp/CMakeCUDACompilerId.o] ==> ignore
+    arg [-L/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs]
+    arg [-L/usr/local/cuda/bin/../targets/x86_64-linux/lib] ==> dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib]
+    arg [-lcudadevrt] ==> lib [cudadevrt]
+    arg [-lcudart_static] ==> lib [cudart_static]
+    arg [-lrt] ==> lib [rt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ldl] ==> lib [dl]
+    arg [-Wl,--end-group] ==> ignore
+  collapse library dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib/stubs] ==> [/usr/local/cuda/targets/x86_64-linux/lib/stubs]
+  collapse library dir [/usr/local/cuda/bin/../targets/x86_64-linux/lib] ==> [/usr/local/cuda/targets/x86_64-linux/lib]
+  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
+  implicit dirs: [/usr/local/cuda/targets/x86_64-linux/lib/stubs;/usr/local/cuda/targets/x86_64-linux/lib]
+  implicit fwks: []
+
+
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_06b27/fast"
-/usr/bin/make -f CMakeFiles/cmTC_06b27.dir/build.make CMakeFiles/cmTC_06b27.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fd90e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fd90e.dir/build.make CMakeFiles/cmTC_fd90e.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_06b27.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_06b27.dir/testCXXCompiler.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_06b27
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06b27.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_06b27.dir/testCXXCompiler.cxx.o  -o cmTC_06b27 
+Building CXX object CMakeFiles/cmTC_fd90e.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_fd90e.dir/testCXXCompiler.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_fd90e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd90e.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_fd90e.dir/testCXXCompiler.cxx.o  -o cmTC_fd90e 
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6c41b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6c41b.dir/build.make CMakeFiles/cmTC_6c41b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_858b6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_858b6.dir/build.make CMakeFiles/cmTC_858b6.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_6c41b
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c41b.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6c41b 
+Building CXX object CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_858b6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_858b6.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_858b6 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -46,8 +191,8 @@ Thread model: posix
 gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6c41b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_6c41b /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_858b6' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_858b6 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
@@ -55,14 +200,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_6c41b/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_6c41b.dir/build.make CMakeFiles/cmTC_6c41b.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_858b6/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_858b6.dir/build.make CMakeFiles/cmTC_858b6.dir/build]
   ignore line: [make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_6c41b]
-  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c41b.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6c41b ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.9/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_858b6]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_858b6.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_858b6 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
@@ -72,8 +217,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6c41b' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_6c41b /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_858b6' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_858b6 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -86,7 +231,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6c41b] ==> ignore
+    arg [cmTC_858b6] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -98,7 +243,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTC_6c41b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_858b6.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -126,14 +271,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1y] compiler features compiled with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c2d35/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c2d35.dir/build.make CMakeFiles/cmTC_c2d35.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_35dee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_35dee.dir/build.make CMakeFiles/cmTC_35dee.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c2d35.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTC_c2d35.dir/feature_tests.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c2d35
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2d35.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_c2d35.dir/feature_tests.cxx.o  -o cmTC_c2d35 
+Building CXX object CMakeFiles/cmTC_35dee.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTC_35dee.dir/feature_tests.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_35dee
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35dee.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_35dee.dir/feature_tests.cxx.o  -o cmTC_35dee 
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
@@ -199,14 +344,14 @@ make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/C
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_04f90/fast"
-/usr/bin/make -f CMakeFiles/cmTC_04f90.dir/build.make CMakeFiles/cmTC_04f90.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3b73f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3b73f.dir/build.make CMakeFiles/cmTC_3b73f.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_04f90.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_04f90.dir/feature_tests.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_04f90
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04f90.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_04f90.dir/feature_tests.cxx.o  -o cmTC_04f90 
+Building CXX object CMakeFiles/cmTC_3b73f.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_3b73f.dir/feature_tests.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_3b73f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b73f.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_3b73f.dir/feature_tests.cxx.o  -o cmTC_3b73f 
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
@@ -272,14 +417,14 @@ make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/C
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_891cd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_891cd.dir/build.make CMakeFiles/cmTC_891cd.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_362c7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_362c7.dir/build.make CMakeFiles/cmTC_362c7.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_891cd.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_891cd.dir/feature_tests.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_891cd
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_891cd.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_891cd.dir/feature_tests.cxx.o  -o cmTC_891cd 
+Building CXX object CMakeFiles/cmTC_362c7.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_362c7.dir/feature_tests.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_362c7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_362c7.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_362c7.dir/feature_tests.cxx.o  -o cmTC_362c7 
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
@@ -340,184 +485,39 @@ make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/C
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
-Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" succeeded.
-Compiler: /usr/local/cuda-8.0/bin/nvcc 
-Build flags: 
-Id flags:  -v;--keep;--keep-dir;tmp
-
-The output was:
-0
-nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-#$ _SPACE_= 
-#$ _CUDART_=cudart
-#$ _HERE_=/usr/local/cuda-8.0/bin
-#$ _THERE_=/usr/local/cuda-8.0/bin
-#$ _TARGET_SIZE_=
-#$ _TARGET_DIR_=
-#$ _TARGET_DIR_=targets/x86_64-linux
-#$ TOP=/usr/local/cuda-8.0/bin/..
-#$ NVVMIR_LIBRARY_DIR=/usr/local/cuda-8.0/bin/../nvvm/libdevice
-#$ LD_LIBRARY_PATH=/usr/local/cuda-8.0/bin/../lib::/usr/local/cuda/lib64:/lib
-#$ PATH=/usr/local/cuda-8.0/bin/../open64/bin:/usr/local/cuda-8.0/bin/../nvvm/bin:/usr/local/cuda-8.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/opt/intel/bin/:/usr/local/cuda/bin/:/usr/local/cuda-6.0/bin/
-#$ INCLUDES="-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"  
-#$ LIBRARIES=  "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib"
-#$ CUDAFE_FLAGS=
-#$ PTXAS_FLAGS=
-#$ rm tmp/a_dlink.reg.c
-#$ gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp1.ii" 
-#$ cudafe --allow_managed --m64 --gnu_version=40804 -tused --no_remove_unneeded_entities  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu" --nv_arch "compute_20" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp1.ii" 
-#$ gcc -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp4.ii" 
-#$ cudafe++ --allow_managed --m64 --gnu_version=40804 --parse_templates  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" 
-#$ gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__ -D__CUDANVVM__  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.gpu" > "tmp/CMakeCUDACompilerId.cpp2.i" 
-#$ cudafe -w --allow_managed --m64 --gnu_version=40804 --c  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe2.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe2.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe2.gpu" --nv_arch "compute_20" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp2.i" 
-#$ gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDABE__ -D__CUDANVVM__ -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe2.gpu" > "tmp/CMakeCUDACompilerId.cpp3.i" 
-#$ cicc  -arch compute_20 -m64 -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 -nvvmir-library "/usr/local/cuda-8.0/bin/../nvvm/libdevice/libdevice.compute_20.10.bc" --orig_src_file_name "CMakeCUDACompilerId.cu"  "tmp/CMakeCUDACompilerId.cpp3.i" -o "tmp/CMakeCUDACompilerId.ptx"
-#$ ptxas  -arch=sm_20 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_20.cubin" 
-#$ fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 "--image=profile=sm_20,file=tmp/CMakeCUDACompilerId.sm_20.cubin" "--image=profile=compute_20,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" --cuda
-#$ gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" > "tmp/CMakeCUDACompilerId.cu.cpp.ii" 
-#$ gcc -c -x c++ "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -fpreprocessed -m64 -o "tmp/CMakeCUDACompilerId.o" "tmp/CMakeCUDACompilerId.cu.cpp.ii" 
-#$ nvlink --arch=sm_20 --register-link-binaries="tmp/a_dlink.reg.c" -m64   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -o "tmp/a_dlink.sm_20.cubin"
-#$ fatbinary --create="tmp/a_dlink.fatbin" -64 -link "--image=profile=sm_20,file=tmp/a_dlink.sm_20.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" 
-#$ gcc -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -m64 -o "tmp/a_dlink.o" "/usr/local/cuda-8.0/bin/crt/link.stub" 
-#$ g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group 
-
-
-Compilation of the CUDA compiler identification source "CMakeCUDACompilerId.cu" produced "a.out"
-
-The CUDA compiler identification is NVIDIA, found in "/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/3.9.1/CompilerIdCUDA/a.out"
-
-Parsed CUDA nvcc implicit link information from above output:
-  found 'LIBRARIES=' string: ["-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib"]
-  considering line: [nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).]
-  considering line: [rm tmp/a_dlink.reg.c]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp1.ii" ]
-  considering line: [cudafe --allow_managed --m64 --gnu_version=40804 -tused --no_remove_unneeded_entities  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu" --nv_arch "compute_20" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp1.ii" ]
-  considering line: [gcc -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp4.ii" ]
-  considering line: [cudafe++ --allow_managed --m64 --gnu_version=40804 --parse_templates  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__ -D__CUDANVVM__  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.gpu" > "tmp/CMakeCUDACompilerId.cpp2.i" ]
-  considering line: [cudafe -w --allow_managed --m64 --gnu_version=40804 --c  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe2.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe2.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe2.gpu" --nv_arch "compute_20" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp2.i" ]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDABE__ -D__CUDANVVM__ -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe2.gpu" > "tmp/CMakeCUDACompilerId.cpp3.i" ]
-  considering line: [cicc  -arch compute_20 -m64 -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 -nvvmir-library "/usr/local/cuda-8.0/bin/../nvvm/libdevice/libdevice.compute_20.10.bc" --orig_src_file_name "CMakeCUDACompilerId.cu"  "tmp/CMakeCUDACompilerId.cpp3.i" -o "tmp/CMakeCUDACompilerId.ptx"]
-  considering line: [ptxas  -arch=sm_20 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_20.cubin" ]
-  considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 "--image=profile=sm_20,file=tmp/CMakeCUDACompilerId.sm_20.cubin" "--image=profile=compute_20,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" --cuda]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" > "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
-  considering line: [gcc -c -x c++ "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -fpreprocessed -m64 -o "tmp/CMakeCUDACompilerId.o" "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
-  considering line: [nvlink --arch=sm_20 --register-link-binaries="tmp/a_dlink.reg.c" -m64   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -o "tmp/a_dlink.sm_20.cubin"]
-    ignoring nvlink line
-  considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 -link "--image=profile=sm_20,file=tmp/a_dlink.sm_20.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
-  considering line: [gcc -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -m64 -o "tmp/a_dlink.o" "/usr/local/cuda-8.0/bin/crt/link.stub" ]
-  considering line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
-    extracted link line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
-  considering line: []
-
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  link line: [cuda-fake-ld g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
-    arg [cuda-fake-ld] ==> ignore
-    arg [g++] ==> ignore
-    arg [-m64] ==> ignore
-    arg [-o] ==> ignore
-    arg [a.out] ==> ignore
-    arg [-Wl,--start-group] ==> ignore
-    arg [tmp/a_dlink.o] ==> ignore
-    arg [tmp/CMakeCUDACompilerId.o] ==> ignore
-    arg [-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs]
-    arg [-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib] ==> dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib]
-    arg [-lcudadevrt] ==> lib [cudadevrt]
-    arg [-lcudart_static] ==> lib [cudart_static]
-    arg [-lrt] ==> lib [rt]
-    arg [-lpthread] ==> lib [pthread]
-    arg [-ldl] ==> lib [dl]
-    arg [-Wl,--end-group] ==> ignore
-  collapse library dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs] ==> [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs]
-  collapse library dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib] ==> [/usr/local/cuda-8.0/targets/x86_64-linux/lib]
-  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
-  implicit dirs: [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs;/usr/local/cuda-8.0/targets/x86_64-linux/lib]
-  implicit fwks: []
-
-
-Parsed CUDA nvcc include information from above output:
-  found 'LIBRARIES=' string: ["-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib"]
-  considering line: [nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).]
-  considering line: [rm tmp/a_dlink.reg.c]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp1.ii" ]
-  considering line: [cudafe --allow_managed --m64 --gnu_version=40804 -tused --no_remove_unneeded_entities  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu" --nv_arch "compute_20" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp1.ii" ]
-  considering line: [gcc -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" > "tmp/CMakeCUDACompilerId.cpp4.ii" ]
-  considering line: [cudafe++ --allow_managed --m64 --gnu_version=40804 --parse_templates  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDACC__ -D__NVCC__ -D__CUDANVVM__  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.gpu" > "tmp/CMakeCUDACompilerId.cpp2.i" ]
-  considering line: [cudafe -w --allow_managed --m64 --gnu_version=40804 --c  --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe2.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe2.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe2.gpu" --nv_arch "compute_20" --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --include_file_name "CMakeCUDACompilerId.fatbin.c" "tmp/CMakeCUDACompilerId.cpp2.i" ]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__CUDABE__ -D__CUDANVVM__ -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe2.gpu" > "tmp/CMakeCUDACompilerId.cpp3.i" ]
-  considering line: [cicc  -arch compute_20 -m64 -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 -nvvmir-library "/usr/local/cuda-8.0/bin/../nvvm/libdevice/libdevice.compute_20.10.bc" --orig_src_file_name "CMakeCUDACompilerId.cu"  "tmp/CMakeCUDACompilerId.cpp3.i" -o "tmp/CMakeCUDACompilerId.ptx"]
-  considering line: [ptxas  -arch=sm_20 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_20.cubin" ]
-  considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 "--image=profile=sm_20,file=tmp/CMakeCUDACompilerId.sm_20.cubin" "--image=profile=compute_20,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" --cuda]
-  considering line: [gcc -D__CUDA_ARCH__=200 -E -x c++           -DCUDA_DOUBLE_MATH_FUNCTIONS  -D__USE_FAST_MATH__=0  -D__CUDA_FTZ=0 -D__CUDA_PREC_DIV=1 -D__CUDA_PREC_SQRT=1 "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" > "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
-  considering line: [gcc -c -x c++ "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -fpreprocessed -m64 -o "tmp/CMakeCUDACompilerId.o" "tmp/CMakeCUDACompilerId.cu.cpp.ii" ]
-  considering line: [nvlink --arch=sm_20 --register-link-binaries="tmp/a_dlink.reg.c" -m64   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -o "tmp/a_dlink.sm_20.cubin"]
-    ignoring nvlink line
-  considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 -link "--image=profile=sm_20,file=tmp/a_dlink.sm_20.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
-  considering line: [gcc -c -x c++ -DFATBINFILE="\"tmp/a_dlink.fatbin.c\"" -DREGISTERLINKBINARYFILE="\"tmp/a_dlink.reg.c\"" -I. "-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"   -D"__CUDACC_VER__=80061" -D"__CUDACC_VER_BUILD__=61" -D"__CUDACC_VER_MINOR__=0" -D"__CUDACC_VER_MAJOR__=8" -m64 -o "tmp/a_dlink.o" "/usr/local/cuda-8.0/bin/crt/link.stub" ]
-  considering line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
-    extracted link line: [g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
-  considering line: []
-  found 'INCLUDES=' string: ["-I/usr/local/cuda-8.0/bin/../targets/x86_64-linux/include"  ]
-
-  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  link line: [cuda-fake-ld g++ -m64 -o "a.out" -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o"   "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib" -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group ]
-    arg [cuda-fake-ld] ==> ignore
-    arg [g++] ==> ignore
-    arg [-m64] ==> ignore
-    arg [-o] ==> ignore
-    arg [a.out] ==> ignore
-    arg [-Wl,--start-group] ==> ignore
-    arg [tmp/a_dlink.o] ==> ignore
-    arg [tmp/CMakeCUDACompilerId.o] ==> ignore
-    arg [-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs]
-    arg [-L/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib] ==> dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib]
-    arg [-lcudadevrt] ==> lib [cudadevrt]
-    arg [-lcudart_static] ==> lib [cudart_static]
-    arg [-lrt] ==> lib [rt]
-    arg [-lpthread] ==> lib [pthread]
-    arg [-ldl] ==> lib [dl]
-    arg [-Wl,--end-group] ==> ignore
-  collapse library dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib/stubs] ==> [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs]
-  collapse library dir [/usr/local/cuda-8.0/bin/../targets/x86_64-linux/lib] ==> [/usr/local/cuda-8.0/targets/x86_64-linux/lib]
-  implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
-  implicit dirs: [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs;/usr/local/cuda-8.0/targets/x86_64-linux/lib]
-  implicit fwks: []
-
-
 Determining if the CUDA compiler works passed with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e13c6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e13c6.dir/build.make CMakeFiles/cmTC_e13c6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f9cfe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f9cfe.dir/build.make CMakeFiles/cmTC_f9cfe.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CUDA object CMakeFiles/cmTC_e13c6.dir/main.cu.o
-/usr/local/cuda-8.0/bin/nvcc     -x cu -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_e13c6.dir/main.cu.o
+Building CUDA object CMakeFiles/cmTC_f9cfe.dir/main.cu.o
+/usr/local/cuda/bin/nvcc     -x cu -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_f9cfe.dir/main.cu.o
 nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-Linking CUDA device code CMakeFiles/cmTC_e13c6.dir/cmake_device_link.o
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e13c6.dir/dlink.txt --verbose=1
-/usr/local/cuda-8.0/bin/nvcc    -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/cmTC_e13c6.dir/main.cu.o -o CMakeFiles/cmTC_e13c6.dir/cmake_device_link.o 
-Linking CUDA executable cmTC_e13c6
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e13c6.dir/link.txt --verbose=1
-g++    CMakeFiles/cmTC_e13c6.dir/main.cu.o CMakeFiles/cmTC_e13c6.dir/cmake_device_link.o -o cmTC_e13c6  -L"/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-8.0/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl
+Linking CUDA device code CMakeFiles/cmTC_f9cfe.dir/cmake_device_link.o
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9cfe.dir/dlink.txt --verbose=1
+/usr/local/cuda/bin/nvcc    -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/cmTC_f9cfe.dir/main.cu.o -o CMakeFiles/cmTC_f9cfe.dir/cmake_device_link.o 
+Linking CUDA executable cmTC_f9cfe
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9cfe.dir/link.txt --verbose=1
+g++    CMakeFiles/cmTC_f9cfe.dir/main.cu.o CMakeFiles/cmTC_f9cfe.dir/cmake_device_link.o -o cmTC_f9cfe  -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
 Detecting CUDA compiler ABI info compiled with the following output:
 Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_71e20/fast"
-/usr/bin/make -f CMakeFiles/cmTC_71e20.dir/build.make CMakeFiles/cmTC_71e20.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_b1f71/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b1f71.dir/build.make CMakeFiles/cmTC_b1f71.dir/build
 make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
-Building CUDA object CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o
-/usr/local/cuda-8.0/bin/nvcc     -x cu -c /usr/local/share/cmake-3.9/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o
+Building CUDA object CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o
+/usr/local/cuda/bin/nvcc     -x cu -c /usr/local/share/cmake-3.9/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o
 nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-Linking CUDA device code CMakeFiles/cmTC_71e20.dir/cmake_device_link.o
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71e20.dir/dlink.txt --verbose=1
-/usr/local/cuda-8.0/bin/nvcc    -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o -o CMakeFiles/cmTC_71e20.dir/cmake_device_link.o 
-Linking CUDA executable cmTC_71e20
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71e20.dir/link.txt --verbose=1
-g++   -v CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_71e20.dir/cmake_device_link.o -o cmTC_71e20  -L"/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-8.0/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl
+Linking CUDA device code CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1f71.dir/dlink.txt --verbose=1
+/usr/local/cuda/bin/nvcc    -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o -o CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o 
+Linking CUDA executable cmTC_b1f71
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1f71.dir/link.txt --verbose=1
+g++   -v CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o -o cmTC_b1f71  -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl
 Using built-in specs.
 COLLECT_GCC=g++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
@@ -527,8 +527,8 @@ Thread model: posix
 gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71e20' '-L/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs' '-L/usr/local/cuda-8.0/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_71e20 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs -L/usr/local/cuda-8.0/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_71e20.dir/cmake_device_link.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b1f71' '-L/usr/local/cuda/targets/x86_64-linux/lib/stubs' '-L/usr/local/cuda/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_b1f71 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/local/cuda/targets/x86_64-linux/lib/stubs -L/usr/local/cuda/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 
@@ -536,18 +536,18 @@ Parsed CUDA implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_71e20/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_71e20.dir/build.make CMakeFiles/cmTC_71e20.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_b1f71/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_b1f71.dir/build.make CMakeFiles/cmTC_b1f71.dir/build]
   ignore line: [make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp']
-  ignore line: [Building CUDA object CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o]
-  ignore line: [/usr/local/cuda-8.0/bin/nvcc     -x cu -c /usr/local/share/cmake-3.9/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o]
+  ignore line: [Building CUDA object CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o]
+  ignore line: [/usr/local/cuda/bin/nvcc     -x cu -c /usr/local/share/cmake-3.9/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o]
   ignore line: [nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).]
-  ignore line: [Linking CUDA device code CMakeFiles/cmTC_71e20.dir/cmake_device_link.o]
-  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71e20.dir/dlink.txt --verbose=1]
-  ignore line: [/usr/local/cuda-8.0/bin/nvcc    -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o -o CMakeFiles/cmTC_71e20.dir/cmake_device_link.o ]
-  ignore line: [Linking CUDA executable cmTC_71e20]
-  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71e20.dir/link.txt --verbose=1]
-  ignore line: [g++   -v CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_71e20.dir/cmake_device_link.o -o cmTC_71e20  -L"/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-8.0/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl]
+  ignore line: [Linking CUDA device code CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1f71.dir/dlink.txt --verbose=1]
+  ignore line: [/usr/local/cuda/bin/nvcc    -Xcompiler=-fPIC -Wno-deprecated-gpu-targets -shared -dlink CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o -o CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o ]
+  ignore line: [Linking CUDA executable cmTC_b1f71]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1f71.dir/link.txt --verbose=1]
+  ignore line: [g++   -v CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o -o cmTC_b1f71  -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=g++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
@@ -557,8 +557,8 @@ Parsed CUDA implicit link information from above output:
   ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71e20' '-L/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs' '-L/usr/local/cuda-8.0/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_71e20 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs -L/usr/local/cuda-8.0/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_71e20.dir/cmake_device_link.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b1f71' '-L/usr/local/cuda/targets/x86_64-linux/lib/stubs' '-L/usr/local/cuda/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_b1f71 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/local/cuda/targets/x86_64-linux/lib/stubs -L/usr/local/cuda/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -571,12 +571,12 @@ Parsed CUDA implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_71e20] ==> ignore
+    arg [cmTC_b1f71] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
-    arg [-L/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs] ==> dir [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs]
-    arg [-L/usr/local/cuda-8.0/targets/x86_64-linux/lib] ==> dir [/usr/local/cuda-8.0/targets/x86_64-linux/lib]
+    arg [-L/usr/local/cuda/targets/x86_64-linux/lib/stubs] ==> dir [/usr/local/cuda/targets/x86_64-linux/lib/stubs]
+    arg [-L/usr/local/cuda/targets/x86_64-linux/lib] ==> dir [/usr/local/cuda/targets/x86_64-linux/lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
@@ -585,8 +585,8 @@ Parsed CUDA implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTC_71e20.dir/CMakeCUDACompilerABI.cu.o] ==> ignore
-    arg [CMakeFiles/cmTC_71e20.dir/cmake_device_link.o] ==> ignore
+    arg [CMakeFiles/cmTC_b1f71.dir/CMakeCUDACompilerABI.cu.o] ==> ignore
+    arg [CMakeFiles/cmTC_b1f71.dir/cmake_device_link.o] ==> ignore
     arg [-lcudadevrt] ==> lib [cudadevrt]
     arg [-lcudart_static] ==> lib [cudart_static]
     arg [-lrt] ==> lib [rt]
@@ -601,8 +601,8 @@ Parsed CUDA implicit link information from above output:
     arg [-lgcc] ==> lib [gcc]
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
-  collapse library dir [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs] ==> [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs]
-  collapse library dir [/usr/local/cuda-8.0/targets/x86_64-linux/lib] ==> [/usr/local/cuda-8.0/targets/x86_64-linux/lib]
+  collapse library dir [/usr/local/cuda/targets/x86_64-linux/lib/stubs] ==> [/usr/local/cuda/targets/x86_64-linux/lib/stubs]
+  collapse library dir [/usr/local/cuda/targets/x86_64-linux/lib] ==> [/usr/local/cuda/targets/x86_64-linux/lib]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
@@ -612,7 +612,35 @@ Parsed CUDA implicit link information from above output:
   collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
   collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
   implicit libs: [cudadevrt;cudart_static;rt;pthread;dl;stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
-  implicit dirs: [/usr/local/cuda-8.0/targets/x86_64-linux/lib/stubs;/usr/local/cuda-8.0/targets/x86_64-linux/lib;/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit dirs: [/usr/local/cuda/targets/x86_64-linux/lib/stubs;/usr/local/cuda/targets/x86_64-linux/lib;/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
   implicit fwks: []
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b48f9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b48f9.dir/build.make CMakeFiles/cmTC_b48f9.dir/build
+make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b48f9.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_b48f9.dir/CheckIncludeFile.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_b48f9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b48f9.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_b48f9.dir/CheckIncludeFile.cxx.o  -o cmTC_b48f9 
+make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3053f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3053f.dir/build.make CMakeFiles/cmTC_3053f.dir/build
+make[1]: Entering directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3053f.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3053f.dir/CheckFunctionExists.cxx.o -c /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_3053f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3053f.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_3053f.dir/CheckFunctionExists.cxx.o  -o cmTC_3053f -lpthread 
+make[1]: Leaving directory `/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CMakeTmp'
 
 

@@ -227,7 +227,7 @@ HeatSolverManager::initializeMass()
       HexTemp->Jacobian(deriv, nodalCoords, iJac, detJac);
       element->volWeight_[ip] = detJac * weight[ip];
       //FIXME: Need to implement a couple of material managers here
-      element->matManager_ = new ThermalIsoManager(element->nID_, Nip_, element->condIp_,
+      element->matManager_ = new ThermalIsoManager(element->nID_, Nip_, element->rhoIp_,
 				     element->cpIp_, element->consolidFrac_, element->solidRate_,
 				     element->latent_, element->liquidus_, element->solidus_, 
 				     element->cp_, dt_, thetaN_);

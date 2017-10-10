@@ -8,7 +8,16 @@
 #ifndef DEVICEHEADER_H_
 #define DEVICEHEADER_H_
 
-void createElementsOnDeveice();
+#include <DomainManager.h>
+#include <HeatSolverManager.h>
+
+void createDataOnDeveice(HeatSolverManager *heatMgr_, DomainManager *domainMgr_);
+
+void udpateMatK();
+
+void updateCapK();
+
+void getInternalForceK();
 
 
 

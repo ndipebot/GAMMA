@@ -124,6 +124,19 @@ GAMMA/fast:
 .PHONY : GAMMA/fast
 
 #=============================================================================
+# Target rules for targets named CUDA_lib
+
+# Build rule for target.
+CUDA_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 CUDA_lib
+.PHONY : CUDA_lib
+
+# fast build rule for target.
+CUDA_lib/fast:
+	$(MAKE) -f CMakeFiles/CUDA_lib.dir/build.make CMakeFiles/CUDA_lib.dir/build
+.PHONY : CUDA_lib/fast
+
+#=============================================================================
 # Target rules for targets named GAMMA_lib
 
 # Build rule for target.
@@ -629,8 +642,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... GAMMA"
+	@echo "... edit_cache"
+	@echo "... CUDA_lib"
 	@echo "... GAMMA_lib"
 	@echo "... GAMMA.o"
 	@echo "... GAMMA.i"

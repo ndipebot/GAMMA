@@ -28,6 +28,7 @@ public:
     // number of nodes cosisting the element
   int* nID_;
     // ID of nodes that connect to this element
+  int globId;
   bool birth_;
     // active state
   bool liquid_;
@@ -52,6 +53,8 @@ public:
   double *cpIp_;
   double *rhoIp_;
   double *volWeight_;
+  double *consolidFrac_;
+  double *solidRate_;
 
   MaterialManager* matManager_;
 

@@ -16,6 +16,7 @@ CMakeFiles/GAMMA.dir/GAMMA.cpp.o
  include/RadManager.h
  include/Surface.h
  include/ThermalIsoManager.h
+ include/deviceHeader.h
  include/dynaInput.h
  include/vtuBinWriter.h
  include/vtuWriter.h

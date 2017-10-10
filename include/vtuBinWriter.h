@@ -47,7 +47,7 @@ public:
 
   void writeVTU_cellTypes ();
 
-  void writeVTU_pointData (vector<double> pointVec );
+  void writeVTU_pointData (vector<double> &pointVec );
 
   void writeVTU_connectHeader();
 
@@ -69,14 +69,6 @@ public:
 
   void writeVTU_end ( );
 
-  void writeVTU_cellDataHeader( );
-
-  void writeVTU_cellDataEnd( );
-
-  void writeVTU_cellOutHeader( );
-
-  void writeVTU_cellOutEnd( );
-
   void writeVTU_pointDataHeader( );
 
   void writeVTU_pointDataEnd( );
@@ -88,6 +80,14 @@ public:
   void writeVTU_appendHeader();
 
   void writeVTU_appendEnd();
+
+  void writeVTU_cellDataHeader();
+  
+  void writeVTU_cellOutHeader();
+  
+  void writeVTU_cellDataEnd();
+
+  void writeVTU_cellData();
 
 };
 

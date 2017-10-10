@@ -39,6 +39,7 @@ public:
   double inputDt_, finalTime_, outTime_, Rabszero_, Rambient_, Rboltz_;
   string outFileName_;
   string toolFileName_;
+  string energyFileName_;
   string probeExtension_ = ".txt";
   
   void getDomainInfo();
@@ -47,6 +48,7 @@ public:
   void freeMemory();
 
   bool isLENS_ = false;
+  bool calcEnergy_ = false;
 private:
   ifstream file;
   string getParam();
