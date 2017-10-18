@@ -11,14 +11,30 @@
 #include <DomainManager.h>
 #include <HeatSolverManager.h>
 
-void createDataOnDeveice(HeatSolverManager *heatMgr_, DomainManager *domainMgr_);
+struct elementData {
+	int* dEleNodes ;
+	double* dEleStiffness;
+	double* dGlobMass;
+	double* dEleNodeCoords;
+	double* dEleMat;
+	double* dVolWeight;
+	double* dEleBirthTimes;
+	double* dthetaN;
+	int numEl;
+	int nn;
+};
+
+void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, double initTemp);
+
+void initializeStiffnessOnD(elementData& elemData);
+
+void updateMassOnD(elementData& elemData);
 
 void udpateMatK();
 
 void updateCapK();
 
 void getInternalForceK();
-
 
 
 #endif /* DEVICEHEADER_H_ */

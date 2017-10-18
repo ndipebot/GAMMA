@@ -164,8 +164,13 @@ int main(int arg, char *argv[])
   vtuBinWriter * vtuMgr = new vtuBinWriter(domainMgr, heatMgr, outFile);
   vtuMgr->execute();
 
-  //test
-  createDataOnDeveice(heatMgr, domainMgr);
+  //Copy element Data to GPU
+  elementData elemData;
+  createDataOnDeveice(domainMgr, elemData, heatMgr->initTheta_);
+
+  //initialiaze Stiffness GPU
+  initializeStiffnessOnD(elemData);
+  updateMassOnD(elemData);
 
   return 0;
 
