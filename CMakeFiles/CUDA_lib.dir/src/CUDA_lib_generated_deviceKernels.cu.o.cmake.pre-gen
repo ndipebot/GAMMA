@@ -70,7 +70,7 @@ set(generated_file_internal "/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/
 set(generated_cubin_file_internal "/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/./CUDA_lib_generated_deviceKernels.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda/bin/nvcc") # path
-set(CUDA_NVCC_FLAGS -gencode=arch=compute_35,code=sm_35;-std=c++11;-O3;-use_fast_math ;; ) # list
+set(CUDA_NVCC_FLAGS -gencode=arch=compute_35,code=sm_35;-std=c++11;-O3;-use_fast_math; ;; ) # list
 # Build specific configuration flags
 set(CUDA_NVCC_FLAGS_DEBUG  ; )
 set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )

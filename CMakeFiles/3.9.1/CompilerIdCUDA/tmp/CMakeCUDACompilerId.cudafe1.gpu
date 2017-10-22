@@ -1,41 +1,41 @@
 typedef char __nv_bool;
-# 54 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 54 "/usr/local/cuda/bin/..//include/library_types.h"
 enum cudaDataType_t {
-# 56 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 56 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_16F = 2,
-# 57 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 57 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_16F = 6,
-# 58 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 58 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_32F = 0,
-# 59 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 59 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_32F = 4,
-# 60 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 60 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_64F = 1,
-# 61 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 61 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_64F = 5,
-# 62 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 62 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_8I = 3,
-# 63 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 63 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_8I = 7,
-# 64 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 64 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_8U,
-# 65 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 65 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_8U,
-# 66 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 66 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_32I,
-# 67 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 67 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_32I,
-# 68 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 68 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_R_32U,
-# 69 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 69 "/usr/local/cuda/bin/..//include/library_types.h"
 CUDA_C_32U};
-# 73 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 73 "/usr/local/cuda/bin/..//include/library_types.h"
 enum libraryPropertyType_t {
-# 75 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 75 "/usr/local/cuda/bin/..//include/library_types.h"
 MAJOR_VERSION,
-# 76 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 76 "/usr/local/cuda/bin/..//include/library_types.h"
 MINOR_VERSION,
-# 77 "/usr/local/cuda/bin/../targets/x86_64-linux/include/library_types.h"
+# 77 "/usr/local/cuda/bin/..//include/library_types.h"
 PATCH_LEVEL};
 # 180 "/usr/include/libio.h" 3
 enum __codecvt_result {

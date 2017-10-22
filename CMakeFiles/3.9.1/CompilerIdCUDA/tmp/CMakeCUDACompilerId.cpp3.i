@@ -6,10 +6,10 @@
 # 1 "tmp/CMakeCUDACompilerId.cudafe2.gpu"
 # 212 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 3
 typedef unsigned long size_t;
-# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 1 3
-# 38 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
-# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/host_defines.h" 1 3
-# 39 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 1 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 1 3
+# 38 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 3
+# 1 "/usr/local/cuda/bin/..//include/host_defines.h" 1 3
+# 39 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 2 3
 
 
 
@@ -17,13 +17,13 @@ typedef unsigned long size_t;
 
 typedef unsigned long long __texture_type__;
 typedef unsigned long long __surface_type__;
-# 284 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
-# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 1 3
-# 56 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_types.h" 1 3
-# 53 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_types.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/host_defines.h" 1 3
-# 54 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_types.h" 2 3
+# 284 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 3
+# 1 "/usr/local/cuda/bin/..//include/builtin_types.h" 1 3
+# 56 "/usr/local/cuda/bin/..//include/builtin_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_types.h" 1 3
+# 53 "/usr/local/cuda-8.0/include/device_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/host_defines.h" 1 3
+# 54 "/usr/local/cuda-8.0/include/device_types.h" 2 3
 
 
 
@@ -38,11 +38,11 @@ enum cudaRoundMode
     cudaRoundPosInf,
     cudaRoundMinInf
 };
-# 57 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 57 "/usr/local/cuda/bin/..//include/builtin_types.h" 2 3
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 1 3
-# 156 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/driver_types.h" 1 3
+# 156 "/usr/local/cuda-8.0/include/driver_types.h" 3
 enum cudaError
 {
 
@@ -69,13 +69,13 @@ enum cudaError
 
 
     cudaErrorInitializationError = 3,
-# 191 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 191 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorLaunchFailure = 4,
-# 200 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 200 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorPriorLaunchFailure = 5,
-# 211 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 211 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorLaunchTimeout = 6,
-# 220 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 220 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorLaunchOutOfResources = 7,
 
 
@@ -83,7 +83,7 @@ enum cudaError
 
 
     cudaErrorInvalidDeviceFunction = 8,
-# 235 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 235 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorInvalidConfiguration = 9,
 
 
@@ -156,13 +156,13 @@ enum cudaError
 
 
     cudaErrorInvalidMemcpyDirection = 21,
-# 316 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 316 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorAddressOfConstant = 22,
-# 325 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 325 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorTextureFetchFailed = 23,
-# 334 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 334 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorTextureNotBound = 24,
-# 343 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 343 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorSynchronizationError = 25,
 
 
@@ -204,7 +204,7 @@ enum cudaError
 
 
     cudaErrorNotYetImplemented = 31,
-# 392 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 392 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorMemoryValueTooLarge = 32,
 
 
@@ -228,7 +228,7 @@ enum cudaError
 
 
     cudaErrorInsufficientDriver = 35,
-# 427 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 427 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorSetOnActiveProcess = 36,
 
 
@@ -282,7 +282,7 @@ enum cudaError
 
 
     cudaErrorDuplicateSurfaceName = 45,
-# 489 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 489 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorDevicesUnavailable = 46,
 
 
@@ -297,7 +297,7 @@ enum cudaError
 
 
     cudaErrorNoKernelImageForDevice = 48,
-# 515 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 515 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorIncompatibleDriverContext = 49,
 
 
@@ -409,9 +409,9 @@ enum cudaError
 
 
     cudaErrorLaunchFileScopedSurf = 67,
-# 640 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 640 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorSyncDepthExceeded = 68,
-# 652 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 652 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorLaunchPendingCountExceeded = 69,
 
 
@@ -424,7 +424,7 @@ enum cudaError
 
 
     cudaErrorNotSupported = 71,
-# 672 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 672 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorHardwareStackError = 72,
 
 
@@ -434,9 +434,9 @@ enum cudaError
 
 
     cudaErrorIllegalInstruction = 73,
-# 689 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 689 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorMisalignedAddress = 74,
-# 700 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 700 "/usr/local/cuda-8.0/include/driver_types.h" 3
     cudaErrorInvalidAddressSpace = 75,
 
 
@@ -772,7 +772,7 @@ struct cudaPointerAttributes
 
 
     enum cudaMemoryType memoryType;
-# 1045 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 1045 "/usr/local/cuda-8.0/include/driver_types.h" 3
     int device;
 
 
@@ -1105,7 +1105,7 @@ struct cudaDeviceProp
     int pageableMemoryAccess;
     int concurrentManagedAccess;
 };
-# 1456 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 1456 "/usr/local/cuda-8.0/include/driver_types.h" 3
 typedef struct cudaIpcEventHandle_st
 {
     char reserved[64];
@@ -1118,7 +1118,7 @@ typedef struct cudaIpcMemHandle_st
 {
     char reserved[64];
 }cudaIpcMemHandle_t;
-# 1478 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 3
+# 1478 "/usr/local/cuda-8.0/include/driver_types.h" 3
 typedef enum cudaError cudaError_t;
 
 
@@ -1145,14 +1145,14 @@ typedef struct CUuuid_st cudaUUID_t;
 
 
 typedef enum cudaOutputMode cudaOutputMode_t;
-# 60 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
+# 60 "/usr/local/cuda/bin/..//include/builtin_types.h" 2 3
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_types.h" 1 3
-# 59 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_types.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/driver_types.h" 1 3
-# 60 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_types.h" 2 3
-# 84 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/surface_types.h" 1 3
+# 59 "/usr/local/cuda-8.0/include/surface_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/driver_types.h" 1 3
+# 60 "/usr/local/cuda-8.0/include/surface_types.h" 2 3
+# 84 "/usr/local/cuda-8.0/include/surface_types.h" 3
 enum cudaSurfaceBoundaryMode
 {
     cudaBoundaryModeZero = 0,
@@ -1184,9 +1184,9 @@ struct surfaceReference
 
 
 typedef unsigned long long cudaSurfaceObject_t;
-# 63 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_types.h" 1 3
-# 84 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_types.h" 3
+# 63 "/usr/local/cuda/bin/..//include/builtin_types.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/texture_types.h" 1 3
+# 84 "/usr/local/cuda-8.0/include/texture_types.h" 3
 enum cudaTextureAddressMode
 {
     cudaAddressModeWrap = 0,
@@ -1316,26 +1316,26 @@ struct cudaTextureDesc
 
 
 typedef unsigned long long cudaTextureObject_t;
-# 64 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 1 3
-# 61 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 1 3
-# 56 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_types.h" 1 3
-# 57 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 2 3
+# 64 "/usr/local/cuda/bin/..//include/builtin_types.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/vector_types.h" 1 3
+# 61 "/usr/local/cuda-8.0/include/vector_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/builtin_types.h" 1 3
+# 56 "/usr/local/cuda-8.0/include/builtin_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_types.h" 1 3
+# 57 "/usr/local/cuda-8.0/include/builtin_types.h" 2 3
 
 
 
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_types.h" 1 3
-# 63 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_types.h" 1 3
-# 64 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 1 3
-# 64 "/usr/local/cuda-8.0/targets/x86_64-linux/include/builtin_types.h" 2 3
-# 62 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 2 3
-# 98 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 3
+# 1 "/usr/local/cuda-8.0/include/surface_types.h" 1 3
+# 63 "/usr/local/cuda-8.0/include/builtin_types.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/texture_types.h" 1 3
+# 64 "/usr/local/cuda-8.0/include/builtin_types.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/vector_types.h" 1 3
+# 64 "/usr/local/cuda-8.0/include/builtin_types.h" 2 3
+# 62 "/usr/local/cuda-8.0/include/vector_types.h" 2 3
+# 98 "/usr/local/cuda-8.0/include/vector_types.h" 3
 struct char1
 {
     signed char x;
@@ -1494,7 +1494,7 @@ struct float1
 {
     float x;
 };
-# 274 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 3
+# 274 "/usr/local/cuda-8.0/include/vector_types.h" 3
 struct __attribute__((aligned(8))) float2 { float x; float y; };
 
 
@@ -1569,7 +1569,7 @@ struct __attribute__((aligned(16))) double4
 {
     double x, y, z, w;
 };
-# 362 "/usr/local/cuda-8.0/targets/x86_64-linux/include/vector_types.h" 3
+# 362 "/usr/local/cuda-8.0/include/vector_types.h" 3
 typedef struct char1 char1;
 typedef struct uchar1 uchar1;
 typedef struct char2 char2;
@@ -1636,468 +1636,468 @@ struct dim3
 };
 
 typedef struct dim3 dim3;
-# 64 "/usr/local/cuda/bin/../targets/x86_64-linux/include/builtin_types.h" 2 3
-# 285 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
-# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_launch_parameters.h" 1 3
-# 71 "/usr/local/cuda/bin/../targets/x86_64-linux/include/device_launch_parameters.h" 3
+# 64 "/usr/local/cuda/bin/..//include/builtin_types.h" 2 3
+# 285 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 2 3
+# 1 "/usr/local/cuda/bin/..//include/device_launch_parameters.h" 1 3
+# 71 "/usr/local/cuda/bin/..//include/device_launch_parameters.h" 3
 uint3 extern const threadIdx;
 uint3 extern const blockIdx;
 dim3 extern const blockDim;
 dim3 extern const gridDim;
 int extern const warpSize;
-# 286 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/crt/storage_class.h" 1 3
-# 286 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 286 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/crt/storage_class.h" 1 3
+# 286 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 2 3
 # 214 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h" 2 3
-# 196 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
+# 196 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 3
 extern __attribute__((__used__)) void *malloc(size_t);
-# 197 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 3
+# 197 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 3
 extern __attribute__((__used__)) void free(void *);
-# 1 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h" 1 3
-# 249 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 1 3
-# 9842 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 1 3
-# 81 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1 "/usr/local/cuda/bin/..//include/common_functions.h" 1 3
+# 249 "/usr/local/cuda/bin/..//include/common_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/math_functions.h" 1 3
+# 9842 "/usr/local/cuda-8.0/include/math_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_functions_decls.h" 1 3
+# 81 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_sinf(float x) ;
-# 94 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 94 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_cosf(float x) ;
-# 121 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 121 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_log2f(float x) ;
-# 136 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 136 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_tanf(float x) ;
-# 152 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 152 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  void __nv_fast_sincosf(float x, float *sptr, float *cptr) ;
-# 203 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 203 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_expf(float x) ;
-# 236 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 236 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_exp10f(float x) ;
-# 265 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 265 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_log10f(float x) ;
-# 310 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 310 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_logf(float x) ;
-# 354 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 354 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_powf(float x, float y) ;
-# 367 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 367 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_hadd(int x, int y) ;
-# 381 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 381 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_rhadd(int x, int y) ;
-# 394 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 394 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_uhadd(unsigned int x, unsigned int y) ;
-# 408 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 408 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_urhadd(unsigned int x, unsigned int y) ;
-# 421 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 421 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsub_rn (float x, float y) ;
-# 434 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 434 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsub_rz (float x, float y) ;
-# 447 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 447 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsub_rd (float x, float y) ;
-# 460 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 460 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsub_ru (float x, float y) ;
-# 500 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 500 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_frsqrt_rn (float x) ;
-# 512 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 512 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_ffs(int x) ;
-# 524 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 524 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_ffsll(long long int x) ;
-# 536 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 536 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rintf(float x) ;
-# 549 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 549 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long int __nv_llrintf(float x) ;
-# 599 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 599 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_nearbyintf(float x) ;
-# 612 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 612 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_signbitf(float x) ;
-# 622 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 622 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_copysignf(float x, float y) ;
-# 633 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 633 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_finitef(float x) ;
-# 646 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 646 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_isinff(float x) ;
-# 658 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 658 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_isnanf(float x) ;
-# 691 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 691 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_nextafterf(float x, float y) ;
-# 704 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 704 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_nanf(const signed char *tagp) ;
-# 746 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 746 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_sinf(float x) ;
-# 780 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 780 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_cosf(float x) ;
-# 796 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 796 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  void __nv_sincosf(float x, float *sptr, float *cptr) ;
-# 857 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 857 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_sinpif(float x) ;
-# 910 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 910 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_cospif(float x) ;
-# 941 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 941 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  void __nv_sincospif(float x, float *sptr, float *cptr) ;
-# 983 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 983 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_tanf(float x) ;
-# 1035 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1035 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_log2f(float x) ;
-# 1075 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1075 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_expf(float x) ;
-# 1097 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1097 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_exp10f(float x) ;
-# 1129 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1129 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_coshf(float x) ;
-# 1160 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1160 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_sinhf(float x) ;
-# 1191 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1191 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_tanhf(float x) ;
-# 1225 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1225 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_atan2f(float x, float y) ;
-# 1257 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1257 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_atanf(float x) ;
-# 1290 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1290 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_asinf(float x) ;
-# 1314 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1314 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_acosf(float x) ;
-# 1386 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1386 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_logf(float x) ;
-# 1438 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1438 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_log10f(float x) ;
-# 1532 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1532 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_log1pf(float x) ;
-# 1567 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1567 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_acoshf(float x) ;
-# 1580 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1580 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_asinhf(float x) ;
-# 1631 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1631 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_atanhf(float x) ;
-# 1673 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1673 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_expm1f(float x) ;
-# 1714 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1714 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_hypotf(float x, float y) ;
-# 1760 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1760 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rhypotf(float x, float y) ;
-# 1812 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1812 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rnormf(int dim, float const * a) ;
-# 1858 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1858 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_normf(int dim, float const * a) ;
-# 1904 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1904 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_norm3df(float a, float b, float c) ;
-# 1954 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 1954 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rnorm3df(float a, float b, float c) ;
-# 2004 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2004 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_norm4df(float a, float b, float c, float d) ;
-# 2059 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2059 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rnorm4df(float a, float b, float c, float d) ;
-# 2142 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2142 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_cbrtf(float x) ;
-# 2192 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2192 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rcbrtf(float x) ;
-# 2231 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2231 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_j0f(float x) ;
-# 2289 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2289 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_j1f(float x) ;
-# 2338 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2338 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_y0f(float x) ;
-# 2387 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2387 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_y1f(float x) ;
-# 2437 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2437 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ynf(int n, float x) ;
-# 2477 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2477 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_jnf(int n, float x) ;
-# 2504 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2504 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_cyl_bessel_i0f(float x) ;
-# 2531 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2531 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_cyl_bessel_i1f(float x) ;
-# 2610 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2610 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_erff(float x) ;
-# 2668 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2668 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_erfinvf(float x) ;
-# 2703 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2703 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_erfcf(float x) ;
-# 2779 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2779 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_erfcxf(float x) ;
-# 2836 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2836 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_erfcinvf(float x) ;
-# 2895 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2895 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_normcdfinvf(float x) ;
-# 2939 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 2939 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_normcdff(float x) ;
-# 3064 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3064 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_lgammaf(float x) ;
-# 3121 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3121 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ldexpf(float x, int y) ;
-# 3194 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3194 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_scalbnf(float x, int y) ;
-# 3270 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3270 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_frexpf(float x, int *b) ;
-# 3327 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3327 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_modff(float x, float *b) ;
-# 3387 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3387 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmodf(float x, float y) ;
-# 3473 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3473 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_remainderf(float x, float y) ;
-# 3524 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3524 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_remquof(float x, float y, int* quo) ;
-# 3679 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3679 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmaf(float x, float y, float z) ;
-# 3988 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 3988 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_powif(float x, int y) ;
-# 4297 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4297 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_powi(double x, int y) ;
-# 4606 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4606 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_powf(float x, float y) ;
-# 4712 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4712 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_tgammaf(float x) ;
-# 4726 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4726 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_roundf(float x) ;
-# 4741 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4741 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long int __nv_llroundf(float x) ;
-# 4764 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4764 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fdimf(float x, float y) ;
-# 4791 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4791 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_ilogbf(float x) ;
-# 4843 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4843 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_logbf(float x) ;
-# 4855 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4855 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rint(double x) ;
-# 4868 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4868 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long int __nv_llrint(double x) ;
-# 4918 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4918 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_nearbyint(double x) ;
-# 4931 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4931 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_signbitd(double x) ;
-# 4944 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4944 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_isfinited(double x) ;
-# 4957 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4957 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_isinfd(double x) ;
-# 4969 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4969 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_isnand(double x) ;
-# 4979 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4979 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_copysign(double x, double y) ;
-# 4995 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 4995 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  void __nv_sincos(double x, double *sptr, double *cptr) ;
-# 5026 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5026 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  void __nv_sincospi(double x, double *sptr, double *cptr) ;
-# 5068 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5068 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_sin(double x) ;
-# 5102 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5102 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_cos(double x) ;
-# 5163 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5163 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_sinpi(double x) ;
-# 5216 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5216 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_cospi(double x) ;
-# 5258 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5258 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_tan(double x) ;
-# 5330 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5330 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_log(double x) ;
-# 5382 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5382 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_log2(double x) ;
-# 5434 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5434 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_log10(double x) ;
-# 5528 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5528 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_log1p(double x) ;
-# 5568 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5568 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_exp(double x) ;
-# 5590 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5590 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_exp2(double x) ;
-# 5612 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5612 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_exp10(double x) ;
-# 5654 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5654 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_expm1(double x) ;
-# 5686 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5686 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_cosh(double x) ;
-# 5717 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5717 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_sinh(double x) ;
-# 5748 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5748 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_tanh(double x) ;
-# 5782 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5782 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_atan2(double x, double y) ;
-# 5814 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5814 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_atan(double x) ;
-# 5847 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5847 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_asin(double x) ;
-# 5871 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5871 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_acos(double x) ;
-# 5906 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5906 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_acosh(double x) ;
-# 5919 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5919 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_asinh(double x) ;
-# 5970 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 5970 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_atanh(double x) ;
-# 6011 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6011 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_hypot(double x, double y) ;
-# 6055 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6055 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rhypot(double x, double y) ;
-# 6098 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6098 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_norm3d(double a, double b, double c) ;
-# 6148 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6148 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rnorm3d(double a, double b, double c) ;
-# 6197 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6197 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_norm4d(double a, double b, double c, double d) ;
-# 6243 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6243 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_norm(int dim, double const * a) ;
-# 6295 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6295 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rnorm(int dim, double const * a) ;
-# 6378 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6378 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_cbrt(double x) ;
-# 6433 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6433 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rnorm4d(double a, double b, double c, double d) ;
-# 6483 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6483 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rcbrt(double x) ;
-# 6792 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6792 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_pow(double x, double y) ;
-# 6831 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6831 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_j0(double x) ;
-# 6889 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6889 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_j1(double x) ;
-# 6938 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6938 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_y0(double x) ;
-# 6987 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 6987 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_y1(double x) ;
-# 7037 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7037 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_yn(int n, double x) ;
-# 7077 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7077 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_jn(int n, double x) ;
-# 7104 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7104 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_cyl_bessel_i0(double x) ;
-# 7131 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7131 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_cyl_bessel_i1(double x) ;
-# 7210 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7210 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_erf(double x) ;
-# 7268 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7268 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_erfinv(double x) ;
-# 7325 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7325 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_erfcinv(double x) ;
-# 7384 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7384 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_normcdfinv(double x) ;
-# 7419 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7419 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_erfc(double x) ;
-# 7495 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7495 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_erfcx(double x) ;
-# 7539 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7539 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_normcdf(double x) ;
-# 7645 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7645 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_tgamma(double x) ;
-# 7770 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7770 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_lgamma(double x) ;
-# 7827 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7827 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ldexp(double x, int y) ;
-# 7900 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7900 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_scalbn(double x, int y) ;
-# 7976 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 7976 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_frexp(double x, int *b) ;
-# 8033 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8033 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_modf(double x, double *b) ;
-# 8093 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8093 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fmod(double x, double y) ;
-# 8179 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8179 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_remainder(double x, double y) ;
-# 8230 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8230 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_remquo(double x, double y, int *c) ;
-# 8263 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8263 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_nextafter(double x, double y) ;
-# 8276 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8276 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_nan(const signed char *tagp) ;
-# 8290 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8290 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_round(double x) ;
-# 8305 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8305 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long int __nv_llround(double x) ;
-# 8328 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8328 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fdim(double x, double y) ;
-# 8355 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8355 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_ilogb(double x) ;
-# 8407 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8407 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_logb(double x) ;
-# 8562 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8562 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fma(double x, double y, double z) ;
-# 8572 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8572 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_clz(int x) ;
-# 8581 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8581 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_clzll(long long x) ;
-# 8591 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8591 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_popc(int x) ;
-# 8600 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8600 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_popcll(long long x) ;
-# 8625 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8625 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_byte_perm(unsigned int x, unsigned int y, unsigned int z) ;
-# 8636 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8636 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_min(int x, int y) ;
-# 8646 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8646 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_umin(unsigned int x, unsigned int y) ;
-# 8656 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8656 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_llmin(long long x, long long y) ;
-# 8666 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8666 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_ullmin(unsigned long long x, unsigned long long y) ;
-# 8677 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8677 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_max(int x, int y) ;
-# 8687 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8687 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_umax(unsigned int x, unsigned int y) ;
-# 8697 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8697 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_llmax(long long x, long long y) ;
-# 8707 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8707 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_ullmax(unsigned long long x, unsigned long long y) ;
-# 8718 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8718 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_mulhi(int x, int y) ;
-# 8728 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8728 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_umulhi(unsigned int x, unsigned int y) ;
-# 8738 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8738 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_mul64hi(long long x, long long y) ;
-# 8748 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8748 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_umul64hi(unsigned long long x, unsigned long long y) ;
-# 8759 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8759 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_mul24(int x, int y) ;
-# 8769 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8769 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_umul24(unsigned int x, unsigned int y) ;
-# 8779 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8779 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_brev(unsigned int x) ;
-# 8789 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8789 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_brevll(unsigned long long x) ;
-# 8858 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8858 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_sad(int x, int y, int z) ;
-# 8927 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8927 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_usad(unsigned int x, unsigned int y, unsigned int z) ;
-# 8937 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8937 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_abs(int x) ;
-# 8948 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 8948 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_llabs(long long x) ;
-# 9000 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9000 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_floorf(float f) ;
-# 9052 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9052 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_floor(double f) ;
-# 9094 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9094 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fabsf(float f) ;
-# 9136 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9136 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fabs(double f) ;
 
 
  double __nv_rcp64h(double d) ;
-# 9156 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9156 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fminf(float x, float y) ;
-# 9173 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9173 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmaxf(float x, float y) ;
-# 9243 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9243 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_rsqrtf(float x) ;
-# 9260 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9260 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fmin(double x, double y) ;
-# 9277 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9277 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fmax(double x, double y) ;
-# 9347 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9347 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_rsqrt(double x) ;
-# 9407 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9407 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ceil(double x) ;
-# 9419 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9419 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_trunc(double x) ;
-# 9441 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9441 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_exp2f(float x) ;
-# 9453 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9453 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_truncf(float x) ;
-# 9513 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9513 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ceilf(float x) ;
-# 9537 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9537 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_saturatef(float x) ;
-# 9691 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9691 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmaf_rn(float x, float y, float z) ;
-# 9844 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9844 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmaf_rz(float x, float y, float z) ;
-# 9997 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 9997 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmaf_rd(float x, float y, float z) ;
-# 10150 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10150 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmaf_ru(float x, float y, float z) ;
 
 
@@ -2108,251 +2108,251 @@ extern __attribute__((__used__)) void free(void *);
  float __nv_fmaf_ieee_rd(float x, float y, float z) ;
 
  float __nv_fmaf_ieee_ru(float x, float y, float z) ;
-# 10317 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10317 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fma_rn(double x, double y, double z) ;
-# 10474 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10474 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fma_rz(double x, double y, double z) ;
-# 10631 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10631 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fma_rd(double x, double y, double z) ;
-# 10788 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10788 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_fma_ru(double x, double y, double z) ;
-# 10864 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10864 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fast_fdividef(float x, float y) ;
-# 10876 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10876 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fdiv_rn(float x, float y) ;
-# 10887 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10887 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fdiv_rz(float x, float y) ;
-# 10898 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10898 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fdiv_rd(float x, float y) ;
-# 10909 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10909 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fdiv_ru(float x, float y) ;
-# 10943 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10943 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_frcp_rn(float x) ;
-# 10976 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 10976 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_frcp_rz(float x) ;
-# 11009 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11009 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_frcp_rd(float x) ;
-# 11042 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11042 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_frcp_ru(float x) ;
-# 11074 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11074 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsqrt_rn(float x) ;
-# 11105 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11105 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsqrt_rz(float x) ;
-# 11136 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11136 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsqrt_rd(float x) ;
-# 11167 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11167 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fsqrt_ru(float x) ;
-# 11180 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11180 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ddiv_rn(double x, double y) ;
-# 11192 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11192 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ddiv_rz(double x, double y) ;
-# 11204 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11204 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ddiv_rd(double x, double y) ;
-# 11216 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11216 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ddiv_ru(double x, double y) ;
-# 11251 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11251 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_drcp_rn(double x) ;
-# 11285 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11285 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_drcp_rz(double x) ;
-# 11319 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11319 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_drcp_rd(double x) ;
-# 11353 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11353 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_drcp_ru(double x) ;
-# 11386 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11386 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dsqrt_rn(double x) ;
-# 11419 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11419 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dsqrt_rz(double x) ;
-# 11451 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11451 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dsqrt_rd(double x) ;
-# 11483 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11483 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dsqrt_ru(double x) ;
-# 11553 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11553 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_sqrtf(float x) ;
-# 11623 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11623 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_sqrt(double x) ;
-# 11636 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11636 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dadd_rn(double x, double y) ;
-# 11648 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11648 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dadd_rz(double x, double y) ;
-# 11660 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11660 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dadd_rd(double x, double y) ;
-# 11672 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11672 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dadd_ru(double x, double y) ;
-# 11685 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11685 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dmul_rn(double x, double y) ;
-# 11697 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11697 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dmul_rz(double x, double y) ;
-# 11709 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11709 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dmul_rd(double x, double y) ;
-# 11721 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11721 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_dmul_ru(double x, double y) ;
-# 11734 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11734 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fadd_rd(float x, float y) ;
-# 11746 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11746 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fadd_ru(float x, float y) ;
-# 11759 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11759 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmul_rd(float x, float y) ;
-# 11771 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11771 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmul_ru(float x, float y) ;
-# 11784 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11784 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fadd_rn(float x, float y) ;
-# 11796 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11796 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fadd_rz(float x, float y) ;
-# 11809 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11809 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmul_rn(float x, float y) ;
-# 11821 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11821 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_fmul_rz(float x, float y) ;
-# 11831 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11831 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_double2float_rn(double d) ;
-# 11840 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11840 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_double2float_rz(double d) ;
-# 11849 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11849 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_double2float_rd(double d) ;
-# 11858 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11858 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_double2float_ru(double d) ;
-# 11868 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11868 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_double2int_rn(double d) ;
-# 11877 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11877 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_double2int_rz(double d) ;
-# 11886 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11886 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_double2int_rd(double d) ;
-# 11895 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11895 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_double2int_ru(double d) ;
-# 11905 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11905 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_double2uint_rn(double d) ;
-# 11914 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11914 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_double2uint_rz(double d) ;
-# 11923 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11923 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_double2uint_rd(double d) ;
-# 11932 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11932 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_double2uint_ru(double d) ;
-# 11941 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11941 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_int2double_rn(int i) ;
-# 11950 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11950 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_uint2double_rn(unsigned int i) ;
-# 11960 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11960 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_float2int_rn(float in) ;
-# 11969 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11969 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_float2int_rz(float in) ;
-# 11978 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11978 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_float2int_rd(float in) ;
-# 11987 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11987 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_float2int_ru(float in) ;
-# 11996 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 11996 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_float2uint_rn(float in) ;
-# 12005 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12005 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_float2uint_rz(float in) ;
-# 12014 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12014 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_float2uint_rd(float in) ;
-# 12023 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12023 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_float2uint_ru(float in) ;
-# 12033 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12033 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_int2float_rn(int in) ;
-# 12042 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12042 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_int2float_rz(int in) ;
-# 12051 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12051 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_int2float_rd(int in) ;
-# 12060 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12060 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_int2float_ru(int in) ;
-# 12070 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12070 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_uint2float_rn(unsigned int in) ;
-# 12079 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12079 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_uint2float_rz(unsigned int in) ;
-# 12088 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12088 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_uint2float_rd(unsigned int in) ;
-# 12097 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12097 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_uint2float_ru(unsigned int in) ;
-# 12108 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12108 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_hiloint2double(int x, int y) ;
-# 12117 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12117 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_double2loint(double d) ;
-# 12126 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12126 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_double2hiint(double d) ;
-# 12136 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12136 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_float2ll_rn(float f) ;
-# 12145 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12145 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_float2ll_rz(float f) ;
-# 12154 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12154 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_float2ll_rd(float f) ;
-# 12163 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12163 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_float2ll_ru(float f) ;
-# 12172 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12172 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_float2ull_rn(float f) ;
-# 12181 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12181 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_float2ull_rz(float f) ;
-# 12190 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12190 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_float2ull_rd(float f) ;
-# 12199 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12199 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_float2ull_ru(float f) ;
-# 12209 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12209 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_double2ll_rn(double f) ;
-# 12218 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12218 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_double2ll_rz(double f) ;
-# 12227 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12227 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_double2ll_rd(double f) ;
-# 12236 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12236 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_double2ll_ru(double f) ;
-# 12246 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12246 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_double2ull_rn(double f) ;
-# 12255 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12255 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_double2ull_rz(double f) ;
-# 12264 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12264 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_double2ull_rd(double f) ;
-# 12273 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12273 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned long long __nv_double2ull_ru(double f) ;
-# 12283 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12283 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ll2float_rn(long long l) ;
-# 12292 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12292 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ll2float_rz(long long l) ;
-# 12301 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12301 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ll2float_rd(long long l) ;
-# 12310 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12310 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ll2float_ru(long long l) ;
-# 12320 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12320 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ull2float_rn(unsigned long long l) ;
-# 12329 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12329 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ull2float_rz(unsigned long long l) ;
-# 12338 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12338 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ull2float_rd(unsigned long long l) ;
-# 12347 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12347 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_ull2float_ru(unsigned long long l) ;
-# 12357 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12357 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ll2double_rn(long long l) ;
-# 12366 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12366 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ll2double_rz(long long l) ;
-# 12375 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12375 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ll2double_rd(long long l) ;
-# 12384 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12384 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ll2double_ru(long long l) ;
-# 12394 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12394 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ull2double_rn(unsigned long long l) ;
-# 12403 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12403 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ull2double_rz(unsigned long long l) ;
-# 12412 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12412 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ull2double_rd(unsigned long long l) ;
-# 12421 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12421 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_ull2double_ru(unsigned long long l) ;
-# 12431 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12431 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned short __nv_float2half_rn(float f) ;
-# 12440 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12440 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_half2float(unsigned short h) ;
-# 12449 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12449 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_int_as_float(int x) ;
-# 12459 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12459 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  int __nv_float_as_int(float x) ;
-# 12469 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12469 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  float __nv_uint_as_float(unsigned int x) ;
-# 12479 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12479 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  unsigned int __nv_float_as_uint(float x) ;
-# 12489 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12489 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  double __nv_longlong_as_double(long long x) ;
-# 12499 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions_decls.h" 3
+# 12499 "/usr/local/cuda-8.0/include/device_functions_decls.h" 3
  long long __nv_double_as_longlong (double x) ;
-# 9843 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 2 3
+# 9843 "/usr/local/cuda-8.0/include/math_functions.h" 2 3
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 1 3
-# 3320 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_functions.h" 1 3
+# 3320 "/usr/local/cuda-8.0/include/device_functions.h" 3
 static __inline__ __attribute__((always_inline)) int __syncthreads_count(int predicate);
 
 static __inline__ __attribute__((always_inline)) int __syncthreads_and(int predicate);
@@ -2386,7 +2386,7 @@ static __inline__ __attribute__((always_inline))
 int
 
 __ballot(int a);
-# 3362 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 3
+# 3362 "/usr/local/cuda-8.0/include/device_functions.h" 3
 static __inline__ __attribute__((always_inline)) void __brkpt();
 
 
@@ -3344,7 +3344,7 @@ unsigned long long __ullAtomicXor_block(unsigned long long *p, unsigned long lon
 
 static __inline__ __attribute__((always_inline))
 unsigned long long __ullAtomicXor_system(unsigned long long *p, unsigned long long val);
-# 4327 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 3
+# 4327 "/usr/local/cuda-8.0/include/device_functions.h" 3
 static __inline__ __attribute__((always_inline)) unsigned int __vabs2(unsigned int a);
 
 static __inline__ __attribute__((always_inline)) unsigned int __vabsss2(unsigned int a);
@@ -3507,9 +3507,9 @@ static __inline__ __attribute__((always_inline)) unsigned int __vnegss4(unsigned
 static __inline__ __attribute__((always_inline)) unsigned int __vabsdiffs4(unsigned int a, unsigned int b);
 
 static __inline__ __attribute__((always_inline)) unsigned int __vsads4(unsigned int a, unsigned int b);
-# 4511 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 1 3
-# 256 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 4511 "/usr/local/cuda-8.0/include/device_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_functions.hpp" 1 3
+# 256 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) int __syncthreads_count(int predicate)
 {
   return __nvvm_bar0_popc(predicate);
@@ -3592,7 +3592,7 @@ __ballot(int a)
         "}" : "=r"(result) : "r"(a));
   return result;
 }
-# 347 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 347 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) void __brkpt()
 
 {
@@ -5515,7 +5515,7 @@ unsigned long long __ullAtomicXor_system(unsigned long long *p, unsigned long lo
 {
   return __nvvm_atom_sys_xor_gen_ll((volatile long long *)p, (long long)val);
 }
-# 2277 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 2277 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) unsigned int __vabs2(unsigned int a)
 {
     unsigned int r;
@@ -5632,7 +5632,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vaddus2 (unsigne
 static __inline__ __attribute__((always_inline)) unsigned int __vavgs2(unsigned int a, unsigned int b)
 {
     unsigned int r;
-# 2407 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 2407 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     asm ("{                      \n\t"
          ".reg .u32 a,b,c,r,s,t,u,v;\n\t"
          "mov.b32 a,%1;          \n\t"
@@ -5694,7 +5694,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vhaddu2(unsigned
 static __inline__ __attribute__((always_inline)) unsigned int __vcmpeq2(unsigned int a, unsigned int b)
 {
     unsigned int r, c;
-# 2476 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 2476 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     r = a ^ b;
     c = r | 0x80008000;
     r = r ^ c;
@@ -5880,7 +5880,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vcmpltu2(unsigne
 static __inline__ __attribute__((always_inline)) unsigned int __vcmpne2(unsigned int a, unsigned int b)
 {
     unsigned int r, c;
-# 2669 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 2669 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     r = a ^ b;
     c = r | 0x80008000;
     c = c - 0x00010001;
@@ -6390,7 +6390,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vadd4(unsigned i
 
 static __inline__ __attribute__((always_inline)) unsigned int __vaddss4 (unsigned int a, unsigned int b)
 {
-# 3214 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 3214 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     unsigned int r;
     asm ("{                         \n\t"
          ".reg .u32 a,b,r,s,t,u;    \n\t"
@@ -6421,7 +6421,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vaddss4 (unsigne
 
 static __inline__ __attribute__((always_inline)) unsigned int __vaddus4 (unsigned int a, unsigned int b)
 {
-# 3279 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 3279 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     unsigned int r;
     asm ("{                         \n\t"
          ".reg .u32 a,b,r,s,t,m;    \n\t"
@@ -6448,7 +6448,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vaddus4 (unsigne
 static __inline__ __attribute__((always_inline)) unsigned int __vavgs4(unsigned int a, unsigned int b)
 {
     unsigned int r;
-# 3319 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 3319 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     asm ("{                      \n\t"
          ".reg .u32 a,b,c,r,s,t,u,v;\n\t"
          "mov.b32 a,%1;          \n\t"
@@ -6510,7 +6510,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vhaddu4(unsigned
 static __inline__ __attribute__((always_inline)) unsigned int __vcmpeq4(unsigned int a, unsigned int b)
 {
     unsigned int c, r;
-# 3388 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 3388 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     r = a ^ b;
     c = r | 0x80808080;
     r = r ^ c;
@@ -6712,7 +6712,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vcmpltu4(unsigne
 static __inline__ __attribute__((always_inline)) unsigned int __vcmpne4(unsigned int a, unsigned int b)
 {
     unsigned int r, c;
-# 3597 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 3597 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     r = a ^ b;
     c = r | 0x80808080;
     c = c - 0x01010101;
@@ -7050,7 +7050,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vsub4(unsigned i
 static __inline__ __attribute__((always_inline)) unsigned int __vsubss4(unsigned int a, unsigned int b)
 {
     unsigned int r;
-# 3970 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 3970 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     asm ("{                          \n\t"
          ".reg .u32 a,b,r,s,t,u,v,w; \n\t"
          "mov.b32     a,%1;          \n\t"
@@ -7082,7 +7082,7 @@ static __inline__ __attribute__((always_inline)) unsigned int __vsubss4(unsigned
 static __inline__ __attribute__((always_inline)) unsigned int __vsubus4(unsigned int a, unsigned int b)
 {
     unsigned int r;
-# 4030 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.hpp" 3
+# 4030 "/usr/local/cuda-8.0/include/device_functions.hpp" 3
     asm ("{                       \n\t"
          ".reg .u32 a,b,r,s,t,u;  \n\t"
          "mov.b32  a,%1;          \n\t"
@@ -7164,16 +7164,16 @@ static __inline__ __attribute__((always_inline)) unsigned int __vsads4(unsigned 
 
     return r;
 }
-# 4512 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
+# 4512 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_atomic_functions.h" 1 3
-# 201 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_atomic_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_atomic_functions.hpp" 1 3
-# 202 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_atomic_functions.h" 2 3
-# 4515 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_double_functions.h" 1 3
-# 1182 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_double_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_atomic_functions.h" 1 3
+# 201 "/usr/local/cuda-8.0/include/device_atomic_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/device_atomic_functions.hpp" 1 3
+# 202 "/usr/local/cuda-8.0/include/device_atomic_functions.h" 2 3
+# 4515 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/device_double_functions.h" 1 3
+# 1182 "/usr/local/cuda-8.0/include/device_double_functions.h" 3
 static __inline__ __attribute__((always_inline)) double __dsub_rn(double a, double b);
 
 static __inline__ __attribute__((always_inline)) double __dsub_rz(double a, double b);
@@ -7187,8 +7187,8 @@ static __inline__ __attribute__((always_inline)) double __dsub_rd(double a, doub
 
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_double_functions.hpp" 1 3
-# 193 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_double_functions.hpp" 3
+# 1 "/usr/local/cuda-8.0/include/device_double_functions.hpp" 1 3
+# 193 "/usr/local/cuda-8.0/include/device_double_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) double __dsub_rn(double a, double b)
 {
   double res;
@@ -7216,49 +7216,49 @@ static __inline__ __attribute__((always_inline)) double __dsub_rd(double a, doub
   asm ("sub.rm.f64 %0, %1, %2;" : "=d"(res) : "d"(a), "d"(b));
   return res;
 }
-# 1196 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_double_functions.h" 2 3
-# 4516 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_atomic_functions.h" 1 3
-# 102 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_atomic_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_atomic_functions.hpp" 1 3
-# 103 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_atomic_functions.h" 2 3
-# 4517 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_atomic_functions.h" 1 3
-# 124 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_atomic_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_atomic_functions.hpp" 1 3
-# 125 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_atomic_functions.h" 2 3
-# 4518 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_35_atomic_functions.h" 1 3
-# 4519 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_60_atomic_functions.h" 1 3
-# 528 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_60_atomic_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_60_atomic_functions.hpp" 1 3
-# 529 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_60_atomic_functions.h" 2 3
-# 4520 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_intrinsics.h" 1 3
-# 1494 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_intrinsics.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_intrinsics.hpp" 1 3
-# 1495 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_20_intrinsics.h" 2 3
-# 4521 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_30_intrinsics.h" 1 3
-# 177 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_30_intrinsics.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_30_intrinsics.hpp" 1 3
-# 178 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_30_intrinsics.h" 2 3
-# 4522 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_intrinsics.h" 1 3
-# 251 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_intrinsics.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_intrinsics.hpp" 1 3
-# 252 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_32_intrinsics.h" 2 3
-# 4523 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_35_intrinsics.h" 1 3
-# 4524 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_61_intrinsics.h" 1 3
-# 122 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_61_intrinsics.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_61_intrinsics.hpp" 1 3
-# 123 "/usr/local/cuda-8.0/targets/x86_64-linux/include/sm_61_intrinsics.h" 2 3
-# 4525 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_functions.h" 1 3
-# 2220 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_functions.h" 3
+# 1196 "/usr/local/cuda-8.0/include/device_double_functions.h" 2 3
+# 4516 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_20_atomic_functions.h" 1 3
+# 102 "/usr/local/cuda-8.0/include/sm_20_atomic_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_20_atomic_functions.hpp" 1 3
+# 103 "/usr/local/cuda-8.0/include/sm_20_atomic_functions.h" 2 3
+# 4517 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_32_atomic_functions.h" 1 3
+# 124 "/usr/local/cuda-8.0/include/sm_32_atomic_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_32_atomic_functions.hpp" 1 3
+# 125 "/usr/local/cuda-8.0/include/sm_32_atomic_functions.h" 2 3
+# 4518 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_35_atomic_functions.h" 1 3
+# 4519 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_60_atomic_functions.h" 1 3
+# 528 "/usr/local/cuda-8.0/include/sm_60_atomic_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_60_atomic_functions.hpp" 1 3
+# 529 "/usr/local/cuda-8.0/include/sm_60_atomic_functions.h" 2 3
+# 4520 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_20_intrinsics.h" 1 3
+# 1494 "/usr/local/cuda-8.0/include/sm_20_intrinsics.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_20_intrinsics.hpp" 1 3
+# 1495 "/usr/local/cuda-8.0/include/sm_20_intrinsics.h" 2 3
+# 4521 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_30_intrinsics.h" 1 3
+# 177 "/usr/local/cuda-8.0/include/sm_30_intrinsics.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_30_intrinsics.hpp" 1 3
+# 178 "/usr/local/cuda-8.0/include/sm_30_intrinsics.h" 2 3
+# 4522 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_32_intrinsics.h" 1 3
+# 251 "/usr/local/cuda-8.0/include/sm_32_intrinsics.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_32_intrinsics.hpp" 1 3
+# 252 "/usr/local/cuda-8.0/include/sm_32_intrinsics.h" 2 3
+# 4523 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_35_intrinsics.h" 1 3
+# 4524 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/sm_61_intrinsics.h" 1 3
+# 122 "/usr/local/cuda-8.0/include/sm_61_intrinsics.h" 3
+# 1 "/usr/local/cuda-8.0/include/sm_61_intrinsics.hpp" 1 3
+# 123 "/usr/local/cuda-8.0/include/sm_61_intrinsics.h" 2 3
+# 4525 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/surface_functions.h" 1 3
+# 2220 "/usr/local/cuda-8.0/include/surface_functions.h" 3
 extern uchar1 __surf1Dreadc1(unsigned long long, int, enum cudaSurfaceBoundaryMode);
 extern uchar2 __surf1Dreadc2(unsigned long long, int, enum cudaSurfaceBoundaryMode);
 extern uchar4 __surf1Dreadc4(unsigned long long, int, enum cudaSurfaceBoundaryMode);
@@ -7369,15 +7369,15 @@ extern void __surf2DLayeredwriteu2( uint2 val, unsigned long long, int, int, int
 extern void __surf2DLayeredwriteu4( uint4 val, unsigned long long, int, int, int, enum cudaSurfaceBoundaryMode);
 extern void __surf2DLayeredwritel1(ulonglong1 val, unsigned long long, int, int, int, enum cudaSurfaceBoundaryMode);
 extern void __surf2DLayeredwritel2(ulonglong2 val, unsigned long long, int, int, int, enum cudaSurfaceBoundaryMode);
-# 4526 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_fetch_functions.h" 1 3
-# 4527 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/texture_indirect_functions.h" 1 3
-# 4528 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/surface_indirect_functions.h" 1 3
-# 4529 "/usr/local/cuda-8.0/targets/x86_64-linux/include/device_functions.h" 2 3
-# 9846 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 2 3
-# 9861 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 3
+# 4526 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/texture_fetch_functions.h" 1 3
+# 4527 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/texture_indirect_functions.h" 1 3
+# 4528 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 1 "/usr/local/cuda-8.0/include/surface_indirect_functions.h" 1 3
+# 4529 "/usr/local/cuda-8.0/include/device_functions.h" 2 3
+# 9846 "/usr/local/cuda-8.0/include/math_functions.h" 2 3
+# 9861 "/usr/local/cuda-8.0/include/math_functions.h" 3
 static __inline__ __attribute__((always_inline)) float rintf(float a);
 
 static __inline__ __attribute__((always_inline)) long int lrintf(float a);
@@ -7387,7 +7387,7 @@ static __inline__ __attribute__((always_inline)) long long int llrintf(float a);
 static __inline__ __attribute__((always_inline)) float nearbyintf(float a);
 
 static __inline__ __attribute__((always_inline)) int __signbitf(float a);
-# 9885 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 3
+# 9885 "/usr/local/cuda-8.0/include/math_functions.h" 3
 static __inline__ __attribute__((always_inline)) float copysignf(float a, float b);
 
 static __inline__ __attribute__((always_inline)) int __finitef(float a);
@@ -7537,12 +7537,12 @@ static __inline__ __attribute__((always_inline)) float fdimf(float a, float b);
 static __inline__ __attribute__((always_inline)) int ilogbf(float a);
 
 static __inline__ __attribute__((always_inline)) float logbf(float a);
-# 10327 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.hpp" 1 3
-# 1095 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.hpp" 3
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_constants.h" 1 3
-# 1096 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.hpp" 2 3
-# 1135 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.hpp" 3
+# 10327 "/usr/local/cuda-8.0/include/math_functions.h" 3
+# 1 "/usr/local/cuda-8.0/include/math_functions.hpp" 1 3
+# 1095 "/usr/local/cuda-8.0/include/math_functions.hpp" 3
+# 1 "/usr/local/cuda-8.0/include/math_constants.h" 1 3
+# 1096 "/usr/local/cuda-8.0/include/math_functions.hpp" 2 3
+# 1135 "/usr/local/cuda-8.0/include/math_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) float rintf(float a)
 {
   return __nv_rintf(a);
@@ -7577,7 +7577,7 @@ static __inline__ __attribute__((always_inline)) int __signbitf(float a)
 {
   return __nv_signbitf(a);
 }
-# 1189 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.hpp" 3
+# 1189 "/usr/local/cuda-8.0/include/math_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) float copysignf(float a, float b)
 {
   return __nv_copysignf(a, b);
@@ -7587,7 +7587,7 @@ static __inline__ __attribute__((always_inline)) int __finitef(float a)
 {
   return __nv_finitef(a);
 }
-# 1208 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.hpp" 3
+# 1208 "/usr/local/cuda-8.0/include/math_functions.hpp" 3
 static __inline__ __attribute__((always_inline)) int __isinff(float a)
 {
   return __nv_isinff(a);
@@ -8010,12 +8010,12 @@ static __inline__ __attribute__((always_inline)) float logbf(float a)
 {
   return __nv_logbf(a);
 }
-# 10328 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 2 3
+# 10328 "/usr/local/cuda-8.0/include/math_functions.h" 2 3
 
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.h" 1 3
-# 71 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.h" 3
+# 1 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.h" 1 3
+# 71 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.h" 3
 static __inline__ __attribute__((always_inline)) double rint(double a) ;
 
 static __inline__ __attribute__((always_inline)) long int lrint(double a) ;
@@ -8037,7 +8037,7 @@ static __inline__ __attribute__((always_inline)) int __isfinited(double a);
 static __inline__ __attribute__((always_inline)) int __isinfd(double a);
 
 static __inline__ __attribute__((always_inline)) int __isnand(double a);
-# 105 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.h" 3
+# 105 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.h" 3
 static __inline__ __attribute__((always_inline)) int __signbit(double a) ;
 
 static __inline__ __attribute__((always_inline)) int __signbitl( double a);
@@ -8203,8 +8203,8 @@ static __inline__ __attribute__((always_inline)) double fma(double a, double b, 
 
 
 
-# 1 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.hpp" 1 3
-# 71 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.hpp" 3
+# 1 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.hpp" 1 3
+# 71 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.hpp" 3
 static __inline__ __attribute__((always_inline)) double rint(double a)
 {
   return __nv_rint(a);
@@ -8254,7 +8254,7 @@ static __inline__ __attribute__((always_inline)) int __isnand(double a)
 {
   return __nv_isnand(a);
 }
-# 145 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.hpp" 3
+# 145 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.hpp" 3
 static __inline__ __attribute__((always_inline)) int __signbit(double a)
 {
   return __signbitd(a);
@@ -8660,7 +8660,7 @@ static __inline__ __attribute__((always_inline)) double fma(double a, double b, 
 {
   return __nv_fma(a, b, c);
 }
-# 271 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions_dbl_ptx3.h" 2 3
-# 10332 "/usr/local/cuda-8.0/targets/x86_64-linux/include/math_functions.h" 2 3
-# 250 "/usr/local/cuda/bin/../targets/x86_64-linux/include/common_functions.h" 2 3
-# 198 "/usr/local/cuda/bin/../targets/x86_64-linux/include/crt/device_runtime.h" 2 3
+# 271 "/usr/local/cuda-8.0/include/math_functions_dbl_ptx3.h" 2 3
+# 10332 "/usr/local/cuda-8.0/include/math_functions.h" 2 3
+# 250 "/usr/local/cuda/bin/..//include/common_functions.h" 2 3
+# 198 "/usr/local/cuda/bin/..//include/crt/device_runtime.h" 2 3

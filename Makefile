@@ -149,33 +149,6 @@ GAMMA_lib/fast:
 	$(MAKE) -f CMakeFiles/GAMMA_lib.dir/build.make CMakeFiles/GAMMA_lib.dir/build
 .PHONY : GAMMA_lib/fast
 
-GAMMA.o: GAMMA.cpp.o
-
-.PHONY : GAMMA.o
-
-# target to build an object file
-GAMMA.cpp.o:
-	$(MAKE) -f CMakeFiles/GAMMA.dir/build.make CMakeFiles/GAMMA.dir/GAMMA.cpp.o
-.PHONY : GAMMA.cpp.o
-
-GAMMA.i: GAMMA.cpp.i
-
-.PHONY : GAMMA.i
-
-# target to preprocess a source file
-GAMMA.cpp.i:
-	$(MAKE) -f CMakeFiles/GAMMA.dir/build.make CMakeFiles/GAMMA.dir/GAMMA.cpp.i
-.PHONY : GAMMA.cpp.i
-
-GAMMA.s: GAMMA.cpp.s
-
-.PHONY : GAMMA.s
-
-# target to generate assembly for a file
-GAMMA.cpp.s:
-	$(MAKE) -f CMakeFiles/GAMMA.dir/build.make CMakeFiles/GAMMA.dir/GAMMA.cpp.s
-.PHONY : GAMMA.cpp.s
-
 src/BCManager.o: src/BCManager.cpp.o
 
 .PHONY : src/BCManager.o
@@ -646,9 +619,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... CUDA_lib"
 	@echo "... GAMMA_lib"
-	@echo "... GAMMA.o"
-	@echo "... GAMMA.i"
-	@echo "... GAMMA.s"
 	@echo "... src/BCManager.o"
 	@echo "... src/BCManager.i"
 	@echo "... src/BCManager.s"

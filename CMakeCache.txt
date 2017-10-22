@@ -208,7 +208,7 @@ CUDA_HOST_COMPILER:FILEPATH=
 //Path to a program.
 CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda/bin/nvcc
 
-//Semi-colon delimit multiple arguments.
+//nvcc flags
 CUDA_NVCC_FLAGS:STRING=
 
 //Semi-colon delimit multiple arguments.
@@ -299,8 +299,8 @@ GAMMA_GPU_BINARY_DIR:STATIC=/home/leonardo/cuda-workspace/GAMMA_raw
 //Value Computed by CMake
 GAMMA_GPU_SOURCE_DIR:STATIC=/home/leonardo/cuda-workspace/GAMMA_raw
 
-//Dependencies for target
-GAMMA_lib_LIB_DEPENDS:STATIC=
+//Dependencies for the target
+GAMMA_lib_LIB_DEPENDS:STATIC=general;/usr/local/cuda/lib64/libcudart_static.a;general;-lpthread;general;dl;general;/usr/lib/x86_64-linux-gnu/librt.so;general;/usr/local/cuda/lib64/libcudadevrt.a;
 
 
 ########################
@@ -452,7 +452,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 CUDA_64_BIT_DEVICE_CODE-ADVANCED:INTERNAL=1
 //List of intermediate files that are part of the cuda dependency
 // scanning.
-CUDA_ADDITIONAL_CLEAN_FILES:INTERNAL=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o.depend
+CUDA_ADDITIONAL_CLEAN_FILES:INTERNAL=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o.depend;/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir//GAMMA_generated_GAMMA.cu.o.depend
 //ADVANCED property for variable: CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE
 CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_BUILD_CUBIN
