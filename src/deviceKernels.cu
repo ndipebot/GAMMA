@@ -120,9 +120,9 @@ void AllocateDeviceData(elementData& elem) {
 	checkCudaErrors(cudaMalloc((void**)&elem.dthetaN, nn*sizeof(double)));
 
 	//Clear some arrays
-	cudaMemset(elem.dGlobMass, 0, 8*nn*sizeof(double));
-	cudaMemset(elem.dEleStiffness, 0, 36*numEl*sizeof(double));
-	cudaMemset(elem.dthetaN, elem.initTemp, nn*sizeof(double));
+	checkCudaErrors(cudaMemset(elem.dGlobMass, 0, 8*nn*sizeof(double)));
+	checkCudaErrors(cudaMemset(elem.dEleStiffness, 0, 36*numEl*sizeof(double)));
+	checkCudaErrors(cudaMemset(elem.dthetaN, elem.initTemp, nn*sizeof(double)));
 }
 
 void CopyToDevice(elementData& elem) {
