@@ -10,10 +10,7 @@
 
 #include <DomainManager.h>
 #include <HeatSolverManager.h>
-#include <thrust/host_vector.h>
-#include <thrust/device_vector.h>
-#include <thrust/device_ptr.h>
-#include <thrust/execution_policy.h>
+
 
 struct elementData {
 	int* dEleNodes ;
@@ -25,22 +22,22 @@ struct elementData {
 	double* dthetaN;
 	int numEl;
 	int nn;
+	double initTemp;
 
-	thrust::host_vector<int> eleNodes;
-	thrust::host_vector<double> eleNodeCoords;
-	thrust::host_vector<double> eleMat;
-	thrust::host_vector<double> eleBirthTimes;
-	thrust::host_vector<double> thetaN;
-
-	thrust::device_vector<int> eleNodes_d;
-	thrust::device_vector<double> eleNodeCoords_d;
-	thrust::device_vector<double> eleMat_d;
-	thrust::device_vector<double> eleBirthTimes_d;
-	thrust::device_vector<double> thetaN_d;
-
-	thrust::device_vector<double> eleStiffness;
-	thrust::device_vector<double> globMass;
+	vector<int> eleNodes;
+	vector<double> eleNodeCoords;
+	vector<double> eleMat;
+	vector<double> eleBirthTimes;
+	vector<double> thetaN;
+	vector<double> eleStiffness;
+	vector<double> globMass;
 };
+
+void AllocateDeviceData(elementData& elem);
+
+void CopyToDevice(elementData& elem);
+
+void FreeDevice(elementData& elem);
 
 void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, double initTemp);
 

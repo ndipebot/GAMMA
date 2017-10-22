@@ -173,6 +173,8 @@ int main(int arg, char *argv[])
 
   updateMassOnD(elemData);
 
+  FreeDevice(elemData);
+
   // time integrator
   while (domainMgr->currTime_ <= simTime)
   {

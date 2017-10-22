@@ -10,7 +10,7 @@
  */
 #include <deviceHeader.h>
 #include <iostream>
-
+#include <helper_cuda.h>
 
 __constant__ double parCoords[24];
 
@@ -19,16 +19,6 @@ __global__ void updateMass(const double* __restrict__ thetaN, const double* __re
 
 __global__ void initializeStiffness(const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords, double* eleStiffness,
 		const int* __restrict__ eleNodes, const int numEl, const int nn);
-
-#define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }
-inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true)
-{
-   if (code != cudaSuccess)
-   {
-      fprintf(stderr,"GPUassert: %s %s %d\n", cudaGetErrorString(code), file, line);
-      if (abort) exit(code);
-   }
-}
 
 void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, double initTemp) {
     //Start recording time
@@ -42,15 +32,20 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 	int numEl = domainMgr->nel_;
 	int nn = domainMgr->nn_;
 
+
+	elemData.initTemp = initTemp;
 	elemData.nn = nn;
 	elemData.numEl = numEl;
 
 	//Element data
 	elemData.eleNodes.resize(8*numEl);
-	elemData.eleNodeCoords.resize(24*numEl,0);
+	elemData.eleNodeCoords.resize(24*numEl);
 	elemData.eleMat.resize(6*numEl);
 	elemData.eleBirthTimes.resize(numEl);
 	elemData.thetaN.resize(nn);
+
+	elemData.eleStiffness.resize(numEl*36);
+	elemData.globMass.resize(nn*8);
 
 	// set element values
 	for(const auto & elem : domainMgr->elementList_) {
@@ -77,35 +72,12 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 		elemData.eleBirthTimes[eID] = elem->birthTime_;
 	}
 
-	//Device Vectors
-	elemData.globMass.resize(8*nn,0);
-	//thrust::fill(elemData.globMass.begin(), elemData.globMass.end(), 0);
-	elemData.eleStiffness.resize(36*numEl,0);
-	//thrust::fill(elemData.eleStiffness.begin(), elemData.eleStiffness.end(), 0);
-
-
-	elemData.dEleStiffness = thrust::raw_pointer_cast(elemData.eleStiffness.data());
-	elemData.dGlobMass = thrust::raw_pointer_cast(elemData.globMass.data());
-
-	elemData.eleNodes_d = elemData.eleNodes;
-	elemData.dEleNodes = thrust::raw_pointer_cast(elemData.eleNodes_d.data());
-
-
-	elemData.eleNodeCoords_d = elemData.eleNodeCoords;
-	elemData.dEleNodeCoords = thrust::raw_pointer_cast(elemData.eleNodeCoords_d.data());
-
-	elemData.eleMat_d = elemData.eleMat;
-	elemData.dEleMat = thrust::raw_pointer_cast(elemData.eleMat_d.data());
-
-	elemData.eleBirthTimes_d = elemData.eleBirthTimes;
-	elemData.dEleBirthTimes = thrust::raw_pointer_cast(elemData.eleBirthTimes_d.data());
-
-	elemData.thetaN_d.resize(nn,initTemp);
-	elemData.dthetaN = thrust::raw_pointer_cast(elemData.thetaN_d.data());
+	AllocateDeviceData(elemData);
+	CopyToDevice(elemData);
 
 	//move parametric coordinates to local memory
 
-	thrust::host_vector<float> coords(24);
+	vector<double> coords(24);
 
 	vector<double> coeff {-1.0, -1.0, -1.0,
 							1.0, -1.0, -1.0,
@@ -134,7 +106,55 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 
 }
 
+void AllocateDeviceData(elementData& elem) {
+	int nn = elem.nn;
+	int numEl = elem.numEl;
+
+	//Allocate device arrays
+	checkCudaErrors(cudaMalloc((void**)&elem.dGlobMass, 8*nn*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleStiffness, 36*numEl*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleNodes, 8*numEl*sizeof(int)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleNodeCoords, 24*numEl*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleMat, 6*numEl*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleBirthTimes, numEl*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dthetaN, nn*sizeof(double)));
+
+	//Clear some arrays
+	cudaMemset(elem.dGlobMass, 0, 8*nn*sizeof(double));
+	cudaMemset(elem.dEleStiffness, 0, 36*numEl*sizeof(double));
+	cudaMemset(elem.dthetaN, elem.initTemp, nn*sizeof(double));
+}
+
+void CopyToDevice(elementData& elem) {
+	int numEl = elem.numEl;
+
+	checkCudaErrors(cudaMemcpy(elem.dEleNodes,elem.eleNodes.data(),8*numEl*sizeof(int), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dEleNodeCoords,elem.eleNodeCoords.data(),24*numEl*sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dEleMat,elem.eleMat.data(), 6*numEl*sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dEleBirthTimes,elem.eleBirthTimes.data(),numEl*sizeof(double), cudaMemcpyHostToDevice));
+}
+
+void CopyToHost(elementData& elem) {
+	int nn = elem.nn;
+	int numEl = elem.numEl;
+
+	checkCudaErrors(cudaMemcpy(elem.eleStiffness.data(), elem.dEleStiffness, 36*numEl*sizeof(double), cudaMemcpyDeviceToHost));
+	checkCudaErrors(cudaMemcpy(elem.globMass.data(), elem.dGlobMass, 8*nn*sizeof(double), cudaMemcpyDeviceToHost));
+}
+
+void FreeDevice(elementData& elem) {
+	checkCudaErrors(cudaFree(elem.dGlobMass));
+	checkCudaErrors(cudaFree(elem.dEleStiffness));
+	checkCudaErrors(cudaFree(elem.dEleNodes));
+	checkCudaErrors(cudaFree(elem.dEleNodeCoords));
+	checkCudaErrors(cudaFree(elem.dEleMat));
+	checkCudaErrors(cudaFree(elem.dEleBirthTimes));
+	checkCudaErrors(cudaFree(elem.dthetaN));
+}
+
+
 void initializeStiffnessOnD(elementData& elemData) {
+	cudaError_t cudaStatus;
 	int gridSize = elemData.numEl/256 + 1;
 	int blockSize = 256;
 
@@ -148,11 +168,15 @@ void initializeStiffnessOnD(elementData& elemData) {
 	initializeStiffness<<<gridSize, blockSize>>>(elemData.dEleMat, elemData.dEleNodeCoords, elemData.dEleStiffness,
 				elemData.dEleNodes, elemData.numEl, elemData.nn);
 
-	gpuErrchk( cudaPeekAtLastError() );
-	gpuErrchk( cudaDeviceSynchronize() );
+	cudaStatus = cudaGetLastError();
+	if(cudaStatus != cudaSuccess) {
+		cout <<"initialiazeStiffness Kernel failed: "<<cudaGetErrorString(cudaStatus)<< endl;
+		FreeDevice(elemData);
+	}
 
     cudaEventRecord(stop, 0);
     cudaEventSynchronize(stop);
+
     float elapsedTime;
     cudaEventElapsedTime(&elapsedTime, start, stop); // that's our time!
     // Clean up:
@@ -163,6 +187,7 @@ void initializeStiffnessOnD(elementData& elemData) {
 }
 
 void updateMassOnD(elementData& elemData) {
+	cudaError_t cudaStatus;
 	int gridSize = elemData.numEl/256 + 1;
 	int blockSize = 256;
 
@@ -176,8 +201,12 @@ void updateMassOnD(elementData& elemData) {
 	updateMass<<<gridSize, blockSize>>>(elemData.dthetaN, elemData.dEleMat, elemData.dEleNodeCoords,
 			elemData.dGlobMass, elemData.dEleNodes, elemData.numEl, elemData.nn);
 
-	gpuErrchk( cudaPeekAtLastError() );
-	gpuErrchk( cudaDeviceSynchronize() );
+	cudaStatus = cudaGetLastError();
+	if(cudaStatus != cudaSuccess) {
+		cout <<"updateMass Kernel failed: "<<cudaGetErrorString(cudaStatus)<< endl;
+		FreeDevice(elemData);
+	}
+
 
     cudaEventRecord(stop, 0);
     cudaEventSynchronize(stop);
