@@ -90,7 +90,7 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 
 	  for (int j = 0; j < 8; j++)
 	    for (int i = 0; i < 3; i++)
-	      coords[i*3 + j] = coeff[i*3 + j] * 0.5773502692;
+	      coords[j*3 + i] = coeff[j*3 + i] * 0.5773502692;
 
       cudaMemcpyToSymbol(parCoords,coords.data(),24*sizeof(double));
 
@@ -358,18 +358,15 @@ __global__ void initializeStiffness(const double* __restrict__ eleMat, const dou
 
 		double kappa = eleMat[5*numEl + idx];
 
-		#pragma unroll 1
 		for(int ip = 0; ip < 8; ++ip) {
 
-			for(int i = 0; i < 24; i++) {
+			for(int i = 0; i < 24; i++)
 				gradN[i] = 0;
-				deriv[i] = 0;
-			}
 
-			for(int i = 0; i < 9; i++) {
+
+			for(int i = 0; i < 9; i++)
 				Jac[i] = 0;
-				iJac[i] = 0;
-			}
+
 
 			//compute shape function
 			chsi = parCoords[ip*3 + 0];

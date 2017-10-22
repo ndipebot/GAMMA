@@ -39,6 +39,8 @@ void CopyToDevice(elementData& elem);
 
 void FreeDevice(elementData& elem);
 
+void CopyToHost(elementData& elem);
+
 void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, double initTemp);
 
 void initializeStiffnessOnD(elementData& elemData);

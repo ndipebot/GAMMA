@@ -173,6 +173,8 @@ int main(int arg, char *argv[])
 
   updateMassOnD(elemData);
 
+  CopyToHost(elemData);
+
   FreeDevice(elemData);
 
   // time integrator
