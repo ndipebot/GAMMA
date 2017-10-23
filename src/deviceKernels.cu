@@ -326,10 +326,8 @@ __global__ void updateMass(const double* __restrict__ thetaN, const double* __re
 				for (int j = 0; j < 8; j++)
 					globMass[i*nn + ig] += N[i] * rho * cpPoint * N[j] * detJac;
 			}
-
 		}
 	}
-
 }
 
 __global__ void initializeStiffness(const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords,
@@ -468,10 +466,3 @@ __global__ void initializeStiffness(const double* __restrict__ eleMat, const dou
 		}
 	}
 }
-
-
-
-
-
-
-
