@@ -171,9 +171,12 @@ int main(int arg, char *argv[])
   //initialiaze Stiffness GPU
   initializeStiffnessOnD(elemData);
 
-  updateMassOnD(elemData);
+  //updateMassOnD(elemData);
 
   CopyToHost(elemData);
+
+  //compareMass(elemData, heatMgr->Mvec_);
+  compareStiff(elemData, domainMgr->elementList_);
 
   FreeDevice(elemData);
 

@@ -8,8 +8,11 @@
 #ifndef DEVICEHEADER_H_
 #define DEVICEHEADER_H_
 
+#include "cuda_runtime.h"
+#include "device_launch_parameters.h"
 #include <DomainManager.h>
 #include <HeatSolverManager.h>
+
 
 
 struct elementData {
@@ -22,6 +25,7 @@ struct elementData {
 	double* dthetaN;
 	int numEl;
 	int nn;
+	int numElAct;
 	double initTemp;
 
 	vector<int> eleNodes;
@@ -52,6 +56,10 @@ void udpateMatK();
 void updateCapK();
 
 void getInternalForceK();
+
+void compareMass(elementData& elemData, vector<double> Mvec);
+
+void compareStiff(elementData& elemData, vector<Element*> elementList);
 
 
 #endif /* DEVICEHEADER_H_ */

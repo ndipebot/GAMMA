@@ -154,7 +154,6 @@ HeatSolverManager::getInternalForce()
 void 
 HeatSolverManager::initializeMass()
 {
-
   Nip_ = new double[8 * 8];
   double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
@@ -245,6 +244,7 @@ HeatSolverManager::initializeMass()
           count++;
         }//end for(J)
       }//end for(I)
+
 
       // sum to global
       for (int I = 0; I < 8; I++)

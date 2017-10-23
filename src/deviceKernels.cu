@@ -15,10 +15,36 @@
 __constant__ double parCoords[24];
 
 __global__ void updateMass(const double* __restrict__ thetaN, const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords,
-		double* globMass, const int* __restrict__ eleNodes, const int numEl, const int nn);
+		double* globMass, const int* __restrict__ eleNodes, const int numEl, const int nn, const int numElAct);
 
 __global__ void initializeStiffness(const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords, double* eleStiffness,
 		const int* __restrict__ eleNodes, const int numEl, const int nn);
+
+__global__ void massReduce(double* globMass, const int nn);
+
+void compareMass(elementData& elemData, vector<double> Mvec) {
+	std::cout << elemData.globMass.size() << std::endl;
+	std::cout << Mvec.size() << std::endl;
+	int nn = Mvec.size();
+	int base = 0;
+	for (int i = 0; i < nn; i++) {
+		if (abs(elemData.globMass[base + i] - Mvec[base + i]) > 0.0001) {
+			std::cout << "Mismatch found on node: "<<i<<", GPU: "<< elemData.globMass[base + i] << ", CPU: "<< Mvec[base + i]<<std::endl;
+		}
+	}
+}
+
+void compareStiff(elementData& elemData, vector<Element*> elementList) {
+	int numEl = elementList.size();
+	for (const auto & elem : elementList) {
+		int eID = &elem - &elementList[0];
+		for (int i = 0; i < 36; ++i) {
+			if (abs(elemData.eleStiffness[eID + i*numEl] - elem->stiffMatrix_[i]) > 0.0001) {
+				std::cout << "Mismatch found on element: " << eID << ", GPU: " << elemData.eleStiffness[eID + i*numEl] << ", CPU: " << elem->stiffMatrix_[i] << std::endl;
+			}
+		}
+	}
+}
 
 void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, double initTemp) {
     //Start recording time
@@ -31,11 +57,13 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 
 	int numEl = domainMgr->nel_;
 	int nn = domainMgr->nn_;
+	int numElAct = domainMgr->activeElements_.size();
 
 
 	elemData.initTemp = initTemp;
 	elemData.nn = nn;
 	elemData.numEl = numEl;
+	elemData.numElAct = numElAct;
 
 	//Element data
 	elemData.eleNodes.resize(8*numEl);
@@ -46,6 +74,9 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 
 	elemData.eleStiffness.resize(numEl*36);
 	elemData.globMass.resize(nn*8);
+
+	//set node values
+	std::fill(elemData.thetaN.begin(), elemData.thetaN.end(), initTemp);
 
 	// set element values
 	for(const auto & elem : domainMgr->elementList_) {
@@ -90,7 +121,7 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
 
 	  for (int j = 0; j < 8; j++)
 	    for (int i = 0; i < 3; i++)
-	      coords[j*3 + i] = coeff[j*3 + i] * 0.5773502692;
+			coords[j * 3 + i] = coeff[j * 3 + i] * 0.5773502692;
 
       cudaMemcpyToSymbol(parCoords,coords.data(),24*sizeof(double));
 
@@ -102,7 +133,7 @@ void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, doubl
       cudaEventDestroy(start);
       cudaEventDestroy(stop);
 
-      cout << "Device data setup took " << (double)elapsedTime/1000 << " seconds" << endl;
+	  std::cout << "Device data setup took " << (double)elapsedTime/1000 << " seconds" << std::endl;
 
 }
 
@@ -122,16 +153,16 @@ void AllocateDeviceData(elementData& elem) {
 	//Clear some arrays
 	cudaMemset(elem.dGlobMass, 0, 8*nn*sizeof(double));
 	cudaMemset(elem.dEleStiffness, 0, 36*numEl*sizeof(double));
-	cudaMemset(elem.dthetaN, elem.initTemp, nn*sizeof(double));
 }
 
 void CopyToDevice(elementData& elem) {
+	int nn = elem.nn;
 	int numEl = elem.numEl;
-
 	checkCudaErrors(cudaMemcpy(elem.dEleNodes,elem.eleNodes.data(),8*numEl*sizeof(int), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dEleNodeCoords,elem.eleNodeCoords.data(),24*numEl*sizeof(double), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dEleMat,elem.eleMat.data(), 6*numEl*sizeof(double), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dEleBirthTimes,elem.eleBirthTimes.data(),numEl*sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dthetaN, elem.thetaN.data(), nn*sizeof(double), cudaMemcpyHostToDevice));
 }
 
 void CopyToHost(elementData& elem) {
@@ -152,7 +183,6 @@ void FreeDevice(elementData& elem) {
 	checkCudaErrors(cudaFree(elem.dthetaN));
 }
 
-
 void initializeStiffnessOnD(elementData& elemData) {
 	cudaError_t cudaStatus;
 	int gridSize = elemData.numEl/256 + 1;
@@ -170,7 +200,7 @@ void initializeStiffnessOnD(elementData& elemData) {
 
 	cudaStatus = cudaGetLastError();
 	if(cudaStatus != cudaSuccess) {
-		cout <<"initialiazeStiffness Kernel failed: "<<cudaGetErrorString(cudaStatus)<< endl;
+		std::cout <<"initialiazeStiffness Kernel failed: "<<cudaGetErrorString(cudaStatus)<< std::endl;
 		FreeDevice(elemData);
 	}
 
@@ -183,12 +213,12 @@ void initializeStiffnessOnD(elementData& elemData) {
     cudaEventDestroy(start);
     cudaEventDestroy(stop);
 
-    cout << "initialize Stiffness took " << (double)elapsedTime/1000 << " seconds" << endl;
+	std::cout << "initialize Stiffness took " << (double)elapsedTime/1000 << " seconds" << std::endl;
 }
 
 void updateMassOnD(elementData& elemData) {
 	cudaError_t cudaStatus;
-	int gridSize = elemData.numEl/256 + 1;
+	int gridSize = elemData.numElAct/256 + 1;
 	int blockSize = 256;
 
     //Start recording time
@@ -199,13 +229,22 @@ void updateMassOnD(elementData& elemData) {
     cudaEventRecord(start, 0);
 
 	updateMass<<<gridSize, blockSize>>>(elemData.dthetaN, elemData.dEleMat, elemData.dEleNodeCoords,
-			elemData.dGlobMass, elemData.dEleNodes, elemData.numEl, elemData.nn);
+			elemData.dGlobMass, elemData.dEleNodes, elemData.numEl, elemData.nn,elemData.numElAct);
 
 	cudaStatus = cudaGetLastError();
 	if(cudaStatus != cudaSuccess) {
-		cout <<"updateMass Kernel failed: "<<cudaGetErrorString(cudaStatus)<< endl;
+		std::cout <<"updateMass Kernel failed: "<<cudaGetErrorString(cudaStatus)<< std::endl;
 		FreeDevice(elemData);
 	}
+
+	//gridSize= elemData.nn / 256 + 1;
+	//massReduce <<<gridSize, blockSize >>> (elemData.dGlobMass, elemData.nn);
+
+	//cudaStatus = cudaGetLastError();
+	//if (cudaStatus != cudaSuccess) {
+	//	cout << "massReduce Kernel failed: " << cudaGetErrorString(cudaStatus) << endl;
+	//	FreeDevice(elemData);
+	//}
 
 
     cudaEventRecord(stop, 0);
@@ -216,16 +255,16 @@ void updateMassOnD(elementData& elemData) {
     cudaEventDestroy(start);
     cudaEventDestroy(stop);
 
-    cout << "update Mass took " << (double)elapsedTime/1000 << " seconds" << endl;
+	std::cout << "update Mass took " << (double)elapsedTime/1000 << " seconds" << std::endl;
 
 }
 
 __global__ void updateMass(const double* __restrict__ thetaN, const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords,
-		double* globMass, const int* __restrict__ eleNodes, const int numEl, const int nn) {
+		double* globMass, const int* __restrict__ eleNodes, const int numEl, const int nn, const int numElAct) {
 
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
-	if(idx < numEl) {
+	if(idx < numElAct) {
 
 		  // elemental material properties
 		double liquidus = eleMat[idx + 2*numEl];
@@ -307,6 +346,8 @@ __global__ void updateMass(const double* __restrict__ thetaN, const double* __re
 				coords[3*i + 2] = eleNodeCoords[3*numEl*i + 2*numEl + idx];
 			 }
 
+			for (int k = 0; k < 9; k++)
+				Jac[k] = 0;
 
 			// Compute Jacobian
 			for (int k = 0; k < 3; k++)
@@ -363,10 +404,8 @@ __global__ void initializeStiffness(const double* __restrict__ eleMat, const dou
 			for(int i = 0; i < 24; i++)
 				gradN[i] = 0;
 
-
 			for(int i = 0; i < 9; i++)
 				Jac[i] = 0;
-
 
 			//compute shape function
 			chsi = parCoords[ip*3 + 0];
@@ -423,17 +462,17 @@ __global__ void initializeStiffness(const double* __restrict__ eleMat, const dou
 
 			//compute inverse of Jacobian
 
-			iJac[0] = (1/detJac) * Jac[4] * Jac[8] - Jac[5] * Jac[7];
-			iJac[1] = (-1/detJac) * Jac[3] * Jac[8] - Jac[5] * Jac[6];
-			iJac[2] = (1/detJac) * Jac[3] * Jac[7] - Jac[4] * Jac[6];
+			iJac[0] = (1/detJac) * (Jac[4] * Jac[8] - Jac[5] * Jac[7]);
+			iJac[1] = (-1/detJac) * (Jac[3] * Jac[8] - Jac[5] * Jac[6]);
+			iJac[2] = (1/detJac) * (Jac[3] * Jac[7] - Jac[4] * Jac[6]);
 
-			iJac[3] = (-1/detJac) * Jac[1] * Jac[8] - Jac[2] * Jac[7];
-			iJac[4] = (1/detJac) * Jac[0] * Jac[8] - Jac[2] * Jac[6];
-			iJac[5] = (-1/detJac) * Jac[0] * Jac[7] - Jac[1] * Jac[6];
+			iJac[3] = (-1/detJac) * (Jac[1] * Jac[8] - Jac[2] * Jac[7]);
+			iJac[4] = (1/detJac) * (Jac[0] * Jac[8] - Jac[2] * Jac[6]);
+			iJac[5] = (-1/detJac) * (Jac[0] * Jac[7] - Jac[1] * Jac[6]);
 
-			iJac[6] = (1/detJac) * Jac[1] * Jac[5] - Jac[2] * Jac[4];
-			iJac[7] = (-1/detJac) * Jac[0] * Jac[5] - Jac[2] * Jac[3];
-			iJac[8] = (1/detJac) * Jac[0] * Jac[4] - Jac[1] * Jac[3];
+			iJac[6] = (1/detJac) * (Jac[1] * Jac[5] - Jac[2] * Jac[4]);
+			iJac[7] = (-1/detJac) * (Jac[0] * Jac[5] - Jac[2] * Jac[3]);
+			iJac[8] = (1/detJac) * (Jac[0] * Jac[4] - Jac[1] * Jac[3]);
 
 			swap = iJac[1];
 			iJac[1] = iJac[3];
@@ -465,6 +504,15 @@ __global__ void initializeStiffness(const double* __restrict__ eleMat, const dou
 
 				count++;
 			  }
+		}
+	}
+}
+
+__global__ void massReduce(double* globMass, const int nn) {
+	int idx = blockIdx.x*blockDim.x + threadIdx.x;
+	if (idx < nn) {
+		for (int elInd = 1; elInd < 8; elInd++) {
+			globMass[idx] += globMass[idx + nn*elInd];
 		}
 	}
 }
