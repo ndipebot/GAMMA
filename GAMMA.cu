@@ -169,14 +169,14 @@ int main(int arg, char *argv[])
   createDataOnDeveice(domainMgr, elemData, heatMgr->initTheta_);
 
   //initialiaze Stiffness GPU
-  initializeStiffnessOnD(elemData);
+  //initializeStiffnessOnD(elemData);
 
-  //updateMassOnD(elemData);
+  updateMassOnD(elemData);
 
   CopyToHost(elemData);
 
-  //compareMass(elemData, heatMgr->Mvec_);
-  compareStiff(elemData, domainMgr->elementList_);
+  compareMass(elemData, heatMgr->Mvec_);
+  //compareStiff(elemData, domainMgr->elementList_);
 
   FreeDevice(elemData);
 
@@ -191,6 +191,15 @@ int main(int arg, char *argv[])
     heatMgr->pre_work();
  
     heatMgr->updateCap();
+
+	//updateMassOnD(elemData);
+
+	//CopyToHost(elemData);
+
+	//compareMass(elemData, heatMgr->Mvec_);
+	//compareStiff(elemData, domainMgr->elementList_);
+
+	//FreeDevice(elemData);
 
     heatMgr->integrateForce();
 
