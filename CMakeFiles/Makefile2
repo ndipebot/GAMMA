@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/leonardo/cuda-workspace/GAMMA_raw
 # Target rules for target CMakeFiles/GAMMA.dir
 
 # All Build rule for target.
-CMakeFiles/GAMMA.dir/all: CMakeFiles/CUDA_lib.dir/all
 CMakeFiles/GAMMA.dir/all: CMakeFiles/GAMMA_lib.dir/all
+CMakeFiles/GAMMA.dir/all: CMakeFiles/CUDA_lib.dir/all
 	$(MAKE) -f CMakeFiles/GAMMA.dir/build.make CMakeFiles/GAMMA.dir/depend
 	$(MAKE) -f CMakeFiles/GAMMA.dir/build.make CMakeFiles/GAMMA.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles --progress-num=4,5,6,7 "Built target GAMMA"

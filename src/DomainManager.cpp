@@ -462,7 +462,7 @@ DomainManager::initializeActiveElements()
   {
     Element *element = elementList_[ie];
     int *localNodes = element->nID_;
-    if (!element->birth_)
+    if (!element->birthTime_>0.0)
     {
       activeElements_.push_back(ie);
       for (int I = 0; I < 8; I++)

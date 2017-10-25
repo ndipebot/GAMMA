@@ -96,10 +96,7 @@ int main(int arg, char *argv[])
     double value = it->second;
     cout << ThirdEleWidth_ << paramName << "  \t:  " << value << endl;
   }//end for(it)
-  cout << "\n";
-  cout << "===============================================================\n";
   cout << "\n\n";
-  cout << "**********************" << meshObj.ELEM_.size() << endl;
   
   // Set up domain (connectivity etc.)
   DomainManager *domainMgr = new DomainManager(&meshObj);
@@ -166,19 +163,8 @@ int main(int arg, char *argv[])
 
   //Copy element Data to GPU
   elementData elemData;
-  createDataOnDeveice(domainMgr, elemData, heatMgr->initTheta_);
+  createDataOnDevice(domainMgr, elemData, heatMgr);
 
-  //initialiaze Stiffness GPU
-  //initializeStiffnessOnD(elemData);
-
-  updateMassOnD(elemData);
-
-  CopyToHost(elemData);
-
-  compareMass(elemData, heatMgr->Mvec_);
-  //compareStiff(elemData, domainMgr->elementList_);
-
-  FreeDevice(elemData);
 
   // time integrator
   while (domainMgr->currTime_ <= simTime)
@@ -186,20 +172,32 @@ int main(int arg, char *argv[])
     // update time counters
     outTrack += heatMgr->dt_;
 
-    domainMgr->currTime_ += heatMgr->dt_;
+    //domainMgr->currTime_ += heatMgr->dt_;
+	domainMgr->currTime_ = 0.0;
 
     heatMgr->pre_work();
  
     heatMgr->updateCap();
 
-	//updateMassOnD(elemData);
+	heatMgr->heatBCManager_->applyFluxes();
 
-	//CopyToHost(elemData);
+	////////////////////////////////////
+
+	//initializeStiffnessOnD(elemData);
+	//updateMassOnD(elemData, domainMgr);
+	//updateIntForceOnD(elemData, domainMgr);
+	updateFluxKernel(elemData, domainMgr);
+
+	CopyToHost(elemData);
 
 	//compareMass(elemData, heatMgr->Mvec_);
 	//compareStiff(elemData, domainMgr->elementList_);
+	//compareIntForce(elemData, heatMgr->rhs_);
+	compareFlux(elemData, heatMgr->rhs_);
 
-	//FreeDevice(elemData);
+	FreeDevice(elemData);
+
+	/////////////////////////////////////
 
     heatMgr->integrateForce();
 
