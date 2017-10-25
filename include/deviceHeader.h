@@ -25,8 +25,16 @@ struct elementData {
 	double* dthetaN;
 	int numEl;
 	int nn;
-	int numElAct;
 	double initTemp;
+	int numSurf;
+    double tool0;
+    double tool1;
+    double tool2;
+    int laserState;
+    int rhsCount;
+    double ambient;
+    double abszero;
+    double sigma;
 
 	vector<int> eleNodes;
 	vector<double> eleNodeCoords;
@@ -35,6 +43,23 @@ struct elementData {
 	vector<double> thetaN;
 	vector<double> eleStiffness;
 	vector<double> globMass;
+
+	vector<double> boundSurfBirthTime;
+	vector<double> boundSurfDeathTime;
+	vector<int> surfNodes;
+	vector<double> surfNodeCoords;
+	vector<int> surfPlane;
+	vector<double> surfFlux;
+	vector<int> surfBirthElem;
+
+	int* dSurfNodes;
+	double* dSurfNodeCoords;
+	int* dSurfPlane;
+	double* dSurfFlux;
+	int* dSurfBirthElem;
+
+	double* rhs;
+
 };
 
 void AllocateDeviceData(elementData& elem);
@@ -45,17 +70,11 @@ void FreeDevice(elementData& elem);
 
 void CopyToHost(elementData& elem);
 
-void createDataOnDeveice(DomainManager*& domainMgr, elementData& elemData, double initTemp);
+void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSolverManager*& heatMgr);
 
 void initializeStiffnessOnD(elementData& elemData);
 
-void updateMassOnD(elementData& elemData);
-
-void udpateMatK();
-
-void updateCapK();
-
-void getInternalForceK();
+void updateMassOnD(elementData& elemData, DomainManager*& domainMgr);
 
 void compareMass(elementData& elemData, vector<double> Mvec);
 

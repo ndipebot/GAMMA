@@ -24,6 +24,8 @@ class Surface{
     double *gpCoords_;
     double *unitNorm_;
     int *surfaceNodes_;
+    vector<double> flux;
+    vector<double> mappedCoords;
     
     void getMappedCoords(double boundCoords[4][3], double coordsMapped[4][2]);
     void getGradN(double chsi, double eta, double GN[2][4]);

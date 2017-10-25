@@ -187,6 +187,13 @@ BCManager::assignSurfGP(vector<Surface> &surfaceList)
       double gp1 = gPoints2D[ip][0];
       double gp2 = gPoints2D[ip][1];
       surfI.getMappedCoords(faceCoords, mappedCoords);
+
+      //save mapped coords
+      for(int e = 0; e < 4; ++e)
+    	  for(int b = 0; b < 2; b++)
+    		  surfI.mappedCoords.push_back(mappedCoords[e][b]);
+
+      //
       surfI.getGradN(gp1, gp2, GN);
       surfI.getJacobian2D(GN, mappedCoords, detJac, invJac);
       surfaceList[ii].areaWeight_[ip] = detJac * weights[ip];
@@ -476,10 +483,19 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
     Nip[ip*4 + 1] = 0.25 * (1 + chsi) * ( 1 - eta);
     Nip[ip*4 + 2] = 0.25 * (1 + chsi) * ( 1 + eta);
     Nip[ip*4 + 3] = 0.25 * (1 - chsi) * ( 1 + eta);
+
   }//end for(ip)
   
   for (int ii = 0; ii < surfaceList.size(); ii++)
   {
+	/*
+	 * Ebot Mod
+	 *
+	 * set flux conditions
+	 */
+	 surfaceList[ii].flux.resize(5,0);
+	///
+
     int *surfaceNodes;
     surfaceNodes = surfaceList[ii].surfaceNodes_;
     double *areaWeight = surfaceList[ii].areaWeight_;
@@ -494,7 +510,10 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
         {
           if (loadID[kk] == 3) //natural convection
           {
+        	//set flux type indicator
+        	surfaceList[ii].flux[0] = 1.;
             double hconv = loadVals[kk];
+            surfaceList[ii].flux[1] = hconv;
 	    FluxManager *fluxAlg = new ConvManager(meshObj_->Rambient_, hconv, surfaceNodes, Nip,
 						   areaWeight, thetaN_, rhs_);
 	    surfaceList[ii].fluxManagerVec_.push_back(fluxAlg);
@@ -502,7 +521,9 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
           }
           if (loadID[kk] == 4) //radiative convection
           {
+        	surfaceList[ii].flux[2] = 1.;
             double epsilon = loadVals[kk];
+            surfaceList[ii].flux[3] = epsilon;
 	    FluxManager *fluxAlg = new RadManager(meshObj_->Rambient_, epsilon, meshObj_->Rabszero_, 
                                                   meshObj_->Rboltz_, surfaceNodes, Nip, areaWeight, thetaN_, rhs_);
 	    surfaceList[ii].fluxManagerVec_.push_back(fluxAlg);
@@ -512,6 +533,7 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
           
             if ( fabs(surfaceList[ii].unitNorm_[2]) > small)
             {
+            	surfaceList[ii].flux[4] = 1.;
 	      double Qin = 1050.0 * 0.85;
 	      double rBeam = 1.1;
 	      FluxManager *fluxAlg = new MovingFlxManager(surfaceList[ii].gpCoords_, tooltxyz_, 

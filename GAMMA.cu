@@ -166,12 +166,12 @@ int main(int arg, char *argv[])
 
   //Copy element Data to GPU
   elementData elemData;
-  createDataOnDeveice(domainMgr, elemData, heatMgr->initTheta_);
+  createDataOnDevice(domainMgr, elemData, heatMgr);
 
   //initialiaze Stiffness GPU
   //initializeStiffnessOnD(elemData);
 
-  updateMassOnD(elemData);
+  updateMassOnD(elemData, domainMgr);
 
   CopyToHost(elemData);
 
