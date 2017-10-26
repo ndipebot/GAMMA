@@ -55,6 +55,7 @@ struct elementData {
 	vector<double> globRHS;
 	vector<double> globRHS_Surf;
 	vector<int> nUniId;
+
 	vector<double> boundSurfBirthTime;
 	vector<double> boundSurfDeathTime;
 	vector<int> surfNodes;
@@ -62,6 +63,13 @@ struct elementData {
 	vector<int> surfPlane;
 	vector<double> surfFlux;
 	vector<int> surfBirthElem;
+
+	int* dSurfNodes;
+	double* dSurfNodeCoords;
+	int* dSurfPlane;
+	double* dSurfFlux;
+	int* dSurfBirthElem;
+
 };
 
 void AllocateDeviceData(elementData& elem);
