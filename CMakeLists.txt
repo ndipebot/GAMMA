@@ -12,7 +12,8 @@ set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -w ${CMAKE_CXX_FLAGS}")
 find_package(CUDA REQUIRED)
 set(CUDA_PROPAGATE_HOST_FLAGS OFF)
 set(CUDA_SEPARABLE_COMPILATION ON)
-list(APPEND CUDA_NVCC_FLAGS "-gencode=arch=compute_35,code=sm_35;-std=c++11;-O3;-G;-g;-use_fast_math;")
+#list(APPEND CUDA_NVCC_FLAGS "-gencode=arch=compute_35,code=sm_35;-std=c++11;-G;-g;-lineinfo;")
+list(APPEND CUDA_NVCC_FLAGS "-gencode=arch=compute_35,code=sm_35;-std=c++11;-O3;-use_fast_math;")
 
 
 file(GLOB SOURCE src/*.cpp)

@@ -341,7 +341,7 @@ CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: src/deviceKer
 
 CMakeFiles/CUDA_lib.dir/CUDA_lib_intermediate_link.o: CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC intermediate link file CMakeFiles/CUDA_lib.dir/CUDA_lib_intermediate_link.o"
-	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -O3 -G -g -use_fast_math -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/./CUDA_lib_generated_deviceKernels.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/./CUDA_lib_intermediate_link.o
+	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -O3 -use_fast_math -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/./CUDA_lib_generated_deviceKernels.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/./CUDA_lib_intermediate_link.o
 
 # Object files for target CUDA_lib
 CUDA_lib_OBJECTS =

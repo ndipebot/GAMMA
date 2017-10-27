@@ -26,11 +26,22 @@ struct elementData {
 	int* dNUniId;
 	double* dGlobRHS;
 	double* dGlobRHS_Surf;
+	int* dSurfIndx;
+	int* dFixedNodes;
+	double* dFixedNodeVals;
+	int* dBirthNodes;
+
+
+	double dt;
+	int numFixed;
+
 	int* dSurfNodes;
 	double* dSurfNodeCoords;
 	int* dSurfPlane;
 	double* dSurfFlux;
 	int* dSurfBirthElem;
+	int* fixedNodes;
+	double* fixedValues;
 
 	int numEl;
 	int nn;
@@ -44,6 +55,7 @@ struct elementData {
 	double ambient;
 	double abszero;
 	double sigma;
+	int rhsCountEle;
 
 	vector<int> eleNodes;
 	vector<double> eleNodeCoords;
@@ -55,6 +67,7 @@ struct elementData {
 	vector<double> globRHS;
 	vector<double> globRHS_Surf;
 	vector<int> nUniId;
+	vector<int>	surfIndx;
 
 	vector<double> boundSurfBirthTime;
 	vector<double> boundSurfDeathTime;
@@ -64,11 +77,8 @@ struct elementData {
 	vector<double> surfFlux;
 	vector<int> surfBirthElem;
 
-	int* dSurfNodes;
-	double* dSurfNodeCoords;
-	int* dSurfPlane;
-	double* dSurfFlux;
-	int* dSurfBirthElem;
+	vector<int> birthNodes;
+	vector<double> birthNodeTimes;
 
 };
 
@@ -97,6 +107,14 @@ void compareStiff(elementData& elemData, vector<Element*> elementList);
 void compareIntForce(elementData& elemData, vector<double> rhs);
 
 void compareFlux(elementData& elemData, vector<double> rhs);
+
+void dirichletBCKernel(elementData& elemData);
+
+void advanceTimeKernel(elementData& elemData, DomainManager*& domainMgr);
+
+void compareTemp(elementData& elemData, vector<double>& thetaN );
+
+void clearDeviceData(elementData& elem);
 
 
 #endif /* DEVICEHEADER_H_ */

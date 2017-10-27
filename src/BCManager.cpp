@@ -309,6 +309,10 @@ BCManager::attachBirthSurf()
     }//end for(jj)
   }//end for(ii)
 
+	//sort surfaces by birthTime
+	std::sort(surfaceList_.begin(), surfaceList_.end(), [](Surface a, Surface b) {return a.birthTime_ < b.birthTime_; });
+
+
   for (int I = 0; I < surfaceList_.size(); I++)
   {
     birthSurfaceList_.push_back(I);

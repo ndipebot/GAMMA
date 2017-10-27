@@ -345,7 +345,7 @@ CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: GAMMA.cu
 
 CMakeFiles/GAMMA.dir/GAMMA_intermediate_link.o: CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC intermediate link file CMakeFiles/GAMMA.dir/GAMMA_intermediate_link.o"
-	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -O3 -G -g -use_fast_math -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir//./GAMMA_generated_GAMMA.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir/./GAMMA_intermediate_link.o
+	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -O3 -use_fast_math -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir//./GAMMA_generated_GAMMA.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir/./GAMMA_intermediate_link.o
 
 # Object files for target GAMMA
 GAMMA_OBJECTS =

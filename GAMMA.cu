@@ -165,53 +165,61 @@ int main(int arg, char *argv[])
   elementData elemData;
   createDataOnDevice(domainMgr, elemData, heatMgr);
 
+  initializeStiffnessOnD(elemData);
+
+  //------------------START TIMER---------------------------------------
+	//Sta time
+	cudaEvent_t start, stop;
+	cudaEventCreate(&start);
+	cudaEventCreate(&stop);
+	// Start record
+	cudaEventRecord(start, 0);
+  //-----------------------------------------------------------------------
 
   // time integrator
   while (domainMgr->currTime_ <= simTime)
   {
-    // update time counters
-    outTrack += heatMgr->dt_;
 
-    //domainMgr->currTime_ += heatMgr->dt_;
-	domainMgr->currTime_ = 0.0;
+    // update time counters
+   // outTrack += heatMgr->dt_;
+
+    domainMgr->currTime_ += heatMgr->dt_;
 
     heatMgr->pre_work();
  
     heatMgr->updateCap();
 
-	heatMgr->heatBCManager_->applyFluxes();
-
-	////////////////////////////////////
-
-	//initializeStiffnessOnD(elemData);
-	//updateMassOnD(elemData, domainMgr);
-	//updateIntForceOnD(elemData, domainMgr);
-	updateFluxKernel(elemData, domainMgr);
-
-	CopyToHost(elemData);
-
-	//compareMass(elemData, heatMgr->Mvec_);
-	//compareStiff(elemData, domainMgr->elementList_);
-	//compareIntForce(elemData, heatMgr->rhs_);
-	compareFlux(elemData, heatMgr->rhs_);
-
-	FreeDevice(elemData);
-
-	/////////////////////////////////////
-
     heatMgr->integrateForce();
 
     heatMgr->advance_time_step();
-  
-    heatMgr->post_work();
 
+
+   //----------------------------------------------
+    clearDeviceData(elemData);
+
+	updateMassOnD(elemData, domainMgr);
+
+	updateIntForceOnD(elemData, domainMgr);
+
+	updateFluxKernel(elemData, domainMgr);
+
+	advanceTimeKernel(elemData, domainMgr);
+
+	dirichletBCKernel(elemData);
+
+
+	//------------------------------------------------
+  
+   heatMgr->post_work();
+
+    /*
     // File Manager
     if (outTrack >= meshObj.outTime_)
     {
       outCt++;
       outFile = meshObj.outFileName_ + to_string(outCt) + extName;
       starttime = clock();
-      vtuMgr->execute();
+      //vtuMgr->execute();
       endtime = clock();
       outTrack = 0.0;
       cout << "===============================================================\n";
@@ -234,7 +242,33 @@ int main(int arg, char *argv[])
     {
       domainMgr->isInit_ = false;
     }
+    */
   }//end for(t)
+
+  //----------------------------END TIMER -----------------------------------
+	cudaEventRecord(stop, 0);
+	cudaEventSynchronize(stop);
+	float elapsedTime;
+	cudaEventElapsedTime(&elapsedTime, start, stop); // that's our time!
+													 // Clean up:
+	cudaEventDestroy(start);
+	cudaEventDestroy(stop);
+
+    std::cout << "Process Took " << (double)elapsedTime / 1000 << " seconds" << std::endl;
+
+
+  //-------------------------------------------------------------------------
+
+
+
+  CopyToHost(elemData);
+  FreeDevice(elemData);
+  //compareMass(elemData, heatMgr->Mvec_);
+  //compareStiff(elemData, domainMgr->elementList_);
+  //compareIntForce(elemData, heatMgr->rhs_);
+  //compareFlux(elemData, heatMgr->rhs_);
+  //compareTemp(elemData, heatMgr->thetaN_);
+
   outCt++;
   vtuMgr->execute();
   double simEnd  = clock();
