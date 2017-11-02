@@ -538,8 +538,8 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
             if ( fabs(surfaceList[ii].unitNorm_[2]) > small)
             {
             	surfaceList[ii].flux[4] = 1.;
-	      double Qin = 1050.0 * 0.85;
-	      double rBeam = 1.1;
+      	   double Qin = meshObj_->Qin_ * meshObj_->Qeff_;
+      	   double rBeam = meshObj_->rBeam_;
 	      FluxManager *fluxAlg = new MovingFlxManager(surfaceList[ii].gpCoords_, tooltxyz_, 
                                                           laserState_, rBeam, Qin, surfaceNodes, 
                                                           Nip, areaWeight, thetaN_, rhs_);

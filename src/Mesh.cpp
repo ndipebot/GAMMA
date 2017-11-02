@@ -126,6 +126,17 @@ void Mesh::getDomainInfo()
 	option = 14;
 	continue;
       }
+      else if(line == "*MAT_THERMAL_USER_DEFINED")
+      {
+        Init = true;
+	option = 15;
+	continue;
+      }
+      else if(line == "*GAUSS_LASER")
+      {
+	option = 16;
+	continue;
+      }
       else if(line.at(0) == '*') 
       {
 	option = 1000;
@@ -191,9 +202,10 @@ void Mesh::getDomainInfo()
 	istringstream lines(line);
 	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
         if(Init)
-        { 
+        {
           Init = false;
           PID = (int)coords[0];
+          PID_to_MAT_Type_[PID] = 1; // 1 = isotropic materials
 	  for (int ii = 1; ii < coords.size(); ii++)
 	  {
             double mat = (double)coords[ii];
@@ -286,6 +298,30 @@ void Mesh::getDomainInfo()
         energyFileName_ = coords[0] + probeExtension_;
         calcEnergy_ = true;
       }// option 14
+      else if (option == 15)	// *MAT_THERMAL_USER_DEFINED
+      {
+	istringstream lines(line);
+	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+        if(Init)
+        {
+          Init = false;
+          PID = (int)coords[0];
+          PID_to_MAT_Type_[PID] = 2; // 1 = user-defined materials
+	  for (int ii = 1; ii < coords.size(); ii++)
+	  {
+            double mat = (double)coords[ii];
+	    PID_to_MAT_[PID].push_back(mat);
+	  }//end for(ii)
+        }
+      }// option 15
+      else if (option == 16)	// *GAUSS_LASER
+      {
+	istringstream lines(line);
+	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+        Qin_ = (double)coords[0];
+        rBeam_ = (double)coords[1];
+        Qeff_ = (double)coords[2];
+      }// option 16
 
     } //end option conditional loops
   } 

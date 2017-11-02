@@ -161,6 +161,7 @@ int main(int arg, char *argv[])
   vtuBinWriter * vtuMgr = new vtuBinWriter(domainMgr, heatMgr, outFile);
   vtuMgr->execute();
 
+
   //Copy element Data to GPU
   elementData elemData;
   createDataOnDevice(domainMgr, elemData, heatMgr);
@@ -185,13 +186,13 @@ int main(int arg, char *argv[])
 
     domainMgr->currTime_ += heatMgr->dt_;
 
-    heatMgr->pre_work();
+    //heatMgr->pre_work();
  
-    heatMgr->updateCap();
+    //heatMgr->updateCap();
 
-    heatMgr->integrateForce();
+    //heatMgr->integrateForce();
 
-    heatMgr->advance_time_step();
+    //heatMgr->advance_time_step();
 
 
    //----------------------------------------------
@@ -210,7 +211,7 @@ int main(int arg, char *argv[])
 
 	//------------------------------------------------
   
-   heatMgr->post_work();
+   //heatMgr->post_work();
 
     /*
     // File Manager

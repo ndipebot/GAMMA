@@ -26,17 +26,28 @@ public:
   map<int, vector<double> > NODES_;
   map<int, vector<int> > nodeSets_;
   map<int, vector<int> > loadSets_;
-  map<int, vector<double> > PID_to_MAT_;
   map<int, double> initialCondition_;
   map<int, vector<double> > loadSetVals_;
   map<string, double> paramValues_;
+
+  // Thermal material types
+  map<int, vector<double> > PID_to_MAT_;
+  map<int, int > PID_to_MAT_Type_;
+
+
+  // Mechanical material types
+  map<int, vector<double> > PID_to_matMech_;
+  map<int, int > PID_to_matMech_Type_;
+
 
   vector<int> birthID_;
   vector<double> birthTime_;
   vector<double*> probePos_;
   vector<string> probeNames_;
   
-  double inputDt_, finalTime_, outTime_, Rabszero_, Rambient_, Rboltz_;
+  double inputDt_, finalTime_, outTime_, Rabszero_, Rambient_, Rboltz_,
+         Qin_, Qeff_, rBeam_;
+
   string outFileName_;
   string toolFileName_;
   string energyFileName_;
@@ -55,3 +66,4 @@ private:
 };
 
 #endif /* MESH_H_ */
+

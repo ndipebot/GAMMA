@@ -17,68 +17,72 @@
 
 struct elementData {
 	int* dEleNodes ;
-	double* dEleStiffness;
-	double* dGlobMass;
-	double* dEleNodeCoords;
-	double* dEleMat;
-	double* dEleBirthTimes;
-	double* dthetaN;
+	float* dEleStiffness;
+	float* dGlobMass;
+	float* dEleNodeCoords;
+	float* dEleMat;
+	float* dEleBirthTimes;
+	float* dthetaN;
 	int* dNUniId;
-	double* dGlobRHS;
-	double* dGlobRHS_Surf;
+	float* dGlobRHS;
+	float* dGlobRHS_Surf;
 	int* dSurfIndx;
 	int* dFixedNodes;
-	double* dFixedNodeVals;
+	float* dFixedNodeVals;
 	int* dBirthNodes;
 
 
-	double dt;
+	float dt;
 	int numFixed;
 
 	int* dSurfNodes;
-	double* dSurfNodeCoords;
+	float* dSurfNodeCoords;
 	int* dSurfPlane;
-	double* dSurfFlux;
+	float* dSurfFlux;
 	int* dSurfBirthElem;
+	float* dSurfDeathTime;
+
 	int* fixedNodes;
-	double* fixedValues;
+	vector<float> fixedValues;
 
 	int numEl;
 	int nn;
-	double initTemp;
+	float initTemp;
 	int numSurf;
-	double tool0;
-	double tool1;
-	double tool2;
+	float tool0;
+	float tool1;
+	float tool2;
 	int laserState;
 	int rhsCount;
-	double ambient;
-	double abszero;
-	double sigma;
+	float ambient;
+	float abszero;
+	float sigma;
 	int rhsCountEle;
+	float rBeam;
+	float Qin;
 
 	vector<int> eleNodes;
-	vector<double> eleNodeCoords;
-	vector<double> eleMat;
-	vector<double> eleBirthTimes;
-	vector<double> thetaN;
-	vector<double> eleStiffness;
-	vector<double> globMass;
-	vector<double> globRHS;
-	vector<double> globRHS_Surf;
+	vector<float> eleNodeCoords;
+	vector<float> eleMat;
+	vector<float> eleBirthTimes;
+	vector<float> thetaN;
+	vector<float> eleStiffness;
+	vector<float> globMass;
+	vector<float> globRHS;
+	vector<float> globRHS_Surf;
 	vector<int> nUniId;
 	vector<int>	surfIndx;
 
-	vector<double> boundSurfBirthTime;
-	vector<double> boundSurfDeathTime;
+	vector<float> boundSurfBirthTime;
+	vector<float> boundSurfDeathTime;
 	vector<int> surfNodes;
-	vector<double> surfNodeCoords;
+	vector<float> surfNodeCoords;
 	vector<int> surfPlane;
-	vector<double> surfFlux;
+	vector<float> surfFlux;
 	vector<int> surfBirthElem;
 
 	vector<int> birthNodes;
-	vector<double> birthNodeTimes;
+	vector<float> birthNodeTimes;
 
 };
 
@@ -100,13 +104,13 @@ void updateIntForceOnD(elementData& elemData, DomainManager*& domainMgr);
 
 void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr);
 
-void compareMass(elementData& elemData, vector<double> Mvec);
+void compareMass(elementData& elemData, vector<double>& Mvec);
 
-void compareStiff(elementData& elemData, vector<Element*> elementList);
+void compareStiff(elementData& elemData, vector<Element*>& elementList);
 
-void compareIntForce(elementData& elemData, vector<double> rhs);
+void compareIntForce(elementData& elemData, vector<double>& rhs);
 
-void compareFlux(elementData& elemData, vector<double> rhs);
+void compareFlux(elementData& elemData, vector<double>& rhs);
 
 void dirichletBCKernel(elementData& elemData);
 

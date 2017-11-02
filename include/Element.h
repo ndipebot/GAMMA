@@ -43,6 +43,7 @@ public:
     // element birth time (LENS)
   int PID_;
     // Element part id
+  int matID_, userID_;
   double cond_;
   double cp_;
   double rho_;

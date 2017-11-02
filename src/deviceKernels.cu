@@ -13,39 +13,39 @@
 #include <helper_cuda.h>
 #include <algorithm>
 
-__constant__ double parCoords[24];
-__constant__ double parCoordsSurf[72];
-__constant__ double parCoords2D[8];
+__constant__ float parCoords[24];
+__constant__ float parCoordsSurf[72];
+__constant__ float parCoords2D[8];
 __constant__ int mapIndex[64];
 
-__global__ void updateMass(const double* __restrict__ thetaN, const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords,
-		double* globMass, const int* __restrict__ eleNodes, const int* __restrict__ nUniId, const int numEl, const int nn, const int numElAct);
+__global__ void updateMass(const float* __restrict__ thetaN, const float* __restrict__ eleMat, const float* __restrict__ eleNodeCoords,
+		float* globMass, const int* __restrict__ eleNodes, const int* __restrict__ nUniId, const int numEl, const int nn, const int numElAct);
 
-__global__ void initializeStiffness(const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords, double* eleStiffness,
+__global__ void initializeStiffness(const float* __restrict__ eleMat, const float* __restrict__ eleNodeCoords, float* eleStiffness,
 		const int* __restrict__ eleNodes, const int numEl, const int nn);
 
-__global__ void getInternalForce(double* globRHS, double* __restrict__ eleStiffness, double* __restrict__ thetaN, 
+__global__ void getInternalForce(float* globRHS, float* __restrict__ eleStiffness, float* __restrict__ thetaN,
 	const int* __restrict__ eleNodes, const int* __restrict__ nUniId, const int numEl, const int nn, const int numElAct);
 
-__global__ void massReduce(double* __restrict__ globMass, const int nn, const int rhsCount);
+__global__ void massReduce(float* __restrict__ globMass, const int nn, const int rhsCount);
 
-__global__ void interForceReduce(double* __restrict__ globRHS, const int nn);
+__global__ void interForceReduce(float* __restrict__ globRHS, const int nn, const int rhsCount);
 
-__global__ void applyFlux(const double* __restrict__ surfFlux, const int* __restrict__ surfPlane, const double* __restrict__ thetaN, const int* __restrict__ surfIndx,
-	const double* __restrict__ surfNodeCoords, const double* __restrict__ eleNodeCoords, const int* __restrict__ surfNodes, const int* __restrict__ surfElemBirth,
-	double* rhs, int numSurf, double ambient, double abszero, double tool0, double tool1, double tool2, int laserState, int numSurfAct, double sigma, int numEl, int nn);
+__global__ void applyFlux(const float* __restrict__ surfFlux, const int* __restrict__ surfPlane, const float* __restrict__ thetaN, const int* __restrict__ surfIndx,
+	const float* __restrict__ surfNodeCoords, const float* __restrict__ eleNodeCoords, const float* __restrict__ surfDeathTime, const int* __restrict__ surfNodes, const int* __restrict__ surfElemBirth,
+	float* rhs, int numSurf, float ambient, float abszero, float tool0, float tool1, float tool2, int laserState, int numSurfAct, float sigma, int numEl, int nn, float currTime, float rBeam, float Qin);
 
-__global__ void massFlux(double* rhs, const int nn, int rhsCount, double* globalRhs);
+__global__ void massFlux(float* rhs, const int nn, int rhsCount, float* globalRhs);
 
-__global__ void advanceTime(double* thetaN, const double* __restrict__ globalMass, const double* __restrict__ rhs,const int* __restrict__ birthNodes, double dt, int numActNodes);
+__global__ void advanceTime(float* thetaN, const float* __restrict__ globalMass, const float* __restrict__ rhs,const int* __restrict__ birthNodes, float dt, int numActNodes);
 
-__global__ void prescribeDirichlet(double* thetaN, const int* __restrict__ fixedNodes, const double* __restrict__ fixedNodeVals, int numFixed);
+__global__ void prescribeDirichlet(float* thetaN, const int* __restrict__ fixedNodes, const float* __restrict__ fixedNodeVals, int numFixed);
 
 void compareMass(elementData& elemData, vector<double>& Mvec) {
 	int nn = Mvec.size();
 	int base = 0;
 	for (int i = 0; i < nn; i++) {
-		if (abs(elemData.globMass[base + i] - Mvec[base + i]) > 0.000001) {
+		if (abs(elemData.globMass[base + i] - Mvec[base + i]) > 0.00001) {
 			std::cout << "Mismatch found on node: "<<i<<", GPU: "<< elemData.globMass[base + i] << ", CPU: "<< Mvec[base + i]<<std::endl;
 		}
 	}
@@ -57,7 +57,7 @@ void compareStiff(elementData& elemData, vector<Element*>& elementList) {
 	for (const auto & elem : elementList) {
 		int eID = &elem - &elementList[0];
 		for (int i = 0; i < 36; ++i) {
-			if (abs(elemData.eleStiffness[eID + i*numEl] - elem->stiffMatrix_[i]) > 0.0001) {
+			if (abs(elemData.eleStiffness[eID + i*numEl] - elem->stiffMatrix_[i]) > 0.00001) {
 				std::cout << "Mismatch found on element: " << eID << ", GPU: " << elemData.eleStiffness[eID + i*numEl] << ", CPU: " << elem->stiffMatrix_[i] << std::endl;
 			}
 		}
@@ -97,6 +97,7 @@ void compareTemp(elementData& elemData, vector<double>& thetaN ) {
 	std::cout << "check passed!" << std::endl;
 }
 
+
 void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSolverManager*& heatMgr) {
     //Start recording time
     cudaEvent_t start, stop;
@@ -117,6 +118,9 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	elemData.nn = nn;
 	elemData.numEl = numEl;
 	elemData.dt = heatMgr->dt_;
+
+	elemData.rBeam = heatMgr->meshObj_->Qin_ * heatMgr->meshObj_->Qeff_;
+    elemData.Qin = heatMgr->meshObj_->rBeam_;
 
 	//Element data
 	elemData.eleNodes.resize(8*numEl);
@@ -167,9 +171,9 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	*  SURFACES
 	*/
 	// Surface ninjutsu
-	vector<double> tempFlux;
+	vector<float> tempFlux;
 	vector<int> tempNodes;
-	vector<double> tempCoords;
+	vector<float> tempCoords;
 
 	//grab static surface
 	for (auto const surfID : heatMgr->heatBCManager_->activeSurfaces_) {
@@ -244,15 +248,18 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	elemData.abszero = domainMgr->meshObj_->Rabszero_;
 	elemData.sigma = domainMgr->meshObj_->Rboltz_;
 
-	elemData.globMass.resize(nn * 12);
-	elemData.globRHS.resize(nn * 12);
+	elemData.globMass.resize(nn * elemData.rhsCountEle);
+	elemData.globRHS.resize(nn * elemData.rhsCountEle);
 	elemData.globRHS_Surf.resize(nn * maxCount);
 
 
 	//------------- Fixed Nodes --------------------------
 	elemData.numFixed = heatMgr->heatBCManager_->fixedNodeIDs_.size();
+
+	for(int i = 0; i < elemData.numFixed; i++)
+		elemData.fixedValues.push_back(heatMgr->heatBCManager_->fixedNodeVals_[i]);
+
 	elemData.fixedNodes = heatMgr->heatBCManager_->fixedNodeIDs_.data();
-	elemData.fixedValues = heatMgr->heatBCManager_->fixedNodeVals_.data();
 
 	//------------------------birth Nodes
 	for(int i = 0; i < domainMgr->activeNodes_.size(); ++i) {
@@ -273,9 +280,9 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 
 	//move parametric coordinates to local memory
 
-	vector<double> coords(24);
+	vector<float> coords(24);
 
-	vector<double> coeff {-1.0, -1.0, -1.0,
+	vector<float> coeff {-1.0, -1.0, -1.0,
 							1.0, -1.0, -1.0,
 							1.0,  1.0, -1.0,
 							-1.0,  1.0, -1.0,
@@ -288,15 +295,15 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	    for (int i = 0; i < 3; i++)
 			coords[j * 3 + i] = coeff[j * 3 + i] * 0.5773502692;
 
-      cudaMemcpyToSymbol(parCoords,coords.data(),24*sizeof(double));
+      cudaMemcpyToSymbol(parCoords,coords.data(),24*sizeof(float));
 
 	  //move surface parametric coordinates to local memory
-	  vector<vector<double>> coeff2D{ { -1.0 / sqrt(3.0), -1.0 / sqrt(3.0) },
-	  { -1.0 / sqrt(3.0),  1.0 / sqrt(3.0) },
-	  { 1.0 / sqrt(3.0), -1.0 / sqrt(3.0) },
-	  { 1.0 / sqrt(3.0),  1.0 / sqrt(3.0) } };
+	  vector<vector<float>> coeff2D{ { -0.5773502692, -0.5773502692 },
+	  { -0.5773502692,  0.5773502692 },
+	  { 0.5773502692, -0.5773502692 },
+	  { 0.5773502692,  0.5773502692 } };
 
-	  vector<double> coordsSurf(72);
+	  vector<float> coordsSurf(72);
 
 	  for (int ip = 0; ip < 4; ++ip) {
 		  coordsSurf[ip * 18] = coeff2D[ip][0];
@@ -324,15 +331,15 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 		  coordsSurf[ip * 18 + 17] = coeff2D[ip][1];
 	  }
 
-	  cudaMemcpyToSymbol(parCoordsSurf, coordsSurf.data(), 72 * sizeof(double));
+	  cudaMemcpyToSymbol(parCoordsSurf, coordsSurf.data(), 72 * sizeof(float));
 
 	  // 2D surface parametric coordinates to constant memory
-	  vector<double> coords2D{ -0.5773502692, -0.5773502692,
+	  vector<float> coords2D{ -0.5773502692, -0.5773502692,
 		  -0.5773502692,  0.5773502692,
 		  0.5773502692, -0.5773502692,
 		  0.5773502692,  0.5773502692 };
 
-	  cudaMemcpyToSymbol(parCoords2D, coords2D.data(), 8 * sizeof(double));
+	  cudaMemcpyToSymbol(parCoords2D, coords2D.data(), 8 * sizeof(float));
 
 		vector<int> mapIndx{ 0,  1,  2,  3,  4,  5,  6,  7,
 							1,  8,  9, 10, 11, 12, 13, 14 ,
@@ -343,7 +350,7 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 							6, 13, 19, 24, 28, 31, 33, 34 ,
 							7, 14, 20, 25, 29, 32, 34, 35 };
 
-	  cudaMemcpyToSymbol(mapIndex, mapIndx.data(), 8 * sizeof(int));
+	  cudaMemcpyToSymbol(mapIndex, mapIndx.data(), 8 * 8*sizeof(int));
 
       cudaEventRecord(stop, 0);
       cudaEventSynchronize(stop);
@@ -353,7 +360,7 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
       cudaEventDestroy(start);
       cudaEventDestroy(stop);
 
-	  std::cout << "Device data setup took " << (double)elapsedTime/1000 << " seconds" << std::endl;
+	  std::cout << "Device data setup took " << (float)elapsedTime/1000 << " seconds" << std::endl;
 
 }
 
@@ -363,31 +370,32 @@ void AllocateDeviceData(elementData& elem) {
 	int numSurf = elem.numSurf;
 
 	//Allocate device arrays
-	checkCudaErrors(cudaMalloc((void**)&elem.dGlobMass, elem.rhsCountEle*nn*sizeof(double)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dGlobRHS, 12 * nn * sizeof(double)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dEleStiffness, 36*numEl*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dGlobMass, elem.rhsCountEle*nn*sizeof(float)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dGlobRHS, elem.rhsCountEle * nn * sizeof(float)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleStiffness, 36*numEl*sizeof(float)));
 	checkCudaErrors(cudaMalloc((void**)&elem.dEleNodes, 8*numEl*sizeof(int)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dEleNodeCoords, 24*numEl*sizeof(double)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dEleMat, 6*numEl*sizeof(double)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dEleBirthTimes, numEl*sizeof(double)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dthetaN, nn*sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleNodeCoords, 24*numEl*sizeof(float)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleMat, 6*numEl*sizeof(float)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dEleBirthTimes, numEl*sizeof(float)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dthetaN, nn*sizeof(float)));
 	checkCudaErrors(cudaMalloc((void**)&elem.dNUniId, 8*numEl * sizeof(int)));
 
 	checkCudaErrors(cudaMalloc((void**)&elem.dSurfNodes, 4 * numSurf * sizeof(int)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dSurfNodeCoords, 8 * numSurf * sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dSurfNodeCoords, 8 * numSurf * sizeof(float)));
 	checkCudaErrors(cudaMalloc((void**)&elem.dSurfIndx, 4 * numSurf * sizeof(int)));
 	checkCudaErrors(cudaMalloc((void**)&elem.dSurfPlane, numSurf * sizeof(int)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dSurfFlux, 5 * numSurf * sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dSurfFlux, 5 * numSurf * sizeof(float)));
 	checkCudaErrors(cudaMalloc((void**)&elem.dSurfBirthElem, numSurf * sizeof(int)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dGlobRHS_Surf, nn*elem.rhsCount * sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dSurfDeathTime, numSurf * sizeof(float)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dGlobRHS_Surf, nn*elem.rhsCount * sizeof(float)));
 
 	checkCudaErrors(cudaMalloc((void**)&elem.dFixedNodes, elem.numFixed * sizeof(int)));
-	checkCudaErrors(cudaMalloc((void**)&elem.dFixedNodeVals, elem.numFixed * sizeof(double)));
+	checkCudaErrors(cudaMalloc((void**)&elem.dFixedNodeVals, elem.numFixed * sizeof(float)));
 
 	checkCudaErrors(cudaMalloc((void**)&elem.dBirthNodes, nn * sizeof(int)));
 
 
-	cudaMemset(elem.dEleStiffness, 0, 36*numEl*sizeof(double));
+	cudaMemset(elem.dEleStiffness, 0, 36*numEl*sizeof(float));
 }
 
 void CopyToDevice(elementData& elem) {
@@ -395,34 +403,35 @@ void CopyToDevice(elementData& elem) {
 	int numEl = elem.numEl;
 	int numSurf = elem.numSurf;
 	checkCudaErrors(cudaMemcpy(elem.dEleNodes,elem.eleNodes.data(),8*numEl*sizeof(int), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dEleNodeCoords,elem.eleNodeCoords.data(),24*numEl*sizeof(double), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dEleMat,elem.eleMat.data(), 6*numEl*sizeof(double), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dEleBirthTimes,elem.eleBirthTimes.data(),numEl*sizeof(double), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dthetaN, elem.thetaN.data(), nn*sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dEleNodeCoords,elem.eleNodeCoords.data(),24*numEl*sizeof(float), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dEleMat,elem.eleMat.data(), 6*numEl*sizeof(float), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dEleBirthTimes,elem.eleBirthTimes.data(),numEl*sizeof(float), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dthetaN, elem.thetaN.data(), nn*sizeof(float), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dNUniId, elem.nUniId.data(), 8*numEl * sizeof(int), cudaMemcpyHostToDevice));
 
 	checkCudaErrors(cudaMemcpy(elem.dSurfNodes, elem.surfNodes.data(), 4 * numSurf * sizeof(int), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dSurfIndx, elem.surfIndx.data(), 4 * numSurf * sizeof(int), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dSurfNodeCoords, elem.surfNodeCoords.data(), 8 * numSurf * sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dSurfNodeCoords, elem.surfNodeCoords.data(), 8 * numSurf * sizeof(float), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dSurfPlane, elem.surfPlane.data(), numSurf * sizeof(int), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dSurfFlux, elem.surfFlux.data(), 5 * numSurf * sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dSurfFlux, elem.surfFlux.data(), 5 * numSurf * sizeof(float), cudaMemcpyHostToDevice));
 	checkCudaErrors(cudaMemcpy(elem.dSurfBirthElem, elem.surfBirthElem.data(), numSurf * sizeof(int), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dSurfDeathTime, elem.boundSurfDeathTime.data(), numSurf * sizeof(float), cudaMemcpyHostToDevice));
 
 	checkCudaErrors(cudaMemcpy(elem.dFixedNodes, elem.fixedNodes, elem.numFixed * sizeof(int), cudaMemcpyHostToDevice));
-	checkCudaErrors(cudaMemcpy(elem.dFixedNodeVals, elem.fixedValues, elem.numFixed * sizeof(double), cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpy(elem.dFixedNodeVals, elem.fixedValues.data(), elem.numFixed * sizeof(float), cudaMemcpyHostToDevice));
 
 	checkCudaErrors(cudaMemcpy(elem.dBirthNodes, elem.birthNodes.data(), nn * sizeof(int), cudaMemcpyHostToDevice));
 }
 
 void CopyToHost(elementData& elem) {
 	int nn = elem.nn;
-	//int numEl = elem.numEl;
+	int numEl = elem.numEl;
 
-	//checkCudaErrors(cudaMemcpy(elem.eleStiffness.data(), elem.dEleStiffness, 36*numEl*sizeof(double), cudaMemcpyDeviceToHost));
-	//checkCudaErrors(cudaMemcpy(elem.globMass.data(), elem.dGlobMass, 12*nn*sizeof(double), cudaMemcpyDeviceToHost));
-	//checkCudaErrors(cudaMemcpy(elem.globRHS.data(), elem.dGlobRHS, 12*nn * sizeof(double), cudaMemcpyDeviceToHost));
-	//checkCudaErrors(cudaMemcpy(elem.globRHS_Surf.data(), elem.dGlobRHS_Surf, elem.rhsCount * nn * sizeof(double), cudaMemcpyDeviceToHost));
-	checkCudaErrors(cudaMemcpy(elem.thetaN.data(), elem.dthetaN,  nn * sizeof(double), cudaMemcpyDeviceToHost));
+	checkCudaErrors(cudaMemcpy(elem.eleStiffness.data(), elem.dEleStiffness, 36*numEl*sizeof(float), cudaMemcpyDeviceToHost));
+	checkCudaErrors(cudaMemcpy(elem.globMass.data(), elem.dGlobMass, elem.rhsCountEle*nn*sizeof(float), cudaMemcpyDeviceToHost));
+	checkCudaErrors(cudaMemcpy(elem.globRHS.data(), elem.dGlobRHS, elem.rhsCountEle*nn * sizeof(float), cudaMemcpyDeviceToHost));
+	checkCudaErrors(cudaMemcpy(elem.globRHS_Surf.data(), elem.dGlobRHS_Surf, elem.rhsCount * nn * sizeof(float), cudaMemcpyDeviceToHost));
+	checkCudaErrors(cudaMemcpy(elem.thetaN.data(), elem.dthetaN,  nn * sizeof(float), cudaMemcpyDeviceToHost));
 }
 
 void FreeDevice(elementData& elem) {
@@ -443,6 +452,7 @@ void FreeDevice(elementData& elem) {
 	checkCudaErrors(cudaFree(elem.dSurfFlux));
 	checkCudaErrors(cudaFree(elem.dSurfBirthElem));
 	checkCudaErrors(cudaFree(elem.dGlobRHS_Surf));
+	checkCudaErrors(cudaFree(elem.dSurfDeathTime));
 
 	checkCudaErrors(cudaFree(elem.dFixedNodes));
 	checkCudaErrors(cudaFree(elem.dFixedNodeVals));
@@ -453,9 +463,9 @@ void FreeDevice(elementData& elem) {
 void clearDeviceData(elementData& elem) {
 	//Clear some arrays
 	int nn = elem.nn;
-	cudaMemset(elem.dGlobMass, 0, 12*nn*sizeof(double));
-	cudaMemset(elem.dGlobRHS, 0, 12 * nn * sizeof(double));
-	cudaMemset(elem.dGlobRHS_Surf, 0, elem.rhsCount*nn * sizeof(double));
+	cudaMemset(elem.dGlobMass, 0, elem.rhsCountEle*nn*sizeof(float));
+	cudaMemset(elem.dGlobRHS, 0, elem.rhsCountEle * nn * sizeof(float));
+	cudaMemset(elem.dGlobRHS_Surf, 0, elem.rhsCount*nn * sizeof(float));
 }
 
 void initializeStiffnessOnD(elementData& elemData) {
@@ -488,7 +498,7 @@ void initializeStiffnessOnD(elementData& elemData) {
     cudaEventDestroy(start);
     cudaEventDestroy(stop);
 
-	//std::cout << "initialize Stiffness took " << (double)elapsedTime/1000 << " seconds" << std::endl;
+	//std::cout << "initialize Stiffness took " << (float)elapsedTime/1000 << " seconds" << std::endl;
 }
 
 void updateMassOnD(elementData& elemData, DomainManager*& domainMgr) {
@@ -538,7 +548,7 @@ void updateMassOnD(elementData& elemData, DomainManager*& domainMgr) {
     cudaEventDestroy(start);
     cudaEventDestroy(stop);
 
-	//std::cout << "update Mass took " << (double)elapsedTime/1000 << " seconds" << std::endl;
+	//std::cout << "update Mass took " << (float)elapsedTime/1000 << " seconds" << std::endl;
 
 }
 
@@ -571,7 +581,7 @@ void updateIntForceOnD(elementData& elemData, DomainManager*& domainMgr) {
 	}
 
 	gridSize = elemData.nn / 256 + 1;
-	interForceReduce <<<gridSize, blockSize >>> (elemData.dGlobRHS, elemData.nn);
+	interForceReduce <<<gridSize, blockSize >>> (elemData.dGlobRHS, elemData.nn, elemData.rhsCountEle);
 
 	cudaStatus = cudaGetLastError();
 	if (cudaStatus != cudaSuccess) {
@@ -588,7 +598,7 @@ void updateIntForceOnD(elementData& elemData, DomainManager*& domainMgr) {
 	cudaEventDestroy(start);
 	cudaEventDestroy(stop);
 
-	//std::cout << "Internal force took " << (double)elapsedTime / 1000 << " seconds" << std::endl;
+	//std::cout << "Internal force took " << (float)elapsedTime / 1000 << " seconds" << std::endl;
 
 }
 
@@ -610,7 +620,7 @@ void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr) {
 
 	// current point on toolpath
 	auto up = std::upper_bound(domainMgr->tooltxyz_.begin(), domainMgr->tooltxyz_.end(), domainMgr->currTime_,
-		[](const double Ctime, vector<double, allocator<double>> a) {return a[0] > Ctime; });
+		[](const float Ctime, vector<double, allocator<double>> a) {return a[0] > Ctime; });
 
 	if(up == domainMgr->tooltxyz_.end())
 		up--;
@@ -620,9 +630,9 @@ void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr) {
 	vector<double> & txyzN = domainMgr->tooltxyz_[toolpathIndex];
 	vector<double> & txyzNminus = domainMgr->tooltxyz_[toolpathIndex - 1];
 
-	double num = domainMgr->currTime_ - txyzNminus[0];
-	double den = txyzN[0] - txyzNminus[0];
-	double rat = num / den;
+	float num = domainMgr->currTime_ - txyzNminus[0];
+	float den = txyzN[0] - txyzNminus[0];
+	float rat = num / den;
 	elemData.tool0 = rat * (txyzN[1] - txyzNminus[1]) + txyzNminus[1];
 	elemData.tool1 = rat * (txyzN[2] - txyzNminus[2]) + txyzNminus[2];
 	elemData.tool2 = rat * (txyzN[3] - txyzNminus[3]) + txyzNminus[3];
@@ -642,9 +652,9 @@ void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr) {
 	int blockSize = 256;
 
 
-	applyFlux <<<gridSize, blockSize >>>(elemData.dSurfFlux, elemData.dSurfPlane, elemData.dthetaN, elemData.dSurfIndx,elemData.dSurfNodeCoords, elemData.dEleNodeCoords,
+	applyFlux <<<gridSize, blockSize >>>(elemData.dSurfFlux, elemData.dSurfPlane, elemData.dthetaN, elemData.dSurfIndx,elemData.dSurfNodeCoords, elemData.dEleNodeCoords, elemData.dSurfDeathTime,
 		elemData.dSurfNodes, elemData.dSurfBirthElem, elemData.dGlobRHS_Surf, elemData.numSurf, elemData.ambient, elemData.abszero, elemData.tool0, elemData.tool1, elemData.tool2,
-		elemData.laserState, birthSurfPos, elemData.sigma, elemData.numEl, elemData.nn);
+		elemData.laserState, birthSurfPos, elemData.sigma, elemData.numEl, elemData.nn, domainMgr->currTime_, elemData.rBeam, elemData.Qin);
 
 	cudaStatus = cudaGetLastError();
 	if (cudaStatus != cudaSuccess) {
@@ -669,7 +679,7 @@ void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr) {
 	cudaEventDestroy(start);
 	cudaEventDestroy(stop);
 
-	//std::cout << "Apply Flux Kernel took " << (double)elapsedTime / 1000 << " seconds" << std::endl;
+	//std::cout << "Apply Flux Kernel took " << (float)elapsedTime / 1000 << " seconds" << std::endl;
 
 
 }
@@ -686,7 +696,7 @@ void advanceTimeKernel(elementData& elemData, DomainManager*& domainMgr) {
 
 	//get active node count
 	auto up = std::upper_bound(elemData.birthNodeTimes.begin(), elemData.birthNodeTimes.end(), domainMgr->currTime_,
-			[](double a, double bTime) {return a < bTime; });
+			[](double a, float bTime) {return a < bTime; });
 
 	int nodeCount = up - elemData.birthNodeTimes.begin();
 
@@ -710,7 +720,7 @@ void advanceTimeKernel(elementData& elemData, DomainManager*& domainMgr) {
 	cudaEventDestroy(start);
 	cudaEventDestroy(stop);
 
-	//std::cout << "Advance Time Kernel took " << (double)elapsedTime / 1000 << " seconds" << std::endl;
+	//std::cout << "Advance Time Kernel took " << (float)elapsedTime / 1000 << " seconds" << std::endl;
 
 }
 
@@ -743,44 +753,44 @@ void dirichletBCKernel(elementData& elemData) {
 	cudaEventDestroy(start);
 	cudaEventDestroy(stop);
 
-	//std::cout << "Prescribe Dirichlet  Kernel took " << (double)elapsedTime / 1000 << " seconds" << std::endl;
+	//std::cout << "Prescribe Dirichlet  Kernel took " << (float)elapsedTime / 1000 << " seconds" << std::endl;
 }
 
-__global__ void updateMass(const double* __restrict__ thetaN, const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords,
-		double* globMass, const int* __restrict__ eleNodes, const int* __restrict__ nUniId, const int numEl, const int nn, const int numElAct) {
+__global__ void updateMass(const float* __restrict__ thetaN, const float* __restrict__ eleMat, const float* __restrict__ eleNodeCoords,
+		float* globMass, const int* __restrict__ eleNodes, const int* __restrict__ nUniId, const int numEl, const int nn, const int numElAct) {
 
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
-	__shared__ int parCoordsS[24];
+	__shared__ float parCoordsS[24];
 
-	if(idx < 24)
-		parCoordsS[idx] = parCoords[idx];
+	if(threadIdx.x < 24)
+		parCoordsS[threadIdx.x] = parCoords[threadIdx.x];
 
 	__syncthreads();
 
 	if(idx < numElAct) {
 
 		  // elemental material properties
-		double liquidus = eleMat[idx + 2*numEl];
-		double solidus = eleMat[idx + numEl];
-		double latent = eleMat[idx + 3*numEl];
-		double cp =  eleMat[idx + 4*numEl];
-		double rho = eleMat[idx];
+		float liquidus = eleMat[idx + 2*numEl];
+		float solidus = eleMat[idx + numEl];
+		float latent = eleMat[idx + 3*numEl];
+		float cp =  eleMat[idx + 4*numEl];
+		float rho = eleMat[idx];
 
-		double coords[24];
+		float coords[24];
 
 		//shape function
-		double N[8];
-		double chsi;
-		double eta;
-		double zeta;
+		float N[8];
+		float chsi;
+		float eta;
+		float zeta;
 
-		double deriv[24];
-		double Jac[9];
+		float deriv[24];
+		float Jac[9];
 
-		double thetaIp = 0.0;
-		double cpPoint = 0;
-		double detJac = 0;
+		float thetaIp = 0.0;
+		float cpPoint = 0;
+		float detJac = 0;
 
 		for(int ip = 0; ip < 8; ++ip) {
 
@@ -867,38 +877,38 @@ __global__ void updateMass(const double* __restrict__ thetaN, const double* __re
 
 }
 
-__global__ void initializeStiffness(const double* __restrict__ eleMat, const double* __restrict__ eleNodeCoords,
-		double* eleStiffness, const int* __restrict__ eleNodes, const int numEl, const int nn) {
+__global__ void initializeStiffness(const float* __restrict__ eleMat, const float* __restrict__ eleNodeCoords,
+		float* eleStiffness, const int* __restrict__ eleNodes, const int numEl, const int nn) {
 
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
-	__shared__ int parCoordsS[24];
+	__shared__ float parCoordsS[24];
 
-	if(idx < 24)
-		parCoordsS[idx] = parCoords[idx];
+	if(threadIdx.x < 24)
+		parCoordsS[threadIdx.x] = parCoords[threadIdx.x];
 
 	__syncthreads();
 
 	if(idx < numEl) {
 
-		double coords[24];
+		float coords[24];
 
 		//shape function
 
-		double chsi;
-		double eta;
-		double zeta;
+		float chsi;
+		float eta;
+		float zeta;
 
-		double iJac[9];
-		double Jac[9];
-		double gradN[24];
-		double deriv[24];
-		double swap;
+		float iJac[9];
+		float Jac[9];
+		float gradN[24];
+		float deriv[24];
+		float swap;
 
 
-		double detJac = 0;
+		float detJac = 0;
 
-		double kappa = eleMat[5*numEl + idx];
+		float kappa = eleMat[5*numEl + idx];
 
 		for(int ip = 0; ip < 8; ++ip) {
 
@@ -1009,7 +1019,7 @@ __global__ void initializeStiffness(const double* __restrict__ eleMat, const dou
 	}
 }
 
-__global__ void massReduce(double* __restrict__ globMass, const int nn, const int rhsCount) {
+__global__ void massReduce(float* __restrict__ globMass, const int nn, const int rhsCount) {
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 	if (idx < nn)
 		for (int elInd = 1; elInd < rhsCount; elInd++)
@@ -1017,14 +1027,14 @@ __global__ void massReduce(double* __restrict__ globMass, const int nn, const in
 
 }
 
-__global__ void getInternalForce(double* globRHS, double* __restrict__ eleStiffness, double* __restrict__ thetaN, 
+__global__ void getInternalForce(float* globRHS, float* __restrict__ eleStiffness, float* __restrict__ thetaN,
 	const int* __restrict__ eleNodes, const int* __restrict__ nUniId, const int numEl, const int nn, const int numElAct) {
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
 	__shared__ int mapIndexS[64];
 
-	if(idx < 64)
-		mapIndexS[idx] = mapIndex[idx];
+	if(threadIdx.x < 64)
+		mapIndexS[threadIdx.x] = mapIndex[threadIdx.x];
 
 	__syncthreads();
 
@@ -1041,67 +1051,70 @@ __global__ void getInternalForce(double* globRHS, double* __restrict__ eleStiffn
 	}
 }
 
-__global__ void interForceReduce(double* __restrict__ globRHS, const int nn) {
+__global__ void interForceReduce(float* __restrict__ globRHS, const int nn, const int rhsCount) {
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 	if (idx < nn)
-		for (int elInd = 1; elInd < 12; elInd++)
+		for (int elInd = 1; elInd < rhsCount; elInd++)
 			globRHS[idx] += globRHS[idx + nn*elInd];
 }
 
-__global__ void applyFlux(const double* __restrict__ surfFlux, const int* __restrict__ surfPlane, const double* __restrict__ thetaN, const int* __restrict__ surfIndx,
-	const double* __restrict__ surfNodeCoords, const double* __restrict__ eleNodeCoords, const int* __restrict__ surfNodes, const int* __restrict__ surfElemBirth,
-	double* rhs, int numSurf, double ambient, double abszero, double tool0, double tool1, double tool2, int laserState, int numSurfAct, double sigma, int numEl, int nn) {
+__global__ void applyFlux(const float* __restrict__ surfFlux, const int* __restrict__ surfPlane, const float* __restrict__ thetaN, const int* __restrict__ surfIndx,
+	const float* __restrict__ surfNodeCoords, const float* __restrict__ eleNodeCoords, const float* __restrict__ surfDeathTime,const int* __restrict__ surfNodes, const int* __restrict__ surfElemBirth,
+	float* rhs, int numSurf, float ambient, float abszero, float tool0, float tool1, float tool2, int laserState, int numSurfAct, float sigma, int numEl, int nn, float currTime, float rBeam, float Qin) {
 
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
 	//move to shared memory for speed
-	__shared__ int parCoordsSurfS[72];
-	__shared__ int parCoords2DS[8];
+	__shared__ float parCoordsSurfS[72];
+	__shared__ float parCoords2DS[8];
+	__shared__ float deathTime[256];
 
-	if(idx < 8)
-		parCoords2DS[idx] = parCoords2D[idx];
+	if(idx < numSurf)
+		deathTime[threadIdx.x] = surfDeathTime[idx];
 
-	if(idx < 72)
-		parCoordsSurfS[idx] = parCoordsSurf[idx];
+	if(threadIdx.x < 8)
+		parCoords2DS[threadIdx.x] = parCoords2D[threadIdx.x];
+
+	if(threadIdx.x < 72)
+		parCoordsSurfS[threadIdx.x] = parCoordsSurf[threadIdx.x];
 
 	__syncthreads();
 
 	if (idx < numSurfAct) {
 		//shape function
-		double N[8];
-		double chsi;
-		double eta;
-		double zeta;
-		int plane;
+		float N[8];
+		float chsi;
+		float eta;
+		float zeta;
+		int  plane;
 
 		//global location of integration points
-		double xip;
-		double yip;
-		double zip;
-		double r2;
+		float xip;
+		float yip;
+		float zip;
+		float r2;
 
 		//Convection, Radiation, and Moving Flux
-		double thetaIp;
-		double qconv;
-		double ambient4;
-		double thetaIp4;
-		double qrad;
-		double qmov;
+		float thetaIp;
+		float qconv;
+		float ambient4;
+		float thetaIp4;
+		float qrad;
+		float qmov;
 
 
-		const double conv1 = surfFlux[idx];
-		const double conv2 = surfFlux[idx + numSurf];
-		const double rad1 = surfFlux[idx + 2 * numSurf];
-		const double rad2 = surfFlux[idx + 3 * numSurf];
-		const double heat = surfFlux[idx + 4 * numSurf];
-		const double rb2 = 1.21;
-		const double Qin = 892.5;
-		const double pi = 3.14159265358979;
+		const float conv1 = surfFlux[idx];
+		const float conv2 = surfFlux[idx + numSurf];
+		const float rad1 = surfFlux[idx + 2 * numSurf];
+		const float rad2 = surfFlux[idx + 3 * numSurf];
+		const float heat = surfFlux[idx + 4 * numSurf];
+		const float rb2 = rBeam * rBeam;
+		const float pi = 3.14159265358979;
 
-		double Jac[4];
+		float Jac[4];
 		int element;
-		double coords[8];
-		double detJac;
+		float coords[8];
+		float detJac;
 
 
 		for (int ip = 0; ip < 4; ++ip) {
@@ -1201,27 +1214,31 @@ __global__ void applyFlux(const double* __restrict__ surfFlux, const int* __rest
 				(yip - tool1) * (yip - tool1) +
 				(zip - tool2) * (zip - tool2));
 
-			const double val = 3.0 * Qin / (pi * rb2) * exp(-3.0 * r2 / rb2);
+			const float val = 3.0 * Qin / (pi * rb2) * exp(-3.0 * r2 / rb2);
 
 			qmov = (laserState == 1) ? val : 0.0;
+
+			float death = (deathTime[threadIdx.x] < currTime) ? 0.0 : 1.0;
 
 			for (int i = 0; i < 4; ++i) {
 				int ig = surfNodes[numSurf*i + idx];
 				int ir = surfIndx[idx*4 + i];
-				rhs[ig + ir*nn] += N[i] * detJac * (conv1*qconv + rad1*qrad + heat*qmov);
+				double a = rhs[ig + ir*nn] ;
+				rhs[ig + ir*nn] += N[i] * detJac * (conv1*qconv + rad1*qrad + heat*qmov) * death;
 			}
 		}
 	}
 }
 
-__global__ void massFlux(double* rhs, const int nn, int rhsCount, double* globalRhs) {
+__global__ void massFlux(float* rhs, const int nn, int rhsCount, float* globalRhs) {
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 	if (idx < nn)
 		for (int elInd = 0; elInd < rhsCount; elInd++)
 			globalRhs[idx] += rhs[idx + nn*elInd];
+
 }
 
-__global__ void advanceTime(double* thetaN, const double* __restrict__ globalMass, const double* __restrict__ rhs, const int* __restrict__ birthNodes,double dt, int numActNodes) {
+__global__ void advanceTime(float* thetaN, const float* __restrict__ globalMass, const float* __restrict__ rhs, const int* __restrict__ birthNodes,float dt, int numActNodes) {
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
 	if(idx < numActNodes) {
@@ -1230,7 +1247,7 @@ __global__ void advanceTime(double* thetaN, const double* __restrict__ globalMas
 	}
 }
 
-__global__ void prescribeDirichlet(double* thetaN, const int* __restrict__ fixedNodes, const double* __restrict__ fixedNodeVals, int numFixed) {
+__global__ void prescribeDirichlet(float* thetaN, const int* __restrict__ fixedNodes, const float* __restrict__ fixedNodeVals, int numFixed) {
 	int idx = blockIdx.x*blockDim.x + threadIdx.x;
 
 	if(idx < numFixed) {

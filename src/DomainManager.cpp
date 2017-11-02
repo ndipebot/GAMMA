@@ -130,15 +130,31 @@ DomainManager::assignElePID()
       int localEle = element_global_to_local_[elePID];
       Element *element = elementList_[localEle];
       // assign material properties to element
-      element->PID_ = PID;
-      element->cond_ = eleMat[5];
-      element->rho_ = eleMat[0];
-      element->cp_ = eleMat[4];
-      element->liquidus_ = eleMat[2];
-      element->solidus_ = eleMat[1];
-      element->latent_ = eleMat[3];
-    }//end for(ii)
-  }//end for(it)
+      if (meshObj_->PID_to_MAT_Type_[PID] == 1)  // isotropic material
+      {
+	element->PID_ = PID;
+	element->cond_ = eleMat[5];
+	element->rho_ = eleMat[0];
+	element->cp_ = eleMat[4];
+	element->liquidus_ = eleMat[2];
+	element->solidus_ = eleMat[1];
+	element->latent_ = eleMat[3];
+        element->matID_ = 1;
+      }
+      else if (meshObj_->PID_to_MAT_Type_[PID] == 2)  // user-defined
+      {
+	element->PID_ = PID;
+	element->rho_ = eleMat[0];
+	element->liquidus_ = eleMat[2];
+	element->solidus_ = eleMat[1];
+        element->matID_ = 2;
+        element->userID_ = (int)eleMat[3];
+    	element->cond_ =  0.0214;
+    	element->rho_ = 0.008;
+    	element->cp_ =  0.5;
+      }//end if
+    }
+  }
 }//end assignElePID
 
 //////////////////////////////////////////////////////
