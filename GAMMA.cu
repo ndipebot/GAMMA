@@ -213,14 +213,14 @@ int main(int arg, char *argv[])
   
    //heatMgr->post_work();
 
-    /*
+
     // File Manager
     if (outTrack >= meshObj.outTime_)
     {
       outCt++;
       outFile = meshObj.outFileName_ + to_string(outCt) + extName;
       starttime = clock();
-      //vtuMgr->execute();
+      vtuMgr->execute();
       endtime = clock();
       outTrack = 0.0;
       cout << "===============================================================\n";
@@ -243,7 +243,7 @@ int main(int arg, char *argv[])
     {
       domainMgr->isInit_ = false;
     }
-    */
+
   }//end for(t)
 
   //----------------------------END TIMER -----------------------------------
