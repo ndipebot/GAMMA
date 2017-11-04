@@ -712,7 +712,6 @@ HeatSolverManager::updateCap()
 	  }//end for(J)
 	}//end for(I)
 
-
       }//end for(ip)
 
       // Add in differences

@@ -223,23 +223,16 @@ CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/b
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/locale.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/mathcalls.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/mathdef.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/mathinline.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/nan.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/sched.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/select.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/select2.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/setjmp.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/sigset.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/stdio.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/stdio2.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/stdlib.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/string3.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/sys_errlist.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/time.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/timex.h
@@ -248,7 +241,6 @@ CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/b
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/waitflags.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/waitstatus.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/wchar.h
-CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/wchar2.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/wordsize.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
 CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h
@@ -345,7 +337,7 @@ CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o: GAMMA.cu
 
 CMakeFiles/GAMMA.dir/GAMMA_intermediate_link.o: CMakeFiles/GAMMA.dir/GAMMA_generated_GAMMA.cu.o
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC intermediate link file CMakeFiles/GAMMA.dir/GAMMA_intermediate_link.o"
-	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -O3 -use_fast_math -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir//./GAMMA_generated_GAMMA.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir/./GAMMA_intermediate_link.o
+	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -G -g -lineinfo -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir//./GAMMA_generated_GAMMA.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/GAMMA.dir/./GAMMA_intermediate_link.o
 
 # Object files for target GAMMA
 GAMMA_OBJECTS =

@@ -293,15 +293,15 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 
 	  for (int j = 0; j < 8; j++)
 	    for (int i = 0; i < 3; i++)
-			coords[j * 3 + i] = coeff[j * 3 + i] * 0.5773502692;
+			coords[j * 3 + i] = coeff[j * 3 + i] * 0.577350269;
 
       cudaMemcpyToSymbol(parCoords,coords.data(),24*sizeof(float));
 
 	  //move surface parametric coordinates to local memory
-	  vector<vector<float>> coeff2D{ { -0.5773502692, -0.5773502692 },
-	  { -0.5773502692,  0.5773502692 },
-	  { 0.5773502692, -0.5773502692 },
-	  { 0.5773502692,  0.5773502692 } };
+	  vector<vector<float>> coeff2D{ { -0.577350269, -0.577350269 },
+	  { -0.577350269,  0.577350269 },
+	  { 0.577350269, -0.577350269 },
+	  { 0.577350269,  0.577350269 } };
 
 	  vector<float> coordsSurf(72);
 
@@ -334,10 +334,10 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	  cudaMemcpyToSymbol(parCoordsSurf, coordsSurf.data(), 72 * sizeof(float));
 
 	  // 2D surface parametric coordinates to constant memory
-	  vector<float> coords2D{ -0.5773502692, -0.5773502692,
-		  -0.5773502692,  0.5773502692,
-		  0.5773502692, -0.5773502692,
-		  0.5773502692,  0.5773502692 };
+	  vector<float> coords2D{ -0.577350269, -0.577350269,
+		  -0.577350269,  0.577350269,
+		  0.577350269, -0.577350269,
+		  0.577350269,  0.577350269 };
 
 	  cudaMemcpyToSymbol(parCoords2D, coords2D.data(), 8 * sizeof(float));
 
@@ -771,11 +771,11 @@ __global__ void updateMass(const float* __restrict__ thetaN, const float* __rest
 	if(idx < numElAct) {
 
 		  // elemental material properties
-		float liquidus = eleMat[idx + 2*numEl];
+		float rho = eleMat[idx];
 		float solidus = eleMat[idx + numEl];
+		float liquidus = eleMat[idx + 2*numEl];
 		float latent = eleMat[idx + 3*numEl];
 		float cp =  eleMat[idx + 4*numEl];
-		float rho = eleMat[idx];
 
 		float coords[24];
 
@@ -788,11 +788,15 @@ __global__ void updateMass(const float* __restrict__ thetaN, const float* __rest
 		float deriv[24];
 		float Jac[9];
 
-		float thetaIp = 0.0;
+		float thetaIp;
 		float cpPoint = 0;
 		float detJac = 0;
 
+		float temp = 0;
+
 		for(int ip = 0; ip < 8; ++ip) {
+
+			thetaIp = 0.0;
 
 			//compute shape function
 			chsi = parCoordsS[ip*3 + 0];
@@ -814,7 +818,7 @@ __global__ void updateMass(const float* __restrict__ thetaN, const float* __rest
 			}
 
 			//compute cp
-			cpPoint = (thetaIp <= solidus && thetaIp >= liquidus) ? (cp + latent / ( liquidus - solidus )) : cp;
+			cpPoint = (thetaIp >= solidus && thetaIp <= liquidus) ? (cp + latent / ( liquidus - solidus )) : cp;
 
 			//compute derivative of shape functions
 			// with respect to chsi

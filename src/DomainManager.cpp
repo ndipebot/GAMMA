@@ -229,7 +229,7 @@ DomainManager::assignElementBirth()
   for (int ii = 0; ii < meshObj_->birthID_.size(); ii++)
   {
     int gbID = meshObj_->birthID_[ii];
-    int lbID = element_global_to_local_[meshObj_->birthID_[ii]];
+    int lbID = element_global_to_local_[gbID];
     double bTime = meshObj_->birthTime_[ii];
     elementList_[lbID]->birthTime_ = bTime;
     elementList_[lbID]->birth_ = true;
@@ -478,7 +478,7 @@ DomainManager::initializeActiveElements()
   {
     Element *element = elementList_[ie];
     int *localNodes = element->nID_;
-    if (!element->birthTime_>0.0)
+    if (!element->birth_)
     {
       activeElements_.push_back(ie);
       for (int I = 0; I < 8; I++)

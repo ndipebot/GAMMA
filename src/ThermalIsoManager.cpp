@@ -77,6 +77,7 @@ ThermalIsoManager::execute()
       thetaIp += Nip_[offsetIp + I] * thetaNodes[I];
     }
     
+
     double cpPoint;
     if ( thetaIp >= solidus_ && thetaIp <= liquidus_)
     {
@@ -86,7 +87,6 @@ ThermalIsoManager::execute()
     {
       cpPoint = cp_;
     }
-
 
     if (fabs(cpPoint - cpIp_[ip]) > small)
     {

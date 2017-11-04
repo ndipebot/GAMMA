@@ -166,6 +166,7 @@ int main(int arg, char *argv[])
   elementData elemData;
   createDataOnDevice(domainMgr, elemData, heatMgr);
 
+
   initializeStiffnessOnD(elemData);
 
   //------------------START TIMER---------------------------------------
@@ -178,7 +179,7 @@ int main(int arg, char *argv[])
   //-----------------------------------------------------------------------
 
   // time integrator
-  while (domainMgr->currTime_ <= simTime)
+  while (domainMgr->currTime_ <= 5.0)
   {
 
     // update time counters
@@ -186,13 +187,15 @@ int main(int arg, char *argv[])
 
     domainMgr->currTime_ += heatMgr->dt_;
 
-    //heatMgr->pre_work();
+    heatMgr->pre_work();
  
-    //heatMgr->updateCap();
+    heatMgr->updateCap();
 
-    //heatMgr->integrateForce();
+    heatMgr->integrateForce();
 
     //heatMgr->advance_time_step();
+
+    //heatMgr->post_work();
 
 
    //----------------------------------------------
@@ -200,20 +203,21 @@ int main(int arg, char *argv[])
 
 	updateMassOnD(elemData, domainMgr);
 
-	updateIntForceOnD(elemData, domainMgr);
+	//updateIntForceOnD(elemData, domainMgr);
 
 	updateFluxKernel(elemData, domainMgr);
 
-	advanceTimeKernel(elemData, domainMgr);
+	//advanceTimeKernel(elemData, domainMgr);
 
-	dirichletBCKernel(elemData);
+	//dirichletBCKernel(elemData);
 
+	  CopyToHost(elemData);
+	  compareFlux(elemData, heatMgr->rhs_);
 
 	//------------------------------------------------
-  
-   //heatMgr->post_work();
 
 
+	/*
     // File Manager
     if (outTrack >= meshObj.outTime_)
     {
@@ -243,6 +247,7 @@ int main(int arg, char *argv[])
     {
       domainMgr->isInit_ = false;
     }
+    */
 
   }//end for(t)
 
@@ -268,7 +273,7 @@ int main(int arg, char *argv[])
   //compareStiff(elemData, domainMgr->elementList_);
   //compareIntForce(elemData, heatMgr->rhs_);
   //compareFlux(elemData, heatMgr->rhs_);
-  //compareTemp(elemData, heatMgr->thetaN_);
+  compareTemp(elemData, heatMgr->thetaN_);
 
   outCt++;
   vtuMgr->execute();

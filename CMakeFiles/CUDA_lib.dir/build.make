@@ -219,23 +219,16 @@ CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/locale.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/mathcalls.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/mathdef.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/mathinline.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/nan.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/sched.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/select.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/select2.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/setjmp.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/sigset.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/stdio.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/stdio2.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/stdlib.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/string3.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/sys_errlist.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/time.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/timex.h
@@ -244,7 +237,6 @@ CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/waitflags.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/waitstatus.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/wchar.h
-CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/wchar2.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/wordsize.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
 CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h
@@ -341,7 +333,7 @@ CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o: src/deviceKer
 
 CMakeFiles/CUDA_lib.dir/CUDA_lib_intermediate_link.o: CMakeFiles/CUDA_lib.dir/src/CUDA_lib_generated_deviceKernels.cu.o
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC intermediate link file CMakeFiles/CUDA_lib.dir/CUDA_lib_intermediate_link.o"
-	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -O3 -use_fast_math -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/./CUDA_lib_generated_deviceKernels.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/./CUDA_lib_intermediate_link.o
+	/usr/local/cuda/bin/nvcc -gencode=arch=compute_35,code=sm_35 -std=c++11 -G -g -lineinfo -m64 -dlink /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/src/./CUDA_lib_generated_deviceKernels.cu.o -o /home/leonardo/cuda-workspace/GAMMA_raw/CMakeFiles/CUDA_lib.dir/./CUDA_lib_intermediate_link.o
 
 # Object files for target CUDA_lib
 CUDA_lib_OBJECTS =

@@ -17,72 +17,72 @@
 
 struct elementData {
 	int* dEleNodes ;
-	float* dEleStiffness;
-	float* dGlobMass;
-	float* dEleNodeCoords;
-	float* dEleMat;
-	float* dEleBirthTimes;
-	float* dthetaN;
+	double* dEleStiffness;
+	double* dGlobMass;
+	double* dEleNodeCoords;
+	double* dEleMat;
+	double* dEleBirthTimes;
+	double* dthetaN;
 	int* dNUniId;
-	float* dGlobRHS;
-	float* dGlobRHS_Surf;
+	double* dGlobRHS;
+	double* dGlobRHS_Surf;
 	int* dSurfIndx;
 	int* dFixedNodes;
-	float* dFixedNodeVals;
+	double* dFixedNodeVals;
 	int* dBirthNodes;
 
 
-	float dt;
+	double dt;
 	int numFixed;
 
 	int* dSurfNodes;
-	float* dSurfNodeCoords;
+	double* dSurfNodeCoords;
 	int* dSurfPlane;
-	float* dSurfFlux;
+	double* dSurfFlux;
 	int* dSurfBirthElem;
-	float* dSurfDeathTime;
+	double* dSurfDeathTime;
 
 	int* fixedNodes;
-	vector<float> fixedValues;
+	vector<double> fixedValues;
 
 	int numEl;
 	int nn;
-	float initTemp;
+	double initTemp;
 	int numSurf;
-	float tool0;
-	float tool1;
-	float tool2;
+	double tool0;
+	double tool1;
+	double tool2;
 	int laserState;
 	int rhsCount;
-	float ambient;
-	float abszero;
-	float sigma;
+	double ambient;
+	double abszero;
+	double sigma;
 	int rhsCountEle;
-	float rBeam;
-	float Qin;
+	double rBeam;
+	double Qin;
 
 	vector<int> eleNodes;
-	vector<float> eleNodeCoords;
-	vector<float> eleMat;
-	vector<float> eleBirthTimes;
-	vector<float> thetaN;
-	vector<float> eleStiffness;
-	vector<float> globMass;
-	vector<float> globRHS;
-	vector<float> globRHS_Surf;
+	vector<double> eleNodeCoords;
+	vector<double> eleMat;
+	vector<double> eleBirthTimes;
+	vector<double> thetaN;
+	vector<double> eleStiffness;
+	vector<double> globMass;
+	vector<double> globRHS;
+	vector<double> globRHS_Surf;
 	vector<int> nUniId;
 	vector<int>	surfIndx;
 
-	vector<float> boundSurfBirthTime;
-	vector<float> boundSurfDeathTime;
+	vector<double> boundSurfBirthTime;
+	vector<double> boundSurfDeathTime;
 	vector<int> surfNodes;
-	vector<float> surfNodeCoords;
+	vector<double> surfNodeCoords;
 	vector<int> surfPlane;
-	vector<float> surfFlux;
+	vector<double> surfFlux;
 	vector<int> surfBirthElem;
 
 	vector<int> birthNodes;
-	vector<float> birthNodeTimes;
+	vector<double> birthNodeTimes;
 
 };
 
