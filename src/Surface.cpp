@@ -33,9 +33,9 @@ Surface::~Surface()
 //		getMappedCoords	                    //
 //////////////////////////////////////////////////////
 void
-Surface::getMappedCoords(double boundCoords[4][3], double coordsMapped[4][2])
+Surface::getMappedCoords(float boundCoords[4][3], float coordsMapped[4][2])
 {
-  double u[3], v[3], w[3];
+  float u[3], v[3], w[3];
 
   for (int ii = 0; ii < 3; ii++)
   {
@@ -52,15 +52,15 @@ Surface::getMappedCoords(double boundCoords[4][3], double coordsMapped[4][2])
     }//end for (jj)
   }//end for(ii)
 
-  double l1 = sqrt(u[0]*u[0] + u[1]*u[1] + u[2]*u[2]);
-  double l2 = sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2]);
-  double l4 = sqrt(w[0]*w[0] + w[1]*w[1] + w[2]*w[2]);
+  float l1 = sqrt(u[0]*u[0] + u[1]*u[1] + u[2]*u[2]);
+  float l2 = sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2]);
+  float l4 = sqrt(w[0]*w[0] + w[1]*w[1] + w[2]*w[2]);
 
-  double cos12 = (u[0]*v[0] + u[1]*v[1] + u[2]*v[2])/(l1*l2);
-  double cos14 = (u[0]*w[0] + u[1]*w[1] + u[2]*w[2])/(l1*l4);
+  float cos12 = (u[0]*v[0] + u[1]*v[1] + u[2]*v[2])/(l1*l2);
+  float cos14 = (u[0]*w[0] + u[1]*w[1] + u[2]*w[2])/(l1*l4);
 
-  double sin12 = sqrt(1.0 - cos12 * cos12);
-  double sin14 = sqrt(1.0 - cos14 * cos14);
+  float sin12 = sqrt(1.0 - cos12 * cos12);
+  float sin14 = sqrt(1.0 - cos14 * cos14);
 
   coordsMapped[1][0] = l1;
   coordsMapped[2][0] = l1 + l2*cos12;
@@ -73,7 +73,7 @@ Surface::getMappedCoords(double boundCoords[4][3], double coordsMapped[4][2])
 //		getGradN	                    //
 //////////////////////////////////////////////////////
 void 
-Surface::getGradN(double chsi, double eta, double GN[2][4])
+Surface::getGradN(float chsi, float eta, float GN[2][4])
 {
   // w.r.t chsi
   GN[0][0] =  0.25 * (eta - 1.0);
@@ -91,9 +91,9 @@ Surface::getGradN(double chsi, double eta, double GN[2][4])
 //		getJacobian2D	                    //
 //////////////////////////////////////////////////////
 void 
-Surface::getJacobian2D(double GN[2][4], double coordsMapped[4][2], double &detJac, double invJac[2][2])
+Surface::getJacobian2D(float GN[2][4], float coordsMapped[4][2], float &detJac, float invJac[2][2])
 {
-  double Jac[2][2];
+  float Jac[2][2];
   Jac[0][0] = 0.0;
   Jac[0][1] = 0.0;
   Jac[1][0] = 0.0;
@@ -122,7 +122,7 @@ Surface::getJacobian2D(double GN[2][4], double coordsMapped[4][2], double &detJa
 //		getShapeFcn	                    //
 //////////////////////////////////////////////////////
 void 
-Surface::getShapeFcn(double *N, double chsi, double eta, double zeta)
+Surface::getShapeFcn(float *N, float chsi, float eta, float zeta)
 {
    N[0] = 0.125*(1.0 - chsi)*(1.0 - eta)*(1.0 - zeta);
    N[3] = 0.125*(1.0 - chsi)*(1.0 + eta)*(1.0 - zeta);

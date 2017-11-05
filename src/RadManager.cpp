@@ -16,15 +16,15 @@
 //		Constructor		 //
 ///////////////////////////////////////////
 RadManager::RadManager(
-      double &ambient,
-      double &epsilon,
-      double &abszero,
-      double &sigma,
+      float &ambient,
+      float &epsilon,
+      float &abszero,
+      float &sigma,
       int *surfaceNodes,
-      double *Nip,
-      double *areaWeight,
-      vector<double> &thetaN,
-      vector<double> &rhs)
+      float *Nip,
+      float *areaWeight,
+      vector<float> &thetaN,
+      vector<float> &rhs)
       : ambient_(ambient),
         epsilon_(epsilon),
         abszero_(abszero),
@@ -45,19 +45,19 @@ RadManager::execute()
 {
 
   //calculate convection contribution 
-  double qrad = 0.0;
+  float qrad = 0.0;
   for (int ip = 0; ip < 4; ip++)
   {
     int offsetIp = ip * 4;
-    double thetaIp = 0.0;
+    float thetaIp = 0.0;
     //Calculate 
     for (int I = 0; I < 4; I++)
     {
       thetaIp += Nip_[offsetIp + I] * thetaN_[surfaceNodes_[I]];
     }// end for(I)
 
-    double ambient4 = pow( (ambient_ - abszero_), 4.0);
-    double thetaIp4 = pow( (thetaIp  - abszero_), 4.0);
+    float ambient4 = pow( (ambient_ - abszero_), 4.0);
+    float thetaIp4 = pow( (thetaIp  - abszero_), 4.0);
     qrad = -sigma_ * epsilon_ * (thetaIp4 - ambient4) * areaWeight_[ip];
 
     // Scatter to global force vector

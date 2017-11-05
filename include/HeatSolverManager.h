@@ -28,13 +28,13 @@ public:
   Mesh *meshObj_;
 
   // Local
-  vector <double> thetaNp1_;
-  vector <double> thetaN_;
-  vector <double> rhs_;
-  vector <double> Mvec_;
+  vector <float> thetaNp1_;
+  vector <float> thetaN_;
+  vector <float> rhs_;
+  vector <float> Mvec_;
   int ngp_, nn_, nel_;
-  double dt_, initTheta_, probeTime_, sumEnergyNp1_, sumEnergyN_;
-  double *Nip_;
+  float dt_, initTheta_, probeTime_, sumEnergyNp1_, sumEnergyN_;
+  float *Nip_;
   BCManager *heatBCManager_;
   
   // methods
@@ -50,7 +50,7 @@ public:
 
   void updateMassBirth();
 
-  double getTimeStep();
+  float getTimeStep();
 
   void initializeSystem();
 

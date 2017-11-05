@@ -7,28 +7,28 @@ class RadManager : public FluxManager
 {
 public:
   RadManager(
-       double &ambient,
-       double &epsilon,
-       double &abszero,
-       double &sigma,
+       float &ambient,
+       float &epsilon,
+       float &abszero,
+       float &sigma,
        int *surfaceNodes,
-       double * Nip,
-       double * areaWeight,
-       vector<double> &thetaN,
-       vector<double> &rhs);
+       float * Nip,
+       float * areaWeight,
+       vector<float> &thetaN,
+       vector<float> &rhs);
 
   virtual ~RadManager() {}
 
-  double ambient_;
-  double epsilon_;
-  double sigma_;
-  double abszero_;
-  double *Nip_;
-  double *areaWeight_;
+  float ambient_;
+  float epsilon_;
+  float sigma_;
+  float abszero_;
+  float *Nip_;
+  float *areaWeight_;
   int *surfaceNodes_;
 
-  vector<double> &thetaN_;
-  vector<double> &rhs_;
+  vector<float> &thetaN_;
+  vector<float> &rhs_;
   
   virtual void execute();
 

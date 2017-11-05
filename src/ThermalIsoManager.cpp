@@ -16,17 +16,17 @@
 ///////////////////////////////////////////
 ThermalIsoManager::ThermalIsoManager(
          int *localNodes,
-         double *Nip,
-         double *condIp,
-         double *cpIp,
-         double *consolidFrac,
-         double *solidRate,
-         double &latent,
-         double &liquidus,
-         double &solidus,
-         double &cp,
-         double &dt,
-         vector<double> &thetaN)
+         float *Nip,
+         float *condIp,
+         float *cpIp,
+         float *consolidFrac,
+         float *solidRate,
+         float &latent,
+         float &liquidus,
+         float &solidus,
+         float &cp,
+         float &dt,
+         vector<float> &thetaN)
          : localNodes_(localNodes),
            Nip_(Nip),
            condIp_(condIp),
@@ -41,7 +41,7 @@ ThermalIsoManager::ThermalIsoManager(
            dt_(dt)
 {
 
-  trackSrate_ = new double[8];
+  trackSrate_ = new float[8];
 
   for (int ip = 0; ip < 8; ip++)
   {
@@ -56,8 +56,8 @@ ThermalIsoManager::ThermalIsoManager(
 void
 ThermalIsoManager::execute()
 {
-  double small = 1.0e-16;
-  double thetaNodes[8];
+  float small = 1.0e-16;
+  float thetaNodes[8];
   // gather variables
   for (int I = 0; I < 8; I++)
   {
@@ -69,7 +69,7 @@ ThermalIsoManager::execute()
   for (int ip = 0; ip < 8; ip++)
   {
     int offsetIp = ip * 8;
-    double thetaIp = 0.0;
+    float thetaIp = 0.0;
 
     // Calculate ip values
     for (int I = 0; I < 8; I++)
@@ -78,7 +78,7 @@ ThermalIsoManager::execute()
     }
     
 
-    double cpPoint;
+    float cpPoint;
     if ( thetaIp >= solidus_ && thetaIp <= liquidus_)
     {
       cpPoint = cp_ + latent_ / ( liquidus_ - solidus_ );

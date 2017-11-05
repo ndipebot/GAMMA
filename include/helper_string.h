@@ -214,7 +214,7 @@ inline int getCmdLineArgumentInt(const int argc, const char **argv, const char *
     }
 }
 
-inline float getCmdLineArgumentFloat(const int argc, const char **argv, const char *string_ref)
+inline float getCmdLineArgumentfloat(const int argc, const char **argv, const char *string_ref)
 {
     bool bFound = false;
     float value = -1;

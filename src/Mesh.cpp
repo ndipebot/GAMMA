@@ -145,16 +145,16 @@ void Mesh::getDomainInfo()
 
       if(option==0) {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
 	int key = (int) coords[0];
-	vector<double> value(coords.begin()+1, coords.begin()+4);
+	vector<float> value(coords.begin()+1, coords.begin()+4);
 	NODES_[key] = value;
 
 	continue;
       }// option 0
       else if (option==1) {
         istringstream lines(line);
-	vector<int> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<int> coords((istream_iterator<float>(lines)), istream_iterator<float>());
 	int ele = coords[0];
 	int pid = coords[1];
 	vector<int> conn(coords.begin()+2, coords.end());
@@ -172,7 +172,7 @@ void Mesh::getDomainInfo()
       else if (option == 2)
       {
 	  istringstream lines(line);
-	  vector<int> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	  vector<int> coords((istream_iterator<float>(lines)), istream_iterator<float>());
           if (coords.size() == 1 && Init)
           {
             Init = false;
@@ -190,17 +190,17 @@ void Mesh::getDomainInfo()
       else if (option == 3)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
         int setID = (int)coords[0];
         int bcID = (int)coords[1];
-        double bcVal = (double)coords[2];
+        float bcVal = (float)coords[2];
         loadSets_[setID].push_back(bcID);
         loadSetVals_[setID].push_back(bcVal);
       }// option 3
       else if (option == 4)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
         if(Init)
         {
           Init = false;
@@ -208,7 +208,7 @@ void Mesh::getDomainInfo()
           PID_to_MAT_Type_[PID] = 1; // 1 = isotropic materials
 	  for (int ii = 1; ii < coords.size(); ii++)
 	  {
-            double mat = (double)coords[ii];
+            float mat = (float)coords[ii];
 	    PID_to_MAT_[PID].push_back(mat);
 	  }//end for(ii)
         }
@@ -223,14 +223,14 @@ void Mesh::getDomainInfo()
       else if (option == 5)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
         inputDt_ = coords[0];
       }// option 5
       else if (option == 6)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
-        double time = coords[0];
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
+        float time = coords[0];
         int elemID = (int)coords[1];
         if (coords.size() == 2)
         {
@@ -241,22 +241,22 @@ void Mesh::getDomainInfo()
       else if (option == 7)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
         int setID = (int)coords[0];
-        double initTemp = (double)coords[1];
+        float initTemp = (float)coords[1];
         initialCondition_[setID] = initTemp;
       }// option 7
       else if (option == 8)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
-        finalTime_ = (double)coords[0];
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
+        finalTime_ = (float)coords[0];
       }// option 8
       else if (option == 9)
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
-        outTime_ = (double)coords[0];
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
+        outTime_ = (float)coords[0];
       }// option 9
       else if (option == 10)
       {
@@ -269,7 +269,7 @@ void Mesh::getDomainInfo()
 	istringstream lines(line);
 	vector<string> coords((istream_iterator<string>(lines)), istream_iterator<string>());
         string paramName = coords[0]; 
-        double value = stod(coords[1]);
+        float value = stod(coords[1]);
         paramValues_[paramName] = value;
       }// option 11
       else if (option == 12)
@@ -282,7 +282,7 @@ void Mesh::getDomainInfo()
       {
 	istringstream lines(line);
 	vector<string> coords((istream_iterator<string>(lines)), istream_iterator<string>());
-	double *probeCoords = new double[3];
+	float *probeCoords = new float[3];
         probeNames_.push_back( coords[0] + probeExtension_ ); 
         probeCoords[0] = stod(coords[1]);
         probeCoords[1] = stod(coords[2]);
@@ -301,7 +301,7 @@ void Mesh::getDomainInfo()
       else if (option == 15)	// *MAT_THERMAL_USER_DEFINED
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
         if(Init)
         {
           Init = false;
@@ -309,7 +309,7 @@ void Mesh::getDomainInfo()
           PID_to_MAT_Type_[PID] = 2; // 1 = user-defined materials
 	  for (int ii = 1; ii < coords.size(); ii++)
 	  {
-            double mat = (double)coords[ii];
+            float mat = (float)coords[ii];
 	    PID_to_MAT_[PID].push_back(mat);
 	  }//end for(ii)
         }
@@ -317,10 +317,10 @@ void Mesh::getDomainInfo()
       else if (option == 16)	// *GAUSS_LASER
       {
 	istringstream lines(line);
-	vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
-        Qin_ = (double)coords[0];
-        rBeam_ = (double)coords[1];
-        Qeff_ = (double)coords[2];
+	vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
+        Qin_ = (float)coords[0];
+        rBeam_ = (float)coords[1];
+        Qeff_ = (float)coords[2];
       }// option 16
 
     } //end option conditional loops
@@ -347,11 +347,11 @@ void
 Mesh::assignParameters ()
 {
   // Assign parameter values
-  for (map<string,double>::iterator it = paramValues_.begin();
+  for (map<string,float>::iterator it = paramValues_.begin();
        it != paramValues_.end(); it++)
   {
     string paramName = it->first;
-    double value = it->second;
+    float value = it->second;
     if (paramName == "Rambient")
     {
       Rambient_ = value;

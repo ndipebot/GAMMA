@@ -16,13 +16,13 @@
 //		Constructor		 //
 ///////////////////////////////////////////
 ConvManager::ConvManager(
-      double &ambient,
-      double &hconv,
+      float &ambient,
+      float &hconv,
       int *surfaceNodes,
-      double *Nip,
-      double *areaWeight,
-      vector<double> &thetaN,
-      vector<double> &rhs)
+      float *Nip,
+      float *areaWeight,
+      vector<float> &thetaN,
+      vector<float> &rhs)
       : ambient_(ambient),
         hconv_(hconv),
         surfaceNodes_(surfaceNodes),
@@ -41,11 +41,11 @@ ConvManager::execute()
 {
 
   //calculate convection contribution 
-  double qconv = 0.0;
+  float qconv = 0.0;
   for (int ip = 0; ip < 4; ip++)
   {
     int offsetIp = ip * 4;
-    double thetaIp = 0.0;
+    float thetaIp = 0.0;
     //Calculate 
     for (int I = 0; I < 4; I++)
     {

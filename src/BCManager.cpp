@@ -24,11 +24,11 @@
 //////////////////////////////////////////////////////
 //		Constructor			    //
 //////////////////////////////////////////////////////
-BCManager::BCManager(vector<double> &thetaNp1,
+BCManager::BCManager(vector<float> &thetaNp1,
                      Mesh *meshObj,
                      DomainManager *domainMgr,
-                     vector<double> &thetaN,
-                     vector<double> &rhs)
+                     vector<float> &thetaN,
+                     vector<float> &rhs)
                      : thetaNp1_(thetaNp1),
                        meshObj_(meshObj),
                        domainMgr_(domainMgr),
@@ -58,26 +58,26 @@ BCManager::assignSurfGP(vector<Surface> &surfaceList)
 {
   // Calculate mapped areas for each GP point of surfaces
   int ngp2D = 4;
-  double gPoints2D [4][2] = { {-1.0/sqrt(3.0), -1.0/sqrt(3.0)},
+  float gPoints2D [4][2] = { {-1.0/sqrt(3.0), -1.0/sqrt(3.0)},
                               {-1.0/sqrt(3.0),  1.0/sqrt(3.0)},
                               { 1.0/sqrt(3.0), -1.0/sqrt(3.0)}, 
                               { 1.0/sqrt(3.0),  1.0/sqrt(3.0)} };
-  double weights[4] = {1.0, 1.0, 1.0, 1.0};
+  float weights[4] = {1.0, 1.0, 1.0, 1.0};
   for (int ii = 0; ii < surfaceList.size(); ii++)
   {
     Surface surfI;
     int plane = surfaceList[ii].plane_;
     int birthElement = surfaceList[ii].birthElement_;
     int *surfNodes = new int[4];
-    double faceCoords[4][3];
-    double elemCoords[8][3];
-    double mappedCoords[4][2]; 
+    float faceCoords[4][3];
+    float elemCoords[8][3];
+    float mappedCoords[4][2]; 
     Element *element = domainMgr_->elementList_[birthElement];
     int *localNodes = element->nID_;
-    double *Nsurf = new double[8];
-    surfaceList[ii].gpCoords_ = new double[ngp2D*3];
-    surfaceList[ii].areaWeight_ = new double[4];
-    double gpNsurf[4][8];
+    float *Nsurf = new float[8];
+    surfaceList[ii].gpCoords_ = new float[ngp2D*3];
+    surfaceList[ii].areaWeight_ = new float[4];
+    float gpNsurf[4][8];
 
     for (int iNode = 0; iNode < 8; iNode++)
     {
@@ -175,17 +175,17 @@ BCManager::assignSurfGP(vector<Surface> &surfaceList)
     // save off surface nodes
     surfaceList[ii].surfaceNodes_ = surfNodes;
 
-    double GN[2][4], invJac[2][2], detJac;
+    float GN[2][4], invJac[2][2], detJac;
 
     // Calculate area weights for each gauss point
-    double xp, yp, zp;
+    float xp, yp, zp;
     for (int ip = 0; ip < ngp2D; ip++)
     {
       xp = 0.0;
       yp = 0.0;
       zp = 0.0;
-      double gp1 = gPoints2D[ip][0];
-      double gp2 = gPoints2D[ip][1];
+      float gp1 = gPoints2D[ip][0];
+      float gp2 = gPoints2D[ip][1];
       surfI.getMappedCoords(faceCoords, mappedCoords);
 
       //save mapped coords
@@ -236,7 +236,7 @@ BCManager::assignFixedNodes()
         {
           int gnid = fixedSets[jj];
           int lnid = domainMgr_->node_global_to_local_[gnid];
-          vector <double> temp = meshObj_->loadSetVals_[setID];
+          vector <float> temp = meshObj_->loadSetVals_[setID];
           fixedNodeIDs_.push_back(lnid);
           fixedNodeVals_.push_back(temp[0]);
         }//end for(Jj)
@@ -260,7 +260,7 @@ BCManager::attachBirthSurf()
     int gbID = meshObj_->birthID_[ii];
     int lbID = domainMgr_->element_global_to_local_[gbID];
     Element *element = domainMgr_->elementList_[lbID];
-    double birthTimeCurrent = element->birthTime_;
+    float birthTimeCurrent = element->birthTime_;
     for (int jj = 0; jj < 6; jj++)
     {
       int eIDCheck = domainMgr_->connSurf_[lbID][jj];
@@ -270,7 +270,7 @@ BCManager::attachBirthSurf()
         bool isbirth =  eleNeigh->birth_;
         if (isbirth)
         {
-          double birthTimeNeighbor = eleNeigh->birthTime_;
+          float birthTimeNeighbor = eleNeigh->birthTime_;
           if (birthTimeNeighbor > birthTimeCurrent)
           {
             Surface surfI;
@@ -472,17 +472,17 @@ void
 BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
 {
   // Set up BC managers  
-  double small = 1.0e-8;
-  double *Nip = new double[16];
-  double gPoints2D [4][2] = { {-1.0/sqrt(3.0), -1.0/sqrt(3.0)},
+  float small = 1.0e-8;
+  float *Nip = new float[16];
+  float gPoints2D [4][2] = { {-1.0/sqrt(3.0), -1.0/sqrt(3.0)},
                               {-1.0/sqrt(3.0),  1.0/sqrt(3.0)},
                               { 1.0/sqrt(3.0), -1.0/sqrt(3.0)}, 
                               { 1.0/sqrt(3.0),  1.0/sqrt(3.0)} };
   int ngp2D = 4;
   for (int ip = 0; ip < ngp2D; ip++)
   {
-    double chsi = gPoints2D[ip][0];
-    double eta  = gPoints2D[ip][1];
+    float chsi = gPoints2D[ip][0];
+    float eta  = gPoints2D[ip][1];
     Nip[ip*4 + 0] = 0.25 * (1 - chsi) * ( 1 - eta);
     Nip[ip*4 + 1] = 0.25 * (1 + chsi) * ( 1 - eta);
     Nip[ip*4 + 2] = 0.25 * (1 + chsi) * ( 1 + eta);
@@ -502,21 +502,21 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
 
     int *surfaceNodes;
     surfaceNodes = surfaceList[ii].surfaceNodes_;
-    double *areaWeight = surfaceList[ii].areaWeight_;
+    float *areaWeight = surfaceList[ii].areaWeight_;
     vector <int> setID = surfaceList[ii].setID_;
     if (surfaceList[ii].isFlux_)
     {
       for (int jj = 0; jj < setID.size(); jj++)
       {
         vector<int> loadID = meshObj_->loadSets_[setID[jj]];
-        vector<double> loadVals = meshObj_->loadSetVals_[setID[jj]];
+        vector<float> loadVals = meshObj_->loadSetVals_[setID[jj]];
         for (int kk = 0; kk < loadID.size(); kk++)  
         {
           if (loadID[kk] == 3) //natural convection
           {
         	//set flux type indicator
         	surfaceList[ii].flux[0] = 1.;
-            double hconv = loadVals[kk];
+            float hconv = loadVals[kk];
             surfaceList[ii].flux[1] = hconv;
 	    FluxManager *fluxAlg = new ConvManager(meshObj_->Rambient_, hconv, surfaceNodes, Nip,
 						   areaWeight, thetaN_, rhs_);
@@ -526,7 +526,7 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
           if (loadID[kk] == 4) //radiative convection
           {
         	surfaceList[ii].flux[2] = 1.;
-            double epsilon = loadVals[kk];
+            float epsilon = loadVals[kk];
             surfaceList[ii].flux[3] = epsilon;
 	    FluxManager *fluxAlg = new RadManager(meshObj_->Rambient_, epsilon, meshObj_->Rabszero_, 
                                                   meshObj_->Rboltz_, surfaceNodes, Nip, areaWeight, thetaN_, rhs_);
@@ -538,8 +538,8 @@ BCManager::assignSurfFluxAlg(vector<Surface> &surfaceList)
             if ( fabs(surfaceList[ii].unitNorm_[2]) > small)
             {
             	surfaceList[ii].flux[4] = 1.;
-      	   double Qin = meshObj_->Qin_ * meshObj_->Qeff_;
-      	   double rBeam = meshObj_->rBeam_;
+      	   float Qin = meshObj_->Qin_ * meshObj_->Qeff_;
+      	   float rBeam = meshObj_->rBeam_;
 	      FluxManager *fluxAlg = new MovingFlxManager(surfaceList[ii].gpCoords_, tooltxyz_, 
                                                           laserState_, rBeam, Qin, surfaceNodes, 
                                                           Nip, areaWeight, thetaN_, rhs_);
@@ -619,18 +619,18 @@ BCManager::updateBirthSurfaces()
 void
 BCManager::updateTool()
 {
-  double tx, ty, tz;
+  float tx, ty, tz;
   for (int ii = 1; ii < domainMgr_->tooltxyz_.size(); ii++)
   {
-    double *txyzNp1 = &domainMgr_->tooltxyz_[ii][0];
-    double laserTimeNp1 = txyzNp1[0];
+    float *txyzNp1 = &domainMgr_->tooltxyz_[ii][0];
+    float laserTimeNp1 = txyzNp1[0];
     if (domainMgr_->currTime_ <= laserTimeNp1)
     {
-      double *txyzN = &domainMgr_->tooltxyz_[ii-1][0];
-      double laserTimeN = txyzN[0];
-      double num = domainMgr_->currTime_ - laserTimeN;
-      double den = laserTimeNp1 - laserTimeN;
-      double rat = num/den;
+      float *txyzN = &domainMgr_->tooltxyz_[ii-1][0];
+      float laserTimeN = txyzN[0];
+      float num = domainMgr_->currTime_ - laserTimeN;
+      float den = laserTimeNp1 - laserTimeN;
+      float rat = num/den;
       tx = rat * (txyzNp1[1] - txyzN[1]) + txyzN[1];
       ty = rat * (txyzNp1[2] - txyzN[2]) + txyzN[2];
       tz = rat * (txyzNp1[3] - txyzN[3]) + txyzN[3];
@@ -638,9 +638,9 @@ BCManager::updateTool()
       break;
     }//end if
   }//end for(ii)
-/*  double velocity = 0.0;
-  double xc = 0.5;
-  double yc = 0.25;
+/*  float velocity = 0.0;
+  float xc = 0.5;
+  float yc = 0.25;
   laserState_ = 1;
 
   tooltxyz_[0] = xc + velocity * domainMgr_->currTime_;
@@ -724,16 +724,16 @@ BCManager::applyFluxes()
 void
 BCManager::assignUnitNorm(vector <Surface> &surfaceList)
 {
-  double surfCoords [4][3];
-  double *v1, *v2, *v3, *e1, *e2, *nvec;
-  e1 = new double [3];
-  e2 = new double [3];
+  float surfCoords [4][3];
+  float *v1, *v2, *v3, *e1, *e2, *nvec;
+  e1 = new float [3];
+  e2 = new float [3];
 
   for (int ii = 0; ii < surfaceList.size(); ii++)
   {
     int *surfaceNodes;
     surfaceNodes = surfaceList[ii].surfaceNodes_;
-    nvec = new double[3];
+    nvec = new float[3];
 
     // unpack coordinates
     for (int I = 0; I < 4; I++)
@@ -757,7 +757,7 @@ BCManager::assignUnitNorm(vector <Surface> &surfaceList)
     }//end for(kk)
 
     // calculate normal (cross product)
-    double normVec = 0.0;
+    float normVec = 0.0;
     nvec[0] = e1[1] * e2[2] - e1[2] * e2[1];
     nvec[1] = - ( e1[0] * e2[2] - e1[2] * e2[0]);
     nvec[2] = e1[0] * e2[1] - e1[1] * e2[0];

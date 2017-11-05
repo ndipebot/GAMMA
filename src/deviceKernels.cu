@@ -41,11 +41,13 @@ __global__ void advanceTime(float* thetaN, const float* __restrict__ globalMass,
 
 __global__ void prescribeDirichlet(float* thetaN, const int* __restrict__ fixedNodes, const float* __restrict__ fixedNodeVals, int numFixed);
 
-void compareMass(elementData& elemData, vector<double>& Mvec) {
+void compareMass(elementData& elemData, vector<float>& Mvec) {
 	int nn = Mvec.size();
 	int base = 0;
+	for (int i=0;i<10;i++)
+		std::cout << "GPU: " << elemData.globMass[base + i] << ", CPU: " << Mvec[base + i] << std::endl;
 	for (int i = 0; i < nn; i++) {
-		if (abs(elemData.globMass[base + i] - Mvec[base + i]) > 0.00001) {
+		if (abs(elemData.globMass[base + i] - Mvec[base + i]) > 0.0000001) {
 			std::cout << "Mismatch found on node: "<<i<<", GPU: "<< elemData.globMass[base + i] << ", CPU: "<< Mvec[base + i]<<std::endl;
 		}
 	}
@@ -54,47 +56,55 @@ void compareMass(elementData& elemData, vector<double>& Mvec) {
 
 void compareStiff(elementData& elemData, vector<Element*>& elementList) {
 	int numEl = elementList.size();
+	for (int i=0;i<10;i++)
+		std::cout << "GPU: " << elemData.eleStiffness[i] << ", CPU: " << elementList[i]->stiffMatrix_[0] << std::endl;
 	for (const auto & elem : elementList) {
 		int eID = &elem - &elementList[0];
 		for (int i = 0; i < 36; ++i) {
-			if (abs(elemData.eleStiffness[eID + i*numEl] - elem->stiffMatrix_[i]) > 0.00001) {
+			if (abs(elemData.eleStiffness[eID + i*numEl] - elem->stiffMatrix_[i]) > 0.0000001) {
 				std::cout << "Mismatch found on element: " << eID << ", GPU: " << elemData.eleStiffness[eID + i*numEl] << ", CPU: " << elem->stiffMatrix_[i] << std::endl;
 			}
 		}
 	}
+	std::cout << "check passed!" << std::endl;
 }
 
-void compareIntForce(elementData& elemData, vector<double>& rhs) {
+void compareIntForce(elementData& elemData, vector<float>& rhs) {
 	int nn = rhs.size();
 	int base = 0;
+	for (int i = 0; i<10; i++)
+		std::cout << "GPU: " << elemData.globRHS[base + i] << ", CPU: " << rhs[base + i] << std::endl;
 	for (int i = 0; i < nn; i++) {
-		std::cout << ", GPU: " << elemData.globRHS[base + i]<< ", CPU: " << rhs[base + i] << std::endl;
-		if (abs(elemData.globRHS[base + i] - rhs[base + i]) > 0.000001) {
+		if (abs(elemData.globRHS[base + i] - rhs[base + i]) > 0.00001) {
 			std::cout << "Mismatch found on node: " << i << ", GPU: " << elemData.globRHS[base + i] << ", CPU: " << rhs[base + i] << std::endl;
 		}
 	}
 	std::cout << "check passed!" << std::endl;
 }
 
-void compareFlux(elementData& elemData, vector<double>& rhs) {
+void compareFlux(elementData& elemData, vector<float>& rhs) {
 	int nn = rhs.size();
 	int base = 0;
+	for (int i = 0; i<10; i++)
+		std::cout << "GPU: " << elemData.globRHS[base + i] << ", CPU: " << rhs[base + i] << std::endl;
 	for (int i = 0; i < nn; i++) {
-		if (abs(elemData.globRHS_Surf[base + i] - rhs[base + i]) > 0.000001) {
-			std::cout << "Mismatch found on node: " << i << ", GPU: " << elemData.globRHS_Surf[base + i] << ", CPU: " << rhs[base + i] << std::endl;
+		if (abs(elemData.globRHS[base + i] - rhs[base + i]) > 0.00001) {
+			std::cout << "Mismatch found on node: " << i << ", GPU: " << elemData.globRHS[base + i] << ", CPU: " << rhs[base + i] << std::endl;
 		}
 	}
 	std::cout << "check passed!" << std::endl;
 }
 
-void compareTemp(elementData& elemData, vector<double>& thetaN ) {
+void compareTemp(elementData& elemData, vector<float>& thetaN ) {
 	int base = 0;
+	//for (int i = 0; i<10; i++)
+	//	std::cout << "GPU: " << elemData.thetaN[base + i] << ", CPU: " << thetaN[base + i] << std::endl;
 	for (int i = 0; i < elemData.nn; i++) {
-		if (abs(elemData.thetaN[base + i] - thetaN[base + i]) > 0.000001) {
+		if (abs(elemData.thetaN[base + i] - thetaN[base + i]) > 0.001) {
 			std::cout << "Mismatch found on node: " << i << ", GPU: " << elemData.thetaN[base + i] << ", CPU: " << thetaN[base + i] << std::endl;
 		}
 	}
-	std::cout << "check passed!" << std::endl;
+	//std::cout << "check passed!" << std::endl;
 }
 
 
@@ -119,8 +129,8 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	elemData.numEl = numEl;
 	elemData.dt = heatMgr->dt_;
 
-	elemData.rBeam = heatMgr->meshObj_->Qin_ * heatMgr->meshObj_->Qeff_;
-    elemData.Qin = heatMgr->meshObj_->rBeam_;
+	elemData.rBeam = heatMgr->meshObj_->rBeam_; 
+    elemData.Qin = heatMgr->meshObj_->Qin_ * heatMgr->meshObj_->Qeff_;
 
 	//Element data
 	elemData.eleNodes.resize(8*numEl);
@@ -298,10 +308,10 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
       cudaMemcpyToSymbol(parCoords,coords.data(),24*sizeof(float));
 
 	  //move surface parametric coordinates to local memory
-	  vector<vector<float>> coeff2D{ { -0.577350269, -0.577350269 },
-	  { -0.577350269,  0.577350269 },
-	  { 0.577350269, -0.577350269 },
-	  { 0.577350269,  0.577350269 } };
+	  vector<vector<float>> coeff2D{ { (float)-0.577350269, (float)-0.577350269 },
+	  { (float)-0.577350269,  (float)0.577350269 },
+	  { (float)0.577350269, (float)-0.577350269 },
+	  { (float)0.577350269,  (float)0.577350269 } };
 
 	  vector<float> coordsSurf(72);
 
@@ -334,10 +344,10 @@ void createDataOnDevice(DomainManager*& domainMgr, elementData& elemData, HeatSo
 	  cudaMemcpyToSymbol(parCoordsSurf, coordsSurf.data(), 72 * sizeof(float));
 
 	  // 2D surface parametric coordinates to constant memory
-	  vector<float> coords2D{ -0.577350269, -0.577350269,
-		  -0.577350269,  0.577350269,
-		  0.577350269, -0.577350269,
-		  0.577350269,  0.577350269 };
+	  vector<float> coords2D{ (float)-0.577350269, (float)-0.577350269,
+		  (float)-0.577350269,  (float)0.577350269,
+		  (float)0.577350269, (float)-0.577350269,
+		  (float)0.577350269,  (float)0.577350269 };
 
 	  cudaMemcpyToSymbol(parCoords2D, coords2D.data(), 8 * sizeof(float));
 
@@ -492,7 +502,7 @@ void initializeStiffnessOnD(elementData& elemData) {
     cudaEventRecord(stop, 0);
     cudaEventSynchronize(stop);
 
-    float elapsedTime;
+	float elapsedTime;
     cudaEventElapsedTime(&elapsedTime, start, stop); // that's our time!
     // Clean up:
     cudaEventDestroy(start);
@@ -507,7 +517,7 @@ void updateMassOnD(elementData& elemData, DomainManager*& domainMgr) {
 
 	//find birth point
 	auto up = std::upper_bound(domainMgr->elementList_.begin(), domainMgr->elementList_.end(),
-		domainMgr->currTime_, [](const double bTime, Element* a) {return a->birthTime_ > bTime; });
+		domainMgr->currTime_, [](const float bTime, Element* a) {return a->birthTime_ > bTime; });
 
 	int birthElemPos = up - domainMgr->elementList_.begin();
 
@@ -557,7 +567,7 @@ void updateIntForceOnD(elementData& elemData, DomainManager*& domainMgr) {
 
 	//find birth point
 	auto up = std::upper_bound(domainMgr->elementList_.begin(), domainMgr->elementList_.end(),
-		domainMgr->currTime_, [](const double bTime, Element* a) {return a->birthTime_ > bTime; });
+		domainMgr->currTime_, [](const float bTime, Element* a) {return a->birthTime_ > bTime; });
 
 	int birthElemPos = up - domainMgr->elementList_.begin();
 
@@ -620,15 +630,15 @@ void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr) {
 
 	// current point on toolpath
 	auto up = std::upper_bound(domainMgr->tooltxyz_.begin(), domainMgr->tooltxyz_.end(), domainMgr->currTime_,
-		[](const float Ctime, vector<double, allocator<double>> a) {return a[0] > Ctime; });
+		[](const float Ctime, vector<float, allocator<float>> a) {return a[0] > Ctime; });
 
 	if(up == domainMgr->tooltxyz_.end())
 		up--;
 
 	int toolpathIndex = up - domainMgr->tooltxyz_.begin();
 
-	vector<double> & txyzN = domainMgr->tooltxyz_[toolpathIndex];
-	vector<double> & txyzNminus = domainMgr->tooltxyz_[toolpathIndex - 1];
+	vector<float> & txyzN = domainMgr->tooltxyz_[toolpathIndex];
+	vector<float> & txyzNminus = domainMgr->tooltxyz_[toolpathIndex - 1];
 
 	float num = domainMgr->currTime_ - txyzNminus[0];
 	float den = txyzN[0] - txyzNminus[0];
@@ -642,7 +652,7 @@ void updateFluxKernel(elementData& elemData, DomainManager*& domainMgr) {
 
 	//find birth point
 	auto up2 = std::upper_bound(elemData.boundSurfBirthTime.begin(), elemData.boundSurfBirthTime.end(),
-		domainMgr->currTime_, [](double a, double bTime) {return a < bTime; });
+		domainMgr->currTime_, [](float a, float bTime) {return a < bTime; });
 
 	int birthSurfPos = up2 - elemData.boundSurfBirthTime.begin();
 
@@ -696,7 +706,7 @@ void advanceTimeKernel(elementData& elemData, DomainManager*& domainMgr) {
 
 	//get active node count
 	auto up = std::upper_bound(elemData.birthNodeTimes.begin(), elemData.birthNodeTimes.end(), domainMgr->currTime_,
-			[](double a, float bTime) {return a < bTime; });
+			[](float a, float bTime) {return a < bTime; });
 
 	int nodeCount = up - elemData.birthNodeTimes.begin();
 
@@ -1203,6 +1213,7 @@ __global__ void applyFlux(const float* __restrict__ surfFlux, const int* __restr
 				thetaIp += N[i] * thetaN[ig];
 			}
 
+
 			//convection
 			qconv = -conv2 * (thetaIp - ambient);
 
@@ -1222,12 +1233,13 @@ __global__ void applyFlux(const float* __restrict__ surfFlux, const int* __restr
 
 			qmov = (laserState == 1) ? val : 0.0;
 
-			float death = (deathTime[threadIdx.x] < currTime) ? 0.0 : 1.0;
+
+			float death = (deathTime[threadIdx.x] < currTime && deathTime[threadIdx.x]>0.0) ? 0.0 : 1.0;
 
 			for (int i = 0; i < 4; ++i) {
 				int ig = surfNodes[numSurf*i + idx];
 				int ir = surfIndx[idx*4 + i];
-				double a = rhs[ig + ir*nn] ;
+				float a = rhs[ig + ir*nn] ;
 				rhs[ig + ir*nn] += N[i] * detJac * (conv1*qconv + rad1*qrad + heat*qmov) * death;
 			}
 		}

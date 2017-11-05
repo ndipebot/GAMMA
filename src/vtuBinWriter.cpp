@@ -16,15 +16,18 @@
 #include <HeatSolverManager.h>
 #include <Element.h>
 #include <Surface.h>
+#include <deviceHeader.h>
 
 //////////////////////////////////////////////////////
 //		Constructor			    //
 //////////////////////////////////////////////////////
 vtuBinWriter::vtuBinWriter(DomainManager *domainMgr,
                            HeatSolverManager *heatMgr,
+	                       elementData& elem,
                            string &FileOut)
                            : domainMgr_(domainMgr),
                              heatMgr_(heatMgr),
+							elem_(&elem),
             	 	     FileOut_(FileOut)
 {
 }
@@ -77,7 +80,8 @@ vtuBinWriter::execute ()
 
   writeVTU_coordinates();
 
-  writeVTU_pointData(heatMgr_->thetaN_);
+  //writeVTU_pointData(heatMgr_->thetaN_);
+  writeVTU_pointData(elem_->thetaN);
 
   writeVTU_connectivity();
 
@@ -102,16 +106,16 @@ void
 vtuBinWriter::writeVTU_coordinates ()
 {
 
-  byteCtr_ = sizeof(double) * nPoints_ * 3;
+  byteCtr_ = sizeof(float) * nPoints_ * 3;
   outputFile_.write((char*) &byteCtr_, sizeof(int));
   for (int ii = 0; ii < nPoints_; ii++)
   {
-    double xcurr = domainMgr_->coordList_[ii*3 + 0];
-    double ycurr = domainMgr_->coordList_[ii*3 + 1];
-    double zcurr = domainMgr_->coordList_[ii*3 + 2];
-    outputFile_.write((char*) &xcurr, sizeof(double));
-    outputFile_.write((char*) &ycurr, sizeof(double));
-    outputFile_.write((char*) &zcurr, sizeof(double));
+    float xcurr = domainMgr_->coordList_[ii*3 + 0];
+    float ycurr = domainMgr_->coordList_[ii*3 + 1];
+    float zcurr = domainMgr_->coordList_[ii*3 + 2];
+    outputFile_.write((char*) &xcurr, sizeof(float));
+    outputFile_.write((char*) &ycurr, sizeof(float));
+    outputFile_.write((char*) &zcurr, sizeof(float));
   }//end for(ii)
 
 }//end writeVTU_coordinates
@@ -124,9 +128,9 @@ vtuBinWriter::writeVTU_coordsHeader ()
 {
   outputFile_ << "<Points> ";
 
-  outputFile_ << "<DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"appended\" offset = \"" << offSetCtr_ << "\" /> ";
+  outputFile_ << "<DataArray type=\"Float32\" NumberOfComponents=\"3\" format=\"appended\" offset = \"" << offSetCtr_ << "\" /> ";
 
-  offSetCtr_ += sizeof(double) * nPoints_ * 3 + sizeof(offSetCtr_);
+  offSetCtr_ += sizeof(float) * nPoints_ * 3 + sizeof(offSetCtr_);
 }//end writeVTU_coordsHeader
 
 //////////////////////////////////////////////////////////////////////
@@ -218,15 +222,15 @@ vtuBinWriter::writeVTU_cellTypes ()
 //			writeVTU_pointData			    //
 //////////////////////////////////////////////////////////////////////
 void
-vtuBinWriter::writeVTU_pointData(vector<double> &pointVec)
+vtuBinWriter::writeVTU_pointData(vector<float> &pointVec)
 {
   // write out point data
-  byteCtr_ = sizeof(double) * nPoints_;
+  byteCtr_ = sizeof(float) * nPoints_;
   outputFile_.write((char*) &byteCtr_, sizeof(int));
   
   for (int ii = 0; ii < pointVec.size(); ii++)
   {
-    outputFile_.write((char*) &pointVec[ii], sizeof(double));
+    outputFile_.write((char*) &pointVec[ii], sizeof(float));
   }
 }
 
@@ -387,9 +391,9 @@ vtuBinWriter::writeVTU_pointDataEnd ()
 void 
 vtuBinWriter::writeVTU_pointOutHeader ()
 {
-  outputFile_ << "<DataArray type=\"Float64\" Name=\"Temperature\" format=\"appended\" offset=\""
+  outputFile_ << "<DataArray type=\"Float32\" Name=\"Temperature\" format=\"appended\" offset=\""
               << offSetCtr_ << "\" />  ";
-  offSetCtr_ += sizeof(double) * nPoints_ + sizeof(offSetCtr_);
+  offSetCtr_ += sizeof(float) * nPoints_ + sizeof(offSetCtr_);
 
 }
 
@@ -442,9 +446,9 @@ vtuBinWriter::writeVTU_cellDataHeader ()
 void 
 vtuBinWriter::writeVTU_cellOutHeader ()
 {
-  outputFile_ << "<DataArray type=\"Float64\" Name=\"solidFrac\" format=\"appended\" offset=\""
+  outputFile_ << "<DataArray type=\"Float32\" Name=\"solidFrac\" format=\"appended\" offset=\""
               << offSetCtr_ << "\" />  ";
-  offSetCtr_ += sizeof(double) * nCells_ + sizeof(offSetCtr_);
+  offSetCtr_ += sizeof(float) * nCells_ + sizeof(offSetCtr_);
 
 }
 
@@ -464,25 +468,25 @@ void
 vtuBinWriter::writeVTU_cellData ()
 {
   // write out point data
-  byteCtr_ = sizeof(double) * nCells_;
+  byteCtr_ = sizeof(float) * nCells_;
   outputFile_.write((char*) &byteCtr_, sizeof(int));
   
   for (int ie = 0; ie < domainMgr_->activeElements_.size(); ie++)
   {
     int eID = domainMgr_->activeElements_[ie];
     Element * element = domainMgr_->elementList_[eID];
-    double * volWeights = element->volWeight_;
-    double * consolidFrac = element->solidRate_;
+    float * volWeights = element->volWeight_;
+    float * consolidFrac = element->solidRate_;
 
-    double consolidFracSum = 0.0;
-    double volSum = 0.0;
+    float consolidFracSum = 0.0;
+    float volSum = 0.0;
     for (int ip = 0; ip < 8; ip++)
     {
       consolidFracSum += consolidFrac[ip] * volWeights[ip];
       volSum += volWeights[ip];
     }//end for(ip)  
-    double result = consolidFracSum/volSum;
-    outputFile_.write((char*) &result, sizeof(double));
+    float result = consolidFracSum/volSum;
+    outputFile_.write((char*) &result, sizeof(float));
 
   }//end for(ie)
 }

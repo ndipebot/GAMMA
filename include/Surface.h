@@ -16,21 +16,21 @@ class Surface{
     bool isDynamic_;
     bool isFixed_;
     bool isFlux_;
-    double deathTime_;  //
-    double birthTime_;  //
+    float deathTime_;  //
+    float birthTime_;  //
     int plane_;  //
     vector <int> setID_;
-    double *areaWeight_;
-    double *gpCoords_;
-    double *unitNorm_;
+    float *areaWeight_;
+    float *gpCoords_;
+    float *unitNorm_;
     int *surfaceNodes_;
-	vector<double> flux;
-	vector<double> mappedCoords;
+	vector<float> flux;
+	vector<float> mappedCoords;
     
-    void getMappedCoords(double boundCoords[4][3], double coordsMapped[4][2]);
-    void getGradN(double chsi, double eta, double GN[2][4]);
-    void getJacobian2D(double GN[2][4], double coordsMapped[4][2], double &detJac, double invJac[2][2]);
-    void getShapeFcn(double *N, double chsi, double eta, double zeta);
+    void getMappedCoords(float boundCoords[4][3], float coordsMapped[4][2]);
+    void getGradN(float chsi, float eta, float GN[2][4]);
+    void getJacobian2D(float GN[2][4], float coordsMapped[4][2], float &detJac, float invJac[2][2]);
+    void getShapeFcn(float *N, float chsi, float eta, float zeta);
 
     vector <FluxManager*> fluxManagerVec_;
     

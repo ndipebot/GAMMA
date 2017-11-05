@@ -16,27 +16,27 @@ class BCManager
 {
 public:
   BCManager(
-      vector<double> &thetaNp1,
+      vector<float> &thetaNp1,
       Mesh *meshObj,
       DomainManager *domainMgr, 
-      vector<double> &thetaN,
-      vector<double> &rhs);
+      vector<float> &thetaN,
+      vector<float> &rhs);
 
   virtual ~BCManager() {}
 
   // Input
-  vector <double> &thetaNp1_;
-  vector <double> &thetaN_;
-  vector <double> &rhs_;
+  vector <float> &thetaNp1_;
+  vector <float> &thetaN_;
+  vector <float> &rhs_;
   Mesh *meshObj_;
   DomainManager *domainMgr_;
 
   // Internal to class
-  vector <double> fixedNodeVals_;
+  vector <float> fixedNodeVals_;
   vector <int> fixedNodeIDs_;
   vector <Surface> staticSurfList_;
   vector <Surface> surfaceList_;
-  double *tooltxyz_ = new double[3];
+  float *tooltxyz_ = new float[3];
   int laserState_;
 
   // Might need to readjust these later

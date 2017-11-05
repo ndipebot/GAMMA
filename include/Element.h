@@ -33,29 +33,29 @@ public:
     // active state
   bool liquid_;
     // phase state
-  double volume_;
+  float volume_;
     // volume of the element
-  double* stiffMatrix_;
+  float* stiffMatrix_;
     // element-level stiffness matrix
-  double* massMatrix_;
+  float* massMatrix_;
     // element-level mass matrix
-  double birthTime_;
+  float birthTime_;
     // element birth time (LENS)
   int PID_;
     // Element part id
   int matID_, userID_;
-  double cond_;
-  double cp_;
-  double rho_;
-  double latent_;
-  double liquidus_;
-  double solidus_;
-  double *condIp_;
-  double *cpIp_;
-  double *rhoIp_;
-  double *volWeight_;
-  double *consolidFrac_;
-  double *solidRate_;
+  float cond_;
+  float cp_;
+  float rho_;
+  float latent_;
+  float liquidus_;
+  float solidus_;
+  float *condIp_;
+  float *cpIp_;
+  float *rhoIp_;
+  float *volWeight_;
+  float *consolidFrac_;
+  float *solidRate_;
 
   MaterialManager* matManager_;
 
@@ -63,22 +63,22 @@ public:
      Basic methods associated with element
      type and geometry
     ---------------------------------------*/
-  virtual void Jacobian(double* deriv, double* coords,
-                        double* iJac, double &detJac)=0;
+  virtual void Jacobian(float* deriv, float* coords,
+                        float* iJac, float &detJac)=0;
     // Jacobian determinant and inverse Jacobian matrix calculation
-  virtual void shape_fcn(double* parCoord, double* shapeFcn)=0;
+  virtual void shape_fcn(float* parCoord, float* shapeFcn)=0;
     // shape functin of each node at a given point
-  virtual double charateristic_length(double* coordinates)=0;
+  virtual float charateristic_length(float* coordinates)=0;
     // calculate charateristic length of element
   
   /*---------------------------------------
     Basic methods associated with FEM
     ---------------------------------------*/
-  virtual void element_level_stiffness_matrix(double* nodalCoords, 
-                                              double* eleStiffMatrix,
-                                              double* condIp)=0;
+  virtual void element_level_stiffness_matrix(float* nodalCoords, 
+                                              float* eleStiffMatrix,
+                                              float* condIp)=0;
     // stiffness matrix of element level
-  virtual double element_level_time_step()=0;
+  virtual float element_level_time_step()=0;
     // time step of element level
 
 };
@@ -97,27 +97,27 @@ public:
      Basic methods associated with element
      type and geometry
     ---------------------------------------*/
-  void Jacobian(double* deriv, double* coords, 
-                double* iJac, double &detJac);
+  void Jacobian(float* deriv, float* coords, 
+                float* iJac, float &detJac);
   // Jacobian determinant and inverse Jacobian matrix calculation
-  void shape_fcn(double* parCoord, double* shapeFcn);
+  void shape_fcn(float* parCoord, float* shapeFcn);
   // shape functin of each node at a given point
 
-  void derivative_of_shape_fuction_about_real_coords(double* deriv,
-                                                     double* iJac,
-                                                     double* gradN);
-  void derivative_of_shape_function_about_parametic_coords(double* parCoord, 
-                                                           double* deriv);
-  double charateristic_length(double* coordinates);
+  void derivative_of_shape_fuction_about_real_coords(float* deriv,
+                                                     float* iJac,
+                                                     float* gradN);
+  void derivative_of_shape_function_about_parametic_coords(float* parCoord, 
+                                                           float* deriv);
+  float charateristic_length(float* coordinates);
   // calculate charateristic length of element
 
   /*---------------------------------------
   Basic methods associated with FEM
   ---------------------------------------*/
-  void element_level_stiffness_matrix(double* nodalCoords,double* eleStiffMatrix,
-                                      double* condIp);
+  void element_level_stiffness_matrix(float* nodalCoords,float* eleStiffMatrix,
+                                      float* condIp);
   // stiffness matrix of element level
-  double element_level_time_step();
+  float element_level_time_step();
   // time step of element level
 };
 #endif

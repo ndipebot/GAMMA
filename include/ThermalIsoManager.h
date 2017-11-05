@@ -10,35 +10,35 @@ class ThermalIsoManager : public MaterialManager
 public:
   ThermalIsoManager(
        int *localNodes,
-       double *Nip,
-       double *condIp,
-       double *cpIp,
-       double *consolidFrac,
-       double *solidRate,
-       double &latent,
-       double &liquidus,
-       double &solidus,
-       double &cp,
-       double &dt,
-       vector <double> &thetaN);
+       float *Nip,
+       float *condIp,
+       float *cpIp,
+       float *consolidFrac,
+       float *solidRate,
+       float &latent,
+       float &liquidus,
+       float &solidus,
+       float &cp,
+       float &dt,
+       vector <float> &thetaN);
 
   virtual ~ThermalIsoManager() {}
 
   int *localNodes_;
-  double *Nip_;
-  double *condIp_;
-  double *cpIp_;
-  double *consolidFrac_;
-  double *solidRate_;
-  double *trackSrate_;
+  float *Nip_;
+  float *condIp_;
+  float *cpIp_;
+  float *consolidFrac_;
+  float *solidRate_;
+  float *trackSrate_;
   bool checkSrate_[8];
-  double &latent_;
-  double &liquidus_;
-  double &solidus_;
-  double &cp_;
-  double &dt_;
+  float &latent_;
+  float &liquidus_;
+  float &solidus_;
+  float &cp_;
+  float &dt_;
 
-  vector<double> &thetaN_;
+  vector<float> &thetaN_;
   
   virtual void execute();
 

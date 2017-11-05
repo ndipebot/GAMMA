@@ -7,30 +7,30 @@ class MovingFlxManager : public FluxManager
 {
 public:
   MovingFlxManager(
-       double *gpCoords,
-       double *toolxyz,
+       float *gpCoords,
+       float *toolxyz,
        int &laserState,
-       double &rBeam,
-       double &Qin,
+       float &rBeam,
+       float &Qin,
        int *surfaceNodes,
-       double * Nip,
-       double * areaWeight,
-       vector<double> &thetaN,
-       vector<double> &rhs);
+       float * Nip,
+       float * areaWeight,
+       vector<float> &thetaN,
+       vector<float> &rhs);
 
   virtual ~MovingFlxManager() {}
 
-  double *gpCoords_;
-  double *toolxyz_;
+  float *gpCoords_;
+  float *toolxyz_;
   int &laserState_;
-  double Qin_;
-  double rBeam_;
-  double *Nip_;
-  double *areaWeight_;
+  float Qin_;
+  float rBeam_;
+  float *Nip_;
+  float *areaWeight_;
   int *surfaceNodes_;
 
-  vector<double> &thetaN_;
-  vector<double> &rhs_;
+  vector<float> &thetaN_;
+  vector<float> &rhs_;
   
   virtual void execute();
 

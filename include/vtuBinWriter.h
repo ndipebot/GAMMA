@@ -10,6 +10,7 @@
 #include "Surface.h"
 #include <DomainManager.h>
 #include <HeatSolverManager.h>
+#include <deviceHeader.h>
 
 class DomainManager;
 class HeatSolverManger;
@@ -19,6 +20,7 @@ class vtuBinWriter
 public:
   vtuBinWriter(DomainManager *domainMgr, 
                HeatSolverManager *heatMgr,
+	           elementData& elem,
                string &FileOut);
 
   virtual ~vtuBinWriter() {}
@@ -26,6 +28,7 @@ public:
   // member variables
   DomainManager *domainMgr_;
   HeatSolverManager *heatMgr_;
+  elementData *elem_;
   string &FileOut_;
   ofstream outputFile_;
   int offSetCtr_, nCells_, nPoints_, byteCtr_;
@@ -47,7 +50,7 @@ public:
 
   void writeVTU_cellTypes ();
 
-  void writeVTU_pointData (vector<double> &pointVec );
+  void writeVTU_pointData (vector<float> &pointVec );
 
   void writeVTU_connectHeader();
 

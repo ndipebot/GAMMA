@@ -25,7 +25,7 @@ public:
 
   int nn_, nel_, nelactive_, nnactive_, nelactiveOld_, nnactiveOld_, 
       birthEleCt, birthNodeCt, binNx_, binNy_, binNz_;
-  double currTime_, minElementVol_, xmin_, xmax_, 
+  float currTime_, minElementVol_, xmin_, xmax_, 
          ymin_, ymax_, zmin_, zmax_, dxBin_, dyBin_, dzBin_;
   bool isInit_;
 
@@ -47,11 +47,11 @@ public:
   vector<int> birthNodes_;
   vector<int> birthElements_;
 
-  vector<double> birthNodeTimes_;
+  vector<float> birthNodeTimes_;
 
-  vector<double> coordList_;
+  vector<float> coordList_;
 
-  vector< vector<double>> tooltxyz_;
+  vector< vector<float>> tooltxyz_;
   vector<int> laserOn_;
 
   vector<Element*> elementList_;
@@ -80,11 +80,11 @@ public:
 
   void sortIndxVec(vector<int> unsortVec, vector<int> &indx);
 
-  void sortIndxVec_double(vector<double> unsortVec, vector<int> &indx);
+  void sortIndxVec_float(vector<float> unsortVec, vector<int> &indx);
 
   void initializeActiveElements();
 
-  void updateActiveElements(vector<double> &thetaN, double initTemp);
+  void updateActiveElements(vector<float> &thetaN, float initTemp);
 
   void getToolpath();
 
@@ -96,14 +96,14 @@ public:
 
   void freeMemory();
 
-  double isInElement(vector< vector <double> > &elem_nodal_coor, 
-		     double* point_coor, double* par_coor);
+  float isInElement(vector< vector <float> > &elem_nodal_coor, 
+		     float* point_coor, float* par_coor);
 
-  bool within_tolerance( const double & val, const double & tol );
+  bool within_tolerance( const float & val, const float & tol );
   
-  double vector_norm_sq( const double * vect, int len );
+  float vector_norm_sq( const float * vect, int len );
 
-  double parametric_distance(vector<double> x);
+  float parametric_distance(vector<float> x);
 
 };
 

@@ -8,24 +8,24 @@ class ConvManager : public FluxManager
 {
 public:
   ConvManager(
-       double &ambient,
-       double &hconv,
+       float &ambient,
+       float &hconv,
        int *surfaceNodes,
-       double * Nip,
-       double * areaWeight,
-       vector<double> &thetaN,
-       vector<double> &rhs);
+       float * Nip,
+       float * areaWeight,
+       vector<float> &thetaN,
+       vector<float> &rhs);
 
   virtual ~ConvManager() {}
 
-  double ambient_;
-  double hconv_;
-  double *Nip_;
-  double *areaWeight_;
+  float ambient_;
+  float hconv_;
+  float *Nip_;
+  float *areaWeight_;
   int *surfaceNodes_;
 
-  vector<double> &thetaN_;
-  vector<double> &rhs_;
+  vector<float> &thetaN_;
+  vector<float> &rhs_;
   
   virtual void execute();
 

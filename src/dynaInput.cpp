@@ -18,17 +18,17 @@
 //////////////////////////////////////////////////////
 //		createNodeMap			    //
 //////////////////////////////////////////////////////
-void createNodeMap(map<int, int> &node_global_to_local, vector<double> &coordList,
+void createNodeMap(map<int, int> &node_global_to_local, vector<float> &coordList,
                    Mesh * meshObj)
 {
 
   // Create local-global node mapping
   int nodeCt = 0;
-  for ( map<int, vector<double> >::iterator it = meshObj->NODES_.begin();
+  for ( map<int, vector<float> >::iterator it = meshObj->NODES_.begin();
         it != meshObj->NODES_.end(); it++)
   {
     int global_nid = it->first;
-    vector <double> gCoords = it->second;
+    vector <float> gCoords = it->second;
     node_global_to_local[global_nid] = nodeCt;
     for (int ii = 0; ii < gCoords.size(); ii++)
     {
@@ -80,7 +80,7 @@ void assignElePID(Mesh *meshObj,
        it != meshObj->PIDS_.end(); it++)
   {
     int PID = it->first;
-    vector <double> eleMat = meshObj->PID_to_MAT_[PID];
+    vector <float> eleMat = meshObj->PID_to_MAT_[PID];
     vector<int> pidEleList = it->second;
     for (int ii = 0; ii < pidEleList.size(); ii++)
     {
@@ -103,12 +103,12 @@ void assignElePID(Mesh *meshObj,
 //////////////////////////////////////////////////////
 //		checkElementJac			    //
 //////////////////////////////////////////////////////
-void checkElementJac(vector<Element*> elementList, vector<double> coordList,
+void checkElementJac(vector<Element*> elementList, vector<float> coordList,
                      map<int, int> node_global_to_local)
 {
   for (int ii = 0; ii < elementList.size(); ii++)
   {
-    double nodalCoords[24];
+    float nodalCoords[24];
     
     //unpack local nodal coordinates.
     Element * element = elementList[ii];
@@ -124,8 +124,8 @@ void checkElementJac(vector<Element*> elementList, vector<double> coordList,
     }//end for(jj)
 
     // Calculate element jacobian
-    double deriv[24], detJac, iJac[9];
-    double parCoords[3] = {0.0, 0.0, 0.0};
+    float deriv[24], detJac, iJac[9];
+    float parCoords[3] = {0.0, 0.0, 0.0};
     HexTemp->derivative_of_shape_function_about_parametic_coords(parCoords, deriv);
     HexTemp->Jacobian(deriv, nodalCoords, iJac, detJac);
     if (detJac < 0.0)
@@ -149,7 +149,7 @@ void assignElementBirth(Mesh *meshObj,
   {
     int gbID = meshObj->birthID_[ii];
     int lbID = element_global_to_local[meshObj->birthID_[ii]];
-    double bTime = meshObj->birthTime_[ii];
+    float bTime = meshObj->birthTime_[ii];
     elementList[lbID]->birthTime_ = bTime;
     elementList[lbID]->birth_ = true;
  
@@ -365,7 +365,7 @@ void attachBirthSurf(Mesh *meshObj,
     int gbID = meshObj->birthID_[ii];
     int lbID = element_global_to_local[gbID];
     Element *element = elementList[lbID];
-    double birthTimeCurrent = element->birthTime_;
+    float birthTimeCurrent = element->birthTime_;
     for (int jj = 0; jj < 6; jj++)
     {
       int eIDCheck = connSurf[lbID][jj];
@@ -375,7 +375,7 @@ void attachBirthSurf(Mesh *meshObj,
         bool isbirth =  eleNeigh->birth_;
         if (isbirth)
         {
-          double birthTimeNeighbor = eleNeigh->birthTime_;
+          float birthTimeNeighbor = eleNeigh->birthTime_;
           if (birthTimeNeighbor > birthTimeCurrent)
           {
             Surface surfI;

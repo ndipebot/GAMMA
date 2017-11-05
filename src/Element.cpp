@@ -62,10 +62,10 @@ HexahedralElement::~HexahedralElement()
   ---------------------*/
 void
 HexahedralElement::
-Jacobian(double* deriv, double* coords, double* iJac, double &detJac)
+Jacobian(float* deriv, float* coords, float* iJac, float &detJac)
 {
   int count = 0;
-  double Jac[3][3];
+  float Jac[3][3];
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3; j++)
       Jac[i][j] = 0.0;
@@ -103,7 +103,7 @@ Jacobian(double* deriv, double* coords, double* iJac, double &detJac)
     }
   }
   // inverse matrix of Jacobian matrix
-  double swap;
+  float swap;
   swap = iJac[1];
   iJac[1] = iJac[3];
   iJac[3] = swap;
@@ -122,7 +122,7 @@ Jacobian(double* deriv, double* coords, double* iJac, double &detJac)
   ----------------------------------------------------------*/
 void
 HexahedralElement::derivative_of_shape_fuction_about_real_coords
-(double* deriv, double* iJac, double* gradN)
+(float* deriv, float* iJac, float* gradN)
 {
   for (int k = 0; k < 8; k++)
     for (int j = 0; j < 3; j++)
@@ -137,14 +137,14 @@ HexahedralElement::derivative_of_shape_fuction_about_real_coords
   -------------------------------------------------------*/
 void
 HexahedralElement::derivative_of_shape_function_about_parametic_coords
-(double* parCoord, double* deriv)
+(float* parCoord, float* deriv)
 {
-  double oneMinusChsi = 1.0 - parCoord[0];
-  double onePlusChsi  = 1.0 + parCoord[0];
-  double oneMinusEta  = 1.0 - parCoord[1];
-  double onePlusEta   = 1.0 + parCoord[1];
-  double oneMinusZeta = 1.0 - parCoord[2];
-  double onePlusZeta  = 1.0 + parCoord[2];
+  float oneMinusChsi = 1.0 - parCoord[0];
+  float onePlusChsi  = 1.0 + parCoord[0];
+  float oneMinusEta  = 1.0 - parCoord[1];
+  float onePlusEta   = 1.0 + parCoord[1];
+  float oneMinusZeta = 1.0 - parCoord[2];
+  float onePlusZeta  = 1.0 + parCoord[2];
   
   // with respect to chsi
   deriv[0] = -0.1250 * oneMinusEta * oneMinusZeta;
@@ -178,11 +178,11 @@ HexahedralElement::derivative_of_shape_function_about_parametic_coords
     shape_fcn
   ---------------*/
 void
-HexahedralElement::shape_fcn(double* parCoord, double* N)
+HexahedralElement::shape_fcn(float* parCoord, float* N)
 {
-  double chsi = parCoord[0];
-  double eta = parCoord[1];
-  double zeta = parCoord[2];
+  float chsi = parCoord[0];
+  float eta = parCoord[1];
+  float zeta = parCoord[2];
 
   N[0] = 0.125*(1.0 - chsi)*(1.0 - eta)*(1.0 - zeta);
   N[3] = 0.125*(1.0 - chsi)*(1.0 + eta)*(1.0 - zeta);
@@ -197,12 +197,12 @@ HexahedralElement::shape_fcn(double* parCoord, double* N)
 /*------------------------
    characteristic_length
   ------------------------*/
-double
-HexahedralElement::charateristic_length(double* coordinates)
+float
+HexahedralElement::charateristic_length(float* coordinates)
 {
-  double characterLength;
+  float characterLength;
   // FIXME: replace xyz by coordinates
-  double xyz[3][8];
+  float xyz[3][8];
   for (int i = 0; i < 8; i++)
     for (int j = 0; j < 3; j++)
     {
@@ -210,9 +210,9 @@ HexahedralElement::charateristic_length(double* coordinates)
     }
   unsigned char fac[4][6] = { { 0,4,0,1,2,3 },{ 1,5,1,2,3,0 },
                               { 2,6,5,6,7,4 },{ 3,7,4,5,6,7 } };
-  double dt, at;
-  double e, f, g, atest, x13[3], x24[3], fs[3], ft[3];
-  double areal = 1.0e20, aream = 0.0;
+  float dt, at;
+  float e, f, g, atest, x13[3], x24[3], fs[3], ft[3];
+  float areal = 1.0e20, aream = 0.0;
   unsigned char k1, k2, k3, k4;
 
   // Calculate area of each surface
@@ -251,10 +251,10 @@ HexahedralElement::charateristic_length(double* coordinates)
   ----------------------------------*/
 void
 HexahedralElement::
-element_level_stiffness_matrix(double* coordinates,double* stiffMatrix, double* condIp)
+element_level_stiffness_matrix(float* coordinates,float* stiffMatrix, float* condIp)
 {
   // Gauss points
-  double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
+  float parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
                              {-1.0, -1.0,  1.0},{ 1.0, -1.0,  1.0},
                              { 1.0,  1.0,  1.0},{-1.0,  1.0,  1.0} };
@@ -262,14 +262,14 @@ element_level_stiffness_matrix(double* coordinates,double* stiffMatrix, double* 
     for (int i = 0; i < 3; i++)
       parCoords[j][i] *= 0.5773502692;
   // weights
-  double weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
+  float weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
 
   // loop over all the Gauss points
   for (int nGaussPoint = 0; nGaussPoint < 8; nGaussPoint++)
   {
-    double deriv[24],gradN[24]; // [3][8]
-    double detJac=0.0, iJac[9];
-    double kappa = condIp[nGaussPoint];
+    float deriv[24],gradN[24]; // [3][8]
+    float detJac=0.0, iJac[9];
+    float kappa = condIp[nGaussPoint];
     for (int i = 0; i < 24; i++)
     {
       deriv[i] = 0.0;
@@ -305,10 +305,10 @@ element_level_stiffness_matrix(double* coordinates,double* stiffMatrix, double* 
 /*--------------------------
    element_level_time_step
   --------------------------*/
-double
+float
 HexahedralElement::element_level_time_step()
 {
-  double dT;
+  float dT;
   // FIXME: element with different \rho*Cp
   return dT;
 }

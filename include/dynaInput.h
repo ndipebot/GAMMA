@@ -2,10 +2,10 @@
 #include "Surface.h"
 #include "Mesh.h"
 
-void assignParameters (map<string, double> paramValues, double &Rabszero,
-                       double &Rambient, double &Rboltz);
+void assignParameters (map<string, float> paramValues, float &Rabszero,
+                       float &Rambient, float &Rboltz);
 
-void createNodeMap(map<int, int> &node_global_to_local, vector<double> &coordList,
+void createNodeMap(map<int, int> &node_global_to_local, vector<float> &coordList,
                    Mesh *meshObj);
 
 void createElementList(Mesh *meshObj, vector<Element*> &elementList,
@@ -18,9 +18,9 @@ void assignElePID(Mesh *meshObj,
 
 void assignFixedNodes(Mesh *meshObj,
                       map<int, int> node_global_to_local,
-                      vector<int> &fixedNodeIDs, vector<double> &fixedNodeVals);
+                      vector<int> &fixedNodeIDs, vector<float> &fixedNodeVals);
 
-void checkElementJac(vector<Element*> elementList, vector<double> coordList,
+void checkElementJac(vector<Element*> elementList, vector<float> coordList,
                      map<int, int> node_global_to_local);
 
 void assignElementBirth(Mesh *meshObj,

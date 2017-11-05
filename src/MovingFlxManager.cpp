@@ -17,16 +17,16 @@
 //		Constructor		 //
 ///////////////////////////////////////////
 MovingFlxManager::MovingFlxManager(
-      double *gpCoords,
-      double *toolxyz,
+      float *gpCoords,
+      float *toolxyz,
       int &laserState,
-      double &rBeam,
-      double &Qin,
+      float &rBeam,
+      float &Qin,
       int *surfaceNodes,
-      double *Nip,
-      double *areaWeight,
-      vector<double> &thetaN,
-      vector<double> &rhs)
+      float *Nip,
+      float *areaWeight,
+      vector<float> &thetaN,
+      vector<float> &rhs)
       : gpCoords_(gpCoords),
         toolxyz_(toolxyz),
         rBeam_(rBeam),
@@ -48,21 +48,21 @@ MovingFlxManager::execute()
 {
 
   //calculate convection contribution 
-  double small = 1.0e-8;
-  double qmov = 0.0;
+  float small = 1.0e-8;
+  float qmov = 0.0;
   for (int ip = 0; ip < 4; ip++)
   {
     int offsetIp = ip * 4;
     int offSet = ip * 3;
     //Calculate 
-    double xip = gpCoords_[offSet+0];
-    double yip = gpCoords_[offSet+1];
-    double zip = gpCoords_[offSet+2];
-    double r2 = ( ( xip - toolxyz_[0] ) * ( xip - toolxyz_[0] ) + 
+    float xip = gpCoords_[offSet+0];
+    float yip = gpCoords_[offSet+1];
+    float zip = gpCoords_[offSet+2];
+    float r2 = ( ( xip - toolxyz_[0] ) * ( xip - toolxyz_[0] ) + 
                   ( yip - toolxyz_[1] ) * ( yip - toolxyz_[1] ) +
                   ( zip - toolxyz_[2] ) * ( zip - toolxyz_[2] ) );
     
-    double rb2 = rBeam_ * rBeam_;
+    float rb2 = rBeam_ * rBeam_;
     if (laserState_ == 1) qmov = 3.0 * Qin_/(M_PI * rb2) * exp(-3.0 * r2 / rb2);
     else qmov = 0.0;
     // Scatter to global force vector

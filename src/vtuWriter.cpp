@@ -19,8 +19,8 @@
 //			writeVTU_File				    //
 //////////////////////////////////////////////////////////////////////
 void 
-writeVTU_File (vector <Element*> elementList, vector<double> coordList,
-               vector <int> &activeElements, vector <double> thetaNp1, string FileOut)
+writeVTU_File (vector <Element*> elementList, vector<float> coordList,
+               vector <int> &activeElements, vector <float> thetaNp1, string FileOut)
 {
   ofstream outputFile(FileOut);
 
@@ -96,7 +96,7 @@ writeVTU_pvtu(vector<string> octreeFileNames, string pvtuFileName)
 //			writeVTU_coordinates			    //
 //////////////////////////////////////////////////////////////////////
 void 
-writeVTU_coordinates (vector<double> coordList, ofstream &outputFile, int nn)
+writeVTU_coordinates (vector<float> coordList, ofstream &outputFile, int nn)
 {
 
   string SecondEleWidth_   = "  ";
@@ -107,9 +107,9 @@ writeVTU_coordinates (vector<double> coordList, ofstream &outputFile, int nn)
 
   for (int ii = 0; ii < nn; ii++)
   {
-    double xcurr = coordList[ii*3 + 0];
-    double ycurr = coordList[ii*3 + 1];
-    double zcurr = coordList[ii*3 + 2];
+    float xcurr = coordList[ii*3 + 0];
+    float ycurr = coordList[ii*3 + 1];
+    float zcurr = coordList[ii*3 + 2];
     outputFile << SixthEleWidth_ << xcurr << " " << ycurr << " " << zcurr;
     outputFile << "\n";
   }//end for(ii)
@@ -130,7 +130,7 @@ writeVTU_coordsHeader (ofstream &outputFile)
 
   outputFile << FourthEleWidth_ <<"<Points>\n";
 
-  outputFile << FifthEleWidth_ <<"<DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
+  outputFile << FifthEleWidth_ <<"<DataArray type=\"float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
 }//end writeVTU_coordsHeader
 
 //////////////////////////////////////////////////////////////////////
@@ -241,7 +241,7 @@ writeVTU_cellTypes (int nCells, ofstream &outputFile)
 //			writeVTU_pointData			    //
 //////////////////////////////////////////////////////////////////////
 void
-writeVTU_pointData(vector<double> pointVec, ofstream &outputFile)
+writeVTU_pointData(vector<float> pointVec, ofstream &outputFile)
 {
   string SecondEleWidth_   = "  ";
   string ThirdEleWidth_    = "    ";
@@ -446,7 +446,7 @@ writeVTU_pvtuMeshDataType (ofstream &outputFile)
    
   // Data type for coordinates
   outputFile << ThirdEleWidth_ << "<PPoints>\n";
-  outputFile << FourthEleWidth_ << "<PDataArray type=\"Float64\" Name=\"Points\" NumberOfComponents=\"3\" format=\"ascii\"/>\n";
+  outputFile << FourthEleWidth_ << "<PDataArray type=\"float64\" Name=\"Points\" NumberOfComponents=\"3\" format=\"ascii\"/>\n";
   outputFile << ThirdEleWidth_ << "</PPoints>\n";
 
   // Data type for cells
@@ -585,7 +585,7 @@ void writeVTU_pointOutHeader (ofstream &outputFile)
   string FifthEleWidth_  = "        ";
   string SixthEleWidth_  = "          ";
 
-  outputFile << FifthEleWidth_ <<"<DataArray type=\"Float64\" Name=\"temp\" format=\"ascii\">\n";
+  outputFile << FifthEleWidth_ <<"<DataArray type=\"float64\" Name=\"temp\" format=\"ascii\">\n";
 }
 
 //////////////////////////////////////////////////////////////////////

@@ -40,7 +40,7 @@ void
 HeatSolverManager::assignGaussPoints()
 {
   // Gauss points
-  double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
+  float parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
                              {-1.0, -1.0,  1.0},{ 1.0, -1.0,  1.0},
                              { 1.0,  1.0,  1.0},{-1.0,  1.0,  1.0} };
@@ -48,7 +48,7 @@ HeatSolverManager::assignGaussPoints()
     for (int i = 0; i < 3; i++)
       parCoords[j][i] *= 0.5773502692;
   // weights
-  double weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
+  float weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
   ngp_ = 2;
 }//end assignGaussPoints
 
@@ -59,7 +59,7 @@ void
 HeatSolverManager::initializeTemp()
 {
   // HeatSolver Manager(both)
-  for (map<int,double>::iterator it = meshObj_->initialCondition_.begin();
+  for (map<int,float>::iterator it = meshObj_->initialCondition_.begin();
        it != meshObj_->initialCondition_.end(); it++)
   {
     initTheta_ = it->second;
@@ -82,13 +82,13 @@ HeatSolverManager::initializeEleStiff()
   for (int ie = 0; ie < domainMgr_->elementList_.size(); ie++)
   {
     Element *element = domainMgr_->elementList_[ie];
-    element->stiffMatrix_ = new double[36];
+    element->stiffMatrix_ = new float[36];
     int *localNodes = element->nID_;
-    double kappa = element->cond_;
-    double rhs_e[8];
-    double nodalCoords[24];
+    float kappa = element->cond_;
+    float rhs_e[8];
+    float nodalCoords[24];
     // unpack local data
-    element->condIp_ = new double[8];
+    element->condIp_ = new float[8];
     for (int inode = 0; inode < 8; inode++)
     {
       int nid = localNodes[inode];
@@ -130,8 +130,8 @@ HeatSolverManager::getInternalForce()
       
       //grab local nodes for this element
       int *localNodes = element->nID_;
-      double *eleStiff = element->stiffMatrix_;
-//      double *massMat = element->massMatrix_;
+      float *eleStiff = element->stiffMatrix_;
+//      float *massMat = element->massMatrix_;
 
       for (int I = 0; I < 8; I++)
       {
@@ -154,8 +154,8 @@ HeatSolverManager::getInternalForce()
 void 
 HeatSolverManager::initializeMass()
 {
-  Nip_ = new double[8 * 8];
-  double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
+  Nip_ = new float[8 * 8];
+  float parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
                              {-1.0, -1.0,  1.0},{ 1.0, -1.0,  1.0},
                              { 1.0,  1.0,  1.0},{-1.0,  1.0,  1.0} };
@@ -168,7 +168,7 @@ HeatSolverManager::initializeMass()
   for (int ip = 0; ip < 8; ip++)
   {
     HexahedralElement *HexTemp = new HexahedralElement;
-    double N[8];
+    float N[8];
     HexTemp->shape_fcn(parCoords[ip], N);
     int offSetIp = ip * 8;
     for (int I = 0; I < 8; I++)
@@ -178,7 +178,7 @@ HeatSolverManager::initializeMass()
   }//end for(ip)
 
 
-  double weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
+  float weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
 
   for (int ie = 0; ie < domainMgr_->activeElements_.size(); ie++)
   {
@@ -186,15 +186,15 @@ HeatSolverManager::initializeMass()
     Element * element = domainMgr_->elementList_[eID];
     HexahedralElement *HexTemp = new HexahedralElement;
     int *localNodes = element->nID_;
-    double rho = element->rho_;
-    double cp = element->cp_;  
-    element->cpIp_ = new double[8];
-    element->rhoIp_ = new double[8];
-    element->volWeight_ = new double[8];
-    element->massMatrix_ = new double[36];
-    element->consolidFrac_ = new double[8];
-    element->solidRate_ = new double[8];
-    double nodalCoords[24];
+    float rho = element->rho_;
+    float cp = element->cp_;  
+    element->cpIp_ = new float[8];
+    element->rhoIp_ = new float[8];
+    element->volWeight_ = new float[8];
+    element->massMatrix_ = new float[36];
+    element->consolidFrac_ = new float[8];
+    element->solidRate_ = new float[8];
+    float nodalCoords[24];
     for (int iNode = 0; iNode < 8; iNode++)
     {
       int nid = localNodes[iNode];
@@ -208,9 +208,9 @@ HeatSolverManager::initializeMass()
     { 
       element->consolidFrac_[ip] = 0.0;
       element->solidRate_[ip] = 0.0;
-      double deriv[24],gradN[24], iJac[9];
-      double detJac = 0.0;
-      double *N = new double[8];
+      float deriv[24],gradN[24], iJac[9];
+      float detJac = 0.0;
+      float *N = new float[8];
       int offSetIp = ip * 8;
 
       // zero everything out for this ip
@@ -232,7 +232,7 @@ HeatSolverManager::initializeMass()
 				     element->cp_, dt_, thetaN_);
 
       element->matManager_->execute();
-      double cpIp = element->cpIp_[ip];
+      float cpIp = element->cpIp_[ip];
 
       // Calculate saved mass matrix
       int count = 0;
@@ -268,7 +268,7 @@ HeatSolverManager::initializeMass()
 void 
 HeatSolverManager::updateMassBirth()
 {
-  double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
+  float parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
                              {-1.0, -1.0,  1.0},{ 1.0, -1.0,  1.0},
                              { 1.0,  1.0,  1.0},{-1.0,  1.0,  1.0} };
@@ -277,7 +277,7 @@ HeatSolverManager::updateMassBirth()
     for (int i = 0; i < 3; i++)
       parCoords[j][i] *= 0.5773502692;
 
-  double weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
+  float weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
   HexahedralElement *HexTemp = new HexahedralElement;
 
   for (int ie = domainMgr_->nelactiveOld_; ie < domainMgr_->activeElements_.size(); ie++)
@@ -285,20 +285,20 @@ HeatSolverManager::updateMassBirth()
     int eID = domainMgr_->activeElements_[ie];
     Element * element = domainMgr_->elementList_[eID];
     int *localNodes = element->nID_;
-    double rho = element->rho_;
-    double cp = element->cp_;  
-    element->cpIp_ = new double[8];
-    element->rhoIp_ = new double[8];
-    element->volWeight_ = new double[8];
-    element->massMatrix_ = new double[36];
-    element->consolidFrac_ = new double[8];
-    element->solidRate_ = new double[8];
+    float rho = element->rho_;
+    float cp = element->cp_;  
+    element->cpIp_ = new float[8];
+    element->rhoIp_ = new float[8];
+    element->volWeight_ = new float[8];
+    element->massMatrix_ = new float[36];
+    element->consolidFrac_ = new float[8];
+    element->solidRate_ = new float[8];
     element->matManager_ = new ThermalIsoManager(element->nID_, Nip_, element->condIp_,
 				   element->cpIp_, element->consolidFrac_, element->solidRate_,
                                    element->latent_, element->liquidus_, element->solidus_, 
                                    element->cp_, dt_, thetaN_);
     element->matManager_->execute();
-    double nodalCoords[24];
+    float nodalCoords[24];
 
     for (int iCom = 0; iCom < 36; iCom++) element->massMatrix_[iCom] = 0.0;
  
@@ -315,8 +315,8 @@ HeatSolverManager::updateMassBirth()
     { 
       element->consolidFrac_[ip] = 0.0;
       element->solidRate_[ip] = 0.0;
-      double deriv[24], N[8], gradN[24], iJac[9];
-      double detJac = 0.0;
+      float deriv[24], N[8], gradN[24], iJac[9];
+      float detJac = 0.0;
 
       // zero everything out for this ip
       for (int i = 0; i < 24; i++)
@@ -329,7 +329,7 @@ HeatSolverManager::updateMassBirth()
       HexTemp->derivative_of_shape_function_about_parametic_coords(parCoords[ip], deriv);
       HexTemp->Jacobian(deriv, nodalCoords, iJac, detJac);
       element->volWeight_[ip] = detJac * weight[ip];
-      double cpIp = element->cpIp_[ip];
+      float cpIp = element->cpIp_[ip];
       for (int I = 0; I < 8; I++)
       {
 	int IG = localNodes[I];
@@ -358,32 +358,32 @@ HeatSolverManager::updateMassBirth()
 //////////////////////////////////////////////////////
 //		getTimeStep			    //
 //////////////////////////////////////////////////////
-double 
+float 
 HeatSolverManager::getTimeStep()
 {
-  double dt = 1.0e8;
-  double defaultFac = 0.95;
-  double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
+  float dt = 1.0e8;
+  float defaultFac = 0.95;
+  float parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
                              {-1.0, -1.0,  1.0},{ 1.0, -1.0,  1.0},
                              { 1.0,  1.0,  1.0},{-1.0,  1.0,  1.0} };
  
   int ngp2D = 4;
-  double gPoints2D [4][2] = { {-1.0/sqrt(3.0), -1.0/sqrt(3.0)},
+  float gPoints2D [4][2] = { {-1.0/sqrt(3.0), -1.0/sqrt(3.0)},
                               {-1.0/sqrt(3.0),  1.0/sqrt(3.0)},
                               { 1.0/sqrt(3.0), -1.0/sqrt(3.0)}, 
                               { 1.0/sqrt(3.0),  1.0/sqrt(3.0)} };
-  double faceCoords[4][3];
-  double mappedCoords[4][2]; 
-  double surfNodes[4];
-  double *Nsurf = new double[8];
-  double gpNsurf[4][8];
+  float faceCoords[4][3];
+  float mappedCoords[4][2]; 
+  float surfNodes[4];
+  float *Nsurf = new float[8];
+  float gpNsurf[4][8];
 
   for (int j = 0; j < 8; j++)
     for (int i = 0; i < 3; i++)
       parCoords[j][i] *= 0.5773502692;
 
-  double weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
+  float weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
 
 
   for (int ie = 0; ie < domainMgr_->elementList_.size(); ie++)
@@ -392,11 +392,11 @@ HeatSolverManager::getTimeStep()
     HexahedralElement *HexTemp = new HexahedralElement;
     Surface *SurfTemp = new Surface;
     int *localNodes = element->nID_;
-    double rho = element->rho_;
-    double cp = element->cp_;  
-    double cond = element->cond_;  
-    double nodalCoords[24];
-    double eleVol = 0.0;
+    float rho = element->rho_;
+    float cp = element->cp_;  
+    float cond = element->cond_;  
+    float nodalCoords[24];
+    float eleVol = 0.0;
     for (int iNode = 0; iNode < 8; iNode++)
     {
       int nid = localNodes[iNode];
@@ -409,8 +409,8 @@ HeatSolverManager::getTimeStep()
     // Calculate element volumes
     for (int ip = 0; ip < 8; ip++)
     { 
-      double deriv[24], N[8], gradN[24], iJac[9];
-      double detJac = 0.0;
+      float deriv[24], N[8], gradN[24], iJac[9];
+      float detJac = 0.0;
 
       // zero everything out for this ip
       for (int i = 0; i < 24; i++)
@@ -428,10 +428,10 @@ HeatSolverManager::getTimeStep()
     }//end for(ip)
 
     // Calculate element surface areas
-    double areaMax = 0.;
+    float areaMax = 0.;
     for (int ll = 0; ll < 6; ll++)
     {
-      double areaFace = 0.0;
+      float areaFace = 0.0;
       if (ll == 0)
       {
 	surfNodes[0] = localNodes[7];
@@ -516,14 +516,14 @@ HeatSolverManager::getTimeStep()
 	}//end for(kk)
       }//end for(jj)
 
-      double GN[2][4], invJac[2][2], detJac;
+      float GN[2][4], invJac[2][2], detJac;
 
       // Calculate area weights for each gauss point
-      double xp, yp, zp;
+      float xp, yp, zp;
       for (int ip = 0; ip < ngp2D; ip++)
       {
-	double gp1 = gPoints2D[ip][0];
-	double gp2 = gPoints2D[ip][1];
+	float gp1 = gPoints2D[ip][0];
+	float gp2 = gPoints2D[ip][1];
 	SurfTemp->getMappedCoords(faceCoords, mappedCoords);
 	SurfTemp->getGradN(gp1, gp2, GN);
 	SurfTemp->getJacobian2D(GN, mappedCoords, detJac, invJac);
@@ -534,8 +534,8 @@ HeatSolverManager::getTimeStep()
 
     }//end for(ll)
 
-    double length = eleVol / areaMax;
-    double dt_ele = rho * cp *  length * length / (2.0 * cond);
+    float length = eleVol / areaMax;
+    float dt_ele = rho * cp *  length * length / (2.0 * cond);
     dt = std::min(dt_ele, dt);
 
   }//end for(ie)
@@ -557,7 +557,7 @@ HeatSolverManager::initializeSystem()
   const std::string FifthEleWidth_  = "        ";
   const std::string SixthEleWidth_  = "          ";
 
-  double starttime, endtime;
+  float starttime, endtime;
 
   // Grab and initialize matrices
   nn_ = domainMgr_->nn_;
@@ -577,7 +577,7 @@ HeatSolverManager::initializeSystem()
   heatBCManager_->initializeBoundaries();
   endtime = clock();
   cout << SecondEleWidth_ << "Timer for setting up boundary system "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
 
   // Initial Conditions
   initializeTemp();
@@ -587,7 +587,7 @@ HeatSolverManager::initializeSystem()
   initializeEleStiff();
   endtime = clock();
   cout << SecondEleWidth_ << "Timer for calculating initial element level stiff matrices "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
 
   // Zero out force vector
   fill(rhs_.begin(), rhs_.end(), 0.0);
@@ -598,7 +598,7 @@ HeatSolverManager::initializeSystem()
   initializeMass();
   endtime = clock();
   cout << SecondEleWidth_ << "Timer for assembling Lumped mass "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
 
   // Find minimum time step size
   starttime = clock();
@@ -610,7 +610,7 @@ HeatSolverManager::initializeSystem()
   }
   endtime = clock();
   cout << SecondEleWidth_ << "Timer for calculating critical timestep "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
 }//end initializeSystem
 
 //////////////////////////////////////////////////////
@@ -648,7 +648,7 @@ HeatSolverManager::updateCap()
                          { 6, 13, 19, 24, 28, 31, 33, 34 },
                          { 7, 14, 20, 25, 29, 32, 34, 35 } };
 
-  double parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
+  float parCoords[8][3] = { {-1.0, -1.0, -1.0},{ 1.0, -1.0, -1.0},
                              { 1.0,  1.0, -1.0},{-1.0,  1.0, -1.0},
                              {-1.0, -1.0,  1.0},{ 1.0, -1.0,  1.0},
                              { 1.0,  1.0,  1.0},{-1.0,  1.0,  1.0} };
@@ -656,7 +656,7 @@ HeatSolverManager::updateCap()
     for (int i = 0; i < 3; i++)
       parCoords[j][i] *= 0.5773502692;
 
-  double weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
+  float weight[8] = { 1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0 };
 
   for (int ie = 0; ie < domainMgr_->activeElements_.size(); ie++)
   {
@@ -667,11 +667,11 @@ HeatSolverManager::updateCap()
 
     if (element->matManager_->updateMass_)
     {
-      double *massTemp = new double [36];
+      float *massTemp = new float [36];
       element->matManager_->updateMass_ = false;
       for (int iCom = 0; iCom < 36; iCom++) massTemp[iCom] = 0.0;
 
-      double nodalCoords[24];
+      float nodalCoords[24];
 
       for (int iNode = 0; iNode < 8; iNode++)
       {
@@ -684,9 +684,9 @@ HeatSolverManager::updateCap()
 
       for (int ip = 0; ip < 8; ip++)
       { 
-	double deriv[24],gradN[24], iJac[9];
-	double detJac = 0.0;
-	double *N = new double[8];
+	float deriv[24],gradN[24], iJac[9];
+	float detJac = 0.0;
+	float *N = new float[8];
 	int offSetIp = ip * 8;
 
 	// zero everything out for this ip
@@ -698,8 +698,8 @@ HeatSolverManager::updateCap()
 	}//end for(i)
 
 	N = &Nip_[offSetIp];
-	double cpIp = element->cpIp_[ip];
-        double rhoIp = element->rho_;
+	float cpIp = element->cpIp_[ip];
+        float rhoIp = element->rho_;
 
 	// Calculate saved mass matrix
 	int count = 0;
@@ -789,10 +789,10 @@ HeatSolverManager::post_work()
 void 
 HeatSolverManager::outputProbeData()
 {
-  double starttime = clock();
+  float starttime = clock();
   HexahedralElement *HexTemp = new HexahedralElement;
-  double N[8];
-  double thetaNodes[8];
+  float N[8];
+  float thetaNodes[8];
   for (int iprobe = 0; iprobe < domainMgr_->probeList_.size(); iprobe++)
   {
     // calculate temperature data
@@ -806,7 +806,7 @@ HeatSolverManager::outputProbeData()
     }
     HexTemp->shape_fcn(domainMgr_->probeList_[iprobe]->parCoords_, N);
     
-    double thetaIp = 0.0;
+    float thetaIp = 0.0;
     for (int I = 0; I < 8; I++) thetaIp += N[I] * thetaNodes[I];
 
     ofstream outFile;
@@ -823,8 +823,8 @@ HeatSolverManager::outputProbeData()
     outFile << domainMgr_->currTime_ << " , " << thetaIp << endl;
     outFile.close(); 
   }//end for(iprobe)
-  double endtime = clock();
-  probeTime_ += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+  float endtime = clock();
+  probeTime_ += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 }//end outputProbeData
 
 //////////////////////////////////////////////////////
@@ -834,7 +834,7 @@ void
 HeatSolverManager::outputEnergyData()
 {
 
-  double sumEnergy = 0.0;
+  float sumEnergy = 0.0;
   for (int ii = 0; ii < domainMgr_->activeNodes_.size(); ii++)
   {
     int IG = domainMgr_->activeNodes_[ii];

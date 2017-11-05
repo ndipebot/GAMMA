@@ -10,7 +10,7 @@
 //-------- constructor -----------------------------------------------------
 //--------------------------------------------------------------------------
 Probe::Probe(
- double *physCoords)
+ float *physCoords)
  : physCoords_(physCoords),
    hasElement_(false)
 {

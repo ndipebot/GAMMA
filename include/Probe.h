@@ -10,11 +10,11 @@ using namespace std;
 
 class Probe{
 public: 
-  Probe(double *physCoords);
+  Probe(float *physCoords);
   virtual ~Probe() {}
   
-  double *parCoords_;
-  double *physCoords_;
+  float *parCoords_;
+  float *physCoords_;
   int elementID_;
   ofstream outputFile_;
   bool hasElement_;

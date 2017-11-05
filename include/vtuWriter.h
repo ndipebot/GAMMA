@@ -4,12 +4,12 @@
 #include "Element.h"
 #include "Surface.h"
 
-void writeVTU_File (vector <Element*> elementList, vector <double> coordList,
-                    vector <int> &activeElements, vector <double> thetaNp1, string FileOut);
+void writeVTU_File (vector <Element*> elementList, vector <float> coordList,
+                    vector <int> &activeElements, vector <float> thetaNp1, string FileOut);
 
 void writeVTU_pvtu (vector< string> octreeFileNames, string pvtuFileName);
 
-void writeVTU_coordinates (vector<double> coordList, ofstream &outputFile, int nn);
+void writeVTU_coordinates (vector<float> coordList, ofstream &outputFile, int nn);
 
 void writeVTU_coordsHeader (ofstream &outputFile);
 
@@ -22,7 +22,7 @@ void writeVTU_offsets (int nCells, ofstream &outputFile, int offset);
 
 void writeVTU_cellTypes (int nCells, ofstream &outputFile);
 
-void writeVTU_pointData (vector<double> pointVec, ofstream &outputFile);
+void writeVTU_pointData (vector<float> pointVec, ofstream &outputFile);
 
 void writeVTU_connectHeader(ofstream &outputFile);
 

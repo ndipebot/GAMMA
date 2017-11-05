@@ -39,11 +39,11 @@ DomainManager::createNodeMap()
 
   // Create local-global node mapping
   int nodeCt = 0;
-  for ( map<int, vector<double> >::iterator it = meshObj_->NODES_.begin();
+  for ( map<int, vector<float> >::iterator it = meshObj_->NODES_.begin();
         it != meshObj_->NODES_.end(); it++)
   {
     int global_nid = it->first;
-    vector <double> gCoords = it->second;
+    vector <float> gCoords = it->second;
     node_global_to_local_[global_nid] = nodeCt;
     for (int ii = 0; ii < gCoords.size(); ii++)
     {
@@ -122,7 +122,7 @@ DomainManager::assignElePID()
        it != meshObj_->PIDS_.end(); it++)
   {
     int PID = it->first;
-    vector <double> eleMat = meshObj_->PID_to_MAT_[PID];
+    vector <float> eleMat = meshObj_->PID_to_MAT_[PID];
     vector<int> pidEleList = it->second;
     for (int ii = 0; ii < pidEleList.size(); ii++)
     {
@@ -164,9 +164,9 @@ void
 DomainManager::checkElementJac()
 {
   minElementVol_ = 10000000000000.0;
-  double xCoords[8];
-  double yCoords[8];
-  double zCoords[8];
+  float xCoords[8];
+  float yCoords[8];
+  float zCoords[8];
   xmin_ = minElementVol_;
   ymin_ = minElementVol_;
   zmin_ = minElementVol_;
@@ -177,8 +177,8 @@ DomainManager::checkElementJac()
 
   for (int ii = 0; ii < elementList_.size(); ii++)
   {
-    double nodalCoords[24];
-    double volCheck = 0.0;
+    float nodalCoords[24];
+    float volCheck = 0.0;
     //unpack local nodal coordinates.
     Element * element = elementList_[ii];
     int *localNodes = element->nID_;
@@ -203,8 +203,8 @@ DomainManager::checkElementJac()
     zmax_ = std::max( zmax_, *max_element(zCoords, zCoords + 8) );
 
     // Calculate element jacobian
-    double deriv[24], detJac, iJac[9];
-    double parCoords[3] = {0.0, 0.0, 0.0};
+    float deriv[24], detJac, iJac[9];
+    float parCoords[3] = {0.0, 0.0, 0.0};
     HexTemp->derivative_of_shape_function_about_parametic_coords(parCoords, deriv);
     HexTemp->Jacobian(deriv, nodalCoords, iJac, detJac);
     if (detJac < 0.0)
@@ -230,7 +230,7 @@ DomainManager::assignElementBirth()
   {
     int gbID = meshObj_->birthID_[ii];
     int lbID = element_global_to_local_[gbID];
-    double bTime = meshObj_->birthTime_[ii];
+    float bTime = meshObj_->birthTime_[ii];
     elementList_[lbID]->birthTime_ = bTime;
     elementList_[lbID]->birth_ = true;
     //birthElements_.push_back(lbID);
@@ -451,10 +451,10 @@ DomainManager::sortIndxVec(vector<int> unsortVec, vector<int> &indx)
 }//end sortIndxVec
 
 //////////////////////////////////////////////////////
-//		sortIndxVec_double	    	    //
+//		sortIndxVec_float	    	    //
 //////////////////////////////////////////////////////
 void 
-DomainManager::sortIndxVec_double(vector<double> unsortVec, vector<int> &indx)
+DomainManager::sortIndxVec_float(vector<float> unsortVec, vector<int> &indx)
 {
   sort(indx.begin(), indx.end(), 
        [&unsortVec](int i1, int i2) {return unsortVec[i1]< unsortVec[i2];});
@@ -467,11 +467,11 @@ DomainManager::sortIndxVec_double(vector<double> unsortVec, vector<int> &indx)
 void 
 DomainManager::initializeActiveElements()
 {
-  vector <double> birthTmpNodeTimes_;
-  double big = 1.0e10;
+  vector <float> birthTmpNodeTimes_;
+  float big = 1.0e10;
   birthTmpNodeTimes_.resize(nn_);
   fill(birthTmpNodeTimes_.begin(), birthTmpNodeTimes_.end(), big + 1.0);
-  double small = 1.0e-10;
+  float small = 1.0e-10;
 
   // Find active elements
   for (int ie = 0; ie < nel_; ie++)
@@ -494,7 +494,7 @@ DomainManager::initializeActiveElements()
   {
     int eID = birthElements_[ie];
     Element *element = elementList_[eID];
-    double birthTime = element->birthTime_;
+    float birthTime = element->birthTime_;
     int *localNodes = element->nID_;
     for (int I = 0; I < 8; I++)
     {
@@ -542,7 +542,7 @@ DomainManager::initializeActiveElements()
     birthTimeIndx[I] = I;
     holdBirthNodes[I] = birthNodes_[I];
   }
-  sortIndxVec_double(birthNodeTimes_, birthTimeIndx);
+  sortIndxVec_float(birthNodeTimes_, birthTimeIndx);
   sort(birthNodeTimes_.begin(), birthNodeTimes_.end());
 
   // reposition indices based on sort
@@ -559,12 +559,12 @@ DomainManager::initializeActiveElements()
 //		updateActiveElements	    	    //
 //////////////////////////////////////////////////////
 void 
-DomainManager::updateActiveElements( vector<double> &thetaN, double initTemp)
+DomainManager::updateActiveElements( vector<float> &thetaN, float initTemp)
 {
   // update active element list
   vector<int> ::iterator it;
   vector<int> ::iterator itNode;
-  vector<double> :: iterator itNodeTime;
+  vector<float> :: iterator itNodeTime;
   nelactiveOld_ = activeElements_.size();
   int eraseIt_ele = 0;
   int eraseIt_node = 0;
@@ -589,7 +589,7 @@ DomainManager::updateActiveElements( vector<double> &thetaN, double initTemp)
   for (itNode = birthNodes_.begin(); itNode != birthNodes_.end(); )
   {
     int IG = *itNode;
-    double birthTime = *itNodeTime;
+    float birthTime = *itNodeTime;
     if ( (birthTime <= currTime_ ) )
     {
       activeNodes_.push_back(IG);
@@ -629,8 +629,8 @@ DomainManager::getToolpath()
     while(getline(file, line))
     {
       istringstream lines(line);
-      vector<double> coords((istream_iterator<double>(lines)), istream_iterator<double>());
-      vector<double> txyz(coords.begin(), coords.begin() + 4);
+      vector<float> coords((istream_iterator<float>(lines)), istream_iterator<float>());
+      vector<float> txyz(coords.begin(), coords.begin() + 4);
       int state = (int)coords[4];
       laserOn_.push_back(state);
       tooltxyz_.push_back(txyz);
@@ -650,7 +650,7 @@ DomainManager::generateBins()
   const std::string FifthEleWidth_  = "        ";
   const std::string SixthEleWidth_  = "          ";
 
-  double charLength = pow(minElementVol_, 1.0/3.0);
+  float charLength = pow(minElementVol_, 1.0/3.0);
   dxBin_ = 10.0 * charLength;
   dyBin_ = 10.0 * charLength;
   dzBin_ = 10.0 * charLength;
@@ -667,9 +667,9 @@ DomainManager::generateBins()
   }
   
   // Assign elements to bins
-  double xCoords[8];
-  double yCoords[8];
-  double zCoords[8];
+  float xCoords[8];
+  float yCoords[8];
+  float zCoords[8];
   for (int ie = 0; ie < elementList_.size(); ie++)
   {
     //unpack coordinates
@@ -684,12 +684,12 @@ DomainManager::generateBins()
     }//end for(jj)
 
     // get max/mins of domain
-    double eleMinX = *min_element(xCoords, xCoords + 8);
-    double eleMaxX = *max_element(xCoords, xCoords + 8);
-    double eleMinY = *min_element(yCoords, yCoords + 8);
-    double eleMaxY = *max_element(yCoords, yCoords + 8);
-    double eleMinZ = *min_element(zCoords, zCoords + 8);
-    double eleMaxZ = *max_element(zCoords, zCoords + 8);
+    float eleMinX = *min_element(xCoords, xCoords + 8);
+    float eleMaxX = *max_element(xCoords, xCoords + 8);
+    float eleMinY = *min_element(yCoords, yCoords + 8);
+    float eleMaxY = *max_element(yCoords, yCoords + 8);
+    float eleMinZ = *min_element(zCoords, zCoords + 8);
+    float eleMaxZ = *max_element(zCoords, zCoords + 8);
 
     // find bounds for bins
     int imin = floor( (eleMinX - xmin_)/dxBin_ );
@@ -727,30 +727,30 @@ DomainManager::assignProbePoints()
   for (int ii = 0; ii < meshObj_->probeNames_.size(); ii++)
   {
     string probeName = meshObj_->probeNames_[ii];
-    double *probeCoords = meshObj_->probePos_[ii];
+    float *probeCoords = meshObj_->probePos_[ii];
     Probe * probe_I = new Probe(probeCoords);
     probeList_.push_back(probe_I);
   }
 
 
   // Fine elements that own probes
-  double xCoords[8];
-  double yCoords[8];
-  double zCoords[8];
-  double tol = 1.0e-8;
-  vector<vector<double>> elem_nodal_coor;
+  float xCoords[8];
+  float yCoords[8];
+  float zCoords[8];
+  float tol = 1.0e-8;
+  vector<vector<float>> elem_nodal_coor;
   for (int i = 0; i < 8; i++)
   {
-    vector<double> temp;
+    vector<float> temp;
     temp.resize(3);
     elem_nodal_coor.push_back(temp);
   }  
 
   for (int iprobe = 0; iprobe < probeList_.size(); iprobe++)
   {
-    double xp = probeList_[iprobe]->physCoords_[0];
-    double yp = probeList_[iprobe]->physCoords_[1];
-    double zp = probeList_[iprobe]->physCoords_[2];
+    float xp = probeList_[iprobe]->physCoords_[0];
+    float yp = probeList_[iprobe]->physCoords_[1];
+    float zp = probeList_[iprobe]->physCoords_[2];
    
     int imin = floor( (xp - xmin_)/dxBin_ );
     int imax = ceil( (xp - xmin_)/dxBin_ );
@@ -845,19 +845,19 @@ DomainManager::assignProbePoints()
 	      }//end for(jj)
 
 	      // get max/mins of domain
-	      double eleMinX = *min_element(xCoords, xCoords + 8);
-	      double eleMaxX = *max_element(xCoords, xCoords + 8);
-	      double eleMinY = *min_element(yCoords, yCoords + 8);
-	      double eleMaxY = *max_element(yCoords, yCoords + 8);
-	      double eleMinZ = *min_element(zCoords, zCoords + 8);
-	      double eleMaxZ = *max_element(zCoords, zCoords + 8);
+	      float eleMinX = *min_element(xCoords, xCoords + 8);
+	      float eleMaxX = *max_element(xCoords, xCoords + 8);
+	      float eleMinY = *min_element(yCoords, yCoords + 8);
+	      float eleMaxY = *max_element(yCoords, yCoords + 8);
+	      float eleMinZ = *min_element(zCoords, zCoords + 8);
+	      float eleMaxZ = *max_element(zCoords, zCoords + 8);
 
               if ( xp >= eleMinX && xp <= eleMaxX &&
                    yp >= eleMinY && yp <= eleMaxY &&
                    zp >= eleMinZ && zp <= eleMaxZ)
               {
-		double *parCoords = new double[3];
-                double dist = isInElement(elem_nodal_coor, 
+		float *parCoords = new float[3];
+                float dist = isInElement(elem_nodal_coor, 
                                probeList_[iprobe]->physCoords_, parCoords);
                 if (dist <= 1.0 + tol)
                 {
@@ -892,7 +892,7 @@ DomainManager::initializeDomain()
   const std::string FourthEleWidth_ = "      ";
   const std::string FifthEleWidth_  = "        ";
   const std::string SixthEleWidth_  = "          ";
-  double starttime, endtime, preprocessTimer;
+  float starttime, endtime, preprocessTimer;
 
   preprocessTimer = 0.0;
   cout <<  "===============================================================\n";  
@@ -907,66 +907,66 @@ DomainManager::initializeDomain()
   createReverseNodeMap();
   endtime = clock();
   cout << SecondEleWidth_ << "Time generating node mapping: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   starttime = clock();
   createElementList();
   endtime = clock();
   cout << SecondEleWidth_ << "Time generating element list: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
   
   starttime = clock();
   assignElePID();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for assigning material IDs to elements: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   starttime = clock();
   checkElementJac();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for calculating jacobians: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   
   starttime = clock();
   assignElBirthList();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for assigning birth elements: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
   
 
   starttime = clock();
   createElElConn();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for generating element neighbors: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   starttime = clock();
   createConnSurf();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for generating element surface connections: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   starttime = clock();
   generateBins();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for generating buckets for bucket search: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   starttime = clock();
   assignProbePoints();
   endtime = clock();
   cout << SecondEleWidth_ << "Time for getting parent coordinates for probe: "
-       << (double) (endtime - starttime) / CLOCKS_PER_SEC << endl;
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+       << (float) (endtime - starttime) / CLOCKS_PER_SEC << endl;
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;
 
   cout <<  "\nTOTAL TIME FOR PREPROCESSING:\n";
   cout <<  SecondEleWidth_ << preprocessTimer << endl;
@@ -982,15 +982,15 @@ DomainManager::initializeDomain()
 //////////////////////////////////////////////////////
 //		isInElement()			    //
 //////////////////////////////////////////////////////
-double
-DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
-                    double* point_coor, double* par_coor)
+float
+DomainManager::isInElement(vector< vector <float> > &elem_nodal_coor,
+                    float* point_coor, float* par_coor)
 {
   const int maxNonlinearIter = 20;
-  const double isInElemConverged = 1.0e-16;
+  const float isInElemConverged = 1.0e-16;
   // Translate element so that (x,y,z) coordinates of the first node are (0,0,0)
 
-  double x[] = {0.,
+  float x[] = {0.,
 	      0.125*(elem_nodal_coor[1][0] - elem_nodal_coor[0][0]),
 	      0.125*(elem_nodal_coor[2][0] - elem_nodal_coor[0][0]),
 	      0.125*(elem_nodal_coor[3][0] - elem_nodal_coor[0][0]),
@@ -998,7 +998,7 @@ DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
 	      0.125*(elem_nodal_coor[5][0] - elem_nodal_coor[0][0]),
 	      0.125*(elem_nodal_coor[6][0] - elem_nodal_coor[0][0]),
 	      0.125*(elem_nodal_coor[7][0] - elem_nodal_coor[0][0]) };
-  double y[] = {0.,
+  float y[] = {0.,
 	      0.125*(elem_nodal_coor[1][1] - elem_nodal_coor[0][1]),
 	      0.125*(elem_nodal_coor[2][1] - elem_nodal_coor[0][1]),
 	      0.125*(elem_nodal_coor[3][1] - elem_nodal_coor[0][1]),
@@ -1006,7 +1006,7 @@ DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
 	      0.125*(elem_nodal_coor[5][1] - elem_nodal_coor[0][1]),
 	      0.125*(elem_nodal_coor[6][1] - elem_nodal_coor[0][1]),
 	      0.125*(elem_nodal_coor[7][1] - elem_nodal_coor[0][1]) };
-  double z[] = {0.,
+  float z[] = {0.,
 	      0.125*(elem_nodal_coor[1][2] - elem_nodal_coor[0][2]),
 	      0.125*(elem_nodal_coor[2][2] - elem_nodal_coor[0][2]),
 	      0.125*(elem_nodal_coor[3][2] - elem_nodal_coor[0][2]),
@@ -1018,21 +1018,21 @@ DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
   // (xp,yp,zp) is the point at which we're searching for (xi,eta,zeta)
   // (must translate this also)
 
-  double xp = point_coor[0] - elem_nodal_coor[0][0];
-  double yp = point_coor[1] - elem_nodal_coor[0][1];
-  double zp = point_coor[2] - elem_nodal_coor[0][2];
+  float xp = point_coor[0] - elem_nodal_coor[0][0];
+  float yp = point_coor[1] - elem_nodal_coor[0][1];
+  float zp = point_coor[2] - elem_nodal_coor[0][2];
 
   // Newton-Raphson iteration for (xi,eta,zeta)
-  double j[9];
-  double f[3];
-  double shapefct[8];
-  double xinew = 0.5;     // initial guess
-  double etanew = 0.5;
-  double zetanew = 0.5;
-  double xicur = 0.5;
-  double etacur = 0.5;
-  double zetacur = 0.5;
-  double xidiff[] = { 1.0, 1.0, 1.0 };
+  float j[9];
+  float f[3];
+  float shapefct[8];
+  float xinew = 0.5;     // initial guess
+  float etanew = 0.5;
+  float zetanew = 0.5;
+  float xicur = 0.5;
+  float etacur = 0.5;
+  float zetacur = 0.5;
+  float xidiff[] = { 1.0, 1.0, 1.0 };
   int i = 0;
 
   // structured of jacobian: 
@@ -1128,7 +1128,7 @@ DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
       -(1.0+etacur)*(1.0+xicur)*z[6]
       -(1.0+etacur)*(1.0-xicur)*z[7];
 
-    double jdet=-(j[2]*j[4]*j[6])+j[1]*j[5]*j[6]+j[2]*j[3]*j[7]-
+    float jdet=-(j[2]*j[4]*j[6])+j[1]*j[5]*j[6]+j[2]*j[3]*j[7]-
       j[0]*j[5]*j[7]-j[1]*j[3]*j[8]+j[0]*j[4]*j[8];
 
     if (!jdet) {
@@ -1179,15 +1179,15 @@ DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
   }
   while ( !within_tolerance( vector_norm_sq(xidiff,3), isInElemConverged) && ++i < maxNonlinearIter);
 
-  par_coor[0] = par_coor[1] = par_coor[2] = numeric_limits<double>::max();
-  double dist = numeric_limits<double>::max();
+  par_coor[0] = par_coor[1] = par_coor[2] = numeric_limits<float>::max();
+  float dist = numeric_limits<float>::max();
 
   if (i <maxNonlinearIter) {
     par_coor[0] = xinew;
     par_coor[1] = etanew;
     par_coor[2] = zetanew;
 
-    vector<double> xtmp(3);
+    vector<float> xtmp(3);
     xtmp[0] = par_coor[0];
     xtmp[1] = par_coor[1];
     xtmp[2] = par_coor[2];
@@ -1201,7 +1201,7 @@ DomainManager::isInElement(vector< vector <double> > &elem_nodal_coor,
 //-------- within_tolerance ------------------------------------------------
 //--------------------------------------------------------------------------
 bool 
-DomainManager::within_tolerance( const double & val, const double & tol )
+DomainManager::within_tolerance( const float & val, const float & tol )
 {
   return (fabs(val)<tol);
 }
@@ -1209,10 +1209,10 @@ DomainManager::within_tolerance( const double & val, const double & tol )
 //--------------------------------------------------------------------------
 //-------- vector_norm_sq --------------------------------------------------
 //--------------------------------------------------------------------------
-double 
-DomainManager::vector_norm_sq( const double * vect, int len )
+float 
+DomainManager::vector_norm_sq( const float * vect, int len )
 {
-  double norm_sq = 0.0;
+  float norm_sq = 0.0;
   for (int i=0; i<len; i++) {
     norm_sq += vect[i]*vect[i];
   }
@@ -1222,15 +1222,15 @@ DomainManager::vector_norm_sq( const double * vect, int len )
 //--------------------------------------------------------------------------
 //-------- parametric_distance ---------------------------------------------
 //--------------------------------------------------------------------------
-double 
-DomainManager::parametric_distance(vector<double> x)
+float 
+DomainManager::parametric_distance(vector<float> x)
 {
-  vector<double> y(3);
+  vector<float> y(3);
   for (int i=0; i<3; ++i) {
     y[i] = fabs(x[i]);
   }
 
-  double d = 0;
+  float d = 0;
   for (int i=0; i<3; ++i) {
     if (d < y[i]) {
       d = y[i];

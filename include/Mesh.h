@@ -23,29 +23,29 @@ public:
   
   map<int, vector<int> > PIDS_;
   map<int, vector<int> > ELEM_;
-  map<int, vector<double> > NODES_;
+  map<int, vector<float> > NODES_;
   map<int, vector<int> > nodeSets_;
   map<int, vector<int> > loadSets_;
-  map<int, double> initialCondition_;
-  map<int, vector<double> > loadSetVals_;
-  map<string, double> paramValues_;
+  map<int, float> initialCondition_;
+  map<int, vector<float> > loadSetVals_;
+  map<string, float> paramValues_;
 
   // Thermal material types
-  map<int, vector<double> > PID_to_MAT_;
+  map<int, vector<float> > PID_to_MAT_;
   map<int, int > PID_to_MAT_Type_;
 
 
   // Mechanical material types
-  map<int, vector<double> > PID_to_matMech_;
+  map<int, vector<float> > PID_to_matMech_;
   map<int, int > PID_to_matMech_Type_;
 
 
   vector<int> birthID_;
-  vector<double> birthTime_;
-  vector<double*> probePos_;
+  vector<float> birthTime_;
+  vector<float*> probePos_;
   vector<string> probeNames_;
   
-  double inputDt_, finalTime_, outTime_, Rabszero_, Rambient_, Rboltz_,
+  float inputDt_, finalTime_, outTime_, Rabszero_, Rambient_, Rboltz_,
          Qin_, Qeff_, rBeam_;
 
   string outFileName_;

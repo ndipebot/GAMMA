@@ -42,7 +42,7 @@ int main(int arg, char *argv[])
   }
 
   //for clocking 
-  double starttime, endtime, preprocessTimer;
+  float starttime, endtime, preprocessTimer;
   int numSteps, numOut, numOutSteps;
   string meshName = argv[1];
   Mesh meshObj(meshName);
@@ -89,11 +89,11 @@ int main(int arg, char *argv[])
     cout << SecondEleWidth_ << "Energy evaluator file name: " << meshObj.energyFileName_ << endl;
   }
   cout << SecondEleWidth_ << "Input parameter list: " << endl;
-  for (map<string,double>::iterator it = meshObj.paramValues_.begin();
+  for (map<string,float>::iterator it = meshObj.paramValues_.begin();
        it != meshObj.paramValues_.end(); it++)
   {
     string paramName = it->first;
-    double value = it->second;
+    float value = it->second;
     cout << ThirdEleWidth_ << paramName << "  \t:  " << value << endl;
   }//end for(it)
   cout << "\n\n";
@@ -118,7 +118,7 @@ int main(int arg, char *argv[])
   
   heatMgr->initializeSystem();
   endtime = clock();
-  preprocessTimer += (double) (endtime - starttime) / CLOCKS_PER_SEC;  
+  preprocessTimer += (float) (endtime - starttime) / CLOCKS_PER_SEC;  
   cout <<  "\nTOTAL TIME FOR SIMULATION SETUP\n";
   cout << SecondEleWidth_ << preprocessTimer << endl;
   cout <<  "===============================================================\n";  
@@ -148,26 +148,23 @@ int main(int arg, char *argv[])
   ///////////////////////////////////////////////////////
   // 		Time stepping 			       //
   ///////////////////////////////////////////////////////
-  double dumpTime = 0.0;
-  double simStart = clock();
+  float dumpTime = 0.0;
+  float simStart = clock();
   domainMgr->currTime_ = 0.0;
-  double outTrack = 0.0;
-  double simTime = meshObj.finalTime_;
+  float outTrack = 0.0;
+  float simTime = meshObj.finalTime_;
   int outCt = 0;
   string extName = ".vtu";
   string outFile = meshObj.outFileName_ + to_string(outCt) + extName;
   
-  // set up output manager
-  vtuBinWriter * vtuMgr = new vtuBinWriter(domainMgr, heatMgr, outFile);
-  vtuMgr->execute();
-
-
   //Copy element Data to GPU
   elementData elemData;
   createDataOnDevice(domainMgr, elemData, heatMgr);
-
-
   initializeStiffnessOnD(elemData);
+
+  // set up output manager
+  vtuBinWriter * vtuMgr = new vtuBinWriter(domainMgr, heatMgr, elemData, outFile);
+  vtuMgr->execute();
 
   //------------------START TIMER---------------------------------------
 	//Sta time
@@ -179,11 +176,11 @@ int main(int arg, char *argv[])
   //-----------------------------------------------------------------------
 
   // time integrator
-  while (domainMgr->currTime_ <= 5.0)
+  while (domainMgr->currTime_ <= simTime)
   {
 
     // update time counters
-   // outTrack += heatMgr->dt_;
+    outTrack += heatMgr->dt_;
 
     domainMgr->currTime_ += heatMgr->dt_;
 
@@ -192,10 +189,11 @@ int main(int arg, char *argv[])
     heatMgr->updateCap();
 
     heatMgr->integrateForce();
+	//heatMgr->heatBCManager_->applyFluxes();
 
-    //heatMgr->advance_time_step();
+    heatMgr->advance_time_step();
 
-    //heatMgr->post_work();
+    heatMgr->post_work();
 
 
    //----------------------------------------------
@@ -203,21 +201,25 @@ int main(int arg, char *argv[])
 
 	updateMassOnD(elemData, domainMgr);
 
-	//updateIntForceOnD(elemData, domainMgr);
+	updateIntForceOnD(elemData, domainMgr);
 
 	updateFluxKernel(elemData, domainMgr);
 
-	//advanceTimeKernel(elemData, domainMgr);
+	advanceTimeKernel(elemData, domainMgr);
 
-	//dirichletBCKernel(elemData);
+	dirichletBCKernel(elemData);
 
-	  CopyToHost(elemData);
-	  compareFlux(elemData, heatMgr->rhs_);
+	CopyToHost(elemData);
+	//compareMass(elemData, heatMgr->Mvec_);
+	//compareStiff(elemData, domainMgr->elementList_);
+	//compareIntForce(elemData, heatMgr->rhs_);
+	//compareFlux(elemData, heatMgr->rhs_);
+	compareTemp(elemData, heatMgr->thetaN_);
 
 	//------------------------------------------------
 
 
-	/*
+	
     // File Manager
     if (outTrack >= meshObj.outTime_)
     {
@@ -236,18 +238,20 @@ int main(int arg, char *argv[])
                                      << "|" << endl;
       cout << left << 
               "   Timer for outputting files (ascii) " << setw(24) 
-	   << (double) (endtime - starttime) / CLOCKS_PER_SEC 
+	   << (float) (endtime - starttime) / CLOCKS_PER_SEC 
                                      << "|" << endl;
-      dumpTime += (double) (endtime - starttime) / CLOCKS_PER_SEC;
+      dumpTime += (float) (endtime - starttime) / CLOCKS_PER_SEC;
       cout << "===============================================================\n";
     }
+
+	
 
     // no longer beginning of simulation
     if (domainMgr->isInit_)
     {
       domainMgr->isInit_ = false;
     }
-    */
+    
 
   }//end for(t)
 
@@ -260,7 +264,7 @@ int main(int arg, char *argv[])
 	cudaEventDestroy(start);
 	cudaEventDestroy(stop);
 
-    std::cout << "Process Took " << (double)elapsedTime / 1000 << " seconds" << std::endl;
+    std::cout << "Process Took " << (float)elapsedTime / 1000 << " seconds" << std::endl;
 
 
   //-------------------------------------------------------------------------
@@ -273,11 +277,11 @@ int main(int arg, char *argv[])
   //compareStiff(elemData, domainMgr->elementList_);
   //compareIntForce(elemData, heatMgr->rhs_);
   //compareFlux(elemData, heatMgr->rhs_);
-  compareTemp(elemData, heatMgr->thetaN_);
+  //compareTemp(elemData, heatMgr->thetaN_);
 
   outCt++;
   vtuMgr->execute();
-  double simEnd  = clock();
+  float simEnd  = clock();
 
   cout << "\n\n";
   cout <<  "===============================================================\n";
@@ -285,7 +289,7 @@ int main(int arg, char *argv[])
   cout << "\n";
   cout << SecondEleWidth_ << "Final simulation time: " << domainMgr->currTime_ << endl;
   cout << SecondEleWidth_ << "Total compute time: "
-       << (double) (simEnd - simStart) / CLOCKS_PER_SEC << endl;
+       << (float) (simEnd - simStart) / CLOCKS_PER_SEC << endl;
   cout << SecondEleWidth_ << "Total time for dumping data: "
        << dumpTime << endl;
   cout << SecondEleWidth_ << "Total time for probing data: "
